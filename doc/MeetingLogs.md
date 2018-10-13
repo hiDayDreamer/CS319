@@ -1,6 +1,6 @@
 <h2 align='center'>Meeting Logs</h2>
 
-*Link to Google Doc:*  https://docs.google.com/document/d/17bz6HQKLpQKGaIJpiZS79etWvF72eXv7Dbc8Oi4ez64/edit?usp=sharing
+:link:*Link to Google Doc:*  https://docs.google.com/document/d/17bz6HQKLpQKGaIJpiZS79etWvF72eXv7Dbc8Oi4ez64/edit?usp=sharing
 
 ---
 
