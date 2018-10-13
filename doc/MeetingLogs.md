@@ -75,7 +75,3 @@ Location: Library Room 06
  - [All] Agreed on future discussions for the next meeting (Monday, Oct 15)
 
 <<<<<<< HEAD
-
->>>>>>> 369073146bc1f4350412f6b09385d047bcad3a69
-=======
->>>>>>> 4ba72688e998ec4b8de149bb5c1d65fc3e4cc3d3
