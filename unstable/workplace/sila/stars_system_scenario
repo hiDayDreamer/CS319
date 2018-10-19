@@ -1,1 +1,16 @@
-Draft
+# **Scenario 5**
+
+##Scenario Name:  Winning Stars
+##Primary Actor: Player
+
+Pre-conditions
+1.	The player must be in the game
+2.	The player must have completed the task
+3.	(Optional) The player must complete task on time
+
+Scenario Event Flow
+1.	Player starts the game 
+2.	While player plays the game, number of moves is calculated
+3.	Player must complete the task in the game (in time)
+4.	The calculated number of moves is compared to the minimum possible number of moves
+5.	According to the comparison, the user either gets 1, 2 or 3 stars as prize at the end of the game
