@@ -104,7 +104,7 @@
  ---
  
  
- **Meeting on Oct 02, 17:30**
+ **Meeting on Oct 15, 17:30**
 ----------------------------
 
 ***Participants:*** Aldo, Baris, Endi, Hygerta, Sila</br>***Location:*** B Building, Bilkent
