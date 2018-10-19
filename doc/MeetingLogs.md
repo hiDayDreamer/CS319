@@ -99,3 +99,25 @@
  - [Hygerta] Update the meeting log (Google Doc)
  - [All] Decided that each member will be coming up with a scenario (based on the Use Case diagram)  
  - [All] Agreed on future discussions for the next meeting (Monday, Oct 15)
+ 
+ 
+ ---
+ 
+ 
+ **Meeting on Oct 02, 17:30**
+----------------------------
+
+***Participants:*** Aldo, Baris, Endi, Hygerta, Sila</br>***Location:*** B Building, Bilkent
+
+*Agenda*
+ - Discussion: Scenarios and Dynamic diagrams
+ - Divide work and assign tasks related to:
+   - The writing of textual representation of the use cases of our Use Case diagram
+   - Various scenarios
+   - Different Dynamic Diagrams (appropriate) for each scenario
+
+
+*Action Items*
+ - [All] Were part of the discussion and were assigned tasks to be done until our next meeting (Saturday, Oct 20) 
+
+---
