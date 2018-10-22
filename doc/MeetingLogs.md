@@ -121,3 +121,22 @@
  - [All] Were part of the discussion and were assigned tasks to be done until our next meeting (Saturday, Oct 20) 
 
 ---
+
+ 
+ **Meeting on Oct 22, 17:30**
+----------------------------
+
+***Participants:*** Aldo, Baris, Endi, Hygerta, Sila</br>***Location:*** B Building, Bilkent
+
+*Agenda*
+ - Discussion: Design Report and first Iteration Demo.
+ - Decide a plan on how to procceed the next four weeks that lead to the first demo of the project.
+ - There are two scenarios to choose from:
+     -Either waiting for the first report feedback, going to Design Report and then the last week go into the implementation.
+     -Start working on Design Report immediately so that once the core concept of the application is done.
+ - No matter the scenario choose an action plan.
+
+
+*Action Items*
+ - [All] Were part of the discussion and decided that we will follow the second option. Also we desided that the implementation is going to startin parallell to the Design Report phase.
+---
