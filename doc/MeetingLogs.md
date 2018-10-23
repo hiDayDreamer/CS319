@@ -157,8 +157,8 @@
  - Discussion: Design Report and first Iteration Demo.
  - Decide a plan on how to procceed the next four weeks that lead to the first demo of the project.
  - There are two scenarios to choose from:
-     -Either waiting for the first report feedback, going to Design Report and then the last week go into the implementation.
-     -Start working on Design Report immediately so that once the core concept of the application is done.
+     - Either waiting for the first report feedback, going to Design Report and then the last week go into the implementation.
+     - Start working on Design Report immediately so that once the core concept of the application is done.
  - No matter the scenario choose an action plan.
 
 
