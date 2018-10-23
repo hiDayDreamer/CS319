@@ -122,6 +122,31 @@
 
 ---
 
+ **Meeting on Oct 20, 10:00**
+----------------------------
+
+***Participants:*** Aldo, Baris, Endi, Hygerta, Sila</br>***Location:*** Library Room 01
+
+*Agenda*
+ - Discussion: Analysis Report
+ - Review diagrams and scenarios
+ - Create a template
+ - Merge the report
+
+
+*Action Items*
+ - [All] Think about what we have done, correct some errors
+ - [All] Think about how we will merge the report
+ - [Aldo] Write the overview
+ - [Hygerta] Complete Introduction
+ - [Baris] Update the meeting log
+ - [Endi] Copy use case descriptions and scenarios out the same table format 
+ - [Hygerta] Prepare a template for Analysis Report
+ - [Hygerta] Merge and format the report
+ - [All] Review merged report before the deadline
+ - [All] Agreed on future discussions about Design Report for the next meeting (Monday, Oct 22)
+
+---
  
  **Meeting on Oct 22, 17:30**
 ----------------------------
