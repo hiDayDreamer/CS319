@@ -205,11 +205,16 @@
  **Meeting on Nov 6, 16:00**
 ---------------------------
 
-***Participants:*** Aldo, Baris, Endi, Hygerta, Sila </br> ***Location:*** Bilkent Dorms-77, Bilkent
+***Participants:*** Aldo, Baris, Endi, Hygerta, Sila </br> ***Location:*** Bilkent Main Campus, Dorm 77
 
 *Agenda*
-
+ - Discussion: Design Report outline components
+ - Look at the report examples from previous semesters
+ - Divide the remaining work among group members 
+ - Fix the next meeting to Thursday, November 8 to review the whole report before submission
  
  *Action Items*
- - [All] 
+ - [All] Engaged in discussion and agreed on 'who is writing what' for our Design Report 
+ - [All] Had a look at the example reports 
+ - [Hygerta & Sila] Reviewed the engine, timer and starManager class and completed the UML diagram for these classes
  ---
