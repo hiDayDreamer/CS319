@@ -180,7 +180,7 @@
  *Action Items*
  - [All] Engaged in the discussion, distributed the designing of the details of classes. Agreed on the next meeting date.
  - [Endi & Aldo] Design the UI (Screen) classes which inherits main, dashboard, tutorial screens etc. with the UI manager.
- - [Hygerta & Sila] Design the engine and the game solver classes with the additon of timer and score manager.
+ - [Hygerta & Sila] Design the engine and the game solver classes with the addition of timer and score manager.
  - [Baris] Design the File Manager class which holds the charts, maps, sound effects, tutorial and skins. 
  ---
  
@@ -197,7 +197,7 @@
  - Distribute the work for doing the diagrams which corresponds to the classes. 
  
  *Action Items*
- - [All] Engaged in the discussion, each of us explained the designs they came up with. Last meeting we have left some classes because it required certain classes to be completed first. We have worked on those classes and finally, completed our design. Created a Visual Diagram project for everyone to work on simultaneously. Distrubuted the work for certain parts of the diagram and finally, we decided on the teams that will work on different parts of the implementation. 
+ - [All] Engaged in the discussion, each of us explained the designs they came up with. Last meeting we have left some classes because it required certain classes to be completed first. We have worked on those classes and finally, completed our design. Created a Visual Diagram project for everyone to work on simultaneously. Distributed the work for certain parts of the diagram and finally, we decided on the teams that will work on different parts of the implementation. 
  - [Sila] Update meeting logs
  ---
  
