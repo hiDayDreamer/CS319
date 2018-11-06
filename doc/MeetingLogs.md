@@ -169,7 +169,8 @@
  **Meeting on Oct 27, 10:00**
 ---------------------------
 
-***Participants:*** Aldo, Baris, Endi, Hygerta, Sila </br> ***Location:*** B Building, Bilkent
+***Participants:*** Aldo, Baris, Endi, Hygerta, Sila </br> ***Location:*** Library Room 05, Bilkent
+
 *Agenda*
  -Discussion: Design Report and first iteration demo.
  -According to our UML diagrams from the analysis report, decide on the needed classes.
@@ -180,3 +181,31 @@
  - [All] Engaged in the discussion, distributed the designing of the details of classes. Agreed on the next meeting date.
  ---
  
+
+ **Meeting on Nov 4, 10:00**
+---------------------------
+
+***Participants:*** Aldo, Baris, Endi, Hygerta, Sila </br> ***Location:*** Library Room 03, Bilkent
+
+*Agenda*
+ -Discussion: Design Report and first iteration demo.
+ -Combine all the work that was done by the groups of two.
+ -Edit and make the designed that was done separately compatible with each other.
+ -Distribute the work for doing the diagrams which corresponds to the classes. 
+ 
+ *Action Items*
+ - [All] Engaged in the discussion, each of us explained the designs they came up with. Last meeting we have left some classes because it required certain classes to be completed first. We have worked on those classes and finally, completed our design. Created a Visual Diagram project for everyone to work on simultaneously. Distrubuted the work for certain parts of the diagram and finally, we decided on the teams that will work on different parts of the implementation. 
+ ---
+ 
+ 
+ **Meeting on Nov 6, 16:00**
+---------------------------
+
+***Participants:*** Aldo, Baris, Endi, Hygerta, Sila </br> ***Location:*** Bilkent Dorms-77, Bilkent
+
+*Agenda*
+
+ 
+ *Action Items*
+ - [All] 
+ ---
