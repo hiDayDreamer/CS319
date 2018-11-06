@@ -179,6 +179,9 @@
  
  *Action Items*
  - [All] Engaged in the discussion, distributed the designing of the details of classes. Agreed on the next meeting date.
+ - [Endi & Aldo] Design the UI (Screen) classes which inherits main, dashboard, tutorial screens etc. with the UI manager.
+ - [Hygerta & Sila] Design the engine and the game solver classes with the additon of timer and score manager.
+ - [Baris] Design the File Manager class which holds the charts, maps, sound effects, tutorial and skins. 
  ---
  
 
