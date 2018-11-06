@@ -163,5 +163,20 @@
 
 
 *Action Items*
- - [All] Were part of the discussion and decided that we will follow the second option. Also we desided that the implementation is going to startin parallell to the Design Report phase.
+ - [All] Were part of the discussion and decided that we will follow the second option. Also we decided that the implementation is going to startin parallell to the Design Report phase.
 ---
+
+ **Meeting on Oct 27, 10:00**
+---------------------------
+
+***Participants:*** Aldo, Baris, Endi, Hygerta, Sila </br> ***Location:*** B Building, Bilkent
+*Agenda*
+ -Discussion: Design Report and first iteration demo.
+ -According to our UML diagrams from the analysis report, decide on the needed classes.
+ -Come up with a low level design for all the classes and the regarding interfaces.
+ -Decide on when the implementation stage will begin.
+ 
+ *Action Items*
+ - [All] Engaged in the discussion, distributed the designing of the details of classes. Agreed on the next meeting date.
+ ---
+ 
