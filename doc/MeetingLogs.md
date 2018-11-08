@@ -218,3 +218,7 @@
  - [All] Had a look at the example reports 
  - [Hygerta & Sila] Reviewed the engine, timer and starManager class and completed the UML diagram for these classes
  ---
+ 
+  **Meeting on Nov 8, 19:00**
+  --------------------------
+  
