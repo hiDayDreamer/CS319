@@ -219,6 +219,37 @@
  - [Hygerta & Sila] Reviewed the engine, timer and starManager class and completed the UML diagram for these classes
  ---
  
+ 
   **Meeting on Nov 8, 19:00**
   --------------------------
+  
+  ***Participants:*** Aldo, Baris, Endi, Hygerta, Sila </br> ***Location:*** Bilkent Main Campus, Dorm 77
+  
+ *Agenda*
+  - .  
+  - .
+ 
+ *Action Items*
+  - .
+  - .
+  ---
+   
+   
+  
+**Meeting on Nov 12, 17:30**
+---------------------------
+
+***Participants:*** Aldo, Baris, Endi, Hygerta, Sila </br> ***Location:*** Bilkent B building
+
+*Agenda*
+ - Discussion topic: ‘Encountered problems & Already implemented classes’ 
+ - Discussion subtopic: Final Report
+ - Fix next meeting’s date and time
+ 
+*Action Items*
+ - [All] were part of the discussion.
+ - [Aldo, Baris, Endi] Summarized their work on UI classes.
+ - [Hygerta, Sila] Discussed some problems in their assigned classes with the other group members.
+ - [All] Agreed on having the next meeting on Saturday (to finish writing the Final Report)
+ ---
   
