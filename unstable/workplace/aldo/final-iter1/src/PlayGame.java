@@ -2,18 +2,24 @@
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.layout.HBox;
-    import javafx.scene.layout.Border;
-        import javafx.scene.layout.BorderStroke;
-            import javafx.scene.layout.BorderStrokeStyle;
-                import javafx.scene.layout.BorderWidths;
-                    import javafx.scene.layout.CornerRadii;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.geometry.Insets;
+import javafx.geometry.*;
+import javafx.application.Application; 
+import javafx.scene.Scene; 
+import javafx.scene.control.*; 
+import javafx.scene.layout.*; 
+import javafx.stage.Stage; 
+import javafx.geometry.*; 
+import javafx.scene.paint.*; 
+import javafx.scene.canvas.*; 
+import javafx.scene.text.*; 
+import javafx.scene.Group; 
+import javafx.scene.shape.*; 
 
 public class PlayGame extends Pane {
     //Constants
@@ -130,11 +136,8 @@ public class PlayGame extends Pane {
         howToButton.setGraphic(new ImageView(howToImage));
         //backButton.setStyle("-fx-background-color: transparent");
         howToButton.setMinSize(ICON_SIZE, ICON_SIZE);
-        howToButton.setLayoutX(150);
-        howToButton.setLayoutY(WIDTH - 100);
-
-
-
+        howToButton.setLayoutX(WIDTH-100);
+        howToButton.setLayoutY(400);
 
         int[][] map;
         map = new int[][]{
@@ -146,8 +149,13 @@ public class PlayGame extends Pane {
             new int[]{0,1,2,0,1,0},
         };
 
+        BorderPane title = new BorderPane();
+        Label royalFlush = new Label("Royal Flush Got this Bitch Baby :*"); 
+        royalFlush.setLayoutX(300);
+        royalFlush.setLayoutY(10);
+        royalFlush.setFont(new Font(30));
         playGameSubpanel = buildGrid(map,new Insets(90,0,0,300));
-        this.getChildren().addAll(soundButton, settingsButton, backButton,undoButton,resetButton,howToButton,playGameSubpanel);
+        this.getChildren().addAll(royalFlush,soundButton, settingsButton, backButton,undoButton,resetButton,howToButton,playGameSubpanel);
         
         //Adding labels to panel
         copyRightPanel.getChildren().add(copyRightLabel);
