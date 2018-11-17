@@ -67,8 +67,8 @@ class LevelsPane extends GridPane{
       //backButton.setGraphic();
       //backButton.setStyle("-fx-background-color: transparent");
       backButton.setMinSize(ICON_SIZE, ICON_SIZE);
-      backButton.setLayoutX(ICON_SIZE/3);
-      backButton.setLayoutY(ICON_SIZE/3);
+      backButton.setLayoutX(25);
+      backButton.setLayoutY(35);
 
       // create the label
       title = new Label(dimension);
@@ -83,11 +83,12 @@ class LevelsPane extends GridPane{
       // create the stars pane
       HBox starBox = new HBox();
       ImageView bottomStar = new ImageView(new Image("emptyStar.png"));
-      bottomStar.setFitWidth(HEIGHT / 5 / 2);
-      bottomStar.setFitHeight(HEIGHT / 5 / 2);
+      bottomStar.setFitWidth(HEIGHT / 5 / 3);
+      bottomStar.setFitHeight(HEIGHT / 5 / 3);
       starNo = new Label("12355");
+      starNo.setFont(new Font("Times New Roman", HEIGHT / 5 / 10));
       starBox.getChildren().addAll(bottomStar, starNo);//, backButton);
-      starBox.setAlignment(Pos.BOTTOM_CENTER);
+      starBox.setAlignment(Pos.CENTER);
 
       // create the level boxes
       //double boxSize = HEIGHT / 5;
@@ -115,8 +116,30 @@ class LevelsPane extends GridPane{
 
             //align the elements inside each of the small boxes
             level.setAlignment(Pos.CENTER);
-            Button button = new Button("", level);
+            Button button = new Button();
+            button.setGraphic(level);
+            button.setOnMouseEntered(new EventHandler<MouseEvent>(){
+                  public void handle(MouseEvent e){
+                     //System.out.println("asdfads");
+                     number.setFont(new Font("Times New Roman", HEIGHT / 5 * 3 / 5));
+                     //button.setGraphic(new ImageView(new Image("fullStar.png")));
+                  }
+            });
+            button.setOnMousePressed( new EventHandler<MouseEvent>() {
+                  public void handle(MouseEvent e){
+                     //System.out.println("asdfads");
+                     number.setFont(new Font("Times New Roman", HEIGHT / 5 * 3 / 5));
+                     //button.setGraphic(new ImageView(new Image("fullStar.png")));
+               }
+            });
+            // button.setOnMouseExited(new EventHandler<MouseEvent>(){
+            //       public void handle(MouseEvent e){
+            //          System.out.println("asdfads");
+            //          button.setGraphic(level);
+            //       }
+            // });
             button.setMinSize(HEIGHT / 5, HEIGHT/ 5);
+            //button.setStyle("-fx-background-color: transparent");
             buttons[levelNumber - 1] = button;
             box.getChildren().add(button);
             levelNumber++;
@@ -140,7 +163,14 @@ class LevelsPane extends GridPane{
         }
     }
 
-    public void addHandler( EventHandler e) {
+    public void addHandler( GameManager.ButtonListener e) {
+      e.setIndex(1);
       backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, e);
+      for ( int i = 0; i < 15; i++) {
+         GameManager.ButtonListener level = e.clone();
+         level.setIndex(i + 11);
+         buttons[i].addEventHandler(MouseEvent.MOUSE_CLICKED, level);
+
+      }
    }
 }
