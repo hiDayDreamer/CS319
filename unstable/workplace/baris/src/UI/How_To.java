@@ -13,8 +13,8 @@ public class How_To extends Pane {
     private final String BACK_ICON = "backIcon.png";
     private final String TUTORIAL_IMAGE = "tutorialImage.jpg";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
-    private final double WIDTH  = 1920;
-    private final double HEIGHT = 1080;
+    private final double WIDTH  = 1080;
+    private final double HEIGHT = 720;
     private final double COPYRIGHT_PANEL_SIZE = 60;
     private final int ICON_SIZE = 64;
 
@@ -118,8 +118,6 @@ public class How_To extends Pane {
         this.setCurrentColor(null);
         copyRightPanel.getChildren().add(copyRightLabel);
         copyRightPanel.getChildren().add(version);
-
-        //how_to.updateMiddlePanel(howToPanel);
     }
 
     public void setCurrentColor(String colorCSS){
