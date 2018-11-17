@@ -226,12 +226,15 @@
   ***Participants:*** Aldo, Baris, Endi, Hygerta, Sila </br> ***Location:*** Bilkent Main Campus, Dorm 77
   
  *Agenda*
-  - .  
-  - .
+  - Combine all the pieces divided before for the desing report
+  - Fix the next meeting to Monday to talk about how to implementaion is progressing.
  
  *Action Items*
-  - .
-  - .
+  - [Endi] Textualize the object class diagrams.
+  - [Hygerta & Sila] Make component diagrams and write Subsystem Services part.
+  - [Aldo] Write Low-level design part.
+  - [Baris] Write introduction.
+  - [All] Complete what is missing and gather all the work done by individuals.
   ---
    
    
