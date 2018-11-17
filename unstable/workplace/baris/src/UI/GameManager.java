@@ -3,10 +3,10 @@ package sample;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-public class GameManager extends Application {
+public class GameManager extends Application{
 
     private WindowManager primaryStage1;
-    private How_To h = new How_To();
+    private Dimensions h = new Dimensions();
 
     public static void main(String[] args) {
         launch(args);
@@ -20,6 +20,7 @@ public class GameManager extends Application {
     public void start(Stage primaryStage) {
 
         primaryStage = primaryStage1;
-        //primaryStage1.updateMiddlePanel(h);
+        primaryStage1.updateMiddlePanel(h);
     }
+
 }

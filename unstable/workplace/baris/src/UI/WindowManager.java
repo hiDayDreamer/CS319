@@ -12,8 +12,7 @@ import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 import java.io.IOException;
-
-public class WindowManager extends Stage {
+public class WindowManager extends Stage{
 
     //Constants
     private final boolean IS_RESIZABLE = false;
@@ -22,13 +21,13 @@ public class WindowManager extends Stage {
     private final String SOUND_ICON = "soundIcon.png";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
     private final String GAME_TITLE = "Rush Hour";
-    private final double WIDTH  = 1920;
-    private final double HEIGHT = 1080;
+    private final double WIDTH  = 1080;
+    private final double HEIGHT = 720;
     private final double COPYRIGHT_PANEL_SIZE = 60;
     private final double BUTTON_X = WIDTH / 2 - 125;
     private final double BUTTON_Y = 125;
-    private final double BUTTON_WIDTH = 300;
-    private final double BUTTON_HEIGHT = 100;
+    private final double BUTTON_WIDTH = 250;
+    private final double BUTTON_HEIGHT = 75;
     private final int ICON_SIZE = 64;
 
     //Variables
@@ -42,7 +41,6 @@ public class WindowManager extends Stage {
     private Pane copyRightPanel;
     private Scene window;
     private Image soundImage;
-
 
     public WindowManager() {
         super();
@@ -91,7 +89,7 @@ public class WindowManager extends Stage {
         //Name of the game label
         name = new Label(GAME_TITLE);
         name.setStyle("-fx-font-weight: bold;");
-        name.setMaxSize(500,100);
+        name.setMaxSize(500,75);
         name.setFont(new Font("Times New Roman", 90));
         name.setLayoutX(WIDTH / 2 - 175 );
         name.setLayoutY(75);
@@ -100,7 +98,7 @@ public class WindowManager extends Stage {
         int space = 0;
         frameButtons = new Button[4];
         for ( int i = 0; i < 4; i++){
-            space = space + 150;
+            space = space + 100;
             frameButtons[i] = new Button();
             frameButtons[i].setMinSize(BUTTON_WIDTH, BUTTON_HEIGHT);
             frameButtons[i].setLayoutX(BUTTON_X);

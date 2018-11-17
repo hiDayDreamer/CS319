@@ -16,8 +16,8 @@ public class Dimensions extends Pane {
     private final String SETTINGS_ICON = "Settings-icon.png";
     private final String BACK_ICON = "backIcon.png";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
-    private final double WIDTH  = 1920;
-    private final double HEIGHT = 1080;
+    private final double WIDTH  = 1080;
+    private final double HEIGHT = 720;
     private final double COPYRIGHT_PANEL_SIZE = 60;
     private final int ICON_SIZE = 64;
 
