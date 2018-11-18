@@ -200,7 +200,7 @@ public class PlayGame extends Pane {
         hintLabel.setFont(new Font(20));
 
         playGameSubpanel = buildGrid(new Insets(90,0,0,300));
-
+        playGameSubpanel.addEventHandler(MouseEvent.MOUSE_DRAGGED, new MouseListener(playGameSubpanel));
         this.getChildren().addAll(hintLabel,undoLabel,resetLabel,royalFlush, soundButton, settingsButton, howToButton, playGameSubpanel, backButton, undoButton, resetButton);
 
         //this.getChildren().addAll(soundButton);
@@ -261,9 +261,9 @@ public class PlayGame extends Pane {
         loc = "/img/grass.png";
         for (int carIndex = 0 ; carIndex < cars.length; carIndex++){
             direction = cars[carIndex].getCarDirection();
-            loc = cars[carIndex].getImageLocation();
-            Image img = new Image(loc+"-"+(direction%2)+".png");
-            ImageView possibleCar = new ImageView(img);
+            //loc = cars[carIndex].getImageLocation();
+            //Image img = new Image(loc+"-"+(direction%2)+".png");
+            ImageView possibleCar = cars[carIndex].getCarImage();// new ImageView(img);
 
             if (direction == 3 || direction == 2) {
                     possibleCar.setRotate(180);
@@ -277,14 +277,12 @@ public class PlayGame extends Pane {
                 GridPane.setRowIndex(possibleCar,cars[carIndex].getX());
                 GridPane.setColumnIndex(possibleCar,cars[carIndex].getY());
                 possibleCar.setFitWidth(gridBoxSize);
-                possibleCar.addEventHandler(MouseEvent.MOUSE_DRAGGED, new MouseListener(possibleCar));
                 box.getChildren().add(possibleCar);
 
             } else {
 
                 possibleCar.setFitWidth(cars[carIndex].getLength()* gridBoxSize);
                 possibleCar.setFitHeight(gridBoxSize);
-                possibleCar.addEventHandler(MouseEvent.MOUSE_DRAGGED, new MouseListener(possibleCar));
                 GridPane.setRowIndex(possibleCar,cars[carIndex].getX());
                 GridPane.setColumnIndex(possibleCar,cars[carIndex].getY());
                 box.getChildren().add(possibleCar);
@@ -336,9 +334,9 @@ public class PlayGame extends Pane {
      int firstPos, secondPos;
 
      class MouseListener implements EventHandler<MouseEvent> {
-        ImageView car;
-        public MouseListener( ImageView car) {
-           this.car = car;
+        GridPane pane;
+        public MouseListener( GridPane playPane) {
+           this.pane = playPane;
            //firstPosFlag = true;
         }
         public void handle(MouseEvent e) {
@@ -346,45 +344,37 @@ public class PlayGame extends Pane {
            int mouseX = (int)((e.getSceneY() - 90)/GRIDBOX);
            Car curr = findCar(mouseX, mouseY);
 
-           if (firstPosFlag) {
-             firstPos = mouseX;
-             secondPos = mouseY;
-             firstPosFlag = false;
+           if (firstPosFlag){
+               firstPos = mouseX;
+               secondPos = mouseY;
+               firstPosFlag = false;
+           } else {
+                if (curr != null) {
+             
+                if (updateCarX(curr,mouseX-firstPos) && updateCarY(curr,mouseY-secondPos)){
+                        //pane = buildGrid(new Insets(90,0,0,300));
+                        GridPane.setRowIndex(curr.getCarImage(),curr.getX());
+                        GridPane.setColumnIndex(curr.getCarImage(),curr.getY());
+                        firstPos = mouseX;
+                        secondPos = mouseY;
+                    } 
+
+                }
            }
-           else if ( curr != null){//} && (mouseX != firstPos || mouseY != secondPos)) {
-              //mySelf.getChildren().remove(playGameSubpanel);
-               //ystem.out.println("first:" + firstPos + ", " + secondPos+ " " );
-               System.out.println();
-
-               System.out.println("beforeupdate :" + curr.getX() + ", " + curr.getY()+ " " );
-               updateCarX(curr, mouseX-firstPos);
-               updateCarY(curr, mouseY-secondPos);
-               System.out.println("after row column update :" + curr.getX() + ", " + curr.getY()+ " " );
-               System.out.println("mouseX:" + mouseX + ", " + mouseY+ " " );
-
-               //curr.setHorizontalX(10,10);
-               //curr.setVerticalY(10,10);
-               //System.out.println("mmmmm:" + e.getSceneX() + "," + e.getSceneY());
-               //System.out.println("mouse: "+mouseX + " " + mouseY );
-               //System.out.println("carPos: " + curr.getX() + " " + curr.getY());
-               //System.out.println("first:" + firstPos + ", " + secondPos+ " " );
-               //System.out.println("map: "  +  gameMap.getCars()[0].getX()+ " "+gameMap.getCars()[0].getY());
-               //
-               //playGameSubpanel=buildGrid(new Insets(90,0,0,300));
-               //mySelf.getChildren().add(playGameSubpanel);
-               GridPane.setRowIndex(car,curr.getX());
-               GridPane.setColumnIndex(car,curr.getY());
-               System.out.println("after row column update :" + curr.getX() + ", " + curr.getY()+ " " );
-                 firstPos = mouseX;
-                 secondPos = mouseY;
-            }
-
         }
+           
      }
 
      public boolean updateCarX(Car car, int x) {
        // if ( (car.getX() + x) >= 0 && (car.getX() + x) < 6 && (car.getHorizontalX() + x) >= 0  && (car.getHorizontalX() + x) < 6) {
-           car.setHorizontalX(car.getX()+x, car.getHorizontalX() + x);
+           if (car.getX()+x < 0 || car.getX() +x > 5 ){
+               return false;
+           }
+           if (car.getHorizontalX()+x < 0 || car.getHorizontalX() +x > 5 ){
+               return false;
+           }
+           
+           car.setHorizontalX(car.getX()+x, car.getHorizontalX()+x);
            //car.setX(x);
            return true;
        // }
@@ -392,6 +382,12 @@ public class PlayGame extends Pane {
      }
 
      public boolean updateCarY(Car car, int y) {
+          if (car.getY()+y < 0 || car.getY()+y > 5 ){
+               return false;
+           }
+           if (car.getVerticalY()+y < 0 || car.getVerticalY() +y > 5 ){
+               return false;
+           }
         //if ( (car.getY() + y) >= 0 && (car.getY() + y) < 6 && (car.getVerticalY() + y) >= 0 && (car.getVerticalY() + y) < 6) {
            car.setVerticalY(car.getY()+y,car.getVerticalY() + y);
            //car.setY(y);

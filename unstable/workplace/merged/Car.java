@@ -1,3 +1,6 @@
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 public class Car {
 	private int x;
 	private int y;
@@ -10,12 +13,14 @@ public class Car {
 	private int moveCount;
 	private int carDirection;
 	private String imageLocation;
+	private ImageView imageView;
 	
 	public Car(){
 		isMoveable = false;
 		length = 1;
 		isPlayer = false;
 	}
+
 
 	public Car(int x, int y, int length, boolean isPlayer, boolean isMoveable, int carSkin) {
 		this.x = x;
@@ -99,6 +104,8 @@ public class Car {
 	
 	public void setImageLocation(String loc){
 		imageLocation = loc;
+		Image img = new Image(this.imageLocation);
+		imageView = new ImageView(img);
 	}
 
 	public String getImageLocation(){
@@ -121,5 +128,9 @@ public class Car {
 
 	public int getHorizontalX() {
 		return endX;
+	}
+
+	public ImageView getCarImage(){ 
+    	return imageView;
 	}
 }
