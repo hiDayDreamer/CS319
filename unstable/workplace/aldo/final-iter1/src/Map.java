@@ -86,11 +86,20 @@ public class Map {
 			carY = cars[i].getY();
 			carEndX = cars[i].getHorizontalX();
 			carEndY = cars[i].getVerticalY();
-			for (int j = 0; j <= carEndX-carX; j++){
-				blocks[carX+j][carY].setOccupied(true);
-			}
-			for (int j = 0; j <= carEndY-carY; j++){
-				blocks[carX][carY + j].setOccupied(true);
+
+			if (carEndY-carY == 0){
+				for (int j = 0; j < cars[i].getLength(); j++){
+					//System.out.println("Row: " + (carX +j)+ "column " + carY);
+					blocks[carX+j][carY].setOccupied(true);
+				}
+			} else if(carEndX-carX == 0){
+			
+				for (int j = 0; j < cars[i].getLength(); j++){
+						//System.out.println("Row: " + (carX)+ "column " + (carY+j	));
+					blocks[carX][carY + j].setOccupied(true);
+				}
+			} else {
+
 			}
 		}
 
@@ -101,47 +110,49 @@ public class Map {
 		cars = new Car[noOfCars];
 		for (int i = 0; i < noOfCars; i++){
 			cars[i] = new Car();
+			cars[i].setImageLocation("/img/"+i+".png");
 		}
 
 		cars[0].setHorizontalX(0,1);
 		cars[0].setVerticalY(2,2);
 		cars[0].setLength(2);
 		cars[0].setCarDirection(3);
+		
 
-		/*cars[1].setHorizontalX(0,0);
+		cars[1].setHorizontalX(0,0);
 		cars[1].setVerticalY(4,5);
 		cars[1].setLength(2);
-		cars[0].setCarDirection(0);
+		cars[1].setCarDirection(0);
 		
 		cars[2].setHorizontalX(1,1);
 		cars[2].setVerticalY(4,5);
 		cars[2].setLength(2);
-		cars[0].setCarDirection(0);
+		cars[2].setCarDirection(0);
 
 		cars[3].setHorizontalX(1,2);
 		cars[3].setVerticalY(3,3);
 		cars[3].setLength(2);
-		cars[0].setCarDirection(3);
+		cars[3].setCarDirection(3);
 		
 		cars[4].setHorizontalX(2,2);
 		cars[4].setVerticalY(0,2);
 		cars[4].setLength(3);
-		cars[0].setCarDirection(0);
+		cars[4].setCarDirection(0);
 
 		cars[5].setHorizontalX(3,3);
 		cars[5].setVerticalY(1,2);
 		cars[5].setLength(2);
-		cars[0].setCarDirection(2);
+		cars[5].setCarDirection(2);
 		
 		cars[6].setHorizontalX(3,5);
 		cars[6].setVerticalY(4,4);
 		cars[6].setLength(3);
-		cars[0].setCarDirection(1);
+		cars[6].setCarDirection(1);
 
 		cars[7].setHorizontalX(5,5);
 		cars[7].setVerticalY(0,2);
 		cars[7].setLength(3);
-		cars[0].setCarDirection(0);*/
+		cars[7].setCarDirection(0);
 
 		return cars;
 	}

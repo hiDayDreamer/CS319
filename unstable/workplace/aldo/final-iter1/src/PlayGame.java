@@ -19,14 +19,17 @@ import javafx.scene.paint.*;
 import javafx.scene.canvas.*; 
 import javafx.scene.text.*; 
 import javafx.scene.Group; 
-import javafx.scene.shape.*; 
+import javafx.scene.shape.*;
 
 public class PlayGame extends Pane {
     //Constants
-    private final String GAME_ICON_LOG = "java_318-32027.jpg";
-    private final String SOUND_ICON = "soundIcon.png";
-    private final String SETTINGS_ICON = "Settings-icon.png";
-    private final String BACK_ICON = "backIcon.png";
+    private final String GAME_ICON_LOG = "java_318-32027.jpeg";
+    private final String SOUND_ICON = "/img/soundImage.png";
+    private final String SETTINGS_ICON = "/img/settingsImage.png";
+    private final String BACK_ICON = "/img/backIcon.png";
+    private final String UNDO_ICON = "/img/backIcon.png";
+    private final String RESET_ICON = "/img/police.png";
+    private final String HINT_ICON = "/img/hintImage.png";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
     private final double WIDTH  = 1080;
     private final double HEIGHT = 720;
@@ -66,8 +69,11 @@ public class PlayGame extends Pane {
     //ProgressBar
     private ProgressBar[] dimensionProgression;
 
-    public PlayGame() {
+    private Map gameMap;
+
+    public PlayGame(Map map) {
         super();
+        gameMap = map;
         initialize();
     }
 
@@ -88,75 +94,94 @@ public class PlayGame extends Pane {
 
         //How_To Panel
         //Sound button
-        soundImage = new Image(getClass().getResourceAsStream(SOUND_ICON));
+        soundImage = new Image(getClass().getResourceAsStream(SOUND_ICON),ICON_SIZE,ICON_SIZE,false,false);
         soundButton = new Button();
-        soundButton.setGraphic(new ImageView(soundImage));
-        //soundButton.setStyle("-fx-background-color: transparent");
-        soundButton.setMinSize(ICON_SIZE, ICON_SIZE);
+        soundButton.setStyle("-fx-background-color: transparent");
+        soundButton.setMinSize(ICON_SIZE,ICON_SIZE);
         soundButton.setLayoutX(WIDTH - 100);
         soundButton.setLayoutY(35);
+        
+        ImageView s = new ImageView(soundImage);
 
+        s.fitWidthProperty().bind(soundButton.widthProperty()); 
+        s.fitWidthProperty().bind(soundButton.heightProperty()); 
+        soundButton.setGraphic(s);
+       
         //Settings button
-        settingsImage = new Image(getClass().getResourceAsStream(SETTINGS_ICON));
+        settingsImage = new Image(getClass().getResourceAsStream(SETTINGS_ICON),ICON_SIZE,ICON_SIZE,false,false);
         settingsButton = new Button();
-        settingsButton.setGraphic(new ImageView(settingsImage));
-        //settingsButton.setStyle("-fx-background-color: transparent");
+        settingsButton.setStyle("-fx-background-color: transparent");
         settingsButton.setMinSize(ICON_SIZE, ICON_SIZE);
         settingsButton.setLayoutX(WIDTH - 200);
         settingsButton.setLayoutY(35);
-
+        ImageView b = new ImageView(settingsImage);
+        b.fitWidthProperty().bind(settingsButton.widthProperty()); 
+        b.fitWidthProperty().bind(settingsButton.heightProperty()); 
+        settingsButton.setGraphic(b);
+        
         //Back button
-        backImage = new Image(getClass().getResourceAsStream(BACK_ICON));
+        backImage = new Image(getClass().getResourceAsStream(BACK_ICON),ICON_SIZE,ICON_SIZE,false,false);
         backButton = new Button();
-        backButton.setGraphic(new ImageView(backImage));
-        //backButton.setStyle("-fx-background-color: transparent");
+        backButton.setStyle("-fx-background-color: transparent");
         backButton.setMinSize(ICON_SIZE, ICON_SIZE);
         backButton.setLayoutX(25);
         backButton.setLayoutY(35);
 
-        undoImage = new Image(getClass().getResourceAsStream(BACK_ICON));
+        ImageView b1 = new ImageView(backImage);
+        b1.fitWidthProperty().bind(backButton.widthProperty()); 
+        b1.fitWidthProperty().bind(backButton.heightProperty()); 
+        backButton.setGraphic(b1);
+        backButton.setGraphic(new ImageView(backImage));
+
+        undoImage = new Image(getClass().getResourceAsStream(UNDO_ICON),ICON_SIZE,ICON_SIZE,false,false);
         undoButton = new Button();
-        undoButton.setGraphic(new ImageView(undoImage));
-        //backButton.setStyle("-fx-background-color: transparent");
+        undoButton.setStyle("-fx-background-color: transparent");
         undoButton.setMinSize(ICON_SIZE, ICON_SIZE);
         undoButton.setLayoutX(150);
         undoButton.setLayoutY(300);
+        undoButton.setGraphic(new ImageView(undoImage));
 
-        resetImage = new Image(getClass().getResourceAsStream(BACK_ICON));
+        ImageView b2 = new ImageView(undoImage);
+        b2.fitWidthProperty().bind(undoButton.widthProperty()); 
+        b2.fitWidthProperty().bind(undoButton.heightProperty()); 
+        undoButton.setGraphic(b2);
+
+
+        resetImage = new Image(getClass().getResourceAsStream(RESET_ICON),ICON_SIZE,ICON_SIZE,false,false);
         resetButton = new Button();
         resetButton.setGraphic(new ImageView(undoImage));
-        //backButton.setStyle("-fx-background-color: transparent");
+        resetButton.setStyle("-fx-background-color: transparent");
         resetButton.setMinSize(ICON_SIZE, ICON_SIZE);
         resetButton.setLayoutX(150);
         resetButton.setLayoutY(500);
 
-    
-        howToImage = new Image(getClass().getResourceAsStream(BACK_ICON));
+        ImageView b3 = new ImageView(resetImage);
+        b3.fitWidthProperty().bind(resetButton.widthProperty()); 
+        b3.fitWidthProperty().bind(resetButton.heightProperty()); 
+        resetButton.setGraphic(b3);
+
+        howToImage = new Image(getClass().getResourceAsStream(HINT_ICON),ICON_SIZE,ICON_SIZE,false,false);
         howToButton = new Button();
         howToButton.setGraphic(new ImageView(howToImage));
-        //backButton.setStyle("-fx-background-color: transparent");
+        howToButton.setStyle("-fx-background-color: transparent");
         howToButton.setMinSize(ICON_SIZE, ICON_SIZE);
-        howToButton.setLayoutX(WIDTH-100);
-        howToButton.setLayoutY(400);
-
-        int[][] map;
-        map = new int[][]{
-            new int[]{0,1,2,0,1,0},
-            new int[]{0,1,2,0,1,0},
-            new int[]{0,1,2,0,1,0},
-            new int[]{0,1,2,0,1,0},
-            new int[]{0,1,2,0,1,0},
-            new int[]{0,1,2,0,1,0},
-        };
+        howToButton.setLayoutX(WIDTH-200);
+        howToButton.setLayoutY(300);
+        ImageView b5 = new ImageView(howToImage);
+        b5.fitWidthProperty().bind(howToButton.widthProperty()); 
+        b5.fitWidthProperty().bind(howToButton.heightProperty()); 
+        howToButton.setGraphic(b5);
 
         BorderPane title = new BorderPane();
         Label royalFlush = new Label("Royal Flush Got this Bitch Baby :*"); 
         royalFlush.setLayoutX(300);
         royalFlush.setLayoutY(10);
         royalFlush.setFont(new Font(30));
-        playGameSubpanel = buildGrid(map,new Insets(90,0,0,300));
-        this.getChildren().addAll(royalFlush,soundButton, settingsButton, backButton,undoButton,resetButton,howToButton,playGameSubpanel);
+        playGameSubpanel = buildGrid(new Insets(90,0,0,300));
+        this.getChildren().addAll(royalFlush,soundButton, settingsButton, backButton, undoButton, resetButton, howToButton, playGameSubpanel);
         
+        //this.getChildren().addAll(soundButton);
+
         //Adding labels to panel
         copyRightPanel.getChildren().add(copyRightLabel);
         copyRightPanel.getChildren().add(version);
@@ -166,39 +191,86 @@ public class PlayGame extends Pane {
     }
     
     
-    private GridPane buildGrid(int[][] map, Insets constraints){
+    private GridPane buildGrid(Insets constraints){
         playGameSubpanel = new GridPane();
         //playGameSubpanel.setPadding(new Insets(90, 0, 0,300));
         playGameSubpanel.setPadding(constraints);
         
-        RowConstraints rowHeight = new RowConstraints(90);
-        ColumnConstraints columnWidth = new ColumnConstraints(90);
-        for (int rowIndex = 0; rowIndex < getCurrentDimensionSize(); rowIndex++){
-            for (int columnIndex = 0; columnIndex < getCurrentDimensionSize(); columnIndex++){
-                GridPane box = new GridPane();
-                box.getRowConstraints().add(rowHeight);
-                box.getColumnConstraints().add(columnWidth);
-                box.setStyle("-fx-background-color: black, -fx-control-inner-background; -fx-background-insets: 0, 2; -fx-padding:2;");
-                Image img = new Image(chooseMapImage(map[rowIndex][columnIndex]));
-                ImageView possibleCar = new ImageView(img);
+        Block[][] mapBlocks = gameMap.getBlocks();
+        Car[] cars = gameMap.getCars();
 
-                GridPane.setConstraints(box, columnIndex, rowIndex);
-                possibleCar.fitHeightProperty().bind(box.heightProperty().subtract(10));
-                possibleCar.fitWidthProperty().bind(box.widthProperty().subtract(5));
-                box.getChildren().add(possibleCar);
-                playGameSubpanel.getChildren().add(box);
+        String loc = "java_318-32027.jpg";
+        int gridBoxSize = 90;
+        
+        GridPane box = new GridPane();
+
+        box.setGridLinesVisible(true);
+        box.setStyle("-fx-background-color: black, -fx-control-inner-background; -fx-background-insets: 0, 2; -fx-padding:2;");
+        
+        RowConstraints rowHeight = new RowConstraints(gridBoxSize);
+        ColumnConstraints columnWidth = new ColumnConstraints(gridBoxSize);
+        for (int rowIndex = 0; rowIndex < getCurrentDimensionSize(); rowIndex++){
+            rowHeight = new RowConstraints(gridBoxSize);
+            columnWidth = new ColumnConstraints(gridBoxSize);
+            box.getRowConstraints().add(rowHeight);
+            box.getColumnConstraints().add(columnWidth);
+            for (int columnIndex = 0; columnIndex < getCurrentDimensionSize(); columnIndex++){
+               // GridPane.setConstraints(box, columnIndex, rowIndex);  
+                if (!mapBlocks[rowIndex][columnIndex].isOccupied()){
+                    //System.out.println("It is free ");
+                    Image img = new Image(loc);
+                    ImageView possibleCar = new ImageView(img);
+                    possibleCar.setFitWidth(gridBoxSize);
+                    possibleCar.setFitHeight(gridBoxSize);
+                    box.add(possibleCar,columnIndex,rowIndex);
+                    
+                } else {
+                    //loc = "settings.png";
+                }
+            
+              
             }
         }
+
+        box.setStyle("-fx-background-color: #C0C0C0;");
+    
+        int direction = -1;
+        loc = "java_318-32027.jpg";
+        for (int carIndex = 0 ; carIndex < cars.length; carIndex++){
+            direction = cars[carIndex].getCarDirection();
+            loc = cars[carIndex].getImageLocation();
+            Image img = new Image(loc);
+            ImageView possibleCar = new ImageView(img);
+         
+            if ( direction == 1 || direction == 3){
+                possibleCar.setFitWidth(gridBoxSize);
+                possibleCar.setFitHeight(gridBoxSize*cars[carIndex].getLength());
+                GridPane.setRowSpan(possibleCar,cars[carIndex].getLength());
+                GridPane.setRowIndex(possibleCar,cars[carIndex].getX());
+                GridPane.setColumnIndex(possibleCar,cars[carIndex].getY());
+                box.getChildren().add(possibleCar);
+        
+            } else {  
+                possibleCar.setFitWidth(cars[carIndex].getLength()* gridBoxSize);
+                possibleCar.setFitHeight(gridBoxSize);
+                GridPane.setRowIndex(possibleCar,cars[carIndex].getX());
+                GridPane.setColumnIndex(possibleCar,cars[carIndex].getY());
+                box.getChildren().add(possibleCar);
+            } 
        
+    }
+        playGameSubpanel.getChildren().add(box);
+
+
        return playGameSubpanel;
     }
 
     private String chooseMapImage(int number){
         switch(number) {
-               case 0: return "fullStar.png";
-               case 1: return BACK_ICON;
-               case 2: return SETTINGS_ICON;
-               default: return "fullstar.png"; 
+               case 0: return  "gertasila.png";
+               case 1: return  "gertasila.png";
+               case 2: return  "gertasila.png";
+               default: return  "gertasila.png";
         }
     }
 
