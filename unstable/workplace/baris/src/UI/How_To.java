@@ -1,17 +1,17 @@
-package sample;
-
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.control.Label;
+import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
 
 public class How_To extends Pane {
     //Constants
-    private final String SOUND_ICON = "soundIcon.png";
-    private final String SETTINGS_ICON = "Settings-icon.png";
-    private final String BACK_ICON = "backIcon.png";
-    private final String TUTORIAL_IMAGE = "tutorialImage.jpg";
+    private final String SOUND_ICON = "/img/soundIcon.png";
+    private final String SETTINGS_ICON = "/img/Settings-icon.png";
+    private final String BACK_ICON = "/img/backIcon.png";
+    private final String TUTORIAL_IMAGE = "/img/tutorialImage.jpg";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
     private final double WIDTH  = 1080;
     private final double HEIGHT = 720;
@@ -32,8 +32,8 @@ public class How_To extends Pane {
     private Button[] pagePassButtons;
 
     //Images
-    private Image soundImage;
-    private Image settingsImage;
+    private ImageView soundImage;
+    private ImageView settingsImage;
     private Image backImage;
     private Image[] tutorialImage;
     private ImageView tutorial;
@@ -61,19 +61,23 @@ public class How_To extends Pane {
 
         //How_To Panel
         //Sound button
-        soundImage = new Image(getClass().getResourceAsStream(SOUND_ICON));
+        soundImage = new ImageView(new Image(SOUND_ICON));
+        soundImage.setFitWidth(ICON_SIZE);
+        soundImage.setFitHeight(ICON_SIZE);
         soundButton = new Button();
-        soundButton.setGraphic(new ImageView(soundImage));
-        //soundButton.setStyle("-fx-background-color: transparent");
+        soundButton.setGraphic(soundImage);
+        soundButton.setStyle("-fx-background-color: transparent");
         soundButton.setMinSize(ICON_SIZE, ICON_SIZE);
         soundButton.setLayoutX(WIDTH - 100);
         soundButton.setLayoutY(35);
 
         //Settings button
-        settingsImage = new Image(getClass().getResourceAsStream(SETTINGS_ICON));
+        settingsImage = new ImageView(new Image(SETTINGS_ICON));
+        settingsImage.setFitWidth(ICON_SIZE);
+        settingsImage.setFitHeight(ICON_SIZE);
         settingsButton = new Button();
-        settingsButton.setGraphic(new ImageView(settingsImage));
-        //settingsButton.setStyle("-fx-background-color: transparent");
+        settingsButton.setGraphic(settingsImage);
+        settingsButton.setStyle("-fx-background-color: transparent");
         settingsButton.setMinSize(ICON_SIZE, ICON_SIZE);
         settingsButton.setLayoutX(WIDTH - 200);
         settingsButton.setLayoutY(35);
@@ -82,7 +86,7 @@ public class How_To extends Pane {
         backImage = new Image(getClass().getResourceAsStream(BACK_ICON));
         backButton = new Button();
         backButton.setGraphic(new ImageView(backImage));
-        //backButton.setStyle("-fx-background-color: transparent");
+        backButton.setStyle("-fx-background-color: transparent");
         backButton.setMinSize(ICON_SIZE, ICON_SIZE);
         backButton.setLayoutX(25);
         backButton.setLayoutY(35);
@@ -93,13 +97,13 @@ public class How_To extends Pane {
         tutorialImage[0] = new Image(getClass().getResourceAsStream(TUTORIAL_IMAGE));
         tutorial = new ImageView(tutorialImage[0]);
         tutorial.setLayoutX(WIDTH / 2 - 275);
-        tutorial.setLayoutY(HEIGHT / 2 - 200);
+        tutorial.setLayoutY(HEIGHT / 2 - 275);
 
         //Next and back button for tutorial images
         pagePassButtons = new Button[2];
         pagePassImages = new Image[2];
-        pagePassImages[0] = new Image(getClass().getResourceAsStream("play-symbol.png"));
-        pagePassImages[1] = new Image(getClass().getResourceAsStream("left-angle-bracket.png"));
+        pagePassImages[0] = new Image(getClass().getResourceAsStream("/img/play-symbol.png"));
+        pagePassImages[1] = new Image(getClass().getResourceAsStream("/img/left-angle-bracket.png"));
         for ( int i = 0; i < 2; i++){
             pagePassButtons[i] = new Button();
             pagePassButtons[i].setMinSize(ICON_SIZE, ICON_SIZE);
@@ -123,9 +127,17 @@ public class How_To extends Pane {
     public void setCurrentColor(String colorCSS){
 
         if (colorCSS == null){
-            this.setStyle("-fx-background-color: lightblue;");
+            this.setStyle("-fx-background-color: #81aae6;");
         }else{
             this.setStyle(colorCSS);
         }
+    }
+
+
+     public void addHandler( GameManager.ButtonListener e) {
+       backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, e);
+       GameManager.ButtonListener settings = e.clone();
+       settings.setIndex(4);
+       settingsButton.addEventHandler(MouseEvent.MOUSE_CLICKED, settings);
     }
 }

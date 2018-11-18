@@ -1,5 +1,3 @@
-package sample;
-
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
@@ -8,13 +6,18 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
 
 public class Dimensions extends Pane {
     //Constants
-    private final String GAME_ICON_LOG = "java_318-32027.jpg";
-    private final String SOUND_ICON = "soundIcon.png";
-    private final String SETTINGS_ICON = "Settings-icon.png";
-    private final String BACK_ICON = "backIcon.png";
+    private final String GAME_ICON_LOG = "/img/java_318-32027.jpg";
+    private final String SOUND_ICON = "/img/soundIcon.png";
+    private final String SETTINGS_ICON = "/img/Settings-icon.png";
+    private final String sixToSixI = "/img/dim1.png";
+    private final String eightToEight = "/img/dim2.png";
+    private final String tenToTen = "/img/dim3.png";
+    private final String BACK_ICON = "/img/backIcon.png";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
     private final double WIDTH  = 1080;
     private final double HEIGHT = 720;
@@ -36,8 +39,8 @@ public class Dimensions extends Pane {
     private Button[] sixToSix;
 
     //Images
-    private Image soundImage;
-    private Image settingsImage;
+    private ImageView soundImage;
+    private ImageView settingsImage;
     private Image backImage;
     private Image[] stars;
     private ImageView fullStar;
@@ -67,35 +70,39 @@ public class Dimensions extends Pane {
 
         //How_To Panel
         //Sound button
-        soundImage = new Image(getClass().getResourceAsStream(SOUND_ICON));
+        soundImage = new ImageView(new Image(SOUND_ICON));
+        soundImage.setFitWidth(ICON_SIZE);
+        soundImage.setFitHeight(ICON_SIZE);
         soundButton = new Button();
-        soundButton.setGraphic(new ImageView(soundImage));
-        //soundButton.setStyle("-fx-background-color: transparent");
+        soundButton.setGraphic(soundImage);
+        soundButton.setStyle("-fx-background-color: transparent");
         soundButton.setMinSize(ICON_SIZE, ICON_SIZE);
         soundButton.setLayoutX(WIDTH - 100);
-        soundButton.setLayoutY(35);
+        soundButton.setLayoutY(25);
 
         //Settings button
-        settingsImage = new Image(getClass().getResourceAsStream(SETTINGS_ICON));
+        settingsImage = new ImageView(new Image(SETTINGS_ICON));
+        settingsImage.setFitWidth(ICON_SIZE);
+        settingsImage.setFitHeight(ICON_SIZE);
         settingsButton = new Button();
-        settingsButton.setGraphic(new ImageView(settingsImage));
-        //settingsButton.setStyle("-fx-background-color: transparent");
+        settingsButton.setGraphic(settingsImage);
+        settingsButton.setStyle("-fx-background-color: transparent");
         settingsButton.setMinSize(ICON_SIZE, ICON_SIZE);
         settingsButton.setLayoutX(WIDTH - 200);
-        settingsButton.setLayoutY(35);
+        settingsButton.setLayoutY(25);
 
         //Back button
         backImage = new Image(getClass().getResourceAsStream(BACK_ICON));
         backButton = new Button();
         backButton.setGraphic(new ImageView(backImage));
-        //backButton.setStyle("-fx-background-color: transparent");
+        backButton.setStyle("-fx-background-color: transparent");
         backButton.setMinSize(ICON_SIZE, ICON_SIZE);
         backButton.setLayoutX(25);
-        backButton.setLayoutY(35);
+        backButton.setLayoutY(25);
 
         //Images for stars
         stars = new Image[3];
-        stars[0] = new Image(getClass().getResourceAsStream("fullStar.png"));
+        stars[0] = new Image(getClass().getResourceAsStream("/img/fullStar.png"));
         fullStar = new ImageView(stars[0]);
         //There is a problem here.
         ImageView fullStar2 = new ImageView(stars[0]);
@@ -135,7 +142,7 @@ public class Dimensions extends Pane {
         dimensionProgression = new ProgressBar[3];
         for ( int i = 0; i < 3; i++){
             dimensionProgression[i] = new ProgressBar();
-            dimensionProgression[i].setStyle("-fx-accent: black ; -fx-border-color: black ; -fx-border-width: 3px ;");
+            dimensionProgression[i].setStyle("-fx-accent: #914b28 ; -fx-border-color: black ; -fx-border-width: 3px ;");
             dimensionProgression[i].setMinWidth(200);
         }
         //charts.getProgression();
@@ -147,12 +154,16 @@ public class Dimensions extends Pane {
         sixToSix = new Button[3];
         for ( int i = 0; i < 3; i++){
             sixToSix[i] = new Button();
-            sixToSix[i].setStyle("-fx-border-color: black ; -fx-border-width: 3px ; -fx-font-family: 'Times New Roman'; -fx-font-weight: bold; -fx-font-size: 25pt ;");
+            sixToSix[i].setStyle("-fx-border-color: black ; -fx-border-width: 3px ; -fx-font-family: 'Verdana'; -fx-font-weight: bold; -fx-font-size: 25pt ;");
+            sixToSix[i].setStyle("-fx-background-color: transparent");
             sixToSix[i].setMinSize(200, (HEIGHT - 175) / 2);
         }
-        sixToSix[0].setText("6X6");
-        sixToSix[1].setText("8X8");
-        sixToSix[2].setText("10X10");
+
+        sixToSix[0].setStyle("-fx-background-image: url('/img/dim1.png')");
+
+        sixToSix[1].setStyle("-fx-background-image: url('/img/dim2.png')");
+
+        sixToSix[2].setStyle("-fx-background-image: url('/img/dim3.png')");
 
         VBox vBox = new VBox(0); // spacing = 8
         VBox vBox2 = new VBox(0); // spacing = 8
@@ -163,7 +174,7 @@ public class Dimensions extends Pane {
         HBox hBox3 = new HBox(0); // spacing = 8
 
         HBox panel = new HBox((WIDTH - 600) / 4); // spacing = 8
-        panel.setLayoutX((WIDTH - 600) / 4);
+        panel.setLayoutX((WIDTH - 650) / 4);
         panel.setLayoutY(HEIGHT / 2 - 200);
 
         hBox.getChildren().addAll(fullStar, numberOfStarsLabel[0]);
@@ -189,11 +200,31 @@ public class Dimensions extends Pane {
     public void setCurrentColor(String colorCSS){
 
         if (colorCSS == null){
-            this.setStyle("-fx-background-color: lightblue;");
+            this.setStyle("-fx-background-color: #81aae6;");
         }else{
             this.setStyle(colorCSS);
         }
     }
 
 
+    public void addHandler( GameManager.ButtonListener e) {
+              // add the button listener to the back button
+              backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, e);
+
+              // add button listeners to all the dimensions
+              GameManager.ButtonListener dim1 = e.clone();
+              GameManager.ButtonListener dim2 = e.clone();
+              GameManager.ButtonListener dim3 = e.clone();
+              dim1.setIndex(6);
+              dim2.setIndex(8);
+              dim3.setIndex(10);
+              sixToSix[0].addEventHandler(MouseEvent.MOUSE_CLICKED, dim1);
+              sixToSix[1].addEventHandler(MouseEvent.MOUSE_CLICKED, dim2);
+              sixToSix[2].addEventHandler(MouseEvent.MOUSE_CLICKED, dim3);
+
+
+              GameManager.ButtonListener settings = e.clone();
+              settings.setIndex(4);
+              settingsButton.addEventHandler(MouseEvent.MOUSE_CLICKED, settings);
+     }
 }

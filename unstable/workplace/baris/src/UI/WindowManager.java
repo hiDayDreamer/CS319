@@ -1,5 +1,3 @@
-package sample;
-
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.fxml.FXMLLoader;
@@ -12,13 +10,16 @@ import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 import java.io.IOException;
+import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
+
 public class WindowManager extends Stage{
 
     //Constants
     private final boolean IS_RESIZABLE = false;
     private final String FRAME_TITLE = "Fun for all ages";
-    private final String GAME_ICON_LOG = "java_318-32027.jpg";
-    private final String SOUND_ICON = "soundIcon.png";
+    private final String GAME_ICON_LOG = "/img/java_318-32027.png";
+    private final String SOUND_ICON = "/img/soundIcon.png";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
     private final String GAME_TITLE = "Rush Hour";
     private final double WIDTH  = 1080;
@@ -41,6 +42,7 @@ public class WindowManager extends Stage{
     private Pane copyRightPanel;
     private Scene window;
     private Image soundImage;
+    private MainPage g = new MainPage();
 
     public WindowManager() {
         super();
@@ -70,9 +72,7 @@ public class WindowManager extends Stage{
         window = new Scene(frame);
 
         //Creating middle panel
-        middlePanel = new Pane();
-        middlePanel.setMinHeight(HEIGHT - COPYRIGHT_PANEL_SIZE);
-        middlePanel.setMinWidth(WIDTH);
+        middlePanel = g;
 
         //Creating copyright panel
         copyRightPanel = new Pane();
@@ -86,41 +86,6 @@ public class WindowManager extends Stage{
         version = new Label("Version b0.1");
         version.setLayoutX(WIDTH - 100);
 
-        //Name of the game label
-        name = new Label(GAME_TITLE);
-        name.setStyle("-fx-font-weight: bold;");
-        name.setMaxSize(500,75);
-        name.setFont(new Font("Times New Roman", 90));
-        name.setLayoutX(WIDTH / 2 - 175 );
-        name.setLayoutY(75);
-
-        //Creating buttons
-        int space = 0;
-        frameButtons = new Button[4];
-        for ( int i = 0; i < 4; i++){
-            space = space + 100;
-            frameButtons[i] = new Button();
-            frameButtons[i].setMinSize(BUTTON_WIDTH, BUTTON_HEIGHT);
-            frameButtons[i].setLayoutX(BUTTON_X);
-            frameButtons[i].setLayoutY(BUTTON_Y + space);
-        }
-        frameButtons[0].setText("Play");
-        frameButtons[1].setText("How To");
-        frameButtons[2].setText("Dashboard");
-        frameButtons[3].setText("Settings");
-
-        //Sound button
-        soundImage = new Image(getClass().getResourceAsStream(SOUND_ICON));
-        soundButton = new Button("" , new ImageView(soundImage));
-        soundButton.setGraphic(new ImageView(soundImage));
-        //soundButton.setStyle("-fx-background-color: transparent");
-        soundButton.setMinSize(ICON_SIZE, ICON_SIZE);
-        soundButton.setLayoutX(WIDTH - 100);
-        soundButton.setLayoutY(25);
-
-        //Adding buttons to middle panel
-        middlePanel.getChildren().addAll(name, frameButtons[0], frameButtons[1], frameButtons[2], frameButtons[3], soundButton);
-
         //Adding labels to panel
         frame.addRow(1, copyRightPanel);
         copyRightPanel.getChildren().add(copyRightLabel);
@@ -128,29 +93,38 @@ public class WindowManager extends Stage{
 
         //Adding panels to frame
         frame.addRow(0, middlePanel);
-
+        this.updateMiddlePanel(g);
         //Default theme
         setCurrentColor(null);
     }
 
     public boolean updateMiddlePanel(Pane newPane){
 
-        System.out.println("hop");
-        frame.getChildren().remove(middlePanel);
-        middlePanel = newPane;
-        frame.addRow(0, middlePanel);
-        return true;
-
+        if ( middlePanel == null){
+            System.out.println("hope");
+            middlePanel = newPane;
+            frame.addRow(0, middlePanel);
+            return true;
+        } else {
+            System.out.println("hope");
+            frame.getChildren().remove(middlePanel);
+            middlePanel = newPane;
+            frame.addRow(0, middlePanel);
+            return true;
+        }
     }
 
     public void setCurrentColor(String colorCSS){
 
         if (colorCSS == null){
-            middlePanel.setStyle("-fx-background-color: lightblue;");
+            middlePanel.setStyle("-fx-background-color: #81aae6;");
         }else{
             middlePanel.setStyle(colorCSS);
         }
     }
 
-
+    public void addHandler( GameManager.ButtonListener e) {
+        g.addHandler(e);
+        //frameButtons[0].addEventHandler(MouseEvent.MOUSE_CLICKED, e);
+    }
 }
