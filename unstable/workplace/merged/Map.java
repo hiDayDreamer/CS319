@@ -110,14 +110,13 @@ public class Map {
 		cars = new Car[noOfCars];
 		for (int i = 0; i < noOfCars; i++){
 			cars[i] = new Car();
-			cars[i].setImageLocation("/img/"+i+".png");
+			cars[i].setImageLocation("/img/"+i);
 		}
 
 		cars[0].setHorizontalX(0,1);
 		cars[0].setVerticalY(2,2);
 		cars[0].setLength(2);
 		cars[0].setCarDirection(3);
-		cars[0].setImageLocation("/img/6.png");
 
 
 		cars[1].setHorizontalX(0,0);

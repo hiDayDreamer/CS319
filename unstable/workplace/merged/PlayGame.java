@@ -174,32 +174,32 @@ public class PlayGame extends Pane {
         howToButton.setGraphic(b5);
 
         BorderPane title = new BorderPane();
-        Label royalFlush = new Label("Royal Flush Got this Bitch Baby :*");
-        royalFlush.setLayoutX(300);
+        Label royalFlush = new Label("Welcome to the Royal Flush experience!");
+        royalFlush.setLayoutX(250);
         royalFlush.setLayoutY(10);
         royalFlush.setFont(new Font(30));
-
+       
         //reset
-        Label royalFlush = new Label("Royal Flush Got this Bitch Baby :*");
-        royalFlush.setLayoutX(300);
-        royalFlush.setLayoutY(10);
-        royalFlush.setFont(new Font(30));
+        Label resetLabel = new Label("Reset");
+        resetLabel.setLayoutX(160);
+        resetLabel.setLayoutY(580);
+        resetLabel.setFont(new Font(20));
 
         //undo
-         Label royalFlush = new Label("Royal Flush Got this Bitch Baby :*");
-        royalFlush.setLayoutX(300);
-        royalFlush.setLayoutY(10);
-        royalFlush.setFont(new Font(30));
+        Label undoLabel = new Label("Undo");
+        undoLabel.setLayoutX(160);
+        undoLabel.setLayoutY(380);
+        undoLabel.setFont(new Font(20));
 
         //hint
-        Label royalFlush = new Label("Royal Flush Got this Bitch Baby :*");
-        royalFlush.setLayoutX(300);
-        royalFlush.setLayoutY(10);
-        royalFlush.setFont(new Font(30));
+        Label hintLabel = new Label("Hint?");
+        hintLabel.setLayoutX(WIDTH-190);
+        hintLabel.setLayoutY(380);
+        hintLabel.setFont(new Font(20));
 
         playGameSubpanel = buildGrid(new Insets(90,0,0,300));
 
-        this.getChildren().addAll(royalFlush, soundButton, settingsButton, howToButton, playGameSubpanel, backButton, undoButton, resetButton);
+        this.getChildren().addAll(hintLabel,undoLabel,resetLabel,royalFlush, soundButton, settingsButton, howToButton, playGameSubpanel, backButton, undoButton, resetButton);
 
         //this.getChildren().addAll(soundButton);
 
@@ -244,7 +244,7 @@ public class PlayGame extends Pane {
                     possibleCar.setFitWidth(gridBoxSize);
                     possibleCar.setFitHeight(gridBoxSize);
                     box.add(possibleCar,columnIndex,rowIndex);
-*/
+
                 //} //else {
                     //loc = "settings.png";
                // }
@@ -260,21 +260,15 @@ public class PlayGame extends Pane {
         for (int carIndex = 0 ; carIndex < cars.length; carIndex++){
             direction = cars[carIndex].getCarDirection();
             loc = cars[carIndex].getImageLocation();
-            Image img = new Image(loc);
+            Image img = new Image(loc+"-"+(direction%2)+".png");
             ImageView possibleCar = new ImageView(img);
 
+            if (direction == 3 || direction == 2) {
+                    possibleCar.setRotate(180);
+            }
 
             if ( direction == 1 || direction == 3){
-                if (direction == 1 && carIndex != 6){
-                    possibleCar.setRotate(90);
-                }
-                if (direction == 3 && carIndex != 6){
-                    possibleCar.setRotate(270);
-                }
-                if (carIndex == 0){
-                     possibleCar.setRotate(180);
-                }
-                
+            
                 possibleCar.setFitHeight(gridBoxSize*cars[carIndex].getLength());
                //possibleCar.setON
                 GridPane.setRowSpan(possibleCar,cars[carIndex].getLength());
@@ -284,9 +278,7 @@ public class PlayGame extends Pane {
                 box.getChildren().add(possibleCar);
 
             } else {
-                if (direction == 2 && carIndex != 6){
-                    possibleCar.setRotate(180);
-                }
+            
                 possibleCar.setFitWidth(cars[carIndex].getLength()* gridBoxSize);
                 possibleCar.setFitHeight(gridBoxSize);
                 GridPane.setRowIndex(possibleCar,cars[carIndex].getX());
