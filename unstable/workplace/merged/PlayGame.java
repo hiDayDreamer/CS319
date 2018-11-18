@@ -38,6 +38,7 @@ public class PlayGame extends Pane {
     private final double PLAY_HEIGHT = 500;
     private final double COPYRIGHT_PANEL_SIZE = 60;
     private final int ICON_SIZE = 64;
+    private final int GRIDBOX = 90;
 
     //Variables
     //Labels
@@ -66,12 +67,13 @@ public class PlayGame extends Pane {
     private Image howToImage;
     private Image[] stars;
     private ImageView fullStar;
+    private PlayGame mySelf = this;
 
     //ProgressBar
     private ProgressBar[] dimensionProgression;
 
     private Map gameMap;
-
+    private Car[] cars;
     public PlayGame(Map map) {
         super();
         gameMap = map;
@@ -178,7 +180,7 @@ public class PlayGame extends Pane {
         royalFlush.setLayoutX(250);
         royalFlush.setLayoutY(10);
         royalFlush.setFont(new Font(30));
-       
+
         //reset
         Label resetLabel = new Label("Reset");
         resetLabel.setLayoutX(160);
@@ -218,7 +220,7 @@ public class PlayGame extends Pane {
         playGameSubpanel.setPadding(constraints);
 
         Block[][] mapBlocks = gameMap.getBlocks();
-        Car[] cars = gameMap.getCars();
+       cars = gameMap.getCars();
 
         String loc = "/img/grass.jpg";
         int gridBoxSize = 90;
@@ -239,11 +241,11 @@ public class PlayGame extends Pane {
                // GridPane.setConstraints(box, columnIndex, rowIndex);
                 //if (!mapBlocks[rowIndex][columnIndex].isOccupied()){
                     //System.out.println("It is free ");
-                    Image img = new Image(loc);
-                    ImageView possibleCar = new ImageView(img);
-                    possibleCar.setFitWidth(gridBoxSize);
-                    possibleCar.setFitHeight(gridBoxSize);
-                    box.add(possibleCar,columnIndex,rowIndex);
+                    // Image img = new Image(loc);
+                    // ImageView possibleCar = new ImageView(img);
+                    // possibleCar.setFitWidth(gridBoxSize);
+                    // possibleCar.setFitHeight(gridBoxSize);
+                    // box.add(possibleCar,columnIndex,rowIndex);
 
                 //} //else {
                     //loc = "settings.png";
@@ -268,19 +270,21 @@ public class PlayGame extends Pane {
             }
 
             if ( direction == 1 || direction == 3){
-            
+
                 possibleCar.setFitHeight(gridBoxSize*cars[carIndex].getLength());
                //possibleCar.setON
                 GridPane.setRowSpan(possibleCar,cars[carIndex].getLength());
                 GridPane.setRowIndex(possibleCar,cars[carIndex].getX());
                 GridPane.setColumnIndex(possibleCar,cars[carIndex].getY());
                 possibleCar.setFitWidth(gridBoxSize);
+                possibleCar.addEventHandler(MouseEvent.MOUSE_DRAGGED, new MouseListener(possibleCar));
                 box.getChildren().add(possibleCar);
 
             } else {
-            
+
                 possibleCar.setFitWidth(cars[carIndex].getLength()* gridBoxSize);
                 possibleCar.setFitHeight(gridBoxSize);
+                possibleCar.addEventHandler(MouseEvent.MOUSE_DRAGGED, new MouseListener(possibleCar));
                 GridPane.setRowIndex(possibleCar,cars[carIndex].getX());
                 GridPane.setColumnIndex(possibleCar,cars[carIndex].getY());
                 box.getChildren().add(possibleCar);
@@ -326,5 +330,75 @@ public class PlayGame extends Pane {
               GameManager.ButtonListener settings = e.clone();
               settings.setIndex(4);
               settingsButton.addEventHandler(MouseEvent.MOUSE_CLICKED, settings);
+     }
+
+     boolean firstPosFlag;
+     int firstPos, secondPos;
+
+     class MouseListener implements EventHandler<MouseEvent> {
+        ImageView car;
+        public MouseListener( ImageView car) {
+           this.car = car;
+           firstPosFlag = true;
+        }
+        public void handle(MouseEvent e) {
+           int mouseY = (int)((e.getSceneX() - 300)/GRIDBOX);
+           int mouseX = (int)((e.getSceneY() - 90)/GRIDBOX);
+           Car curr = findCar(mouseX, mouseY);
+
+           if (firstPosFlag) {
+             firstPos = mouseX;
+             secondPos = mouseY;
+             firstPosFlag = false;
+           }
+           else if ( curr != null){//} && (mouseX != firstPos || mouseY != secondPos)) {
+              //mySelf.getChildren().remove(playGameSubpanel);
+               updateCarX(curr, mouseX-firstPos);
+               updateCarY(curr, mouseY-secondPos);
+               System.out.println("mouse: "+mouseX + " " + mouseY );
+               System.out.println("carPos: " + curr.getX() + " " + curr.getY());
+               System.out.println("first:" + firstPos + ", " + secondPos+ " " );
+               System.out.println("map: "  +  gameMap.getCars()[0].getX()+ " "+gameMap.getCars()[0].getY());
+               System.out.println();
+               //
+               playGameSubpanel=buildGrid(new Insets(90,0,0,300));
+               //mySelf.getChildren().add(playGameSubpanel);
+               //GridPane.setRowIndex(car,curr.getX());
+               //GridPane.setColumnIndex(car,curr.getY());
+                 firstPos = mouseX;
+                 secondPos = mouseY;
+            }
+
+        }
+     }
+
+     public boolean updateCarX(Car car, int x) {
+        if ( (car.getX() + x) >= 0 && (car.getX() + x) < 6 && (car.getHorizontalX() + x) >= 0  && (car.getHorizontalX() + x) < 6) {
+           //car.setX(car.getX()+x);
+           car.setHorizontalX(car.getX()+x, car.getHorizontalX() + x);
+           return true;
+        }
+        return false;
+     }
+
+     public boolean updateCarY(Car car, int y) {
+        if ( (car.getY() + y) >= 0 && (car.getY() + y) < 6 && (car.getVerticalY() + y) >= 0 && (car.getVerticalY() + y) < 6) {
+           //car.setY(car.getY()+y);
+           car.setVerticalY(car.getY()+y,car.getVerticalY() + y);
+           return true;
+        }
+        return false;
+     }
+
+     public Car findCar(int x, int y) {
+        for ( int i = 0; i < cars.length; i++ ) {
+           if ( x >= gameMap.getCars()[i].getX() && x <= gameMap.getCars()[i].getHorizontalX() ) {
+               if ( y >= gameMap.getCars()[i].getY() && y <= gameMap.getCars()[i].getVerticalY() ) {
+                  //System.out.println("car: " + cars[i].getX() + ", " + cars[i].getY());
+                  return gameMap.getCars()[i];
+               }
+            }
+        }
+        return null;
      }
 }
