@@ -117,6 +117,7 @@ public class Map {
 		cars[0].setVerticalY(2,2);
 		cars[0].setLength(2);
 		cars[0].setCarDirection(3);
+		cars[0].setImageLocation("/img/6.png");
 
 
 		cars[1].setHorizontalX(0,0);

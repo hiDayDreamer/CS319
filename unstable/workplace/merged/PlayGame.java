@@ -178,7 +178,27 @@ public class PlayGame extends Pane {
         royalFlush.setLayoutX(300);
         royalFlush.setLayoutY(10);
         royalFlush.setFont(new Font(30));
+
+        //reset
+        Label royalFlush = new Label("Royal Flush Got this Bitch Baby :*");
+        royalFlush.setLayoutX(300);
+        royalFlush.setLayoutY(10);
+        royalFlush.setFont(new Font(30));
+
+        //undo
+         Label royalFlush = new Label("Royal Flush Got this Bitch Baby :*");
+        royalFlush.setLayoutX(300);
+        royalFlush.setLayoutY(10);
+        royalFlush.setFont(new Font(30));
+
+        //hint
+        Label royalFlush = new Label("Royal Flush Got this Bitch Baby :*");
+        royalFlush.setLayoutX(300);
+        royalFlush.setLayoutY(10);
+        royalFlush.setFont(new Font(30));
+
         playGameSubpanel = buildGrid(new Insets(90,0,0,300));
+
         this.getChildren().addAll(royalFlush, soundButton, settingsButton, howToButton, playGameSubpanel, backButton, undoButton, resetButton);
 
         //this.getChildren().addAll(soundButton);
@@ -224,8 +244,8 @@ public class PlayGame extends Pane {
                     possibleCar.setFitWidth(gridBoxSize);
                     possibleCar.setFitHeight(gridBoxSize);
                     box.add(possibleCar,columnIndex,rowIndex);
-
-               // } else {
+*/
+                //} //else {
                     //loc = "settings.png";
                // }
 
@@ -243,16 +263,30 @@ public class PlayGame extends Pane {
             Image img = new Image(loc);
             ImageView possibleCar = new ImageView(img);
 
+
             if ( direction == 1 || direction == 3){
-                possibleCar.setFitWidth(gridBoxSize);
+                if (direction == 1 && carIndex != 6){
+                    possibleCar.setRotate(90);
+                }
+                if (direction == 3 && carIndex != 6){
+                    possibleCar.setRotate(270);
+                }
+                if (carIndex == 0){
+                     possibleCar.setRotate(180);
+                }
+                
                 possibleCar.setFitHeight(gridBoxSize*cars[carIndex].getLength());
                //possibleCar.setON
                 GridPane.setRowSpan(possibleCar,cars[carIndex].getLength());
                 GridPane.setRowIndex(possibleCar,cars[carIndex].getX());
                 GridPane.setColumnIndex(possibleCar,cars[carIndex].getY());
+                possibleCar.setFitWidth(gridBoxSize);
                 box.getChildren().add(possibleCar);
 
             } else {
+                if (direction == 2 && carIndex != 6){
+                    possibleCar.setRotate(180);
+                }
                 possibleCar.setFitWidth(cars[carIndex].getLength()* gridBoxSize);
                 possibleCar.setFitHeight(gridBoxSize);
                 GridPane.setRowIndex(possibleCar,cars[carIndex].getX());
