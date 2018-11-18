@@ -332,14 +332,14 @@ public class PlayGame extends Pane {
               settingsButton.addEventHandler(MouseEvent.MOUSE_CLICKED, settings);
      }
 
-     boolean firstPosFlag;
+     boolean firstPosFlag=true;
      int firstPos, secondPos;
 
      class MouseListener implements EventHandler<MouseEvent> {
         ImageView car;
         public MouseListener( ImageView car) {
            this.car = car;
-           firstPosFlag = true;
+           //firstPosFlag = true;
         }
         public void handle(MouseEvent e) {
            int mouseY = (int)((e.getSceneX() - 300)/GRIDBOX);
@@ -353,18 +353,28 @@ public class PlayGame extends Pane {
            }
            else if ( curr != null){//} && (mouseX != firstPos || mouseY != secondPos)) {
               //mySelf.getChildren().remove(playGameSubpanel);
+               //ystem.out.println("first:" + firstPos + ", " + secondPos+ " " );
+               System.out.println();
+
+               System.out.println("beforeupdate :" + curr.getX() + ", " + curr.getY()+ " " );
                updateCarX(curr, mouseX-firstPos);
                updateCarY(curr, mouseY-secondPos);
-               System.out.println("mouse: "+mouseX + " " + mouseY );
-               System.out.println("carPos: " + curr.getX() + " " + curr.getY());
-               System.out.println("first:" + firstPos + ", " + secondPos+ " " );
-               System.out.println("map: "  +  gameMap.getCars()[0].getX()+ " "+gameMap.getCars()[0].getY());
-               System.out.println();
+               System.out.println("after row column update :" + curr.getX() + ", " + curr.getY()+ " " );
+               System.out.println("mouseX:" + mouseX + ", " + mouseY+ " " );
+
+               //curr.setHorizontalX(10,10);
+               //curr.setVerticalY(10,10);
+               //System.out.println("mmmmm:" + e.getSceneX() + "," + e.getSceneY());
+               //System.out.println("mouse: "+mouseX + " " + mouseY );
+               //System.out.println("carPos: " + curr.getX() + " " + curr.getY());
+               //System.out.println("first:" + firstPos + ", " + secondPos+ " " );
+               //System.out.println("map: "  +  gameMap.getCars()[0].getX()+ " "+gameMap.getCars()[0].getY());
                //
-               playGameSubpanel=buildGrid(new Insets(90,0,0,300));
+               //playGameSubpanel=buildGrid(new Insets(90,0,0,300));
                //mySelf.getChildren().add(playGameSubpanel);
-               //GridPane.setRowIndex(car,curr.getX());
-               //GridPane.setColumnIndex(car,curr.getY());
+               GridPane.setRowIndex(car,curr.getX());
+               GridPane.setColumnIndex(car,curr.getY());
+               System.out.println("after row column update :" + curr.getX() + ", " + curr.getY()+ " " );
                  firstPos = mouseX;
                  secondPos = mouseY;
             }
@@ -373,21 +383,21 @@ public class PlayGame extends Pane {
      }
 
      public boolean updateCarX(Car car, int x) {
-        if ( (car.getX() + x) >= 0 && (car.getX() + x) < 6 && (car.getHorizontalX() + x) >= 0  && (car.getHorizontalX() + x) < 6) {
-           //car.setX(car.getX()+x);
+       // if ( (car.getX() + x) >= 0 && (car.getX() + x) < 6 && (car.getHorizontalX() + x) >= 0  && (car.getHorizontalX() + x) < 6) {
            car.setHorizontalX(car.getX()+x, car.getHorizontalX() + x);
+           //car.setX(x);
            return true;
-        }
-        return false;
+       // }
+        //return false;
      }
 
      public boolean updateCarY(Car car, int y) {
-        if ( (car.getY() + y) >= 0 && (car.getY() + y) < 6 && (car.getVerticalY() + y) >= 0 && (car.getVerticalY() + y) < 6) {
-           //car.setY(car.getY()+y);
+        //if ( (car.getY() + y) >= 0 && (car.getY() + y) < 6 && (car.getVerticalY() + y) >= 0 && (car.getVerticalY() + y) < 6) {
            car.setVerticalY(car.getY()+y,car.getVerticalY() + y);
+           //car.setY(y);
            return true;
-        }
-        return false;
+       // }
+       // return false;
      }
 
      public Car findCar(int x, int y) {
