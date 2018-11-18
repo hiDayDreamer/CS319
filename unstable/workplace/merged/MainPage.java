@@ -22,6 +22,11 @@ public class MainPage extends Pane{
     private final String SOUND_ICON = "/img/soundIcon.png";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
     private final String GAME_TITLE = "Rush Hour";
+    private final String PLAYBUTTON = "/img/playButton.png";
+    private final String DASHBOARDBUTTON = "/img/dashboardButton.png";
+    private final String HOWTOBUTTON = "/img/howToButton.png";
+    private final String SETTINGSBUTTON = "/img/settingsButton.png";
+
     private final double WIDTH  = 1080;
     private final double HEIGHT = 720;
     private final double COPYRIGHT_PANEL_SIZE = 60;
@@ -71,6 +76,7 @@ public class MainPage extends Pane{
         name.setLayoutX(WIDTH / 2 - 175 );
         name.setLayoutY(75);
 
+
         //Creating buttons
         int space = 0;
         frameButtons = new Button[4];
@@ -81,10 +87,37 @@ public class MainPage extends Pane{
             frameButtons[i].setLayoutX(BUTTON_X);
             frameButtons[i].setLayoutY(BUTTON_Y + space);
         }
-        frameButtons[0].setText("Play");
+
+        Image playImage = new Image(getClass().getResourceAsStream(PLAYBUTTON),BUTTON_WIDTH,BUTTON_HEIGHT,false,false);
+        ImageView playImageView = new ImageView(playImage);
+        
+        playImageView.fitWidthProperty().bind(frameButtons[0].widthProperty());
+        playImageView.fitWidthProperty().bind(frameButtons[0].heightProperty());
+        //playImageView.setFitWidth(BUTTON_WIDTH);
+        playImageView.setFitHeight(BUTTON_HEIGHT);
+        frameButtons[0].setGraphic(playImageView);
+
+        Image dashboardImage = new Image(getClass().getResourceAsStream(DASHBOARDBUTTON));
+        ImageView dashboardImageView = new ImageView(dashboardImage);
+        dashboardImageView.fitWidthProperty().bind(frameButtons[1].widthProperty());
+        dashboardImageView.fitWidthProperty().bind(frameButtons[1].heightProperty());
+        //frameButtons[1].setGraphic(dashboardImageView);
+                
+        Image howtoimage = new Image(getClass().getResourceAsStream(HOWTOBUTTON));
+        ImageView howtoimageView = new ImageView(howtoimage);
+        howtoimageView.fitWidthProperty().bind(frameButtons[2].widthProperty());
+        howtoimageView.fitWidthProperty().bind(frameButtons[2].heightProperty());
+        //frameButtons[2].setGraphic(howtoimageView);
+                
+        Image settingsImage = new Image(getClass().getResourceAsStream(SETTINGSBUTTON));
+        ImageView settingsImageView = new ImageView(settingsImage);
+        settingsImageView.fitWidthProperty().bind(frameButtons[3].widthProperty());
+        settingsImageView.fitWidthProperty().bind(frameButtons[3].heightProperty());
+       // frameButtons[3].setGraphic(settingsImageView);
+        /*frameButtons[0].setText("Play");
         frameButtons[1].setText("How To");
         frameButtons[2].setText("Dashboard");
-        frameButtons[3].setText("Settings");
+        frameButtons[3].setText("Settings");*/
 
         //Sound button
         soundImage = new ImageView(new Image(SOUND_ICON));
