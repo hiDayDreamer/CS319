@@ -176,12 +176,13 @@ public class PlayGame extends Pane {
         howToButton.setGraphic(b5);
 
         BorderPane title = new BorderPane();
-        /*Label royalFlush = new Label("Royal Flush Got this Bitch Baby :*");
-        royalFlush.setLayoutX(300);
+        Label royalFlush = new Label("Welcome to the Royal Flush experience!");
+        royalFlush.setLayoutX(250);
         royalFlush.setLayoutY(10);
-        royalFlush.setFont(new Font(30));*/
+        royalFlush.setFont(new Font(30));
+
         playGameSubpanel = buildGrid(new Insets(90,0,0,300));
-        this.getChildren().addAll( soundButton, settingsButton, howToButton, playGameSubpanel, backButton, undoButton, resetButton);
+        this.getChildren().addAll( royalFlush, soundButton, settingsButton, howToButton, playGameSubpanel, backButton, undoButton, resetButton);
 
         //this.getChildren().addAll(soundButton);
 
@@ -217,25 +218,31 @@ public class PlayGame extends Pane {
             columnWidth = new ColumnConstraints(gridBoxSize);
             box.getRowConstraints().add(rowHeight);
             box.getColumnConstraints().add(columnWidth);
-            // for (int columnIndex = 0; columnIndex < getCurrentDimensionSize(); columnIndex++){
-               // GridPane.setConstraints(box, columnIndex, rowIndex);
+            for (int columnIndex = 0; columnIndex < getCurrentDimensionSize(); columnIndex++){
+                GridPane.setConstraints(box, columnIndex, rowIndex);
                 //if (!mapBlocks[rowIndex][columnIndex].isOccupied()){
                     //System.out.println("It is free ");
-                    // Image img = new Image(loc);
-                    // ImageView possibleCar = new ImageView(img);
-                    // possibleCar.setFitWidth(gridBoxSize);
-                    // possibleCar.setFitHeight(gridBoxSize);
-                    // box.add(possibleCar,columnIndex,rowIndex);
+                     Image img = new Image("/img/brick.jpg");
+                     ImageView possibleCar = new ImageView(img);
+                     possibleCar.setFitWidth(gridBoxSize-1);
+                     possibleCar.setFitHeight(gridBoxSize-1);
+                     box.add(possibleCar,columnIndex,rowIndex);
 
                // } else {
                     //loc = "settings.png";
                // }
 
 
-            // }
+               }
         }
 
-        box.setStyle("-fx-background-color: #C0C0C0;");
+         Image immg = new Image("/img/exit.png");
+         ImageView exit = new ImageView(immg);
+         exit.setFitWidth(gridBoxSize-1);
+         exit.setFitHeight(gridBoxSize-1);
+         box.add(exit,5,3);
+
+        box.setStyle("-fx-background-color: black");
 
         int direction = -1;
         //loc = "/img/grass.png";
@@ -244,6 +251,10 @@ public class PlayGame extends Pane {
             loc = cars[carIndex].getImageLocation();
             Image img = new Image(loc+"-"+(direction%2)+".png");
             ImageView possibleCar = new ImageView(img);
+
+            if (direction == 3 || direction == 2) {
+                    possibleCar.setRotate(180);
+            }
 
             possibleCar.addEventHandler(MouseEvent.MOUSE_DRAGGED, new MouseListener(possibleCar));
             possibleCar.setOnMouseReleased(new EventHandler<MouseEvent>(){
@@ -258,6 +269,9 @@ public class PlayGame extends Pane {
                   }
                }
             });
+         
+
+
 
             if ( direction == 1 || direction == 3){
                 possibleCar.setFitWidth(gridBoxSize);
@@ -401,8 +415,8 @@ public class PlayGame extends Pane {
      public boolean updateCarX(Car car, int x) {
         // if ( (car.getX() + x) >= 0 && (car.getX() + x) < 6 && (car.getHorizontalX() + x) >= 0  && (car.getHorizontalX() + x) < 6) {
            //car.setX(car.getX()+x);
-           //car.setHorizontalX( x,x+car.getLength());
-           //int diff = x - car.getX();
+           car.setHorizontalX( x,x+car.getLength());
+          /* //int diff = x - car.getX();
            System.out.println("x:" + x + " carX " + car.getX());
            System.out.println("x:" + x + " carHorizontalX " + car.getHorizontalX());
            if ( x - car.getX() <= x - car.getHorizontalX() ) {
@@ -414,7 +428,7 @@ public class PlayGame extends Pane {
           //    car.setHorizontalX(x, x + car.getLength());
           // } else {
           //    car.setHorizontalX( x - car.getLength(), x);
-          // }
+          // }*/
            return true;
         // }
         // return false;
@@ -423,8 +437,8 @@ public class PlayGame extends Pane {
      public boolean updateCarY(Car car, int y) {
         // if ( (car.getY() + y) >= 0 && (car.getY() + y) < 6 && (car.getVerticalY() + y) >= 0 && (car.getVerticalY() + y) < 6) {
         //    //car.setY(car.getY()+y);
-           //car.setVerticalY(y, y+car.getLength());
-           if ( y - car.getY() <= y - car.getVerticalY() ) {
+           car.setVerticalY(y, y+car.getLength());
+           /*if ( y - car.getY() <= y - car.getVerticalY() ) {
              car.setHorizontalX(y, y  + car.getLength());
           } else {
              car.setHorizontalX(y - car.getLength(), y);
@@ -433,7 +447,7 @@ public class PlayGame extends Pane {
           //    car.setHorizontalX(y, y + car.getLength());
           // } else {
           //    car.setHorizontalX( y - car.getLength(), y);
-          // }
+          // }*/
            return true;
         // }
         // return false;
