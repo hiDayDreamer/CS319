@@ -14,6 +14,9 @@ public class Dimensions extends Pane {
     private final String GAME_ICON_LOG = "/img/java_318-32027.jpg";
     private final String SOUND_ICON = "/img/soundIcon.png";
     private final String SETTINGS_ICON = "/img/Settings-icon.png";
+    private final String sixToSixI = "/img/dim1.png";
+    private final String eightToEight = "/img/dim2.png";
+    private final String tenToTen = "/img/dim3.png";
     private final String BACK_ICON = "/img/backIcon.png";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
     private final double WIDTH  = 1080;
@@ -72,7 +75,7 @@ public class Dimensions extends Pane {
         soundImage.setFitHeight(ICON_SIZE);
         soundButton = new Button();
         soundButton.setGraphic(soundImage);
-        //soundButton.setStyle("-fx-background-color: transparent");
+        soundButton.setStyle("-fx-background-color: transparent");
         soundButton.setMinSize(ICON_SIZE, ICON_SIZE);
         soundButton.setLayoutX(WIDTH - 100);
         soundButton.setLayoutY(25);
@@ -83,7 +86,7 @@ public class Dimensions extends Pane {
         settingsImage.setFitHeight(ICON_SIZE);
         settingsButton = new Button();
         settingsButton.setGraphic(settingsImage);
-        //settingsButton.setStyle("-fx-background-color: transparent");
+        settingsButton.setStyle("-fx-background-color: transparent");
         settingsButton.setMinSize(ICON_SIZE, ICON_SIZE);
         settingsButton.setLayoutX(WIDTH - 200);
         settingsButton.setLayoutY(25);
@@ -92,7 +95,7 @@ public class Dimensions extends Pane {
         backImage = new Image(getClass().getResourceAsStream(BACK_ICON));
         backButton = new Button();
         backButton.setGraphic(new ImageView(backImage));
-        //backButton.setStyle("-fx-background-color: transparent");
+        backButton.setStyle("-fx-background-color: transparent");
         backButton.setMinSize(ICON_SIZE, ICON_SIZE);
         backButton.setLayoutX(25);
         backButton.setLayoutY(25);
@@ -139,7 +142,7 @@ public class Dimensions extends Pane {
         dimensionProgression = new ProgressBar[3];
         for ( int i = 0; i < 3; i++){
             dimensionProgression[i] = new ProgressBar();
-            dimensionProgression[i].setStyle("-fx-accent: black ; -fx-border-color: black ; -fx-border-width: 3px ;");
+            dimensionProgression[i].setStyle("-fx-accent: #914b28 ; -fx-border-color: black ; -fx-border-width: 3px ;");
             dimensionProgression[i].setMinWidth(200);
         }
         //charts.getProgression();
@@ -151,12 +154,16 @@ public class Dimensions extends Pane {
         sixToSix = new Button[3];
         for ( int i = 0; i < 3; i++){
             sixToSix[i] = new Button();
-            sixToSix[i].setStyle("-fx-border-color: black ; -fx-border-width: 3px ; -fx-font-family: 'Times New Roman'; -fx-font-weight: bold; -fx-font-size: 25pt ;");
+            sixToSix[i].setStyle("-fx-border-color: black ; -fx-border-width: 3px ; -fx-font-family: 'Verdana'; -fx-font-weight: bold; -fx-font-size: 25pt ;");
+            sixToSix[i].setStyle("-fx-background-color: transparent");
             sixToSix[i].setMinSize(200, (HEIGHT - 175) / 2);
         }
-        sixToSix[0].setText("6X6");
-        sixToSix[1].setText("8X8");
-        sixToSix[2].setText("10X10");
+
+        sixToSix[0].setStyle("-fx-background-image: url('/img/dim1.png')");
+
+        sixToSix[1].setStyle("-fx-background-image: url('/img/dim2.png')");
+
+        sixToSix[2].setStyle("-fx-background-image: url('/img/dim3.png')");
 
         VBox vBox = new VBox(0); // spacing = 8
         VBox vBox2 = new VBox(0); // spacing = 8
@@ -167,7 +174,7 @@ public class Dimensions extends Pane {
         HBox hBox3 = new HBox(0); // spacing = 8
 
         HBox panel = new HBox((WIDTH - 600) / 4); // spacing = 8
-        panel.setLayoutX((WIDTH - 600) / 4);
+        panel.setLayoutX((WIDTH - 650) / 4);
         panel.setLayoutY(HEIGHT / 2 - 200);
 
         hBox.getChildren().addAll(fullStar, numberOfStarsLabel[0]);
@@ -193,7 +200,7 @@ public class Dimensions extends Pane {
     public void setCurrentColor(String colorCSS){
 
         if (colorCSS == null){
-            this.setStyle("-fx-background-color: lightblue;");
+            this.setStyle("-fx-background-color: #81aae6;");
         }else{
             this.setStyle(colorCSS);
         }

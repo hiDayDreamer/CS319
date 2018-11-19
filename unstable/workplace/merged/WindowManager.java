@@ -18,7 +18,7 @@ public class WindowManager extends Stage{
     //Constants
     private final boolean IS_RESIZABLE = false;
     private final String FRAME_TITLE = "Fun for all ages";
-    private final String GAME_ICON_LOG = "/img/java_318-32027.jpg";
+    private final String GAME_ICON_LOG = "/img/java_318-32027.png";
     private final String SOUND_ICON = "/img/soundIcon.png";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
     private final String GAME_TITLE = "Rush Hour";
@@ -117,7 +117,7 @@ public class WindowManager extends Stage{
     public void setCurrentColor(String colorCSS){
 
         if (colorCSS == null){
-            middlePanel.setStyle("-fx-background-color: lightblue;");
+            middlePanel.setStyle("-fx-background-color: #81aae6;");
         }else{
             middlePanel.setStyle(colorCSS);
         }

@@ -48,9 +48,9 @@ class LevelsPane extends GridPane{
    public void initialize(){
       setCurrentColor(null);
       //set dimensions
-      this.setMinHeight(HEIGHT - COPYRIGHT_PANEL_SIZE);
+      this.setMinHeight(HEIGHT - COPYRIGHT_PANEL_SIZE-12);
       this.setMinWidth(WIDTH);
-      this.setMaxHeight(HEIGHT - COPYRIGHT_PANEL_SIZE);
+      //this.setMaxHeight(HEIGHT - COPYRIGHT_PANEL_SIZE);
 
       //Creating copyright panel
       copyRightPanel = new Pane();
@@ -65,7 +65,7 @@ class LevelsPane extends GridPane{
       backImage = new Image(getClass().getResourceAsStream(BACK_ICON));
       backButton = new Button("",new ImageView(backImage));
       //backButton.setGraphic();
-      //backButton.setStyle("-fx-background-color: transparent");
+      backButton.setStyle("-fx-background-color: transparent");
       backButton.setMinSize(ICON_SIZE, ICON_SIZE);
       backButton.setLayoutX(25);
       backButton.setLayoutY(25);
@@ -73,7 +73,7 @@ class LevelsPane extends GridPane{
       // create the label
       title = new Label(dimension);
       title.setStyle("-fx-font-weight: bold;");
-      title.setFont(new Font("Times New Roman", ICON_SIZE * 3 / 2));
+      title.setFont(new Font("Verdana", ICON_SIZE * 6/5));
       title.setMinWidth( WIDTH);
       title.setAlignment(Pos.TOP_CENTER);
       Pane top = new Pane();
@@ -82,11 +82,11 @@ class LevelsPane extends GridPane{
 
       // create the stars pane
       HBox starBox = new HBox();
-      ImageView bottomStar = new ImageView(new Image("/img/emptyStar.png"));
+      ImageView bottomStar = new ImageView(new Image("/img/fullStar.png"));
       bottomStar.setFitWidth(HEIGHT / 5 / 3);
       bottomStar.setFitHeight(HEIGHT / 5 / 3);
-      starNo = new Label("12355");
-      starNo.setFont(new Font("Times New Roman", HEIGHT / 5 / 10));
+      starNo = new Label("45");
+      starNo.setFont(new Font("Verdana", HEIGHT / 5 / 5));
       starBox.getChildren().addAll(bottomStar, starNo);//, backButton);
       starBox.setAlignment(Pos.CENTER);
 
@@ -101,7 +101,7 @@ class LevelsPane extends GridPane{
             // create the number in the box
             Label number = new Label( levelNumber + "");
             number.setStyle("-fx-font-weight: bold;");
-            number.setFont(new Font("Times New Roman", HEIGHT / 5 * 3 / 5));
+            number.setFont(new Font("Verdana", HEIGHT / 5 * 3 / 5));
             level.getChildren().addAll(number);
 
             // create the stars in the boxes
@@ -121,14 +121,14 @@ class LevelsPane extends GridPane{
             button.setOnMouseEntered(new EventHandler<MouseEvent>(){
                   public void handle(MouseEvent e){
                      //System.out.println("asdfads");
-                     number.setFont(new Font("Times New Roman", HEIGHT / 5 * 3 / 5));
+                     number.setFont(new Font("Verdana", HEIGHT / 5 * 3 / 5));
                      //button.setGraphic(new ImageView(new Image("fullStar.png")));
                   }
             });
             button.setOnMousePressed( new EventHandler<MouseEvent>() {
                   public void handle(MouseEvent e){
                      //System.out.println("asdfads");
-                     number.setFont(new Font("Times New Roman", HEIGHT / 5 * 3 / 5));
+                     number.setFont(new Font("Verdana", HEIGHT / 5 * 3 / 5));
                      //button.setGraphic(new ImageView(new Image("fullStar.png")));
                }
             });
@@ -157,7 +157,7 @@ class LevelsPane extends GridPane{
    public void setCurrentColor(String colorCSS){
 
         if (colorCSS == null){
-            this.setStyle("-fx-background-color: lightblue;");
+            this.setStyle("-fx-background-color: #81aae6;");
         }else{
             this.setStyle(colorCSS);
         }

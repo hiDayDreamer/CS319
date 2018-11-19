@@ -61,17 +61,17 @@ public class GameManager extends Application{
              }
              else if ( index == 6){
                 // this goes to the levelsPane from the dimensions panel
-                LevelsPane newPane = new LevelsPane("6x6");
+                LevelsPane newPane = new LevelsPane("6X6");
                 newPane.addHandler( new ButtonListener(0));
                 primaryStage1.updateMiddlePanel(newPane);
              }
              else if ( index == 8){
-                LevelsPane newPane = new LevelsPane("8x8");
+                LevelsPane newPane = new LevelsPane("8X8");
                 newPane.addHandler( new ButtonListener(0));
                 primaryStage1.updateMiddlePanel(newPane);
              }
              else if ( index == 10){
-               LevelsPane newPane = new LevelsPane("10x10");
+               LevelsPane newPane = new LevelsPane("10X10");
                newPane.addHandler( new ButtonListener(0));
                primaryStage1.updateMiddlePanel(newPane);
             }
