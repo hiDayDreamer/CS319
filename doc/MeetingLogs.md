@@ -254,5 +254,28 @@
  - [Aldo, Baris, Endi] Summarized their work on UI classes.
  - [Hygerta, Sila] Discussed some problems in their assigned classes with the other group members.
  - [All] Agreed on having the next meeting on Saturday (to finish writing the Final Report)
- ---
+ 
+ ----
+
+
+**Meeting on Nov 18, 12:00**
+----------------------------
+
+***Participants:*** Aldo, Baris, Endi, Hygerta, Sila</br>***Location:*** Bilkent Library, B block
+
+*Agenda*
+ - Finish writing the Final Report
+ - Fix some parts in the UI to get a fully working game
+ - Prepare presentation slides and divide the parts each member will present the next day
+ 
+
+*Action Items*
+ - [All] Worked collaboratively on completing the missing parts in the Final report and agree on the parts that each member will present
+ - [Hygerta & Sila] Prepare presentation slides 
+ - [Hygerta & Sila] Work on visuals of the game 
+ - [Aldo, Baris, Endi] Further work on the UI
+ - [Aldo, Baris, Endi] Prepare game screenshots which will be used in the final report
+
+
+---
   
