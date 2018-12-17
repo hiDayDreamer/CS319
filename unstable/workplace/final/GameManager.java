@@ -2,6 +2,8 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.image.ImageView;
+import javafx.scene.control.Button;
 
 public class GameManager extends Application{
 
@@ -95,6 +97,43 @@ public class GameManager extends Application{
           public ButtonListener clone() {
              return new ButtonListener();
           }
+       }
+
+
+       static class Animation implements EventHandler<MouseEvent>{
+           private Button b;
+           private double x;
+           private double y;
+           private double width;
+           private double height;
+           private int factor;
+           private boolean enter;
+           public Animation() {
+               super();
+           }
+           public Animation(Button button, int factor, boolean enter) {
+               super();
+               b = button;
+               x = b.getLayoutX();
+               y = b.getLayoutY();
+               width = (( ImageView)b.getGraphic()).getFitWidth();
+               height = (( ImageView)b.getGraphic()).getFitHeight();
+               this.factor = factor;
+               this.enter = enter;
+           }
+           public void handle(MouseEvent e){
+               if (enter) {
+                   (( ImageView)b.getGraphic()).setFitWidth(width + factor);
+                   (( ImageView)b.getGraphic()).setFitHeight(height + factor);
+                   b.setLayoutX(x-factor/2);
+                   b.setLayoutY(y-factor/2);
+               } else {
+                   (( ImageView)b.getGraphic()).setFitWidth(width);
+                   (( ImageView)b.getGraphic()).setFitHeight(height);
+                   b.setLayoutX(x);
+                   b.setLayoutY(y);
+               }
+           }
        }
 
 }

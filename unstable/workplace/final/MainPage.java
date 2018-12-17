@@ -97,59 +97,6 @@ public class MainPage extends Pane{
         settingsIcon.setFitWidth(BUTTON_WIDTH);
         frameButtons[3].setGraphic(settingsIcon);
 
-        frameButtons[0].setOnMouseEntered(new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent e){
-                (( ImageView)frameButtons[0].getGraphic()).setFitWidth(BUTTON_WIDTH + 10);
-                (( ImageView)frameButtons[0].getGraphic()).setFitHeight(BUTTON_HEIGHT + 10);
-               }
-        });
-
-        frameButtons[0].setOnMouseExited(new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent e){
-                (( ImageView)frameButtons[0].getGraphic()).setFitWidth(BUTTON_WIDTH);
-                (( ImageView)frameButtons[0].getGraphic()).setFitHeight(BUTTON_HEIGHT);
-            }
-        });
-
-        frameButtons[1].setOnMouseEntered(new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent e){
-                (( ImageView)frameButtons[1].getGraphic()).setFitWidth(BUTTON_WIDTH + 10);
-                (( ImageView)frameButtons[1].getGraphic()).setFitHeight(BUTTON_HEIGHT + 10);
-            }
-        });
-
-        frameButtons[1].setOnMouseExited(new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent e){
-                (( ImageView)frameButtons[1].getGraphic()).setFitWidth(BUTTON_WIDTH);
-                (( ImageView)frameButtons[1].getGraphic()).setFitHeight(BUTTON_HEIGHT);
-            }
-        });
-        frameButtons[2].setOnMouseEntered(new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent e){
-                (( ImageView)frameButtons[2].getGraphic()).setFitWidth(BUTTON_WIDTH + 10);
-                (( ImageView)frameButtons[2].getGraphic()).setFitHeight(BUTTON_HEIGHT + 10);
-            }
-        });
-
-        frameButtons[2].setOnMouseExited(new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent e){
-                (( ImageView)frameButtons[2].getGraphic()).setFitWidth(BUTTON_WIDTH);
-                (( ImageView)frameButtons[2].getGraphic()).setFitHeight(BUTTON_HEIGHT);
-            }
-        });
-        frameButtons[3].setOnMouseEntered(new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent e){
-                (( ImageView)frameButtons[3].getGraphic()).setFitWidth(BUTTON_WIDTH + 10);
-                (( ImageView)frameButtons[3].getGraphic()).setFitHeight(BUTTON_HEIGHT + 10);
-            }
-        });
-
-        frameButtons[3].setOnMouseExited(new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent e){
-                (( ImageView)frameButtons[3].getGraphic()).setFitWidth(BUTTON_WIDTH);
-                (( ImageView)frameButtons[3].getGraphic()).setFitHeight(BUTTON_HEIGHT);
-            }
-        });
         //Sound button
         soundImage = new ImageView(new Image(SOUND_ICON));
         soundImage.setFitWidth(ICON_SIZE);
@@ -160,6 +107,9 @@ public class MainPage extends Pane{
         soundButton.setMinSize(ICON_SIZE, ICON_SIZE);
         soundButton.setLayoutX(WIDTH - 100);
         soundButton.setLayoutY(25);
+
+        //Add animation to the buttons
+        addAnimation(10);
 
         //Adding buttons to middle panel
         this.getChildren().addAll(name, frameButtons[0], frameButtons[1], frameButtons[2], frameButtons[3], soundButton);
@@ -192,6 +142,15 @@ public class MainPage extends Pane{
         settings.setIndex(4);
         frameButtons[3].addEventHandler(MouseEvent.MOUSE_CLICKED, settings);
 
+    }
+
+    public void addAnimation(int factor) {
+        for ( int i = 0; i < 4; i++ ) {
+            frameButtons[i].setOnMouseEntered(new GameManager.Animation(frameButtons[i], factor, true));
+            frameButtons[i].setOnMouseExited(new GameManager.Animation(frameButtons[i], factor, false));
+        }
+        soundButton.setOnMouseEntered(new GameManager.Animation(soundButton, factor, true));
+        soundButton.setOnMouseExited(new GameManager.Animation(soundButton, factor, false));
     }
 
 }
