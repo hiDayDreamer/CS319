@@ -6,17 +6,12 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
 public class Dimensions extends Pane {
     //Constants
-    private final String GAME_ICON_LOG = "/img/java_318-32027.jpg";
     private final String SOUND_ICON = "/img/soundIcon.png";
     private final String SETTINGS_ICON = "/img/Settings-icon.png";
-    private final String sixToSixI = "/img/dim1.png";
-    private final String eightToEight = "/img/dim2.png";
-    private final String tenToTen = "/img/dim3.png";
     private final String BACK_ICON = "/img/backIcon.png";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
     private final double WIDTH  = 1080;

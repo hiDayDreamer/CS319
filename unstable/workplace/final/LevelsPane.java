@@ -8,14 +8,12 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.geometry.Pos;
-import javafx.geometry.Insets;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
 class LevelsPane extends GridPane{
    //properties
    private final String BACK_ICON = "/img/backIcon.png";
-   private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
    private final double WIDTH  = 1080;
    private final double HEIGHT = 720;
    private final int ICON_SIZE = 64;
@@ -23,10 +21,7 @@ class LevelsPane extends GridPane{
    private final double BUTTON_SIZE = (WIDTH - 2 * ICON_SIZE - HEIGHT)/8;
 
    //Labels
-   private Label copyRightLabel;
-   private HBox starBox;
    private Pane copyRightPanel;
-   private Label version;
    private Label title;
    private String dimension;
    private Label starNo;
@@ -50,16 +45,9 @@ class LevelsPane extends GridPane{
       //set dimensions
       this.setMinHeight(HEIGHT - COPYRIGHT_PANEL_SIZE-12);
       this.setMinWidth(WIDTH);
-      //this.setMaxHeight(HEIGHT - COPYRIGHT_PANEL_SIZE);
 
       //Creating copyright panel
       copyRightPanel = new Pane();
-
-      //Copyright label
-      copyRightLabel = new Label(COPYRIGHT_LABEL);
-
-      //Version label
-      version = new Label("Version b0.1");
 
       //backButton
       backImage = new Image(getClass().getResourceAsStream(BACK_ICON));
@@ -138,12 +126,7 @@ class LevelsPane extends GridPane{
                      //button.setGraphic(new ImageView(new Image("fullStar.png")));
                }
             });
-            // button.setOnMouseExited(new EventHandler<MouseEvent>(){
-            //       public void handle(MouseEvent e){
-            //          System.out.println("asdfads");
-            //          button.setGraphic(level);
-            //       }
-            // });
+
             button.setMinSize(HEIGHT / 5, HEIGHT/ 5);
             button.setStyle("-fx-background-color: transparent");
             a.getChildren().add(level);

@@ -6,7 +6,7 @@ import javafx.scene.input.MouseEvent;
 public class GameManager extends Application{
 
     private WindowManager primaryStage1;
-   // private LevelsPane h = new LevelsPane("8x8");
+    private DashboardData data = new DashboardData();
 
     public static void main(String[] args) {
         launch(args);
@@ -20,7 +20,6 @@ public class GameManager extends Application{
     public void start(Stage primaryStage) {
 
         primaryStage = primaryStage1;
-        //primaryStage1.updateMiddlePanel(h);
         primaryStage1.addHandler( new ButtonListener(1));
     }
 
@@ -48,11 +47,17 @@ public class GameManager extends Application{
                 newPane.addHandler( new ButtonListener(0));
                 primaryStage1.updateMiddlePanel(newPane);
              }
+
              else if ( index == 2 ){
                 // this goes to howto pane from the mainPanel
                 How_To newPane = new How_To();
                 newPane.addHandler( new ButtonListener(0));
                 primaryStage1.updateMiddlePanel(newPane);
+             }
+             else if ( index == 3 ){
+                 DashboardPane newPane = new DashboardPane(data);
+                 newPane.addHandler( new ButtonListener(0));
+                 primaryStage1.updateMiddlePanel(newPane);
              }
              else if ( index == 4){
                 Settings newPane = new Settings();

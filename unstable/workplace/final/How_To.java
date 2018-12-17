@@ -3,7 +3,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.control.Label;
-import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.*;
 
@@ -21,6 +20,7 @@ public class How_To extends Pane {
 
     //Variables
     int tutorialCount;
+
     //Labels
     private Label copyRightLabel;
     private Pane copyRightPanel;
@@ -106,7 +106,8 @@ public class How_To extends Pane {
         tutorial = new ImageView(tutorialImage[0]);
         tutorial.setLayoutX(WIDTH / 2 - 275);
         tutorial.setLayoutY(HEIGHT / 2 - 240);
-	tutorial.setFitHeight(500);
+	    tutorial.setFitHeight(500);
+
         //Next and back button for tutorial images
         pagePassButtons = new Button[2];
         pagePassImages = new Image[2];

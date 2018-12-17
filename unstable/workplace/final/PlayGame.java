@@ -7,24 +7,11 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
 import javafx.geometry.Insets;
-import javafx.geometry.*;
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
-import javafx.stage.Stage;
-import javafx.geometry.*;
-import javafx.scene.paint.*;
-import javafx.scene.canvas.*;
 import javafx.scene.text.*;
-import javafx.scene.Group;
-import javafx.scene.shape.*;
 
 public class PlayGame extends Pane {
     //Constants
-    private final String GAME_ICON_LOG = "/img/java_318-32027.jpeg";
     private final String SOUND_ICON = "/img/soundIcon.png";
     private final String SETTINGS_ICON = "/img/Settings-icon.png";
     private final String BACK_ICON = "/img/backIcon.png";
@@ -34,8 +21,6 @@ public class PlayGame extends Pane {
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
     private final double WIDTH  = 1080;
     private final double HEIGHT = 720;
-    private final double PLAY_WIDTH = 700;
-    private final double PLAY_HEIGHT = 500;
     private final double COPYRIGHT_PANEL_SIZE = 60;
     private final int ICON_SIZE = 64;
     private final int GRIDBOX = 90;
@@ -47,8 +32,6 @@ public class PlayGame extends Pane {
     private Pane copyRightPanel;
     private GridPane playGameSubpanel;
     private Label version;
-    private Label[] leftAt;
-    private Label[] numberOfStarsLabel;
 
     //Buttons
     private Button soundButton;
@@ -57,7 +40,6 @@ public class PlayGame extends Pane {
     private Button undoButton;
     private Button resetButton;
     private Button howToButton;
-    private Button[] sixToSix;
 
     //Images
     private Image soundImage;
@@ -66,11 +48,6 @@ public class PlayGame extends Pane {
     private Image undoImage;
     private Image resetImage;
     private Image howToImage;
-    private Image[] stars;
-    private ImageView fullStar;
-
-    //ProgressBar
-    private ProgressBar[] dimensionProgression;
 
     private Map gameMap;
     private Car[] cars;

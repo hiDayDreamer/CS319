@@ -1,77 +1,41 @@
-
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
 import javafx.geometry.Insets;
 import javafx.geometry.*;
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
-import javafx.stage.Stage;
-import javafx.geometry.*;
-import javafx.scene.paint.*;
-import javafx.scene.canvas.*;
 import javafx.scene.text.*;
-import javafx.scene.Group;
-import javafx.scene.shape.*;
-import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
 public class Settings extends Pane {
     //Constants
-    private final String GAME_ICON_LOG = "/img/java_318-32027.jpg";
     private final String SOUND_ICON = "/img/soundIcon.png";
     private final String SOUND_BAR_ICON = "/img/sound.png";
-    private final String SETTINGS_ICON = "/img/Settings-icon.png";
     private final String BACK_ICON = "/img/backIcon.png";
     private final String THEMES_ICON = "/img/themesIcon.png";
     private final String TIMER_ICON = "/img/timerIcon.png";
-    private String[] colorButtonIcon;
     private final String TIMER_BUTTON_ICON = "/img/timerON.png";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
     private final double WIDTH  = 1080;
     private final double HEIGHT = 720;
-    private final double PLAY_WIDTH = 700;
-    private final double PLAY_HEIGHT = 500;
     private final double COPYRIGHT_PANEL_SIZE = 60;
     private final int ICON_SIZE = 64;
 
     //Variables
+    private String[] colorButtonIcon;
+
     //Labels
     private Label copyRightLabel;
     private Pane copyRightPanel;
-    private GridPane playGameSubpanel;
     private Label version;
-    private Label[] leftAt;
-    private Label[] numberOfStarsLabel;
 
     //Buttons
-    private Button soundButton;
-    private Button settingsButton;
     private Button backButton;
-    private Button undoButton;
-    private Button resetButton;
-    private Button howToButton;
-    private Button[] sixToSix;
 
     //Images
-    private Image soundImage;
-    private Image settingsImage;
     private Image backImage;
-    private Image undoImage;
-    private Image resetImage;
-    private Image howToImage;
-    private Image[] stars;
-    private ImageView fullStar;
-
-    //ProgressBar
-    private ProgressBar[] dimensionProgression;
 
     public Settings() {
         super();
@@ -151,7 +115,6 @@ public class Settings extends Pane {
         slider.setLayoutY(75);
         h.getChildren().addAll(sound, slider);
         left.getChildren().addAll(soundIcon, h);
-
 
         VBox center = new VBox(100);
         center.setStyle("-fx-background-color: #90de77");
