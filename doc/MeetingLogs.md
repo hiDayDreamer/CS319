@@ -285,7 +285,9 @@
 
 *Agenda*
   -Recheck the presentation slides.
+  
   -Rehearse the presentation slides before the demo.
+  
   -Simulate potential questions that could be asked during the Demo.
   
   
@@ -317,8 +319,8 @@
   
   
 *Action Items*
-  -[All] Brainstormed on what could be improved into our game design and what was going wrong on the design. Read the TA feedback on the first iteration of the analysis report and took into consideration the advices gotten on the meeting arranged with the TA (earlier this week)
-  -[Aldo] was assigned the timer mode sequence diagram which was wrong from the first iteration of the Analysis Report.  
+  -[All] Brainstormed on what could be improved into our game design and what was going wrong on the design. Read the TA feedback on the first iteration of the analysis report and took into consideration the advices gotten on the meeting arranged with the TA (earlier this week).
+  -[Aldo] was assigned the timer mode sequence diagram which was wrong from the first iteration of the Analysis Report.
   -[Baris] was assigned the Play Game sequence diagram, to make minor fixes that would reflect the intended changes on the game play.
   -[Hygerta] was assigned the checking of the scenarios and the use cases of the first Analysis Report.
   -[Endi] was assigned with making the change on the object model to reflect the added attributes and methods for this report along with some higher level managing structures of the game.
