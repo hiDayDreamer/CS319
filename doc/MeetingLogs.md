@@ -357,31 +357,39 @@
   -[Endi] had to work on the notations of the class diagram to match the dependency relation introduced on the component diagram by Hygerta.
   -[Sila and Aldo] were assigned the generation of  new possible features that would be represented into the the game design. All these were inserted into the “Checklist” logging file created the previous week.
 
-Meeting on Dec 12 , 18:00
-Participants: Aldo, Baris, Endi, Hygerta, Sila
-Location: Google Hangouts - Online
-Agenda
-Wrap up the design report iteration 02.
-Check the report for missing parts before the submission at 23:59.
-Action Items
-[Aldo and Baris] updated the class diagram to include the newly proposed features both in functionality and the in the UI design. Wrote the missing textual descriptions of the attributes for each class.
-[Aldo] Wrote why we chose a File System instead of a database for the storage structure.
-[Aldo and Endi] Decided on the package names and divisions on the class diagram.
-[Sila and Gerta] Checked if all the requirements have been met. Gave the to be added feature design for the system. Reviewed the system design and system decomposition.
-[Endi] Dealt with the Access Matrix building for the Rush Hour game design.
-[Baris] Dealt with the page numbers and formatting.Made sure the content is submitted on time and accordingly. Reviewed the System Design for readibility and completeness.
+**Meeting on Dec 12 , 18:00**
+-----------------------------
+
+***Participants:*** Aldo, Baris, Endi, Hygerta, Sila
+</br>***Location:*** Google Hangouts - Online
 
 
-Meeting on Dec 17 , 17:30
-Participants: Aldo, Baris, Endi, Hygerta, Sila
-Location: B Building
-Agenda
-Discuss on the implementation subdivision of tasks.
-Define how we will deal with the final report writing.
-Action Items
-[Aldo and Endi] were assigned the fixing of the small bugs present on the first demo of the project. They also have to implement the newly added features of the game along with the Game Timer and the Star Manager for the scoring system.
-[Baris, Gerta and Sila] were assigned the Game Solver class. They have to determine the logistics of the algorithm that will solve any given map input in the game and that can display hint accordingly. They also have to take case of the Sound Effects and the missing UI for each of the features that need to be implemented.
-[All] Each code part that is to be implemented, as we make the changes we will have to remove any unnecessary chunk present in the respective classes.
+*Agenda*
+  -Wrap up the design report iteration 02.
+  -Check the report for missing parts before the submission at 23:59.
+*Action Items*
+  -[Aldo and Baris] updated the class diagram to include the newly proposed features both in functionality and the in the UI design. Wrote the missing textual descriptions of the attributes for each class.
+  -[Aldo] Wrote why we chose a File System instead of a database for the storage structure.
+  -[Aldo and Endi] Decided on the package names and divisions on the class diagram.
+  -[Sila and Gerta] Checked if all the requirements have been met. Gave the to be added feature design for the system. Reviewed the system design and system decomposition.
+  -[Endi] Dealt with the Access Matrix building for the Rush Hour game design.
+  -[Baris] Dealt with the page numbers and formatting.Made sure the content is submitted on time and accordingly. Reviewed the System Design for readibility and completeness.
+
+
+**Meeting on Dec 17 , 17:30**
+---------------------------------
+
+***Participants:*** Aldo, Baris, Endi, Hygerta, Sila
+</br>***Location:*** B Building
+
+
+*Agenda*
+  -Discuss on the implementation subdivision of tasks.
+  -Define how we will deal with the final report writing.
+*Action Items*
+  -[Aldo and Endi] were assigned the fixing of the small bugs present on the first demo of the project. They also have to implement the newly added features of the game along with the Game Timer and the Star Manager for the scoring system.
+  -[Baris, Gerta and Sila] were assigned the Game Solver class. They have to determine the logistics of the algorithm that will solve any given map input in the game and that can display hint accordingly. They also have to take case of the Sound Effects and the missing UI for each of the features that need to be implemented.
+  -[All] Each code part that is to be implemented, as we make the changes we will have to remove any unnecessary chunk present in the respective classes.
 
 ---
   
