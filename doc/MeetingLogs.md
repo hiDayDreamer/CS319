@@ -421,9 +421,9 @@
   
   
 *Action Items*
-  -[Aldo and Endi] were assigned the fixing of the small bugs present on the first demo of the project. They also have to implement the newly added features of the game along with the Game Timer and the Star Manager for the scoring system.
-  -[Baris, Gerta and Sila] were assigned the Game Solver class. They have to determine the logistics of the algorithm that will solve any given map input in the game and that can display hint accordingly. They also have to take case of the Sound Effects and the missing UI for each of the features that need to be implemented.
-  -[All] Each code part that is to be implemented, as we make the changes we will have to remove any unnecessary chunk present in the respective classes.
+  - [Aldo and Endi] were assigned the fixing of the small bugs present on the first demo of the project. They also have to implement the newly added features of the game along with the Game Timer and the Star Manager for the scoring system.
+  - [Baris, Gerta and Sila] were assigned the Game Solver class. They have to determine the logistics of the algorithm that will solve any given map input in the game and that can display hint accordingly. They also have to take case of the Sound Effects and the missing UI for each of the features that need to be implemented.
+  - [All] Each code part that is to be implemented, as we make the changes we will have to remove any unnecessary chunk present in the respective classes.
 
 ---
   
