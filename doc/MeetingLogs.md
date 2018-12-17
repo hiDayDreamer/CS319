@@ -276,6 +276,93 @@
  - [Aldo, Baris, Endi] Further work on the UI
  - [Aldo, Baris, Endi] Prepare game screenshots which will be used in the final report
 
+Meeting on Nov 19 , 15:30
+Participants: Aldo, Baris, Endi, Hygerta, Sila
+Location: B Building - room 106
+Agenda
+Recheck the presentation slides.
+Rehearse the presentation slides before the demo.
+Simulate potential questions that could be asked during the Demo.
+Action Items
+[All] Worked collaboratively on reviewing the parts that were fitting for the presentation and which parts were likely to change based on the feedback that was recently given by Eray Hoca.
+[Aldo] Took the introduction and the sequence diagrams in the presentation.
+[Endi] Took the part of object diagram and part of sequence diagram.
+[Baris] Took the functional and nonfunctional part in the presentation.
+[Sila] Took the explanation of the activity diagram and part of the game solver class.
+[Hygerta] Took the presentation of the state diagram and part of the game solver class.
+[All] Presented the first iteration demo at 17:40.
+
+Meeting on Nov 24 , 17:00
+Participants: Aldo, Baris, Endi, Hygerta, Sila
+Location: B Building - room 106
+Agenda
+Discuss on the feedback given by both the TA and the professor on the day of the demo.
+Discuss on the overall milestones needed for the second iteration of the project (5 weeks of time).
+Divide the workload for the analysis report iteration 2.
+Action Items
+[All] Brainstormed on what could be improved into our game design and what was going wrong on the design. Read the TA feedback on the first iteration of the analysis report and took into consideration the advices gotten on the meeting arranged with the TA (earlier this week)
+[Aldo] was assigned the timer mode sequence diagram which was wrong from the first iteration of the Analysis Report.
+[Baris] was assigned the Play Game sequence diagram, to make minor fixes that would reflect the intended changes on the game play.
+[Hygerta] was assigned the checking of the scenarios and the use cases of the first Analysis Report.
+[Endi] was assigned with making the change on the object model to reflect the added attributes and methods for this report along with some higher level managing structures of the game.
+[Sila] was assigned the provision of the textual parts that were missing for the diagrams and figures in the first iteration of the report. She also had to update the use case diagram to have the proper changes that reflected the second iteration design of the game.
+[Unexpected event] The Analysis report deadline was extended to 27th of November.
+
+Meeting on Nov 26 , 16:00
+Participants: Aldo, Baris, Endi, Hygerta, Sila
+Location: B Building 
+Agenda
+Discuss on the progress of the work done for the second iteration of the Analysis Report.
+Action Items
+[All] Discussed on the status quo of the project so far and on the tomorrow's deadline for the Analysis Report. Agreed on the changes done so far and on working through google drive docs to make the last necessary additions to the report.
+
+Meeting on Dec 02 , 11:30
+Participants: Aldo, Baris, Endi, Hygerta, Sila
+Location: Library
+Agenda
+Predefine the milestones and requirements of the design report phase.
+Prepare a detailed action plan to follow for the upcoming week.
+Action Items
+[Sila and Gerta] Set up the logistics on Google Drive Docs for the team members to edit a “Checklist” Document that would be updated each time a missing part from the Design Report of the Iteration 1 would come across. This was kept as an internal logging structure of the “To do-s” in the team.
+[Baris and Sila] Had to brainstorm on the added features of the system. (These features were due to team carelessness not added in the Analysis Report).
+[Aldo and Endi] Focus on the new features as well on the parts of the game play that have bugs and that  will be changed on the final version of the game.
+Meeting on Dec 08 , 11:00
+Participants: Aldo, Baris, Endi, Hygerta, Sila
+Location: Library
+Agenda
+Fix the Design Report of Iteration 01.
+Introduce a new component diagram that encompasses the changes introduced in the second iteration of the project.
+Action Items
+[Baris] Worked on the explanations of the diagrams and the figures introduced in the first iteration to match with the newly introduced terminology of the second iteration.
+[Hygerta] Worked on improving the component diagram to make use of the notations taught in the last week of classes and to cut down the no longer valid components (due to changes in the project design in this phase).
+[Endi] had to work on the notations of the class diagram to match the dependency relation introduced on the component diagram by Hygerta.
+[Sila and Aldo] were assigned the generation of  new possible features that would be represented into the the game design. All these were inserted into the “Checklist” logging file created the previous week.
+
+Meeting on Dec 12 , 18:00
+Participants: Aldo, Baris, Endi, Hygerta, Sila
+Location: Google Hangouts - Online
+Agenda
+Wrap up the design report iteration 02.
+Check the report for missing parts before the submission at 23:59.
+Action Items
+[Aldo and Baris] updated the class diagram to include the newly proposed features both in functionality and the in the UI design. Wrote the missing textual descriptions of the attributes for each class.
+[Aldo] Wrote why we chose a File System instead of a database for the storage structure.
+[Aldo and Endi] Decided on the package names and divisions on the class diagram.
+[Sila and Gerta] Checked if all the requirements have been met. Gave the to be added feature design for the system. Reviewed the system design and system decomposition.
+[Endi] Dealt with the Access Matrix building for the Rush Hour game design.
+[Baris] Dealt with the page numbers and formatting.Made sure the content is submitted on time and accordingly. Reviewed the System Design for readibility and completeness.
+
+
+Meeting on Dec 17 , 17:30
+Participants: Aldo, Baris, Endi, Hygerta, Sila
+Location: B Building
+Agenda
+Discuss on the implementation subdivision of tasks.
+Define how we will deal with the final report writing.
+Action Items
+[Aldo and Endi] were assigned the fixing of the small bugs present on the first demo of the project. They also have to implement the newly added features of the game along with the Game Timer and the Star Manager for the scoring system.
+[Baris, Gerta and Sila] were assigned the Game Solver class. They have to determine the logistics of the algorithm that will solve any given map input in the game and that can display hint accordingly. They also have to take case of the Sound Effects and the missing UI for each of the features that need to be implemented.
+[All] Each code part that is to be implemented, as we make the changes we will have to remove any unnecessary chunk present in the respective classes.
 
 ---
   
