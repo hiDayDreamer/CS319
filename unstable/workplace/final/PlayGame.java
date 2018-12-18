@@ -247,11 +247,22 @@ public class PlayGame extends Pane {
             if (direction == 3 || direction == 2) {
                 possibleCar.setRotate(180);
             }
-
+            possibleCar.setOnMousePressed(new EventHandler<MouseEvent>(){
+                public void handle(MouseEvent e) {
+                    int mouseY = (int)((e.getSceneX() - 300)/GRIDBOX);
+                    int mouseX = (int)((e.getSceneY() - 90)/GRIDBOX);
+                    double x = e.getSceneX() - 300;
+                    double y = e.getSceneY() - 90;
+                    curr = findCar(mouseX, mouseY);
+                    carX = possibleCar.getLayoutX();
+                    carY = possibleCar.getLayoutY();
+                    firstX = x;
+                    firstY = y;
+                }
+            });
             possibleCar.addEventHandler(MouseEvent.MOUSE_DRAGGED, new MouseListener(possibleCar));
             possibleCar.setOnMouseReleased(new EventHandler<MouseEvent>(){
                 public void handle(MouseEvent e){
-                    firstFlag = true;
                     double carX = possibleCar.getLayoutX();
                     double carY = possibleCar.getLayoutY();
                     double x = carX % gridBoxSize;
@@ -369,10 +380,11 @@ public class PlayGame extends Pane {
     }
 
 
-    boolean firstFlag=true;
+    //boolean firstFlag=true;
     // int firstPos, secondPos;
     double firstX, firstY;
     double carX, carY;
+    double delta;
     Car curr;
     class MouseListener implements EventHandler<MouseEvent> {
         ImageView car;
@@ -383,23 +395,7 @@ public class PlayGame extends Pane {
         public void handle(MouseEvent e) {
             double x = e.getSceneX() - 300;
             double y = e.getSceneY() - 90;
-            int mouseY = (int)((e.getSceneX() - 300)/GRIDBOX);
-            int mouseX = (int)((e.getSceneY() - 90)/GRIDBOX);
-            if ( firstFlag){
-                curr = findCar(mouseX, mouseY);
-                firstFlag=false;
-                carX = car.getLayoutX();
-                carY = car.getLayoutY();
-                firstX = x;
-                firstY = y;
-            }
-            //System.out.println( "mouse:" + mouseX + ", " + mouseY);
-            //System.out.println( "curr" + curr);
             if ( curr != null ) {
-                int lastX = curr.getX();
-                int lastY = curr.getY();
-                //System.out.println("xbefore:" + curr.getX());
-                boolean vertical = false;
                 Block[][] blocks = gameMap.getBlocks();
                 double afterX = e.getSceneX()-300-(firstX-carX);
                 double afterY = e.getSceneY()-90-(firstY-carY);
@@ -450,57 +446,16 @@ public class PlayGame extends Pane {
 
                 }
                 updateBlockinfo();
-                /*
-                if ( mouseX < 6 && mouseY < 6 && mouseX > -1 && mouseY > -1 ) {
-                    boolean emptyBlock = !blocks[mouseX][mouseY].isOccupied();
-                    boolean xStart = Math.abs(mouseX - curr.getX()) <= Math.abs(mouseX - curr.getHorizontalX());
-                    boolean yStart = Math.abs(mouseY - curr.getY()) <= Math.abs(mouseY - curr.getVerticalY());
-
-                    if ( emptyBlock && (curr.getCarDirection() == 1 || curr.getCarDirection() == 3)){
-                        updateCarX(curr, mouseX);
-                        vertical = true;
-                    } else if (emptyBlock)
-                        updateCarY(curr, mouseY);
-                    // System.out.println("x:" + curr.getX());
-                    // System.out.println();
-                    if (emptyBlock) {
-                        if ( curr.getX() < 0 || curr.getX() > 6 || curr.getHorizontalX() < 0 || curr.getHorizontalX() > 6 ||
-                        curr.getY() < 0 || curr.getY() > 6 || curr.getVerticalY() < 0 || curr.getVerticalY() > 6) {
-                            updateCarX(curr, lastX);
-                            updateCarY(curr, lastY);
-                        } else {
-                            //System.out.println("mouseCheck: " + mouseX + " " + mouseY);
-                            //car.relocate(e.getSceneX()-300-(firstX-carX), e.getSceneY()-90-(firstY-carY));
-                            if ( vertical)
-                                car.setLayoutY(e.getSceneY()-90-(firstY-carY));
-                            else
-                                car.setLayoutX(e.getSceneX()-300-(firstX-carX));
-                            System.out.println( "Player X: " + curr.getY() + "end: " + curr.getVerticalY());
-
-                            updateBlockinfo();
-                        }
-                    }
-                }*/
             }
         }
     }
 
     public boolean updateCarX(Car car, int x) {
-        /*if ( Math.abs(x - car.getX()) <= Math.abs(x - car.getHorizontalX()) ) {
-            car.setHorizontalX(x, x  + car.getLength()-1);
-        } else {
-            car.setHorizontalX(x - car.getLength() + 1, x);
-        }*/
         car.setHorizontalX( x, x + car.getLength() - 1);
         return true;
     }
 
     public boolean updateCarY(Car car, int y) {
-        /*if ( Math.abs(y - car.getY()) <= Math.abs(y - car.getVerticalY()) ) {
-            car.setVerticalY(y, y  + car.getLength()-1);
-        } else {
-            car.setVerticalY(y - car.getLength() + 1, y);
-        }*/
         car.setVerticalY( y, y + car.getLength() - 1);
         return true;
     }
