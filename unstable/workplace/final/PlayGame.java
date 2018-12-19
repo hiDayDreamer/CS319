@@ -20,13 +20,14 @@ public class PlayGame extends Pane implements TimerRunnable {
     private final String RESET_ICON = "/img/reset.png";
     private final String HINT_ICON = "/img/hintImage.png";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
+    private final String BU_ICON = "/img/hintImage.png";
     private final double WIDTH  = 1080;
     private final double HEIGHT = 720;
     private final double COPYRIGHT_PANEL_SIZE = 60;
     private final int ICON_SIZE = 64;
     private final int GRIDBOX = 90;
     private final PlayGame mySelf = this;
-    
+
 
     //Variables
     //Labels
@@ -43,20 +44,20 @@ public class PlayGame extends Pane implements TimerRunnable {
     private Button resetButton;
     private Button howToButton;
     private Button startButton;
-
+	 private Button blowUpButton;
     //Images
-    private Image soundImage;
-    private Image settingsImage;
-    private Image backImage;
-    private Image undoImage;
-    private Image resetImage;
-    private Image howToImage;
+    //private Image soundImage;
+    //private Image settingsImage;
+    //private Image backImage;
+    //private Image undoImage;
+    //private Image resetImage;
+    //private Image howToImage;
 
     private Map gameMap;
     private Car[] cars;
     private boolean timerMode;
     private Block[][] blocks;
-
+	 private Pane carsPane;
 
     private Label timerCountdown;
     int noSeconds = 5;
@@ -86,61 +87,64 @@ public class PlayGame extends Pane implements TimerRunnable {
 
         //How_To Panel
         //Sound button
-        soundImage = new Image(getClass().getResourceAsStream(SOUND_ICON),ICON_SIZE,ICON_SIZE,false,false);
+        //soundImage = new Image(getClass().getResourceAsStream(SOUND_ICON),ICON_SIZE,ICON_SIZE,false,false);
+        ImageView soundImage = new ImageView(new Image(SOUND_ICON));
+        soundImage.setFitWidth(ICON_SIZE);
+        soundImage.setFitHeight(ICON_SIZE);
         soundButton = new Button();
         soundButton.setStyle("-fx-background-color: transparent");
         soundButton.setMinSize(ICON_SIZE,ICON_SIZE);
         soundButton.setLayoutX(WIDTH - 100);
         soundButton.setLayoutY(25);
 
-        ImageView s = new ImageView(soundImage);
+        //ImageView s = new ImageView(soundImage);
 
-        s.fitWidthProperty().bind(soundButton.widthProperty());
-        s.fitWidthProperty().bind(soundButton.heightProperty());
-        soundButton.setGraphic(s);
+        //s.fitWidthProperty().bind(soundButton.widthProperty());
+        //s.fitWidthProperty().bind(soundButton.heightProperty());
+        soundButton.setGraphic(soundImage);
 
         //Settings button
-        settingsImage = new Image(getClass().getResourceAsStream(SETTINGS_ICON),ICON_SIZE,ICON_SIZE,false,false);
+        //settingsImage = new Image(getClass().getResourceAsStream(SETTINGS_ICON),ICON_SIZE,ICON_SIZE,false,false);
         settingsButton = new Button();
         settingsButton.setStyle("-fx-background-color: transparent");
         settingsButton.setMinSize(ICON_SIZE, ICON_SIZE);
         settingsButton.setLayoutX(WIDTH - 200);
         settingsButton.setLayoutY(25);
-        ImageView b = new ImageView(settingsImage);
-        b.fitWidthProperty().bind(settingsButton.widthProperty());
-        b.fitWidthProperty().bind(settingsButton.heightProperty());
-        settingsButton.setGraphic(b);
+        //ImageView b = new ImageView(settingsImage);
+        //b.fitWidthProperty().bind(settingsButton.widthProperty());
+        //b.fitWidthProperty().bind(settingsButton.heightProperty());
+        settingsButton.setGraphic(new ImageView(SETTINGS_ICON));
 
         //Back button
-        backImage = new Image(getClass().getResourceAsStream(BACK_ICON),ICON_SIZE,ICON_SIZE,false,false);
+        //backImage = new Image(getClass().getResourceAsStream(BACK_ICON),ICON_SIZE,ICON_SIZE,false,false);
         backButton = new Button();
         backButton.setStyle("-fx-background-color: transparent");
         backButton.setMinSize(ICON_SIZE, ICON_SIZE);
         backButton.setLayoutX(25);
         backButton.setLayoutY(25);
 
-        ImageView b1 = new ImageView(backImage);
-        b1.fitWidthProperty().bind(backButton.widthProperty());
-        b1.fitWidthProperty().bind(backButton.heightProperty());
-        backButton.setGraphic(b1);
-        backButton.setGraphic(new ImageView(backImage));
+        //ImageView b1 = new ImageView(backImage);
+        //b1.fitWidthProperty().bind(backButton.widthProperty());
+        //b1.fitWidthProperty().bind(backButton.heightProperty());
+        //backButton.setGraphic(b1);
+        backButton.setGraphic(new ImageView(BACK_ICON));
 
-        undoImage = new Image(getClass().getResourceAsStream(UNDO_ICON),ICON_SIZE,ICON_SIZE,false,false);
+        //undoImage = new Image(getClass().getResourceAsStream(UNDO_ICON),ICON_SIZE,ICON_SIZE,false,false);
         undoButton = new Button();
         undoButton.setStyle("-fx-background-color: transparent");
         undoButton.setMinSize(ICON_SIZE, ICON_SIZE);
         undoButton.setLayoutX(150);
         undoButton.setLayoutY(300);
-        undoButton.setGraphic(new ImageView(undoImage));
+        undoButton.setGraphic(new ImageView(UNDO_ICON));
 
-        ImageView b2 = new ImageView(undoImage);
-        b2.fitWidthProperty().bind(undoButton.widthProperty());
-        b2.fitWidthProperty().bind(undoButton.heightProperty());
-        undoButton.setGraphic(b2);
+        //ImageView b2 = new ImageView(undoImage);
+        //b2.fitWidthProperty().bind(undoButton.widthProperty());
+        //b2.fitWidthProperty().bind(undoButton.heightProperty());
+        //undoButton.setGraphic(b2);
 
-        resetImage = new Image(getClass().getResourceAsStream(RESET_ICON),ICON_SIZE,ICON_SIZE,false,false);
+        //resetImage = new Image(getClass().getResourceAsStream(RESET_ICON),ICON_SIZE,ICON_SIZE,false,false);
         resetButton = new Button();
-        resetButton.setGraphic(new ImageView(undoImage));
+        resetButton.setGraphic(new ImageView(RESET_ICON));
         resetButton.setStyle("-fx-background-color: transparent");
         resetButton.setMinSize(ICON_SIZE, ICON_SIZE);
         resetButton.setLayoutX(150);
@@ -163,22 +167,33 @@ public class PlayGame extends Pane implements TimerRunnable {
         hintLabel.setLayoutY(580);
         hintLabel.setFont(new Font(20));
 
-        ImageView b3 = new ImageView(resetImage);
-        b3.fitWidthProperty().bind(resetButton.widthProperty());
-        b3.fitWidthProperty().bind(resetButton.heightProperty());
-        resetButton.setGraphic(b3);
+        //ImageView b3 = new ImageView(resetImage);
+        //b3.fitWidthProperty().bind(resetButton.widthProperty());
+        //b3.fitWidthProperty().bind(resetButton.heightProperty());
+        //resetButton.setGraphic(b3);
 
-        howToImage = new Image(getClass().getResourceAsStream(HINT_ICON),ICON_SIZE,ICON_SIZE,false,false);
+        //howToImage = new Image(getClass().getResourceAsStream(HINT_ICON),ICON_SIZE,ICON_SIZE,false,false);
         howToButton = new Button();
-        howToButton.setGraphic(new ImageView(howToImage));
+        howToButton.setGraphic(new ImageView(HINT_ICON));
         howToButton.setStyle("-fx-background-color: transparent");
         howToButton.setMinSize(ICON_SIZE, ICON_SIZE);
         howToButton.setLayoutX(WIDTH-200);
         howToButton.setLayoutY(500);
-        ImageView b5 = new ImageView(howToImage);
-        b5.fitWidthProperty().bind(howToButton.widthProperty());
-        b5.fitWidthProperty().bind(howToButton.heightProperty());
-        howToButton.setGraphic(b5);
+        //ImageView b5 = new ImageView(howToImage);
+        //b5.fitWidthProperty().bind(howToButton.widthProperty());
+        //b5.fitWidthProperty().bind(howToButton.heightProperty());
+        //howToButton.setGraphic(b5);
+
+        blowUpButton = new Button();
+        blowUpButton.setGraphic(new ImageView(BU_ICON));
+        blowUpButton.setStyle("-fx-background-color: transparent");
+        blowUpButton.setMinSize(ICON_SIZE, ICON_SIZE);
+        blowUpButton.setLayoutX(WIDTH-200);
+        blowUpButton.setLayoutY(300);
+        Label blowUpLabel = new Label("Blow up!!!");
+        blowUpLabel.setLayoutX(WIDTH-190);
+        blowUpLabel.setLayoutY(380);
+        blowUpLabel.setFont(new Font(20));
 
         BorderPane title = new BorderPane();
         Label royalFlush = new Label("Welcome to the Royal Flush experience!");
@@ -201,7 +216,7 @@ public class PlayGame extends Pane implements TimerRunnable {
 
         playGameSubpanel = buildGrid(new Insets(90,0,0,300));
         this.getChildren().addAll( royalFlush, soundButton, settingsButton, howToButton, playGameSubpanel, backButton, undoButton, resetButton,
-        resetLabel, hintLabel, undoLabel,timerCountdown,startButton);
+        resetLabel, hintLabel, undoLabel,timerCountdown,startButton, blowUpLabel, blowUpButton);
 
 
 
@@ -228,7 +243,7 @@ public class PlayGame extends Pane implements TimerRunnable {
         gridBoxSize = 90;
 
         Pane box = new Pane();
-
+		  carsPane = new Pane();
         //box.setGridLinesVisible(true);
         box.setStyle("-fx-background-color: black, -fx-control-inner-background; -fx-background-insets: 0, 2; -fx-padding:2;");
 
@@ -343,7 +358,7 @@ public class PlayGame extends Pane implements TimerRunnable {
                 GridPane.setRowIndex(possibleCar,cars[carIndex].getX());
                 GridPane.setColumnIndex(possibleCar,cars[carIndex].getY());
                 */
-                box.getChildren().add(possibleCar);
+                carsPane.getChildren().add(possibleCar);
             } else {
                 possibleCar.setFitWidth(cars[carIndex].getLength()* gridBoxSize);
                 possibleCar.setFitHeight(gridBoxSize);
@@ -353,9 +368,10 @@ public class PlayGame extends Pane implements TimerRunnable {
                 GridPane.setRowIndex(possibleCar,cars[carIndex].getX());
                 GridPane.setColumnIndex(possibleCar,cars[carIndex].getY());
                 */
-                box.getChildren().add(possibleCar);
+                carsPane.getChildren().add(possibleCar);
             }
         }
+		  box.getChildren().add(carsPane);
         playGameSubpanel.getChildren().add(box);
         return playGameSubpanel;
     }
@@ -397,6 +413,21 @@ public class PlayGame extends Pane implements TimerRunnable {
         GameManager.ButtonListener startTime = e.clone();
         startTime.setIndex(31);
         startButton.addEventHandler(MouseEvent.MOUSE_CLICKED, startTime);
+		  blowUpButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
+            public void handle(MouseEvent e) {
+                System.out.println("BlowUp");
+                int toGo = (int)(Math.random()*(cars.length-1)) + 1;
+                Car[] newCars = new Car[cars.length - 1];
+                for ( int i = 0; i < toGo; i++ )
+                    newCars[i] = cars[i];
+                for ( int i = toGo+1; i < cars.length; i++)
+                    newCars[i-1] = cars[i];
+                gameMap.setCars(newCars);
+                cars = gameMap.getCars();
+                carsPane.getChildren().remove(toGo);
+                updateBlockinfo();
+            }
+        });
     }
 
     private void updateBlockinfo(){
@@ -550,6 +581,6 @@ public class PlayGame extends Pane implements TimerRunnable {
         view.setFitHeight(90*6);
         view.setLayoutX(20);
         view.setLayoutY(100);
-        mySelf.getChildren().add(view);   
+        mySelf.getChildren().add(view);
     }
 }

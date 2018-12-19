@@ -68,6 +68,9 @@ public class Map {
 		return cars;
 	}
 
+	public void setCars(Car[] cars ){
+		this.cars = cars;
+	}
 	private void initMap(){
 		blocks = new Block[dimension][];
 		int lengthIndex = 0;
@@ -114,18 +117,11 @@ public class Map {
 		}
 
 
-
-		cars[0].setHorizontalX(3,5);
-		cars[0].setVerticalY(4,4);
-		cars[0].setLength(3);
-		cars[0].setCarDirection(1);
-
-
-		cars[0].setHorizontalX(0,1);
-		cars[0].setVerticalY(2,2);
+		cars[0].setHorizontalX(3,3);
+		cars[0].setVerticalY(1,2);
 		cars[0].setLength(2);
-		cars[0].setCarDirection(3);
-
+		cars[0].setCarDirection(2);
+		cars[0].setPlayer(true);
 
 		cars[1].setHorizontalX(0,0);
 		cars[1].setVerticalY(4,5);
@@ -147,11 +143,10 @@ public class Map {
 		cars[4].setLength(3);
 		cars[4].setCarDirection(0);
 
-		cars[5].setHorizontalX(3,3);
-		cars[5].setVerticalY(1,2);
+		cars[5].setHorizontalX(0,1);
+		cars[5].setVerticalY(2,2);
 		cars[5].setLength(2);
-		cars[5].setCarDirection(2);
-		cars[5].setPlayer(true);
+		cars[5].setCarDirection(3);
 
 		cars[6].setHorizontalX(3,5);
 		cars[6].setVerticalY(4,4);
