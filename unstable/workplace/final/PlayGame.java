@@ -55,6 +55,7 @@ public class PlayGame extends Pane implements TimerRunnable {
     private Map gameMap;
     private Car[] cars;
     private boolean timerMode;
+    private Block[][] blocks;
 
 
     private Label timerCountdown;
@@ -73,6 +74,7 @@ public class PlayGame extends Pane implements TimerRunnable {
         this.setMinHeight(HEIGHT - COPYRIGHT_PANEL_SIZE);
         this.setMinWidth(WIDTH);
 
+        blocks = gameMap.getBlocks();
         //Creating copyright panel
         copyRightPanel = new Pane();
 
@@ -282,6 +284,33 @@ public class PlayGame extends Pane implements TimerRunnable {
                     carY = possibleCar.getLayoutY();
                     firstX = x;
                     firstY = y;
+                    moveForward = 0;
+                    moveBackward = 0;
+                    if ( curr != null ) {
+                        if ( curr.getCarDirection() == 1 || curr.getCarDirection() == 3 ) {
+                            int i = curr.getX() - 1;
+                            while ( i > -1 && !blocks[i][curr.getY()].isOccupied() ) {
+                                moveForward++;
+                                i--;
+                            }
+                            int end = curr.getHorizontalX() + 1;
+                            while ( end < 6 && !blocks[end][curr.getY()].isOccupied()) {
+                                moveBackward++;
+                                end++;
+                            }
+                        } else {
+                            int i = curr.getY() - 1;
+                            while ( i > -1 && !blocks[curr.getX()][i].isOccupied()) {
+                                moveForward++;
+                                i--;
+                            }
+                            int end = curr.getVerticalY() + 1;
+                            while ( end < 6 && !blocks[curr.getX()][end].isOccupied()) {
+                                moveBackward++;
+                                end++;
+                            }
+                        }
+                    }
                 }
             });
             possibleCar.addEventHandler(MouseEvent.MOUSE_DRAGGED, new MouseListener(possibleCar));
@@ -371,7 +400,7 @@ public class PlayGame extends Pane implements TimerRunnable {
     }
 
     private void updateBlockinfo(){
-        Block[][] arr = gameMap.getBlocks();
+        Block[][] arr = blocks;
         for ( int i = 0; i < gameMap.getDimension(); i++) {
             for ( int j = 0; j < gameMap.getDimension(); j++) {
                 arr[i][j].setOccupied(false);
@@ -397,7 +426,7 @@ public class PlayGame extends Pane implements TimerRunnable {
             }
         }
         //Print the blocks in console
-        for ( int i = 0; i < arr.length; i++ ) {
+        /*for ( int i = 0; i < arr.length; i++ ) {
             for ( int j = 0; j < arr[i].length; j++ ) {
                 int temp = arr[i][j].isOccupied() ? 1 : 0;
                 System.out.print(temp + " ");
@@ -405,76 +434,72 @@ public class PlayGame extends Pane implements TimerRunnable {
             System.out.println();
         }
         System.out.println();
+        */
     }
 
-
-    //boolean firstFlag=true;
-    // int firstPos, secondPos;
     double firstX, firstY;
     double carX, carY;
     double delta;
     Car curr;
+    int moveForward;
+    int moveBackward;
     class MouseListener implements EventHandler<MouseEvent> {
         ImageView car;
         public MouseListener( ImageView car) {
             this.car = car;
-            //firstPosFlag = true;
         }
         public void handle(MouseEvent e) {
             double x = e.getSceneX() - 300;
             double y = e.getSceneY() - 90;
-            if ( curr != null ) {
-                Block[][] blocks = gameMap.getBlocks();
-                double afterX = e.getSceneX()-300-(firstX-carX);
-                double afterY = e.getSceneY()-90-(firstY-carY);
-                int newX = (int) Math.round(afterY / gridBoxSize);
-                int newY = (int) Math.round(afterX / gridBoxSize);
-                boolean empty = true;
+            //if ( curr != null ) {
+            double afterX = e.getSceneX()-300-(firstX-carX);
+            double afterY = e.getSceneY()-90-(firstY-carY);
+            boolean empty = true;
 
-                if ( curr.getCarDirection() == 1 || curr.getCarDirection() == 3 ) {
-                    if ( afterY > -1 && afterY + gridBoxSize * curr.getLength() < gridBoxSize*6 ) {
-                        boolean neg = y < firstY;
-                        if ( neg ) {
-                            if (curr.getX() > 0 && blocks[curr.getX()-1][curr.getY()].isOccupied())
-                                empty = false;
-                        }
-                        else if ( curr.getHorizontalX() < 5 && blocks[curr.getHorizontalX()+1][curr.getY()].isOccupied())
-                            empty = false;
-                        //car.relocate(afterX, afterY);
-                        if (empty) {
-                            car.setLayoutY(afterY);
-                            updateCarX(curr, newX);
-                        }
+            if ( curr.getCarDirection() == 1 || curr.getCarDirection() == 3 ) {
+                if ( afterY > -1 && afterY + gridBoxSize * curr.getLength() < gridBoxSize*6 ) {
+                    boolean neg = y < firstY;
+                    double posY;
+                    if ( neg ) {
+                        posY = Math.max(afterY, carY-gridBoxSize*moveForward);
                     }
-                } else {
-                    if ( afterX > -1 && afterX + gridBoxSize * curr.getLength() < gridBoxSize*6 ) {
-                        boolean neg = x < firstX;
-                        if ( neg ) {
-                            if ( curr.getY() > 0 && blocks[curr.getX()][curr.getY()-1].isOccupied())
-                                empty = false;
-                        }
-                        else if ( curr.getVerticalY() < 5 && blocks[curr.getX()][curr.getVerticalY()+1].isOccupied())
-                            empty = false;
-                        //car.relocate(afterX, afterY);
-                        if ( empty ) {
-                            car.setLayoutX(afterX);
-                            updateCarY(curr, newY);
-                        }
+                    else {
+                        posY = Math.min(afterY, carY+gridBoxSize*moveBackward);
                     }
-                }
-                if ( curr.isPlayer() && curr.getVerticalY() == 5 ){
-                    mySelf.getChildren().remove(playGameSubpanel);
-                    Image im = new Image("/img/win.gif");
-                    ImageView view = new ImageView(im);
-                    view.setFitWidth(WIDTH - 40);
-                    view.setFitHeight(90*6);
-                    view.setLayoutX(20);
-                    view.setLayoutY(100);
-                    mySelf.getChildren().add(view);
+                    car.setLayoutY(posY);
+                    int newX = (int) Math.round(posY / gridBoxSize);
+                    updateCarX(curr, newX);
 
                 }
-                updateBlockinfo();
+            } else {
+                if ( afterX > -1 && afterX + gridBoxSize * curr.getLength() < gridBoxSize*6 ) {
+                    boolean neg = x < firstX;
+                    double posX;
+                    if ( neg ) {
+                        posX = Math.max(afterX, carX-gridBoxSize*moveForward);
+                    }
+                    else {
+                        posX = Math.min(afterX, carX+gridBoxSize*moveBackward);
+                    }
+                    car.setLayoutX(posX);
+                    int newY = (int) Math.round(posX / gridBoxSize);
+                    updateCarY(curr, newY);
+
+                }
             }
+            if ( curr.isPlayer() && curr.getVerticalY() == 5 ){
+                mySelf.getChildren().remove(playGameSubpanel);
+                Image im = new Image("/img/win.gif");
+                ImageView view = new ImageView(im);
+                view.setFitWidth(WIDTH - 40);
+                view.setFitHeight(90*6);
+                view.setLayoutX(20);
+                view.setLayoutY(100);
+                mySelf.getChildren().add(view);
+
+            }
+            updateBlockinfo();
+            //}
         }
     }
 
