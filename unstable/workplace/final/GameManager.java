@@ -4,6 +4,8 @@ import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
+import javafx.scene.media.*;
+import java.io.File;
 
 public class GameManager extends Application{
 
@@ -16,12 +18,14 @@ public class GameManager extends Application{
         launch(args);
     }
 
+    double sliderVolume = 40;
     public GameManager(){
         super();
         primaryStage1 = new WindowManager();
         data = new DashboardData();
         dataStorage = new DataStorage();
         engine = new Engine(this);
+        playBackgroundSound(sliderVolume,"./sound/backgroundSound.mp3");
     }
 
     public DataStorage getDataStorage() {
@@ -33,24 +37,25 @@ public class GameManager extends Application{
         primaryStage = primaryStage1;
         primaryStage1.addHandler( new ButtonListener(1));
     }
-    Settings newSettingsPane;
-    PlayGame playGame;
-
-    class ButtonListener implements EventHandler<MouseEvent>{
-        private int index;
+   Settings newSettingsPane;
+   PlayGame playGame;
 
 
-        public ButtonListener() {
-            super();
-            index = 0;
-        }
-        public ButtonListener( int index) {
-            super();
-            this.index = index;
-        }
+       class ButtonListener implements EventHandler<MouseEvent>{
+          private int index;
 
-        public void handle(MouseEvent e) {
-            if ( index == 0 ) {
+
+          public ButtonListener() {
+             super();
+             index = 0;
+          }
+          public ButtonListener( int index) {
+             super();
+             this.index = index;
+          }
+
+          public void handle(MouseEvent e) {
+             if ( index == 0 ) {
                 MainPage newPane = new MainPage();
                 newPane.addHandler( new ButtonListener(1));
                 primaryStage1.updateMiddlePanel(newPane);
@@ -105,6 +110,7 @@ public class GameManager extends Application{
                 engine.setSelectedMap(selectedMap);
                 playGame = new PlayGame(selectedMap,timerMode);
                 playGame.addHandler( new ButtonListener(6));
+                playGame.setSoundVolume(sliderVolume);
                 primaryStage1.updateMiddlePanel(playGame);
 
             }
