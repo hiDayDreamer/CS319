@@ -47,6 +47,8 @@ public class PlayGame extends Pane implements TimerRunnable {
     private Button startButton;
     private Button blowUpButton;
     private Button shrinkButton;
+    private Button rotate;
+    private Button changeExit;
 
     //Images
     //private Image soundImage;
@@ -62,6 +64,8 @@ public class PlayGame extends Pane implements TimerRunnable {
     private Block[][] blocks;
     private Pane carsPane;
 
+    private double volume;
+
     private Label timerCountdown;
     int noSeconds = 5;
     private int shrinkCount;
@@ -69,6 +73,7 @@ public class PlayGame extends Pane implements TimerRunnable {
         super();
         gameMap = map;
         timerMode = mode;
+        volume = 0;
         initialize();
     }
 
@@ -208,6 +213,30 @@ public class PlayGame extends Pane implements TimerRunnable {
         shrinkLabel.setLayoutY(260);
         shrinkLabel.setFont(new Font(20));
 
+        rotate = new Button();
+        rotate.setGraphic(new ImageView(BU_ICON));
+        rotate.setStyle("-fx-background-color: transparent");
+        rotate.setMinSize(ICON_SIZE, ICON_SIZE);
+        rotate.setLayoutX(WIDTH-100);
+        rotate.setLayoutY(260);
+
+        Label rotateLabel = new Label("Rotate What Allah askina!!!");
+        rotateLabel.setLayoutX(WIDTH-90);
+        rotateLabel.setLayoutY(340);
+        rotateLabel.setFont(new Font(20));
+
+        changeExit = new Button();
+        changeExit.setGraphic(new ImageView(BU_ICON));
+        changeExit.setStyle("-fx-background-color: transparent");
+        changeExit.setMinSize(ICON_SIZE, ICON_SIZE);
+        changeExit.setLayoutX(WIDTH-100);
+        changeExit.setLayoutY(400);
+
+        Label changeExitLabel = new Label("Change exit? but how tho");
+        changeExitLabel.setLayoutX(WIDTH-90);
+        changeExitLabel.setLayoutY(470);
+        changeExitLabel.setFont(new Font(20));
+
 
         BorderPane title = new BorderPane();
         Label royalFlush = new Label("Welcome to the Royal Flush experience!");
@@ -228,7 +257,8 @@ public class PlayGame extends Pane implements TimerRunnable {
 
         playGameSubpanel = buildGrid(new Insets(90,0,0,300));
         this.getChildren().addAll( royalFlush, soundButton, settingsButton, howToButton, playGameSubpanel, backButton, undoButton, resetButton,
-        resetLabel, hintLabel, undoLabel,timerCountdown,startButton, blowUpLabel, blowUpButton, shrinkLabel, shrinkButton);
+        resetLabel, hintLabel, undoLabel,timerCountdown,startButton, blowUpLabel, blowUpButton, shrinkLabel, shrinkButton,
+        changeExit,changeExitLabel,rotate,rotateLabel);
 
         //this.getChildren().addAll(soundButton);
 
@@ -404,7 +434,10 @@ public class PlayGame extends Pane implements TimerRunnable {
         }
     }
 
+    public void set(int soundVolume){
 
+    }
+    
     public void setCurrentDimensionSize(int dimension){
 
     }
@@ -462,6 +495,11 @@ public class PlayGame extends Pane implements TimerRunnable {
                     shrinkCount++;
                 }
                 updateBlockinfo();
+            }
+        });
+        resetButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
+            public void handle(MouseEvent e) {
+                System.out.println("Reset");
             }
         });
     }
@@ -615,4 +653,9 @@ public class PlayGame extends Pane implements TimerRunnable {
         view.setLayoutY(100);
         mySelf.getChildren().add(view);
     }
+
+    public void setSoundVolume(double percentage){
+        volume = percentage;
+    }
+
 }

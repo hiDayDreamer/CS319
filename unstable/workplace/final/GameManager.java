@@ -4,6 +4,8 @@ import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
+import javafx.scene.media.*;
+import java.io.File;
 
 public class GameManager extends Application{
 
@@ -13,9 +15,11 @@ public class GameManager extends Application{
     public static void main(String[] args) {
         launch(args);
     }
-
+    
+    double sliderVolume = 40;
     public GameManager(){
         primaryStage1 = new WindowManager();
+        playBackgroundSound(sliderVolume,"./sound/backgroundSound.mp3");
     }
 
     @Override
@@ -26,6 +30,7 @@ public class GameManager extends Application{
     }
    Settings newSettingsPane;
    PlayGame playGame;
+  
 
        class ButtonListener implements EventHandler<MouseEvent>{
           private int index;
@@ -94,6 +99,7 @@ public class GameManager extends Application{
                }
                playGame = new PlayGame(new Map(6),timerMode);
                playGame.addHandler( new ButtonListener(6));
+               playGame.setSoundVolume(sliderVolume);
                primaryStage1.updateMiddlePanel(playGame);
 
             }
@@ -110,6 +116,10 @@ public class GameManager extends Application{
                //playGame.addHandler( new ButtonListener(0));
                //primaryStage1.updateMiddlePanel(newSettingsPane);
             
+            } else if (index == 32){
+               //this is for the slider volume
+               sliderVolume = newSettingsPane.getSliderVolume();
+               System.out.println(sliderVolume);
             }
           }
 
@@ -158,5 +168,11 @@ public class GameManager extends Application{
                }
            }
        }
+   
+    public void playBackgroundSound(double volume, String soundLoc){
+         Media sound = new Media(new File(soundLoc).toURI().toString());
+         MediaPlayer mediaPlayer = new MediaPlayer(sound);
+         mediaPlayer.play();
+    }
 
 }

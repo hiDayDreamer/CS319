@@ -42,6 +42,8 @@ public class Settings extends Pane {
     private VBox center;
     private ImageView timer;
     private boolean toogler;
+    private Slider slider;
+
 
     public Settings() {
         super();
@@ -109,7 +111,7 @@ public class Settings extends Pane {
         soundIcon.setFitHeight(256);
         soundIcon.setFitWidth(256);
 
-        Slider slider = new Slider();
+        slider = new Slider();
         slider.setMin(0);
         slider.setMax(100);
         slider.setValue(40);
@@ -250,6 +252,14 @@ public class Settings extends Pane {
       GameManager.ButtonListener timerMode = e.clone();
       timerMode.setIndex(30);
       timerButton.addEventHandler(MouseEvent.MOUSE_CLICKED, timerMode);
+
+      GameManager.ButtonListener soundSlider = e.clone();
+      soundSlider.setIndex(32);
+      slider.addEventHandler(MouseEvent.MOUSE_CLICKED, soundSlider);
+    }
+
+    public double getSliderVolume(){
+         return slider.getValue();
     }
 
     public void toogleTimer(){
