@@ -25,7 +25,7 @@ public class GameManager extends Application{
         data = new DashboardData();
         dataStorage = new DataStorage();
         engine = new Engine(this);
-        playBackgroundSound(sliderVolume,"./sound/backgroundSound.mp3");
+        //playBackgroundSound(sliderVolume,"./sound/backgroundSound.mp3");
     }
 
     public DataStorage getDataStorage() {
