@@ -17,7 +17,7 @@ public class GameTimer extends TimerTask {
      private int timeInSeconds;
      Timer  countdownTimer;
      TimerRunnable toRunClass;
-    
+
     //default constructor
     public GameTimer(){
         timeInSeconds = 0;
@@ -38,6 +38,13 @@ public class GameTimer extends TimerTask {
         return timeInSeconds;
     }
 
+    public boolean getTimerOn() {
+        return false;
+    }
+
+    public int getTimeSpent() {
+        return timeInSeconds;
+    }
     //returns true if the countdown is running
     public boolean isCountDownRunning(){
         return  (timeInSeconds > 0);
