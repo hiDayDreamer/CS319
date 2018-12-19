@@ -21,6 +21,7 @@ public class PlayGame extends Pane implements TimerRunnable {
     private final String HINT_ICON = "/img/hintImage.png";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
     private final String BU_ICON = "/img/hintImage.png";
+    private final String SHRINK_ICON = "/img/hintImage.png";
     private final double WIDTH  = 1080;
     private final double HEIGHT = 720;
     private final double COPYRIGHT_PANEL_SIZE = 60;
@@ -44,7 +45,9 @@ public class PlayGame extends Pane implements TimerRunnable {
     private Button resetButton;
     private Button howToButton;
     private Button startButton;
-	 private Button blowUpButton;
+    private Button blowUpButton;
+    private Button shrinkButton;
+
     //Images
     //private Image soundImage;
     //private Image settingsImage;
@@ -57,11 +60,11 @@ public class PlayGame extends Pane implements TimerRunnable {
     private Car[] cars;
     private boolean timerMode;
     private Block[][] blocks;
-	 private Pane carsPane;
+    private Pane carsPane;
 
     private Label timerCountdown;
     int noSeconds = 5;
-
+    private int shrinkCount;
     public PlayGame(Map map,boolean mode) {
         super();
         gameMap = map;
@@ -70,11 +73,10 @@ public class PlayGame extends Pane implements TimerRunnable {
     }
 
     public void initialize(){
-
         //Creating middle panel
         this.setMinHeight(HEIGHT - COPYRIGHT_PANEL_SIZE);
         this.setMinWidth(WIDTH);
-
+        shrinkCount = 0;
         blocks = gameMap.getBlocks();
         //Creating copyright panel
         copyRightPanel = new Pane();
@@ -195,6 +197,18 @@ public class PlayGame extends Pane implements TimerRunnable {
         blowUpLabel.setLayoutY(380);
         blowUpLabel.setFont(new Font(20));
 
+        shrinkButton = new Button();
+        shrinkButton.setGraphic(new ImageView(SHRINK_ICON));
+        shrinkButton.setStyle("-fx-background-color: transparent");
+        shrinkButton.setMinSize(ICON_SIZE, ICON_SIZE);
+        shrinkButton.setLayoutX(WIDTH-200);
+        shrinkButton.setLayoutY(180);
+        Label shrinkLabel = new Label("Shrink!!!");
+        shrinkLabel.setLayoutX(WIDTH-190);
+        shrinkLabel.setLayoutY(260);
+        shrinkLabel.setFont(new Font(20));
+
+
         BorderPane title = new BorderPane();
         Label royalFlush = new Label("Welcome to the Royal Flush experience!");
         royalFlush.setLayoutX(250);
@@ -212,13 +226,9 @@ public class PlayGame extends Pane implements TimerRunnable {
         startButton.setLayoutX(100);
         startButton.setLayoutY(75);
 
-
-
         playGameSubpanel = buildGrid(new Insets(90,0,0,300));
         this.getChildren().addAll( royalFlush, soundButton, settingsButton, howToButton, playGameSubpanel, backButton, undoButton, resetButton,
-        resetLabel, hintLabel, undoLabel,timerCountdown,startButton, blowUpLabel, blowUpButton);
-
-
+        resetLabel, hintLabel, undoLabel,timerCountdown,startButton, blowUpLabel, blowUpButton, shrinkLabel, shrinkButton);
 
         //this.getChildren().addAll(soundButton);
 
@@ -413,18 +423,44 @@ public class PlayGame extends Pane implements TimerRunnable {
         GameManager.ButtonListener startTime = e.clone();
         startTime.setIndex(31);
         startButton.addEventHandler(MouseEvent.MOUSE_CLICKED, startTime);
-		  blowUpButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
+        blowUpButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
             public void handle(MouseEvent e) {
                 System.out.println("BlowUp");
-                int toGo = (int)(Math.random()*(cars.length-1)) + 1;
-                Car[] newCars = new Car[cars.length - 1];
-                for ( int i = 0; i < toGo; i++ )
-                    newCars[i] = cars[i];
-                for ( int i = toGo+1; i < cars.length; i++)
-                    newCars[i-1] = cars[i];
-                gameMap.setCars(newCars);
-                cars = gameMap.getCars();
-                carsPane.getChildren().remove(toGo);
+                if ( cars.length > 1 ) {
+                    int toGo = (int)(Math.random()*(cars.length-1)) + 1;
+                    Car[] newCars = new Car[cars.length - 1];
+                    for ( int i = 0; i < toGo; i++ )
+                        newCars[i] = cars[i];
+                    for ( int i = toGo+1; i < cars.length; i++)
+                        newCars[i-1] = cars[i];
+                    gameMap.setCars(newCars);
+                    cars = gameMap.getCars();
+                    carsPane.getChildren().remove(toGo);
+                    updateBlockinfo();
+                }
+            }
+        });
+        shrinkButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
+            public void handle(MouseEvent e) {
+                System.out.println("Shrink");
+                int index = (int)(Math.random()*(cars.length-1)) + 1;
+                Car temp = cars[index];
+                while ( shrinkCount < cars.length && temp.getLength() < 2 ) {
+                    index = (int)(Math.random()*(cars.length-1)) + 1;
+                    temp = cars[index];
+                }
+                if ( temp.getLength() > 1 ) {
+                    temp.setLength( temp.getLength() - 1);
+                    ImageView tempView = (ImageView) carsPane.getChildren().get(index);
+                    if ( temp.getCarDirection() == 1 || temp.getCarDirection() == 3 ) {
+                        temp.setHorizontalX(temp.getX(), temp.getHorizontalX() - 1);
+                        tempView.setFitHeight(tempView.getFitHeight()-gridBoxSize);
+                    } else {
+                        temp.setVerticalY(temp.getY(), temp.getVerticalY() - 1);
+                        tempView.setFitWidth(tempView.getFitWidth()-gridBoxSize);
+                    }
+                    shrinkCount++;
+                }
                 updateBlockinfo();
             }
         });
