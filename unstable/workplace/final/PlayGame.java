@@ -381,7 +381,7 @@ public class PlayGame extends Pane implements TimerRunnable {
                 carsPane.getChildren().add(possibleCar);
             }
         }
-		  box.getChildren().add(carsPane);
+        box.getChildren().add(carsPane);
         playGameSubpanel.getChildren().add(box);
         return playGameSubpanel;
     }
@@ -506,7 +506,6 @@ public class PlayGame extends Pane implements TimerRunnable {
 
     double firstX, firstY;
     double carX, carY;
-    double delta;
     Car curr;
     int moveForward;
     int moveBackward;
@@ -518,13 +517,12 @@ public class PlayGame extends Pane implements TimerRunnable {
         public void handle(MouseEvent e) {
             double x = e.getSceneX() - 300;
             double y = e.getSceneY() - 90;
-            //if ( curr != null ) {
             double afterX = e.getSceneX()-300-(firstX-carX);
             double afterY = e.getSceneY()-90-(firstY-carY);
             boolean empty = true;
 
             if ( curr.getCarDirection() == 1 || curr.getCarDirection() == 3 ) {
-                if ( afterY > -1 && afterY + gridBoxSize * curr.getLength() < gridBoxSize*6 ) {
+                //if ( afterY > -1 && afterY + gridBoxSize * curr.getLength() < gridBoxSize*6 ) {
                     boolean neg = y < firstY;
                     double posY;
                     if ( neg ) {
@@ -537,9 +535,9 @@ public class PlayGame extends Pane implements TimerRunnable {
                     int newX = (int) Math.round(posY / gridBoxSize);
                     updateCarX(curr, newX);
 
-                }
+                //}
             } else {
-                if ( afterX > -1 && afterX + gridBoxSize * curr.getLength() < gridBoxSize*6 ) {
+                //if ( afterX > -1 && afterX + gridBoxSize * curr.getLength() < gridBoxSize*6 ) {
                     boolean neg = x < firstX;
                     double posX;
                     if ( neg ) {
@@ -551,8 +549,7 @@ public class PlayGame extends Pane implements TimerRunnable {
                     car.setLayoutX(posX);
                     int newY = (int) Math.round(posX / gridBoxSize);
                     updateCarY(curr, newY);
-
-                }
+                //}
             }
             if ( curr.isPlayer() && curr.getVerticalY() == 5 ){
                 mySelf.getChildren().remove(playGameSubpanel);
@@ -566,7 +563,6 @@ public class PlayGame extends Pane implements TimerRunnable {
 
             }
             updateBlockinfo();
-            //}
         }
     }
 
