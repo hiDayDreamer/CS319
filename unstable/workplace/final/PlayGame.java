@@ -9,8 +9,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.control.Label;
 import javafx.geometry.Insets;
 import javafx.scene.text.*;
+import javafx.application.Platform;
 
-public class PlayGame extends Pane {
+public class PlayGame extends Pane implements TimerRunnable {
     //Constants
     private final String SOUND_ICON = "/img/soundIcon.png";
     private final String SETTINGS_ICON = "/img/Settings-icon.png";
@@ -25,6 +26,7 @@ public class PlayGame extends Pane {
     private final int ICON_SIZE = 64;
     private final int GRIDBOX = 90;
     private final PlayGame mySelf = this;
+    
 
     //Variables
     //Labels
@@ -40,6 +42,7 @@ public class PlayGame extends Pane {
     private Button undoButton;
     private Button resetButton;
     private Button howToButton;
+    private Button startButton;
 
     //Images
     private Image soundImage;
@@ -51,10 +54,16 @@ public class PlayGame extends Pane {
 
     private Map gameMap;
     private Car[] cars;
+    private boolean timerMode;
 
-    public PlayGame(Map map) {
+
+    private Label timerCountdown;
+    int noSeconds = 5;
+
+    public PlayGame(Map map,boolean mode) {
         super();
         gameMap = map;
+        timerMode = mode;
         initialize();
     }
 
@@ -175,9 +184,24 @@ public class PlayGame extends Pane {
         royalFlush.setLayoutY(10);
         royalFlush.setFont(new Font(30));
 
+        timerCountdown = new Label("" + noSeconds);
+        timerCountdown.setLayoutX(100);
+        timerCountdown.setLayoutY(200);
+        timerCountdown.setFont(new Font(30));
+
+        startButton = new Button();
+        //startButton.setStyle("-fx-background-color: transparent");
+        startButton.setMinSize(ICON_SIZE,ICON_SIZE);
+        startButton.setLayoutX(100);
+        startButton.setLayoutY(75);
+
+
+
         playGameSubpanel = buildGrid(new Insets(90,0,0,300));
         this.getChildren().addAll( royalFlush, soundButton, settingsButton, howToButton, playGameSubpanel, backButton, undoButton, resetButton,
-        resetLabel, hintLabel, undoLabel);
+        resetLabel, hintLabel, undoLabel,timerCountdown,startButton);
+
+
 
         //this.getChildren().addAll(soundButton);
 
@@ -340,6 +364,10 @@ public class PlayGame extends Pane {
         GameManager.ButtonListener settings = e.clone();
         settings.setIndex(4);
         settingsButton.addEventHandler(MouseEvent.MOUSE_CLICKED, settings);
+
+        GameManager.ButtonListener startTime = e.clone();
+        startTime.setIndex(31);
+        startButton.addEventHandler(MouseEvent.MOUSE_CLICKED, startTime);
     }
 
     private void updateBlockinfo(){
@@ -468,5 +496,35 @@ public class PlayGame extends Pane {
             }
         }
         return null;
+    }
+
+
+    GameTimer timer;
+    public void startTimer(){
+        timer = new GameTimer(noSeconds);
+        System.out.println("I am in start tiemr play game");
+        timer.startCountDown(this);
+    }
+
+
+    public void runOnTimer(){
+        System.out.println("" + timer.getCountDown());
+        noSeconds--;
+        //initialize();
+        Platform.runLater(() -> timerCountdown.setText("" + timer.getCountDown()));
+        if (noSeconds == 0){
+            Platform.runLater(() -> gameloss());
+        }
+    }
+
+    public void gameloss(){
+        mySelf.getChildren().remove(playGameSubpanel);
+        Image im = new Image("/img/win.gif");
+        ImageView view = new ImageView(im);
+        view.setFitWidth(WIDTH - 40);
+        view.setFitHeight(90*6);
+        view.setLayoutX(20);
+        view.setLayoutY(100);
+        mySelf.getChildren().add(view);   
     }
 }

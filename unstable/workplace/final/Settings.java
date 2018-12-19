@@ -36,13 +36,20 @@ public class Settings extends Pane {
 
     //Images
     private Image backImage;
+    private ImageView timerButtonImage;
+    private ToggleButton timerButton;
+
+    private VBox center;
+    private ImageView timer;
+    private boolean toogler;
 
     public Settings() {
         super();
-        initialize();
+        toogler = false;
+        initialize(toogler);
     }
 
-    public void initialize(){
+    public void initialize(boolean togle){
 
         //Creating middle panel
         this.setMinHeight(HEIGHT - COPYRIGHT_PANEL_SIZE);
@@ -116,7 +123,7 @@ public class Settings extends Pane {
         h.getChildren().addAll(sound, slider);
         left.getChildren().addAll(soundIcon, h);
 
-        VBox center = new VBox(100);
+        center = new VBox(100);
         center.setStyle("-fx-background-color: #90de77");
         center.setPadding(new Insets(10, 50, 50, 50));
         center.setLayoutX(10 + WIDTH/3);
@@ -126,17 +133,20 @@ public class Settings extends Pane {
         center.setMaxHeight(2*HEIGHT/3);
         center.setMaxWidth(WIDTH/3 - 25);
 
-        ImageView timer = new ImageView(new Image(TIMER_ICON));
+        timer = new ImageView(new Image(TIMER_ICON));
         timer.setFitWidth(WIDTH/3 - 150);
         timer.setFitHeight(2*HEIGHT/3 - 200);
         timer.setFitHeight(256);
         timer.setFitWidth(256);
 
-        ImageView timerButtonImage = new ImageView(new Image(TIMER_BUTTON_ICON));
+        timerButtonImage = new ImageView(new Image(TIMER_BUTTON_ICON));
         //Image timerButtonImage = new Image(getClass().getResourceAsStream(TIMER_BUTTON_ICON));
         timerButtonImage.setFitHeight(96);
         timerButtonImage.setFitWidth(128);
-        Button timerButton = new Button();
+        if (togle){
+             timerButtonImage.setRotate(180);
+        }
+        timerButton = new ToggleButton();
         timerButton.setGraphic(timerButtonImage);
         timerButton.setStyle("-fx-background-color: transparent");
         timerButton.setMinSize(ICON_SIZE, ICON_SIZE);
@@ -236,5 +246,20 @@ public class Settings extends Pane {
 
     public void addHandler( GameManager.ButtonListener e) {
       backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, e);
-  }
+
+      GameManager.ButtonListener timerMode = e.clone();
+      timerMode.setIndex(30);
+      timerButton.addEventHandler(MouseEvent.MOUSE_CLICKED, timerMode);
+    }
+
+    public void toogleTimer(){
+
+        toogler = !toogler;
+        initialize(toogler);  
+    
+    }
+
+    public boolean isTimerToogleOn(){
+        return toogler;
+    }
 }

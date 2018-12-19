@@ -24,10 +24,13 @@ public class GameManager extends Application{
         primaryStage = primaryStage1;
         primaryStage1.addHandler( new ButtonListener(1));
     }
-
+   Settings newSettingsPane;
+   PlayGame playGame;
 
        class ButtonListener implements EventHandler<MouseEvent>{
           private int index;
+          
+
           public ButtonListener() {
              super();
              index = 0;
@@ -62,9 +65,9 @@ public class GameManager extends Application{
                  primaryStage1.updateMiddlePanel(newPane);
              }
              else if ( index == 4){
-                Settings newPane = new Settings();
-                newPane.addHandler( new ButtonListener(0));
-                primaryStage1.updateMiddlePanel(newPane);
+                newSettingsPane = new Settings();
+                newSettingsPane.addHandler( new ButtonListener(0));
+                primaryStage1.updateMiddlePanel(newSettingsPane);
              }
              else if ( index == 6){
                 // this goes to the levelsPane from the dimensions panel
@@ -83,10 +86,30 @@ public class GameManager extends Application{
                primaryStage1.updateMiddlePanel(newPane);
             }
             else if ( index >= 11 && index <= 25) {
-               PlayGame newPane = new PlayGame(new Map(6));
-               newPane.addHandler( new ButtonListener(6));
-               primaryStage1.updateMiddlePanel(newPane);
+               boolean timerMode;
+               if (newSettingsPane == null){
+                  timerMode = false;
+               } else {
+                  timerMode = newSettingsPane.isTimerToogleOn();
+               }
+               playGame = new PlayGame(new Map(6),timerMode);
+               playGame.addHandler( new ButtonListener(6));
+               primaryStage1.updateMiddlePanel(playGame);
 
+            }
+            else if (index == 30){
+               System.out.println("toogle");
+               newSettingsPane.toogleTimer();
+               newSettingsPane.addHandler( new ButtonListener(0));
+               //primaryStage1.updateMiddlePanel(newSettingsPane);
+            }
+            else if (index == 31){
+               //this is for start tiemr button
+               System.out.println("start timer");
+               playGame.startTimer();
+               //playGame.addHandler( new ButtonListener(0));
+               //primaryStage1.updateMiddlePanel(newSettingsPane);
+            
             }
           }
 
