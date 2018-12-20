@@ -10,7 +10,7 @@ public class Car {
 	private int moveCount;
 	private int carDirection;
 	private String imageLocation;
-	
+
 	public Car(){
 		isMoveable = false;
 		length = 1;
@@ -26,6 +26,22 @@ public class Car {
 		this.carSkin = carSkin;
 	}
 
+	public Car clone() {
+		Car newCar = new Car();
+		newCar.x = x;
+		newCar.y = y;
+		newCar.endX = endX;
+		newCar.endY = endY;
+		newCar.length = length;
+		newCar.isPlayer = isPlayer;
+		newCar.isMoveable = isMoveable;
+		newCar.carSkin = carSkin;
+		newCar.moveCount = moveCount;
+		newCar.carDirection = carDirection;
+		newCar.imageLocation = imageLocation;
+		return newCar;
+	}
+
 	public void setCarDirection(int dir){
 		this.carDirection = dir;
 	}
@@ -37,7 +53,7 @@ public class Car {
 		this.x = x;
 		this.y = y;
 	}
-	
+
 	public void changeCarSkin(int skinNumber) {
 		//TO DO
 	}
@@ -96,7 +112,7 @@ public class Car {
 	public void setMoveCount(int moveCount) {
 		this.moveCount = moveCount;
 	}
-	
+
 	public void setImageLocation(String loc){
 		imageLocation = loc;
 	}
@@ -104,7 +120,7 @@ public class Car {
 	public String getImageLocation(){
 		return imageLocation;
 	}
-	
+
 	public void setHorizontalX(int x, int endX) {
 		this.x = x;
 		this.endX = endX;

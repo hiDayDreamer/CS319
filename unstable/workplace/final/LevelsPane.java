@@ -26,16 +26,17 @@ class LevelsPane extends GridPane{
    private String dimension;
    private Label starNo;
    private Button[] buttons;
-
+   private int[] starArr;
    //Buttons
    private Button backButton;
    private Image backImage;
 
    //constructors
-   public LevelsPane(String dimension){
+   public LevelsPane(String dimension, int[] starArr){
       super();
       this.dimension = dimension;
       buttons = new Button[15];
+      this.starArr = starArr;
       initialize();
    }
 
@@ -106,7 +107,8 @@ class LevelsPane extends GridPane{
 
             // create the stars in the boxes
             HBox stars = new HBox( ( HEIGHT / 5 - 3 * HEIGHT / 5 / 4 ) / 4);
-            for(int j = 0; j < 3; j++) {
+            int temp = starArr[i+k];
+            for(int j = 0; j < temp; j++) {
                ImageView star = new ImageView(new Image("/img/fullStar.png"));
                star.setFitHeight(HEIGHT / 5 / 4);
                star.setFitWidth(HEIGHT / 5 / 4);
@@ -159,6 +161,10 @@ class LevelsPane extends GridPane{
         }else{
             this.setStyle(colorCSS);
         }
+    }
+
+    public void setStars(int[] stars) {
+        this.starArr = stars;
     }
 
     public void addHandler( GameManager.ButtonListener e) {
