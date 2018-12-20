@@ -71,7 +71,8 @@ public class Engine{
 	public boolean gameWon() {
 		// TODO - implement Engine.gameWon
 		// throw new UnsupportedOperationException();
-		if(selectedMap.getPlayer().getY() == 5)
+		Car player = selectedMap.getPlayer();
+		if(player.getY() == 4)
 		{
 			return true;
 		}

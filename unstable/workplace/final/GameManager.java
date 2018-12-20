@@ -311,9 +311,6 @@ public class GameManager extends Application{
                 possibleCar.setLayoutY(carY + gridBoxSize - y);
             //updateCar();
             //engine.updateBlockinfo();
-            if ( engine.gameWon() ) {
-                playGame.gameWon();
-            }
         }
     }
 
@@ -361,6 +358,9 @@ public class GameManager extends Application{
 
             //}
             engine.updateBlockinfo();
+            if ( engine.gameWon() ) {
+                playGame.gameWon();
+            }
         }
     }
 }
