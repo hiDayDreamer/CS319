@@ -162,7 +162,7 @@ class GameSolverTester{
                 test = current.getMap().getCars()[i];
                 test2 = parent.getMap().getCars()[i];
                 if (test.getX() != test2.getX() || test.getHorizontalX() !=  test2.getHorizontalX() 
-                    || test.getY() == test2.getY() || test.getVerticalY() != test2.getVerticalY()){
+                    || test.getY() != test2.getY() || test.getVerticalY() != test2.getVerticalY()){
                     return "Move " + i + " from location: " + test2.getX() + ", " + test2.getY() + " to: "+ test.getX() + ", " + test.getY() +"\n";
                 }
             }
