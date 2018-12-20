@@ -50,7 +50,7 @@ public class Map {
 	}
 
 	public Car getPlayer() {
-		return player;
+		return cars[0];
 	}
 
 	public int getLevel() {
@@ -150,7 +150,7 @@ public class Map {
 		cars[0].setLength(2);
 		cars[0].setCarDirection(2);
 		cars[0].setPlayer(true);
-		player = cars[0];
+		//player = cars[0];
 
 		cars[1].setHorizontalX(0,0);
 		cars[1].setVerticalY(4,5);

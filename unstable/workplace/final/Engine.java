@@ -71,7 +71,7 @@ public class Engine{
 	public boolean gameWon() {
 		// TODO - implement Engine.gameWon
 		// throw new UnsupportedOperationException();
-		if(selectedMap.getPlayer().getX() == 5 && selectedMap.getPlayer().getY() == 2)
+		if(selectedMap.getPlayer().getY() == 5)
 		{
 			return true;
 		}
@@ -274,6 +274,38 @@ public class Engine{
             }
         }
     }
+
+	public void blowUpCar( int toGo ) {
+		Car[] cars = selectedMap.getCars();
+		Car[] newCars = new Car[cars.length - 1];
+		for ( int i = 0; i < toGo; i++ )
+			newCars[i] = cars[i];
+		for ( int i = toGo+1; i < cars.length; i++)
+			newCars[i-1] = cars[i];
+		selectedMap.setCars(newCars);
+		//cars = selectedMap.getCars();
+	}
+
+	public int getCarNo() {
+		return selectedMap.getCars().length;
+	}
+
+	public Car getCar(int index) {
+		return selectedMap.getCars()[index];
+	}
+
+	public Car[] getCars() {
+		return selectedMap.getCars();
+	}
+
+	public void shrinkCar( int index) {
+		Car[] cars = selectedMap.getCars();
+		if ( cars[index].getCarDirection() == 1 || cars[index].getCarDirection() == 3)
+			cars[index].setHorizontalX(cars[index].getX(), cars[index].getHorizontalX() - 1);
+		else
+			cars[index].setVerticalY(cars[index].getY(), cars[index].getVerticalY() - 1);
+		cars[index].setLength( cars[index].getLength() - 1);
+	}
 
 	public int[] findMax( Car curr ) {
 		Block[][] blocks = selectedMap.getBlocks();
