@@ -72,7 +72,7 @@ public class WindowManager extends Stage{
         this.updateMiddlePanel(mainPane);
 
         //Default theme
-        setCurrentColor(null);
+        setCurrentColor("");
     }
 
     public boolean updateMiddlePanel(Pane newPane){
@@ -91,7 +91,7 @@ public class WindowManager extends Stage{
     }
 
     public void setCurrentColor(String colorCSS){
-        if (colorCSS == null){
+        if (colorCSS == ""){
             middlePanel.setStyle("-fx-background-color: #81aae6;");
         }else{
             middlePanel.setStyle(colorCSS);

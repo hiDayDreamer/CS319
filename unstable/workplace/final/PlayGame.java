@@ -219,16 +219,23 @@ public class PlayGame extends Pane implements TimerRunnable {
         startButton.setLayoutY(75);
 
         playGameSubpanel = buildGrid(new Insets(90,0,0,300));
-        getChildren().addAll( royalFlush, soundButton, settingsButton, howToButton, playGameSubpanel, backButton, undoButton, resetButton,
-        resetLabel, hintLabel, undoLabel,timerCountdown,startButton, blowUpLabel, blowUpButton, shrinkLabel, shrinkButton,
-        changeExit,changeExitLabel,rotate,rotateLabel);
+        if (timerMode){
+            getChildren().addAll( royalFlush, soundButton, settingsButton, howToButton, playGameSubpanel, backButton, undoButton, resetButton,
+            resetLabel, hintLabel, undoLabel,timerCountdown,startButton, blowUpLabel, blowUpButton, shrinkLabel, shrinkButton,
+            changeExit,changeExitLabel,rotate,rotateLabel);
+        } else {
+            getChildren().addAll( royalFlush, soundButton, settingsButton, howToButton, playGameSubpanel, backButton, undoButton, resetButton,
+            resetLabel, hintLabel, undoLabel, blowUpLabel, blowUpButton, shrinkLabel, shrinkButton,
+            changeExit,changeExitLabel,rotate,rotateLabel);
+        }
+
 
         //Adding labels to panel
         copyRightPanel.getChildren().add(copyRightLabel);
         copyRightPanel.getChildren().add(version);
 
         //Default theme
-        setCurrentColor(null);
+        //setCurrentColor(null);
     }
 
     public void setStars(int[] stars) {

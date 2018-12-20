@@ -13,6 +13,8 @@ public class GameManager extends Application{
     private DashboardData data;
     private DataStorage dataStorage;
     private static Engine engine;
+    private String backgroundColor = "";
+    private boolean timerMode;
 
     public static void main(String[] args) {
         launch(args);
@@ -82,6 +84,7 @@ public class GameManager extends Application{
             newSettingsPane = new Settings();
             newSettingsPane.addHandler( new ButtonListener(0));
             primaryStage1.updateMiddlePanel(newSettingsPane);
+           
         }
         else if ( index == 6){
             // this goes to the levelsPane from the dimensions panel
@@ -100,7 +103,6 @@ public class GameManager extends Application{
             primaryStage1.updateMiddlePanel(newPane);
         }
         else if ( index >= 11 && index <= 25) {
-            boolean timerMode;
             if (newSettingsPane == null){
                 timerMode = false;
             } else {
@@ -116,19 +118,18 @@ public class GameManager extends Application{
 
         }
         else if (index == 30){
-            System.out.println("toogle");
+            System.out.println("toogle " +  newSettingsPane.isTimerToogleOn());
             newSettingsPane.toogleTimer();
             newSettingsPane.addHandler( new ButtonListener(0));
-            //primaryStage1.updateMiddlePanel(newSettingsPane);
+            backgroundColor = "-fx-background-color: #81ddd6;";
         }
         else if (index == 31){
             //this is for start tiemr button
             System.out.println("start timer");
             playGame.startTimer();
-            //playGame.addHandler( new ButtonListener(0));
-            //primaryStage1.updateMiddlePanel(newSettingsPane);
 
         }
+        primaryStage1.setCurrentColor(backgroundColor);
     }
 
         public void setIndex( int index) {

@@ -234,7 +234,7 @@ public class Settings extends Pane {
         copyRightPanel.getChildren().add(version);
 
         //Default theme
-        setCurrentColor(null);
+        //setCurrentColor(null);
     }
 
     public void setCurrentColor(String colorCSS){
