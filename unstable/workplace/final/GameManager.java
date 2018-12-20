@@ -6,6 +6,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
 import javafx.scene.media.*;
 import java.io.File;
+import java.nio.file.Paths;
 
 public class GameManager extends Application{
 
@@ -19,7 +20,7 @@ public class GameManager extends Application{
     double sliderVolume = 40;
     public GameManager(){
         primaryStage1 = new WindowManager();
-        playBackgroundSound(sliderVolume,"./sound/backgroundSound.mp3");
+        playBackgroundSound(sliderVolume,"file:///home/aldo/Documents/Bilkent/Fall2018-2019/cs319/CS319_RushHour_project/unstable/workplace/final/sound/backgroundSound.mp");
     }
 
     @Override
@@ -170,9 +171,9 @@ public class GameManager extends Application{
        }
    
     public void playBackgroundSound(double volume, String soundLoc){
-         Media sound = new Media(new File(soundLoc).toURI().toString());
-         MediaPlayer mediaPlayer = new MediaPlayer(sound);
-         mediaPlayer.play();
+       /*Media media = new Media(new File(soundLoc).toUri().toString()); //replace /Movies/test.mp3 with your file
+       MediaPlayer player = new MediaPlayer(media); 
+       player.play();*/
     }
 
 }

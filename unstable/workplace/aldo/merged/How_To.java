@@ -3,8 +3,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.control.Label;
-import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.*;
 
 public class How_To extends Pane {
     //Constants
@@ -20,6 +20,7 @@ public class How_To extends Pane {
 
     //Variables
     int tutorialCount;
+
     //Labels
     private Label copyRightLabel;
     private Pane copyRightPanel;
@@ -60,13 +61,20 @@ public class How_To extends Pane {
         version = new Label("Version b0.1");
 
         //How_To Panel
+        Label settings = new Label("Tutorial");
+        settings.setStyle("-fx-font-weight: bold;");
+        settings.setMaxSize(450,75);
+        settings.setFont(new Font("Verdana", 45));
+        settings.setLayoutX(450);
+        settings.setLayoutY(50);
+
         //Sound button
         soundImage = new ImageView(new Image(SOUND_ICON));
         soundImage.setFitWidth(ICON_SIZE);
         soundImage.setFitHeight(ICON_SIZE);
         soundButton = new Button();
         soundButton.setGraphic(soundImage);
-        //soundButton.setStyle("-fx-background-color: transparent");
+        soundButton.setStyle("-fx-background-color: transparent");
         soundButton.setMinSize(ICON_SIZE, ICON_SIZE);
         soundButton.setLayoutX(WIDTH - 100);
         soundButton.setLayoutY(35);
@@ -77,7 +85,7 @@ public class How_To extends Pane {
         settingsImage.setFitHeight(ICON_SIZE);
         settingsButton = new Button();
         settingsButton.setGraphic(settingsImage);
-        //settingsButton.setStyle("-fx-background-color: transparent");
+        settingsButton.setStyle("-fx-background-color: transparent");
         settingsButton.setMinSize(ICON_SIZE, ICON_SIZE);
         settingsButton.setLayoutX(WIDTH - 200);
         settingsButton.setLayoutY(35);
@@ -86,7 +94,7 @@ public class How_To extends Pane {
         backImage = new Image(getClass().getResourceAsStream(BACK_ICON));
         backButton = new Button();
         backButton.setGraphic(new ImageView(backImage));
-        //backButton.setStyle("-fx-background-color: transparent");
+        backButton.setStyle("-fx-background-color: transparent");
         backButton.setMinSize(ICON_SIZE, ICON_SIZE);
         backButton.setLayoutX(25);
         backButton.setLayoutY(35);
@@ -97,7 +105,8 @@ public class How_To extends Pane {
         tutorialImage[0] = new Image(getClass().getResourceAsStream(TUTORIAL_IMAGE));
         tutorial = new ImageView(tutorialImage[0]);
         tutorial.setLayoutX(WIDTH / 2 - 275);
-        tutorial.setLayoutY(HEIGHT / 2 - 200);
+        tutorial.setLayoutY(HEIGHT / 2 - 240);
+	    tutorial.setFitHeight(500);
 
         //Next and back button for tutorial images
         pagePassButtons = new Button[2];
@@ -116,7 +125,7 @@ public class How_To extends Pane {
         pagePassButtons[1].setLayoutX(75);
 
         //Adding buttons to middle panel
-        this.getChildren().addAll(soundButton, settingsButton, backButton, tutorial, pagePassButtons[0], pagePassButtons[1]);
+        this.getChildren().addAll(settings, soundButton, settingsButton, backButton, tutorial, pagePassButtons[0], pagePassButtons[1]);
         //How_To Panel ends
 
         this.setCurrentColor(null);
@@ -127,7 +136,7 @@ public class How_To extends Pane {
     public void setCurrentColor(String colorCSS){
 
         if (colorCSS == null){
-            this.setStyle("-fx-background-color: lightblue;");
+            this.setStyle("-fx-background-color: #81aae6;");
         }else{
             this.setStyle(colorCSS);
         }

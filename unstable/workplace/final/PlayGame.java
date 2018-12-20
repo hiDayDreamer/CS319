@@ -256,7 +256,7 @@ public class PlayGame extends Pane implements TimerRunnable {
         startButton.setLayoutY(75);
 
         playGameSubpanel = buildGrid(new Insets(90,0,0,300));
-        this.getChildren().addAll( royalFlush, soundButton, settingsButton, howToButton, playGameSubpanel, backButton, undoButton, resetButton,
+        getChildren().addAll( royalFlush, soundButton, settingsButton, howToButton, playGameSubpanel, backButton, undoButton, resetButton,
         resetLabel, hintLabel, undoLabel,timerCountdown,startButton, blowUpLabel, blowUpButton, shrinkLabel, shrinkButton,
         changeExit,changeExitLabel,rotate,rotateLabel);
 
