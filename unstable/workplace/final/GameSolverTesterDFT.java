@@ -1,11 +1,11 @@
 import java.util.*;
 
-class GameSolverTester{
+class GameSolverTesterDFT{
     TreeNode initialConfig;
     Set<String> hashTable;
     private boolean gameFinished;
 
-    public GameSolverTester(Map toSolve){
+    public GameSolverTesterDFT(Map toSolve){
         initialConfig = new TreeNode(toSolve, null);
         hashTable = new HashSet<String>();
         gameFinished = false;
@@ -16,7 +16,7 @@ class GameSolverTester{
     public void dft(TreeNode current){
         if (gameFinished){
             //System.out.println(current.parent == null);
-           
+
             return;
         }
         if (isSeenBefore(current)){
@@ -38,7 +38,7 @@ class GameSolverTester{
                     //printSolutionPath(current);
                     return;
                 }
-                    
+
             }else {
             }
             newConfig = canMove(current.getMap(),i,-1);
@@ -49,7 +49,7 @@ class GameSolverTester{
                     //printSolutionPath(current);
                     return;
                 }
-                  
+
             }else {
                 //System.out.println("Negative Movement Is null here \n"  +i);
             }
@@ -139,7 +139,7 @@ class GameSolverTester{
                     }
                 }
             }
-        
+
         }
     }
 
@@ -150,7 +150,7 @@ class GameSolverTester{
         while(parent!= null){
             tmp = findMove(cur) + tmp;
             cur = parent;
-            parent = parent.parent; 
+            parent = parent.parent;
         }
          System.out.println(tmp);
     }
@@ -161,7 +161,7 @@ class GameSolverTester{
             for (int i = 0; i < current.getMap().getCars().length; i++){
                 test = current.getMap().getCars()[i];
                 test2 = parent.getMap().getCars()[i];
-                if (test.getX() != test2.getX() || test.getHorizontalX() !=  test2.getHorizontalX() 
+                if (test.getX() != test2.getX() || test.getHorizontalX() !=  test2.getHorizontalX()
                     || test.getY() != test2.getY() || test.getVerticalY() != test2.getVerticalY()){
                     return "Move " + i + " from location: " + test2.getX() + ", " + test2.getY() + " to: "+ test.getX() + ", " + test.getY() +"\n";
                 }
