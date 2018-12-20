@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+
 public class GameSolver {
 
 	private boolean hintWanted;

@@ -193,4 +193,29 @@ public class Map {
 	public void printDim(){
 		System.out.println(blocks.length);
 	}
+
+	public String toString(){
+		int [][] mapper = new int[dimension][dimension];
+		String tmp = "";
+
+		for (int i = 0; i < cars.length; i++ ){
+			Car car = cars[i];
+			if ( car.getCarDirection() == 1 || car.getCarDirection() == 3 ) {
+				for ( int j = car.getX(); j <= car.getHorizontalX(); j++) {
+					mapper[j][car.getY()] = i+1;
+				}
+			} else {
+				for ( int j = car.getY(); j <= car.getVerticalY(); j++) {
+					mapper[car.getX()][j] = i+1;
+				}
+			}
+		}
+		for (int i = 0; i < mapper.length; i++){
+			for (int j = 0; j < mapper.length; j++){
+				tmp = tmp + mapper[i][j] + " ";
+			}
+			tmp += "\n";
+		}
+		return tmp;
+	}
 }

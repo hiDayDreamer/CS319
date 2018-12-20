@@ -1,0 +1,5425 @@
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+Negative Movement Is null here 
+1
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+Negative Movement Is null here 
+1
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 4 2 2 
+0 0 0 4 3 3 
+0 0 0 0 0 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+Negative Movement Is null here 
+1
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 0 4 2 2 
+0 0 0 4 3 3 
+0 0 0 0 0 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 4 2 2 
+0 0 0 4 3 3 
+0 0 0 0 5 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+Negative Movement Is null here 
+1
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 0 4 2 2 
+0 0 0 4 3 3 
+0 0 0 0 5 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+Negative Movement Is null here 
+1
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+Negative Movement Is null here 
+1
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+Negative Movement Is null here 
+1
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+Negative Movement Is null here 
+1
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+Negative Movement Is null here 
+1
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+Negative Movement Is null here 
+1
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+Negative Movement Is null here 
+1
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+Negative Movement Is null here 
+1
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Negative Movement
+ 0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 4 2 2 
+0 0 0 4 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+Negative Movement Is null here 
+1
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 0 4 2 2 
+0 0 0 4 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 4 2 2 
+0 0 0 4 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+Negative Movement Is null here 
+1
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+Negative Movement Is null here 
+0
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 0 4 2 2 
+0 0 0 4 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 2 2 0 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+Negative Movement Is null here 
+1
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+Negative Movement Is null here 
+1
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+Negative Movement Is null here 
+1
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+Negative Movement Is null here 
+1
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+Negative Movement Is null here 
+1
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+Negative Movement Is null here 
+1
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+Negative Movement Is null here 
+1
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 2 2 0 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+Negative Movement Is null here 
+1
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+2 2 0 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 2 2 0 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 2 2 0 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 2 2 0 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Negative Movement
+ 0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 5 0 
+
+Negative Movement
+ 0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+Negative Movement
+ 0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 0 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+1 1 0 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 4 5 0 
+0 0 0 4 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 4 0 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Positive Movement Is null here 
+0
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+1 1 0 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 0 5 0 
+0 1 1 4 5 0 
+0 0 0 4 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 4 2 2 
+0 0 0 4 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+My Parent: 
+0 0 0 4 2 2 
+0 0 0 4 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Postive movement
+ 0 0 0 4 2 2 
+0 0 0 4 3 3 
+0 0 0 0 0 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+My Parent: 
+0 0 0 4 2 2 
+0 0 0 4 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 4 2 2 
+0 0 0 4 3 3 
+0 0 0 0 0 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+Negative Movement Is null here 
+1
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 0 4 2 2 
+0 0 0 4 3 3 
+0 0 0 0 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 4 2 2 
+0 0 0 4 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+My Parent: 
+0 0 0 4 2 2 
+0 0 0 4 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 0 0 4 2 2 
+0 0 0 4 3 3 
+0 0 0 0 5 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+My Parent: 
+0 0 0 4 2 2 
+0 0 0 4 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 0 4 2 2 
+0 0 0 4 3 3 
+0 0 0 0 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+Negative Movement Is null here 
+1
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+Positive Movement Is null here 
+3
+Negative Movement Is null here 
+3
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
+Positive Movement Is null here 
+4
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 0 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 5 0 
+
+Negative Movement
+ 0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 0 1 1 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+1 1 0 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+1
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 0 2 2 0 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+2
+Negative Movement Is null here 
+2
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Postive movement
+ 0 0 0 0 2 2 
+0 0 0 0 3 3 
+0 0 0 4 5 0 
+0 1 1 4 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+My Parent: 
+0 0 0 0 2 2 
+0 0 0 4 3 3 
+0 0 0 4 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+Negative Movement
+ 0 0 0 4 2 2 
+0 0 0 4 3 3 
+0 0 0 0 5 0 
+0 1 1 0 5 0 
+0 0 0 0 5 0 
+0 0 0 0 0 0 
+
+We have Seen this map before 
+Positive Movement Is null here 
+4
+Negative Movement Is null here 
+4
