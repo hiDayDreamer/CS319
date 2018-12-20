@@ -44,10 +44,11 @@ public class Settings extends Pane {
     private boolean toogler;
     private Slider slider;
     private Button buttons[];
-
+    private int currentSelectedThemeIndex;
 
     public Settings() {
         super();
+        currentSelectedThemeIndex = 0;
         toogler = false;
         initialize(toogler);
     }
@@ -175,11 +176,7 @@ public class Settings extends Pane {
         themes.setFitWidth(256);
 
         colorButtonIcon = new String[5];
-        colorButtonIcon[0] = "/img/circle.png";
-        colorButtonIcon[1] = "/img/blueCircle.png";
-        colorButtonIcon[2] = "/img/greenCircle.png";
-        colorButtonIcon[3] = "/img/lilacCircle.png";
-        colorButtonIcon[4] = "/img/pinkCircle.png";
+        colorButtonIcon = getColorButtons();
         int space = 50;
         buttons = new Button[5];
         for ( int i = 0; i < 5; i++) {
@@ -263,6 +260,49 @@ public class Settings extends Pane {
          return slider.getValue();
     }
 
+    private String[] getColorButtons(){
+        resetColorButtons();
+        String selectedTheme = "";
+        switch(currentSelectedThemeIndex) {
+            case 0 :
+                selectedTheme = "/img/chosenYellow.png";
+                break; 
+            
+            case 1 :
+                selectedTheme = "/img/chosenBlue.png";
+                break; 
+            case 2 :
+                selectedTheme = "/img/chosenGreen.png";
+                break; 
+            case 3 :
+                selectedTheme = "/img/chosenLilac.png";
+                break; 
+            case 4 :
+                selectedTheme = "/img/chosenPink.png";
+                break; 
+            
+            // You can have any number of case statements.
+            default : // Optional
+                selectedTheme = "/img/circle.png";
+                break; 
+        }
+
+        colorButtonIcon[currentSelectedThemeIndex] = selectedTheme;
+        System.out.println(colorButtonIcon[currentSelectedThemeIndex]);
+        return colorButtonIcon;
+    }
+
+    public void resetColorButtons(){
+        colorButtonIcon[0] = "/img/circle.png";
+        colorButtonIcon[1] = "/img/blueCircle.png";
+        colorButtonIcon[2] = "/img/greenCircle.png";
+        colorButtonIcon[3] = "/img/lilacCircle.png";
+        colorButtonIcon[4] = "/img/pinkCircle.png";
+    }
+
+    public void setSelectedTheme(int valueIndex){
+        currentSelectedThemeIndex = valueIndex;
+    }
 
     public void toogleTimer(){
         toogler = !toogler;

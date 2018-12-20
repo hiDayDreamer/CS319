@@ -15,6 +15,7 @@ public class GameManager extends Application{
     private static Engine engine;
     private String backgroundColor = "";
     private boolean timerMode;
+    private int currentThemeIndex;
 
     public static void main(String[] args) {
         launch(args);
@@ -27,6 +28,7 @@ public class GameManager extends Application{
         data = new DashboardData();
         dataStorage = new DataStorage();
         engine = new Engine(this);
+        currentThemeIndex = 4;
         //playBackgroundSound(sliderVolume,"./sound/backgroundSound.mp3");
     }
 
@@ -86,6 +88,7 @@ public class GameManager extends Application{
             } else {
                 newSettingsPane = new Settings();
             }
+            newSettingsPane.setSelectedTheme(currentThemeIndex);
             newSettingsPane.addHandler( new ButtonListener(0));
             primaryStage1.updateMiddlePanel(newSettingsPane);
            
@@ -139,6 +142,11 @@ public class GameManager extends Application{
         } 
         else if (index >= 33 && index < 37 ){
             backgroundColor = "-fx-background-color: #81ddd6;";
+            currentThemeIndex = index -33;
+            newSettingsPane.setSelectedTheme(currentThemeIndex);
+            boolean myTimer = newSettingsPane.isTimerToogleOn();
+            newSettingsPane.initialize(myTimer);
+            
         }
         primaryStage1.setCurrentColor(backgroundColor);
     }
