@@ -14,7 +14,7 @@ class TreeNode{
     public TreeNode getParent(){
         return parent;
     }
-    public void add(TreeNode addition){
+    /*public void add(TreeNode addition){
         children.add(addition);
-    }
+    }*/
 } 

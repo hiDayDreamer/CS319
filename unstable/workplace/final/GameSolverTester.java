@@ -6,7 +6,7 @@ class GameSolverTester{
     private boolean gameFinished;
 
     public GameSolverTester(Map toSolve){
-        initialConfig = new TreeNode(toSolve);
+        initialConfig = new TreeNode(toSolve, null);
         hashTable = new HashSet<String>();
         gameFinished = false;
     }
@@ -14,43 +14,44 @@ class GameSolverTester{
       dft(initialConfig);
     }
     public void dft(TreeNode current){
-        if (gameFinished)
+        if (gameFinished){
+            //System.out.println(current.parent == null);
+           
             return;
+        }
         if (isSeenBefore(current)){
-            System.out.println("We have Seen this map before ");
             return;
         }
         hashTable.add(hashMap(current.getMap()));
         if (gameFinished(current)){
             gameFinished =true;
-            System.out.println("Wise me found the solution");
+            printSolutionPath(current);
             return;
         }
         Car[] cars = current.getMap().getCars();
         for (int i = 0; i<cars.length; i++){
             Map newConfig = canMove(current.getMap(),i,1);
             if (newConfig!=null){
-                TreeNode tmp = new TreeNode(newConfig);
-                initialConfig.add(tmp);
-                System.out.println("My Parent: \n" + current.getMap().toString());
-                System.out.println( "Postive movement\n " + newConfig.toString());
+                TreeNode tmp = new TreeNode(newConfig,current);
                 dft(tmp);
-                if (gameFinished)
+                if (gameFinished){
+                    //printSolutionPath(current);
                     return;
+                }
+                    
             }else {
-            System.out.println("Positive Movement Is null here \n"  +i);
             }
             newConfig = canMove(current.getMap(),i,-1);
             if (newConfig!=null){
-                TreeNode tmp = new TreeNode(newConfig);
-                initialConfig.add( tmp);
-                System.out.println("My Parent: \n" + current.getMap().toString());
-                System.out.println("Negative Movement\n "  +newConfig.toString());
+                TreeNode tmp = new TreeNode(newConfig,current);
                 dft(tmp);
-                if (gameFinished)
+                if (gameFinished){
+                    //printSolutionPath(current);
                     return;
+                }
+                  
             }else {
-                System.out.println("Negative Movement Is null here \n"  +i);
+                //System.out.println("Negative Movement Is null here \n"  +i);
             }
         }
     }
@@ -98,7 +99,7 @@ class GameSolverTester{
                     return null;
                 } else {
                     if (blocks[movable.getX()][y].isOccupied()){
-                        System.out.println("Block " +movable.getX() + " " + y);
+                       // System.out.println("Block " +movable.getX() + " " + y);
                         return null;
                     } else {
                         blocks[movable.getX()][y].setOccupied(true);
@@ -140,6 +141,33 @@ class GameSolverTester{
             }
         
         }
+    }
+
+    private void printSolutionPath(TreeNode last){
+        TreeNode cur = last;
+        TreeNode parent = cur.parent;
+        String tmp = "";
+        while(parent!= null){
+            tmp = findMove(cur) + tmp;
+            cur = parent;
+            parent = parent.parent; 
+        }
+         System.out.println(tmp);
+    }
+    private String findMove(TreeNode current){
+        TreeNode parent = current.parent;
+        if (parent!=null){
+            Car test, test2;
+            for (int i = 0; i < current.getMap().getCars().length; i++){
+                test = current.getMap().getCars()[i];
+                test2 = parent.getMap().getCars()[i];
+                if (test.getX() != test2.getX() || test.getHorizontalX() !=  test2.getHorizontalX() 
+                    || test.getY() == test2.getY() || test.getVerticalY() != test2.getVerticalY()){
+                    return "Move " + i + " from location: " + test2.getX() + ", " + test2.getY() + " to: "+ test.getX() + ", " + test.getY() +"\n";
+                }
+            }
+        }
+        return "";
     }
 
     public static void main(String[] args){
