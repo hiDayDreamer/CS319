@@ -140,12 +140,13 @@ public class GameManager extends Application{
             System.out.println(newSettingsPane.getSliderVolume());
 
         } 
-        else if (index >= 33 && index < 37 ){
+        else if (index >= 33 && index <= 37 ){
             backgroundColor = "-fx-background-color: #81ddd6;";
             currentThemeIndex = index -33;
             newSettingsPane.setSelectedTheme(currentThemeIndex);
             boolean myTimer = newSettingsPane.isTimerToogleOn();
             newSettingsPane.initialize(myTimer);
+            newSettingsPane.addHandler( new ButtonListener(0));
             
         }
         primaryStage1.setCurrentColor(backgroundColor);
