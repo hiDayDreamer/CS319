@@ -12,7 +12,7 @@ public class GameManager extends Application{
     private WindowManager primaryStage1;
     private DashboardData data;
     private DataStorage dataStorage;
-    private Engine engine;
+    private static Engine engine;
 
     public static void main(String[] args) {
         launch(args);
@@ -38,97 +38,98 @@ public class GameManager extends Application{
         primaryStage1.addHandler( new ButtonListener(1));
     }
    Settings newSettingsPane;
-   PlayGame playGame;
+   static PlayGame playGame;
 
 
-       class ButtonListener implements EventHandler<MouseEvent>{
-          private int index;
+   class ButtonListener implements EventHandler<MouseEvent>{
+      private int index;
 
 
-          public ButtonListener() {
-             super();
-             index = 0;
-          }
-          public ButtonListener( int index) {
-             super();
-             this.index = index;
-          }
+      public ButtonListener() {
+         super();
+         index = 0;
+      }
+      public ButtonListener( int index) {
+         super();
+         this.index = index;
+      }
 
-          public void handle(MouseEvent e) {
-             if ( index == 0 ) {
-                MainPage newPane = new MainPage();
-                newPane.addHandler( new ButtonListener(1));
-                primaryStage1.updateMiddlePanel(newPane);
-            }
-            if ( index == 1 ) {
-                // this goes to dimensionsPane from the mainPanel
-                Dimensions newPane = new Dimensions();
-                newPane.addHandler( new ButtonListener(0));
-                primaryStage1.updateMiddlePanel(newPane);
-            }
-
-            else if ( index == 2 ){
-                // this goes to howto pane from the mainPanel
-                How_To newPane = new How_To();
-                newPane.addHandler( new ButtonListener(0));
-                primaryStage1.updateMiddlePanel(newPane);
-            }
-            else if ( index == 3 ){
-                DashboardPane newPane = new DashboardPane(data);
-                newPane.addHandler( new ButtonListener(0));
-                primaryStage1.updateMiddlePanel(newPane);
-            }
-            else if ( index == 4){
-                newSettingsPane = new Settings();
-                newSettingsPane.addHandler( new ButtonListener(0));
-                primaryStage1.updateMiddlePanel(newSettingsPane);
-            }
-            else if ( index == 6){
-                // this goes to the levelsPane from the dimensions panel
-                LevelsPane newPane = new LevelsPane("6X6", engine.getStars());
-                newPane.addHandler( new ButtonListener(0));
-                primaryStage1.updateMiddlePanel(newPane);
-            }
-            else if ( index == 8){
-                LevelsPane newPane = new LevelsPane("8X8", engine.getStars());
-                newPane.addHandler( new ButtonListener(0));
-                primaryStage1.updateMiddlePanel(newPane);
-            }
-            else if ( index == 10){
-                LevelsPane newPane = new LevelsPane("10X10", engine.getStars());
-                newPane.addHandler( new ButtonListener(0));
-                primaryStage1.updateMiddlePanel(newPane);
-            }
-            else if ( index >= 11 && index <= 25) {
-                boolean timerMode;
-                if (newSettingsPane == null){
-                    timerMode = false;
-                } else {
-                    timerMode = newSettingsPane.isTimerToogleOn();
-                }
-                Map selectedMap = dataStorage.getMap().clone();
-                engine.setSelectedMap(selectedMap);
-                playGame = new PlayGame(selectedMap,timerMode);
-                playGame.addHandler( new ButtonListener(6));
-                playGame.setSoundVolume(sliderVolume);
-                primaryStage1.updateMiddlePanel(playGame);
-
-            }
-            else if (index == 30){
-                System.out.println("toogle");
-                newSettingsPane.toogleTimer();
-                newSettingsPane.addHandler( new ButtonListener(0));
-                //primaryStage1.updateMiddlePanel(newSettingsPane);
-            }
-            else if (index == 31){
-                //this is for start tiemr button
-                System.out.println("start timer");
-                playGame.startTimer();
-                //playGame.addHandler( new ButtonListener(0));
-                //primaryStage1.updateMiddlePanel(newSettingsPane);
-
-            }
+      public void handle(MouseEvent e) {
+         if ( index == 0 ) {
+            MainPage newPane = new MainPage();
+            newPane.addHandler( new ButtonListener(1));
+            primaryStage1.updateMiddlePanel(newPane);
         }
+        if ( index == 1 ) {
+            // this goes to dimensionsPane from the mainPanel
+            Dimensions newPane = new Dimensions();
+            newPane.addHandler( new ButtonListener(0));
+            primaryStage1.updateMiddlePanel(newPane);
+        }
+
+        else if ( index == 2 ){
+            // this goes to howto pane from the mainPanel
+            How_To newPane = new How_To();
+            newPane.addHandler( new ButtonListener(0));
+            primaryStage1.updateMiddlePanel(newPane);
+        }
+        else if ( index == 3 ){
+            DashboardPane newPane = new DashboardPane(data);
+            newPane.addHandler( new ButtonListener(0));
+            primaryStage1.updateMiddlePanel(newPane);
+        }
+        else if ( index == 4){
+            newSettingsPane = new Settings();
+            newSettingsPane.addHandler( new ButtonListener(0));
+            primaryStage1.updateMiddlePanel(newSettingsPane);
+        }
+        else if ( index == 6){
+            // this goes to the levelsPane from the dimensions panel
+            LevelsPane newPane = new LevelsPane("6X6", engine.getStars());
+            newPane.addHandler( new ButtonListener(0));
+            primaryStage1.updateMiddlePanel(newPane);
+        }
+        else if ( index == 8){
+            LevelsPane newPane = new LevelsPane("8X8", engine.getStars());
+            newPane.addHandler( new ButtonListener(0));
+            primaryStage1.updateMiddlePanel(newPane);
+        }
+        else if ( index == 10){
+            LevelsPane newPane = new LevelsPane("10X10", engine.getStars());
+            newPane.addHandler( new ButtonListener(0));
+            primaryStage1.updateMiddlePanel(newPane);
+        }
+        else if ( index >= 11 && index <= 25) {
+            boolean timerMode;
+            if (newSettingsPane == null){
+                timerMode = false;
+            } else {
+                timerMode = newSettingsPane.isTimerToogleOn();
+            }
+            Map selectedMap = dataStorage.getMap().clone();
+            engine.setSelectedMap(selectedMap);
+            playGame = new PlayGame(selectedMap,timerMode);
+            playGame.addHandler( new ButtonListener(6));
+            playGame.setSoundVolume(sliderVolume);
+            playGame.setStars(engine.getStars());
+            primaryStage1.updateMiddlePanel(playGame);
+
+        }
+        else if (index == 30){
+            System.out.println("toogle");
+            newSettingsPane.toogleTimer();
+            newSettingsPane.addHandler( new ButtonListener(0));
+            //primaryStage1.updateMiddlePanel(newSettingsPane);
+        }
+        else if (index == 31){
+            //this is for start tiemr button
+            System.out.println("start timer");
+            playGame.startTimer();
+            //playGame.addHandler( new ButtonListener(0));
+            //primaryStage1.updateMiddlePanel(newSettingsPane);
+
+        }
+    }
 
         public void setIndex( int index) {
             this.index = index;
@@ -176,4 +177,76 @@ public class GameManager extends Application{
         }
     }
 
+    static double firstX, firstY;
+    static double carX, carY;
+    static Car curr;
+    static int moveForward;
+    static int moveBackward;
+    static class MoveCar implements EventHandler<MouseEvent>{
+        private ImageView possibleCar;
+        public MoveCar(ImageView car) {
+            possibleCar = car;
+        }
+        public void handle(MouseEvent e) {
+            int gridBoxSize = playGame.getBoxSize();
+            int mouseY = (int)((e.getSceneX() - 300)/gridBoxSize);
+            int mouseX = (int)((e.getSceneY() - 90)/gridBoxSize);
+            double x = e.getSceneX() - 300;
+            double y = e.getSceneY() - 90;
+            curr = playGame.findCar(mouseX, mouseY);
+            carX = possibleCar.getLayoutX();
+            carY = possibleCar.getLayoutY();
+            firstX = x;
+            firstY = y;
+            moveForward = 0;
+            moveBackward = 0;
+            int[] res = engine.findMax(curr);
+            moveForward = res[0];
+            moveBackward = res[1];
+        }
+    }
+
+    static class MouseListener implements EventHandler<MouseEvent> {
+        ImageView car;
+        public MouseListener( ImageView car ) {
+            this.car = car;
+        }
+        public void handle(MouseEvent e) {
+            double x = e.getSceneX() - 300;
+            double y = e.getSceneY() - 90;
+            double afterX = e.getSceneX()-300-(firstX-carX);
+            double afterY = e.getSceneY()-90-(firstY-carY);
+            boolean empty = true;
+            int gridBoxSize = playGame.getBoxSize();
+            if ( curr.getCarDirection() == 1 || curr.getCarDirection() == 3 ) {
+                boolean neg = y < firstY;
+                double posY;
+                if ( neg ) {
+                    posY = Math.max(afterY, carY-gridBoxSize*moveForward);
+                }
+                else {
+                    posY = Math.min(afterY, carY+gridBoxSize*moveBackward);
+                }
+                car.setLayoutY(posY);
+                int newX = (int) Math.round(posY / gridBoxSize);
+                engine.updateCarX(curr, newX);
+            } else {
+                boolean neg = x < firstX;
+                double posX;
+                if ( neg ) {
+                    posX = Math.max(afterX, carX-gridBoxSize*moveForward);
+                }
+                else {
+                    posX = Math.min(afterX, carX+gridBoxSize*moveBackward);
+                }
+                car.setLayoutX(posX);
+                int newY = (int) Math.round(posX / gridBoxSize);
+                engine.updateCarY(curr, newY);
+            }
+            if ( curr.isPlayer() && curr.getVerticalY() == 5 ){
+
+            }
+            engine.updateBlockinfo();
+        }
+    }
 }

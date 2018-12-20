@@ -107,7 +107,7 @@ class LevelsPane extends GridPane{
 
             // create the stars in the boxes
             HBox stars = new HBox( ( HEIGHT / 5 - 3 * HEIGHT / 5 / 4 ) / 4);
-            int temp = starArr[i];
+            int temp = starArr[i+k];
             for(int j = 0; j < temp; j++) {
                ImageView star = new ImageView(new Image("/img/fullStar.png"));
                star.setFitHeight(HEIGHT / 5 / 4);

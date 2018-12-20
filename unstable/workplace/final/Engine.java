@@ -235,4 +235,79 @@ public class Engine{
 		this.volume = volume;
 	}
 
+
+    public boolean updateCarX(Car car, int x) {
+        car.setHorizontalX( x, x + car.getLength() - 1);
+        return true;
+    }
+
+    public boolean updateCarY(Car car, int y) {
+        car.setVerticalY( y, y + car.getLength() - 1);
+        return true;
+    }
+
+    public void updateBlockinfo(){
+        Block[][] arr = selectedMap.getBlocks();
+		Car[] cars = selectedMap.getCars();
+        for ( int i = 0; i < selectedMap.getDimension(); i++) {
+            for ( int j = 0; j < selectedMap.getDimension(); j++) {
+                arr[i][j].setOccupied(false);
+            }
+        }
+        for ( int i = 0; i < cars.length; i++) {
+            if ( cars[i].getCarDirection() == 0 ) {
+                for ( int j = 0; j < cars[i].getLength(); j++) {
+                    arr[cars[i].getX()][cars[i].getY()+j].setOccupied(true);
+                }
+            } else if ( cars[i].getCarDirection() == 1 ) {
+                for ( int j = 0; j < cars[i].getLength(); j++) {
+                    arr[cars[i].getX()+j][cars[i].getY()].setOccupied(true);
+                }
+            }else if ( cars[i].getCarDirection() == 2 ) {
+                for ( int j = 0; j < cars[i].getLength(); j++) {
+                    arr[cars[i].getX()][cars[i].getY()+j].setOccupied(true);
+                }
+            }else {
+                for ( int j = 0; j < cars[i].getLength(); j++) {
+                    arr[cars[i].getX()+j][cars[i].getY()].setOccupied(true);
+                }
+            }
+        }
+    }
+
+	public int[] findMax( Car curr ) {
+		Block[][] blocks = selectedMap.getBlocks();
+		int moveForward = 0;
+		int moveBackward = 0;
+		if ( curr != null ) {
+			if ( curr.getCarDirection() == 1 || curr.getCarDirection() == 3 ) {
+				int i = curr.getX() - 1;
+				while ( i > -1 && !blocks[i][curr.getY()].isOccupied() ) {
+					moveForward++;
+					i--;
+				}
+				int end = curr.getHorizontalX() + 1;
+				while ( end < 6 && !blocks[end][curr.getY()].isOccupied()) {
+					moveBackward++;
+					end++;
+				}
+			} else {
+				int i = curr.getY() - 1;
+				while ( i > -1 && !blocks[curr.getX()][i].isOccupied()) {
+					moveForward++;
+					i--;
+				}
+				int end = curr.getVerticalY() + 1;
+				while ( end < 6 && !blocks[curr.getX()][end].isOccupied()) {
+					moveBackward++;
+					end++;
+				}
+			}
+		}
+		int[] res = new int[2];
+		res[0] = moveForward;
+		res[1] = moveBackward;
+		return res;
+	}
+
 }
