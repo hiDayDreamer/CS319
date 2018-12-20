@@ -7,24 +7,11 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
 import javafx.geometry.Insets;
-import javafx.geometry.*;
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
-import javafx.stage.Stage;
-import javafx.geometry.*;
-import javafx.scene.paint.*;
-import javafx.scene.canvas.*;
 import javafx.scene.text.*;
-import javafx.scene.Group;
-import javafx.scene.shape.*;
 
 public class PlayGame extends Pane {
     //Constants
-    private final String GAME_ICON_LOG = "/img/java_318-32027.jpeg";
     private final String SOUND_ICON = "/img/soundIcon.png";
     private final String SETTINGS_ICON = "/img/Settings-icon.png";
     private final String BACK_ICON = "/img/backIcon.png";
@@ -34,10 +21,10 @@ public class PlayGame extends Pane {
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
     private final double WIDTH  = 1080;
     private final double HEIGHT = 720;
-    private final double PLAY_WIDTH = 700;
-    private final double PLAY_HEIGHT = 500;
     private final double COPYRIGHT_PANEL_SIZE = 60;
     private final int ICON_SIZE = 64;
+    private final int GRIDBOX = 90;
+    private final PlayGame mySelf = this;
 
     //Variables
     //Labels
@@ -45,8 +32,6 @@ public class PlayGame extends Pane {
     private Pane copyRightPanel;
     private GridPane playGameSubpanel;
     private Label version;
-    private Label[] leftAt;
-    private Label[] numberOfStarsLabel;
 
     //Buttons
     private Button soundButton;
@@ -55,7 +40,6 @@ public class PlayGame extends Pane {
     private Button undoButton;
     private Button resetButton;
     private Button howToButton;
-    private Button[] sixToSix;
 
     //Images
     private Image soundImage;
@@ -64,13 +48,9 @@ public class PlayGame extends Pane {
     private Image undoImage;
     private Image resetImage;
     private Image howToImage;
-    private Image[] stars;
-    private ImageView fullStar;
-
-    //ProgressBar
-    private ProgressBar[] dimensionProgression;
 
     private Map gameMap;
+    private Car[] cars;
 
     public PlayGame(Map map) {
         super();
@@ -155,6 +135,23 @@ public class PlayGame extends Pane {
         resetButton.setMinSize(ICON_SIZE, ICON_SIZE);
         resetButton.setLayoutX(150);
         resetButton.setLayoutY(500);
+        //reset
+        Label resetLabel = new Label("Reset");
+        resetLabel.setLayoutX(160);
+        resetLabel.setLayoutY(580);
+        resetLabel.setFont(new Font(20));
+
+        //undo
+        Label undoLabel = new Label("Undo");
+        undoLabel.setLayoutX(160);
+        undoLabel.setLayoutY(380);
+        undoLabel.setFont(new Font(20));
+
+        //hint
+        Label hintLabel = new Label("Hint?");
+        hintLabel.setLayoutX(WIDTH-190);
+        hintLabel.setLayoutY(580);
+        hintLabel.setFont(new Font(20));
 
         ImageView b3 = new ImageView(resetImage);
         b3.fitWidthProperty().bind(resetButton.widthProperty());
@@ -167,19 +164,21 @@ public class PlayGame extends Pane {
         howToButton.setStyle("-fx-background-color: transparent");
         howToButton.setMinSize(ICON_SIZE, ICON_SIZE);
         howToButton.setLayoutX(WIDTH-200);
-        howToButton.setLayoutY(300);
+        howToButton.setLayoutY(500);
         ImageView b5 = new ImageView(howToImage);
         b5.fitWidthProperty().bind(howToButton.widthProperty());
         b5.fitWidthProperty().bind(howToButton.heightProperty());
         howToButton.setGraphic(b5);
 
         BorderPane title = new BorderPane();
-        /*Label royalFlush = new Label("Royal Flush Got this Bitch Baby :*");
-        royalFlush.setLayoutX(300);
+        Label royalFlush = new Label("Welcome to the Royal Flush experience!");
+        royalFlush.setLayoutX(250);
         royalFlush.setLayoutY(10);
-        royalFlush.setFont(new Font(30));*/
+        royalFlush.setFont(new Font(30));
+
         playGameSubpanel = buildGrid(new Insets(90,0,0,300));
-        this.getChildren().addAll( soundButton, settingsButton, howToButton, playGameSubpanel, backButton, undoButton, resetButton);
+        this.getChildren().addAll( royalFlush, soundButton, settingsButton, howToButton, playGameSubpanel, backButton, undoButton, resetButton,
+                                    resetLabel, hintLabel, undoLabel);
 
         //this.getChildren().addAll(soundButton);
 
@@ -188,7 +187,7 @@ public class PlayGame extends Pane {
         copyRightPanel.getChildren().add(version);
 
         //Default theme
-        setCurrentColor(null);
+        //setCurrentColor(null);
     }
 
 
@@ -198,7 +197,7 @@ public class PlayGame extends Pane {
         playGameSubpanel.setPadding(constraints);
 
         Block[][] mapBlocks = gameMap.getBlocks();
-        Car[] cars = gameMap.getCars();
+        cars = gameMap.getCars();
 
         String loc = "/img/grass.jpg";
         int gridBoxSize = 90;
@@ -214,34 +213,61 @@ public class PlayGame extends Pane {
             rowHeight = new RowConstraints(gridBoxSize);
             columnWidth = new ColumnConstraints(gridBoxSize);
             box.getRowConstraints().add(rowHeight);
-            box.getColumnConstraints().add(columnWidth);/*
+            box.getColumnConstraints().add(columnWidth);
             for (int columnIndex = 0; columnIndex < getCurrentDimensionSize(); columnIndex++){
-               // GridPane.setConstraints(box, columnIndex, rowIndex);
+                GridPane.setConstraints(box, columnIndex, rowIndex);
                 //if (!mapBlocks[rowIndex][columnIndex].isOccupied()){
                     //System.out.println("It is free ");
-                    Image img = new Image(loc);
-                    ImageView possibleCar = new ImageView(img);
-                    possibleCar.setFitWidth(gridBoxSize);
-                    possibleCar.setFitHeight(gridBoxSize);
-                    box.add(possibleCar,columnIndex,rowIndex);
+                     Image img = new Image("/img/brick.jpg");
+                     ImageView possibleCar = new ImageView(img);
+                     possibleCar.setFitWidth(gridBoxSize-1);
+                     possibleCar.setFitHeight(gridBoxSize-1);
+                     box.add(possibleCar,columnIndex,rowIndex);
 
                // } else {
                     //loc = "settings.png";
                // }
 
 
-            }*/
+               }
         }
 
-        box.setStyle("-fx-background-color: #C0C0C0;");
+         Image immg = new Image("/img/exit.png");
+         ImageView exit = new ImageView(immg);
+         exit.setFitWidth(gridBoxSize-1);
+         exit.setFitHeight(gridBoxSize-1);
+         box.add(exit,5,3);
+
+        box.setStyle("-fx-background-color: black");
 
         int direction = -1;
         //loc = "/img/grass.png";
         for (int carIndex = 0 ; carIndex < cars.length; carIndex++){
             direction = cars[carIndex].getCarDirection();
             loc = cars[carIndex].getImageLocation();
-            Image img = new Image(loc);
+            Image img = new Image(loc+"-"+(direction%2)+".png");
             ImageView possibleCar = new ImageView(img);
+
+            if (direction == 3 || direction == 2) {
+                    possibleCar.setRotate(180);
+            }
+
+            possibleCar.addEventHandler(MouseEvent.MOUSE_DRAGGED, new MouseListener(possibleCar));
+            possibleCar.setOnMouseReleased(new EventHandler<MouseEvent>(){
+               public void handle(MouseEvent e){
+                  firstFlag = true;
+                  for ( int i = 0; i < gameMap.getBlocks().length; i++ ){
+                     for ( int j = 0; j < gameMap.getBlocks().length; j++) {
+                        int value = gameMap.getBlocks()[i][j].isOccupied() ? 1 : 0;
+                        System.out.print(value+" ");
+                     }
+                     System.out.println();
+                  }
+               }
+            });
+
+
+
 
             if ( direction == 1 || direction == 3){
                 possibleCar.setFitWidth(gridBoxSize);
@@ -275,7 +301,7 @@ public class PlayGame extends Pane {
                default: return  "/img/gertasila.png";
         }
     }
-
+/*
     public void setCurrentColor(String colorCSS){
 
         if (colorCSS == null){
@@ -283,7 +309,7 @@ public class PlayGame extends Pane {
         }else{
             this.setStyle(colorCSS);
         }
-    }
+    }*/
 
 
     public void setCurrentDimensionSize(int dimension){
@@ -300,5 +326,138 @@ public class PlayGame extends Pane {
               GameManager.ButtonListener settings = e.clone();
               settings.setIndex(4);
               settingsButton.addEventHandler(MouseEvent.MOUSE_CLICKED, settings);
+     }
+
+    private void updateBlockinfo(){
+      Block[][] arr = gameMap.getBlocks();
+      for ( int i = 0; i < gameMap.getDimension(); i++) {
+         for ( int j = 0; j < gameMap.getDimension(); j++) {
+            arr[i][j].setOccupied(false);
+         }
+      }
+      for ( int i = 0; i < cars.length; i++) {
+         if ( cars[i].getCarDirection() == 0 ) {
+            for ( int j = 0; j < cars[i].getLength(); j++) {
+               arr[cars[i].getX()][cars[i].getY()+j].setOccupied(true);
+            }
+         } else if ( cars[i].getCarDirection() == 1 ) {
+            for ( int j = 0; j < cars[i].getLength(); j++) {
+               arr[cars[i].getX()+j][cars[i].getY()].setOccupied(true);
+            }
+         }else if ( cars[i].getCarDirection() == 2 ) {
+            for ( int j = 0; j < cars[i].getLength(); j++) {
+               arr[cars[i].getX()][cars[i].getY()+j].setOccupied(true);
+            }
+         }else {
+            for ( int j = 0; j < cars[i].getLength(); j++) {
+            arr[cars[i].getX()+j][cars[i].getY()].setOccupied(true);
+            }
+         }
+      }
+    }
+
+
+     boolean firstFlag=true;
+     // int firstPos, secondPos;
+     Car curr;
+     class MouseListener implements EventHandler<MouseEvent> {
+        ImageView car;
+        public MouseListener( ImageView car) {
+           this.car = car;
+           //firstPosFlag = true;
+        }
+        public void handle(MouseEvent e) {
+           int mouseY = (int)((e.getSceneX() - 300)/GRIDBOX);
+           int mouseX = (int)((e.getSceneY() - 90)/GRIDBOX);
+           if ( firstFlag){
+             curr = findCar(mouseX, mouseY);
+             firstFlag=false;
+         }
+           //System.out.println( "mouse:" + mouseX + ", " + mouseY);
+           //System.out.println( "curr" + curr);
+           if ( curr != null ) {
+              int lastX = curr.getX();
+              int lastY = curr.getY();
+              //System.out.println("xbefore:" + curr.getX());
+              boolean vertical = false;
+              boolean emptyBlock = !gameMap.getBlocks()[mouseX][mouseY].isOccupied();
+              if ( emptyBlock && (curr.getCarDirection() == 1 || curr.getCarDirection() == 3)){
+                 updateCarX(curr, mouseX);
+                 vertical = true;
+              } else if (emptyBlock)
+                  updateCarY(curr, mouseY);
+              // System.out.println("x:" + curr.getX());
+              // System.out.println();
+              if (emptyBlock) {
+              if ( curr.getX() < 0 || curr.getX() > 6 || curr.getHorizontalX() < 0 || curr.getHorizontalX() > 6 ||
+                  curr.getY() < 0 || curr.getY() > 6 || curr.getVerticalY() < 0 || curr.getVerticalY() > 6) {
+                     updateCarX(curr, lastX);
+                     updateCarY(curr, lastY);
+             } else {
+                  //System.out.println("mouseCheck: " + mouseX + " " + mouseY);
+                   if ( vertical)
+                     GridPane.setRowIndex(car, curr.getX());
+                   else
+                     GridPane.setColumnIndex(car, curr.getY());
+                  if ( curr.isPlayer() && curr.getVerticalY() == 5 ){
+                             mySelf.getChildren().remove(playGameSubpanel);
+                             Image im = new Image("/img/win.gif");
+                             ImageView view = new ImageView(im);
+                             view.setFitWidth(WIDTH - 40);
+                             view.setFitHeight(90*6);
+                             view.setLayoutX(20);
+                             view.setLayoutY(100);
+                             mySelf.getChildren().add(view);
+                  }
+
+                updateBlockinfo();
+            }
+            }
+
+            System.out.println("start:"+ Math.abs(mouseX-curr.getX())+" end: " + Math.abs(mouseX - curr.getHorizontalX()));
+           }
+
+         System.out.println();
+        }
+     }
+
+     public boolean updateCarX(Car car, int x) {
+        // if ( (car.getX() + x) >= 0 && (car.getX() + x) < 6 && (car.getHorizontalX() + x) >= 0  && (car.getHorizontalX() + x) < 6) {
+           //car.setX(car.getX()+x);
+           //car.setHorizontalX( x,x+car.getLength());
+           //int diff = x - car.getX();
+           System.out.println("1start:" + Math.abs(x - car.getX()) + " end: " + Math.abs(x - car.getHorizontalX()));
+           if ( Math.abs(x - car.getX()) <= Math.abs(x - car.getHorizontalX()) ) {
+             car.setHorizontalX(x, x  + car.getLength());
+          } else {
+             car.setHorizontalX(x - car.getLength() + 1, x + 1);
+          }
+           return true;
+        // }
+        // return false;
+     }
+
+     public boolean updateCarY(Car car, int y) {
+        // if ( (car.getY() + y) >= 0 && (car.getY() + y) < 6 && (car.getVerticalY() + y) >= 0 && (car.getVerticalY() + y) < 6) {
+        //    //car.setY(car.getY()+y);
+           //car.setVerticalY(y, y+car.getLength());
+           if ( Math.abs(y - car.getY()) <= Math.abs(y - car.getVerticalY()) ) {
+             car.setVerticalY(y, y  + car.getLength());
+          } else {
+             car.setVerticalY(y - car.getLength() + 1, y + 1);
+          }
+           return true;
+        // }
+        // return false;
+     }
+
+     public Car findCar(int x, int y) {
+        for ( int i = 0; i < cars.length; i++ ) {
+           if ( x >= cars[i].getX() && x <= cars[i].getHorizontalX() ) {
+               if ( y >= cars[i].getY() && y <= cars[i].getVerticalY() )
+                  return cars[i];
+            }
+        }
+        return null;
      }
 }

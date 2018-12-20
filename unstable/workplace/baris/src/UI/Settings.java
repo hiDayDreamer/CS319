@@ -1,85 +1,77 @@
-
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
 import javafx.geometry.Insets;
 import javafx.geometry.*;
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
-import javafx.stage.Stage;
-import javafx.geometry.*;
-import javafx.scene.paint.*;
-import javafx.scene.canvas.*;
+import javafx.scene.media.AudioClip;
 import javafx.scene.text.*;
-import javafx.scene.Group;
-import javafx.scene.shape.*;
-import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
+//import org.controlsfx.control.ToggleSwitch;
+
+import java.io.*;
+import java.net.URL;
 
 public class Settings extends Pane {
     //Constants
-    private final String GAME_ICON_LOG = "/img/java_318-32027.jpg";
     private final String SOUND_ICON = "/img/soundIcon.png";
     private final String SOUND_BAR_ICON = "/img/sound.png";
-    private final String SETTINGS_ICON = "/img/Settings-icon.png";
     private final String BACK_ICON = "/img/backIcon.png";
     private final String THEMES_ICON = "/img/themesIcon.png";
     private final String TIMER_ICON = "/img/timerIcon.png";
-    private String[] colorButtonIcon;
     private final String TIMER_BUTTON_ICON = "/img/timerON.png";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
+    //private final URL resource = getClass().getResource("Test.mp3"); //Sound is here.
     private final double WIDTH  = 1080;
     private final double HEIGHT = 720;
-    private final double PLAY_WIDTH = 700;
-    private final double PLAY_HEIGHT = 500;
     private final double COPYRIGHT_PANEL_SIZE = 60;
     private final int ICON_SIZE = 64;
 
     //Variables
+    private String[] colorButtonIcon;
+    //AudioClip music;
+
     //Labels
     private Label copyRightLabel;
     private Pane copyRightPanel;
-    private GridPane playGameSubpanel;
     private Label version;
-    private Label[] leftAt;
-    private Label[] numberOfStarsLabel;
+    private String color;
+    private ImageView blueCircle;
+    int counter;
+    int timerCounter;
+    int j;
+    Button buttons[];
+
 
     //Buttons
-    private Button soundButton;
-    private Button settingsButton;
     private Button backButton;
-    private Button undoButton;
-    private Button resetButton;
-    private Button howToButton;
-    private Button[] sixToSix;
+    private boolean[] flag = {false, false, false, false, false, false};
 
     //Images
-    private Image soundImage;
-    private Image settingsImage;
     private Image backImage;
-    private Image undoImage;
-    private Image resetImage;
-    private Image howToImage;
-    private Image[] stars;
-    private ImageView fullStar;
-
-    //ProgressBar
-    private ProgressBar[] dimensionProgression;
+    private ImageView timerButtonImage;
 
     public Settings() {
         super();
         initialize();
     }
 
-    public void initialize(){
+    public Settings(String wColor) {
+        super();
+        color = wColor;
+        initialize();
+    }
 
+    public void initialize(){
+        /*
+        music = new AudioClip(resource.toExternalForm());
+        music.play();*/
         //Creating middle panel
         this.setMinHeight(HEIGHT - COPYRIGHT_PANEL_SIZE);
         this.setMinWidth(WIDTH);
@@ -110,7 +102,7 @@ public class Settings extends Pane {
         settings.setLayoutY(50);
 
         VBox left = new VBox(100);
-        left.setStyle("-fx-background-color: #5dcb9c");
+        left.setStyle("-fx-background-color:  #78fdff");
         left.setPadding(new Insets(10, 50, 50, 50));
         left.setLayoutX(20);
         left.setLayoutY(150);
@@ -149,9 +141,15 @@ public class Settings extends Pane {
         slider.setBlockIncrement(10);
         slider.setMinWidth(234);
         slider.setLayoutY(75);
+        slider.valueProperty().addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue<? extends Number> ov,
+                                Number old_val, Number new_val) {
+                GameManager g = new GameManager();
+                g.setVolume((double)new_val);
+            }
+        });
         h.getChildren().addAll(sound, slider);
         left.getChildren().addAll(soundIcon, h);
-
 
         VBox center = new VBox(100);
         center.setStyle("-fx-background-color: #90de77");
@@ -169,7 +167,7 @@ public class Settings extends Pane {
         timer.setFitHeight(256);
         timer.setFitWidth(256);
 
-        ImageView timerButtonImage = new ImageView(new Image(TIMER_BUTTON_ICON));
+        timerButtonImage = new ImageView(new Image(TIMER_BUTTON_ICON));
         //Image timerButtonImage = new Image(getClass().getResourceAsStream(TIMER_BUTTON_ICON));
         timerButtonImage.setFitHeight(96);
         timerButtonImage.setFitWidth(128);
@@ -179,6 +177,37 @@ public class Settings extends Pane {
         timerButton.setMinSize(ICON_SIZE, ICON_SIZE);
         center.setAlignment(Pos.CENTER);
         center.getChildren().addAll(timer, timerButton);
+        //ToggleSwitch =
+        timerCounter = 0;
+        timerButton.setOnAction(new EventHandler <ActionEvent>() {
+            public void handle(ActionEvent event)
+            {
+                timerCounter++;
+                if ( timerCounter % 2 == 1 ){
+                    center.getChildren().removeAll(timer, timerButton);
+                    timerButtonImage = new ImageView(new Image(colorButtonIcon[2]));
+                    timerButton.setGraphic(timerButtonImage);
+                    timerButtonImage.setFitHeight(96);
+                    timerButtonImage.setFitWidth(128);
+                    timerButton.setStyle("-fx-background-color: transparent");
+                    timerButton.setMinSize(ICON_SIZE, ICON_SIZE);
+                    center.setAlignment(Pos.CENTER);
+                    center.getChildren().addAll(timer, timerButton);
+                }else{
+                    timerCounter = 0;
+                    System.out.println(timerCounter);
+                    center.getChildren().removeAll(timer, timerButton);
+                    timerButtonImage = new ImageView(new Image(TIMER_BUTTON_ICON));
+                    timerButton.setGraphic(timerButtonImage);
+                    timerButtonImage.setFitHeight(96);
+                    timerButtonImage.setFitWidth(128);
+                    timerButton.setStyle("-fx-background-color: transparent");
+                    timerButton.setMinSize(ICON_SIZE, ICON_SIZE);
+                    center.setAlignment(Pos.CENTER);
+                    center.getChildren().addAll(timer, timerButton);
+                }
+            }
+        });
 
 
         VBox right = new VBox(new Label());
@@ -198,14 +227,19 @@ public class Settings extends Pane {
         themes.setFitHeight(256);
         themes.setFitWidth(256);
 
-        colorButtonIcon = new String[5];
+        colorButtonIcon = new String[10];
         colorButtonIcon[0] = "/img/circle.png";
         colorButtonIcon[1] = "/img/blueCircle.png";
         colorButtonIcon[2] = "/img/greenCircle.png";
         colorButtonIcon[3] = "/img/lilacCircle.png";
         colorButtonIcon[4] = "/img/pinkCircle.png";
+        colorButtonIcon[5] = "/img/chosenYellow.png";
+        colorButtonIcon[6] = "/img/chosenBlue.png";
+        colorButtonIcon[7] = "/img/chosenGreen.png";
+        colorButtonIcon[8] = "/img/chosenLilac.png";
+        colorButtonIcon[9] = "/img/chosenPink.png";
         int space = 50;
-        Button buttons[] = new Button[5];
+        buttons= new Button[5];
         for ( int i = 0; i < 5; i++) {
             space = space + 80;
             buttons[i] = new Button();
@@ -225,15 +259,17 @@ public class Settings extends Pane {
             buttons[i].setStyle("-fx-background-color: transparent");
         }
 
+
         ImageView circle = new ImageView(new Image(colorButtonIcon[0]));
         circle.setFitHeight(48);
         circle.setFitWidth(48);
         buttons[0].setGraphic(circle);
 
-        ImageView blueCircle = new ImageView(new Image(colorButtonIcon[1]));
+        blueCircle = new ImageView(new Image(colorButtonIcon[1]));
         blueCircle.setFitHeight(48);
         blueCircle.setFitWidth(48);
         buttons[1].setGraphic(blueCircle);
+
 
         ImageView greenCircle = new ImageView(new Image(colorButtonIcon[2]));
         greenCircle.setFitHeight(48);
@@ -251,16 +287,210 @@ public class Settings extends Pane {
         buttons[4].setGraphic(pinkCircle);
 
         right.getChildren().addAll(themes);
-
+        counter = 0;
         this.getChildren().addAll(settings,backButton,left,center,right, buttons[0], buttons[1], buttons[2], buttons[3], buttons[4]);
+        buttons[0].setOnAction(new EventHandler <ActionEvent>() {
+            public void handle(ActionEvent event)
+            {
+                for ( int i = 0; i < 5; i++) {
+                    if (flag[i] == true) {
+                        counter++;
+                    }
+                }
+                if(counter == 0) {
+                    getChildren().remove(buttons[0]);
+                    blueCircle = new ImageView(new Image(colorButtonIcon[5]));
+                    buttons[0].setGraphic(blueCircle);
+                    blueCircle.setFitHeight(48);
+                    blueCircle.setFitWidth(48);
+                    flag[0] = true;
+                }else{
+                    for (j = 0; j < 5; j++){
+                        if(flag[j] == true){
+                            break;
+                        }
+                    }
+                    getChildren().remove(buttons[j]);
+                    blueCircle = new ImageView(new Image(colorButtonIcon[0]));
+                    buttons[j].setGraphic(blueCircle);
+                    blueCircle.setFitHeight(48);
+                    blueCircle.setFitWidth(48);
+                    flag[j] = false;
+                    getChildren().add(buttons[j]);
+                    getChildren().remove(buttons[0]);
+                    blueCircle = new ImageView(new Image(colorButtonIcon[5]));
+                    buttons[0].setGraphic(blueCircle);
+                    blueCircle.setFitHeight(48);
+                    blueCircle.setFitWidth(48);
+                    flag[0] = true;
+                }
+                getChildren().add(buttons[0]);
+            }
+        });
+        buttons[1].setOnAction(new EventHandler <ActionEvent>() {
+            public void handle(ActionEvent event)
+            {
+                for ( int i = 0; i < 5; i++) {
+                    if (flag[i] == true) {
+                        counter++;
+                    }
+                }
+                if(counter == 0) {
+                    getChildren().remove(buttons[1]);
+                    blueCircle = new ImageView(new Image(colorButtonIcon[6]));
+                    buttons[1].setGraphic(blueCircle);
+                    blueCircle.setFitHeight(48);
+                    blueCircle.setFitWidth(48);
+                    flag[1] = true;
+                }else{
+                    for (j = 0; j < 5; j++){
+                        if(flag[j] == true){
+                            break;
+                        }
+                    }
+                    getChildren().remove(buttons[j]);
+                    blueCircle = new ImageView(new Image(colorButtonIcon[1]));
+                    buttons[j].setGraphic(blueCircle);
+                    blueCircle.setFitHeight(48);
+                    blueCircle.setFitWidth(48);
+                    flag[j] = false;
+                    getChildren().add(buttons[j]);
+                    getChildren().remove(buttons[1]);
+                    blueCircle = new ImageView(new Image(colorButtonIcon[6]));
+                    buttons[1].setGraphic(blueCircle);
+                    blueCircle.setFitHeight(48);
+                    blueCircle.setFitWidth(48);
+                    flag[1] = true;
+                }
+                getChildren().add(buttons[1]);
+            }
+        });
 
+        buttons[2].setOnAction(new EventHandler <ActionEvent>() {
+            public void handle(ActionEvent event)
+            {
+                for ( int i = 0; i < 5; i++) {
+                    if (flag[i] == true) {
+                        counter++;
+                    }
+                }
+                    if(counter == 0) {
+                        getChildren().remove(buttons[2]);
+                        blueCircle = new ImageView(new Image(colorButtonIcon[7]));
+                        buttons[2].setGraphic(blueCircle);
+                        blueCircle.setFitHeight(48);
+                        blueCircle.setFitWidth(48);
+                        flag[2] = true;
+                    }else{
+                        for (j = 0; j < 5; j++){
+                            if(flag[j] == true){
+                                break;
+                            }
+                        }
+                        getChildren().remove(buttons[j]);
+                        blueCircle = new ImageView(new Image(colorButtonIcon[2]));
+                        buttons[j].setGraphic(blueCircle);
+                        blueCircle.setFitHeight(48);
+                        blueCircle.setFitWidth(48);
+                        flag[j] = false;
+                        getChildren().add(buttons[j]);
+                        getChildren().remove(buttons[2]);
+                        blueCircle = new ImageView(new Image(colorButtonIcon[7]));
+                        buttons[2].setGraphic(blueCircle);
+                        blueCircle.setFitHeight(48);
+                        blueCircle.setFitWidth(48);
+                        flag[2] = true;
+                    }
+                    getChildren().add(buttons[2]);
+                }
+        });
+
+        buttons[3].setOnAction(new EventHandler <ActionEvent>() {
+            public void handle(ActionEvent event)
+            {
+                for ( int i = 0; i < 5; i++) {
+                    if (flag[i] == true) {
+                        counter++;
+                    }
+                }
+                if(counter == 0) {
+                    getChildren().remove(buttons[3]);
+                    blueCircle = new ImageView(new Image(colorButtonIcon[8]));
+                    buttons[3].setGraphic(blueCircle);
+                    blueCircle.setFitHeight(48);
+                    blueCircle.setFitWidth(48);
+                    flag[3] = true;
+                }else{
+                    for (j = 0; j < 5; j++){
+                        if(flag[j] == true){
+                            break;
+                        }
+                    }
+                    getChildren().remove(buttons[j]);
+                    blueCircle = new ImageView(new Image(colorButtonIcon[3]));
+                    buttons[j].setGraphic(blueCircle);
+                    blueCircle.setFitHeight(48);
+                    blueCircle.setFitWidth(48);
+                    flag[j] = false;
+                    getChildren().add(buttons[j]);
+                    getChildren().remove(buttons[3]);
+                    blueCircle = new ImageView(new Image(colorButtonIcon[8]));
+                    buttons[3].setGraphic(blueCircle);
+                    blueCircle.setFitHeight(48);
+                    blueCircle.setFitWidth(48);
+                    flag[3] = true;
+                }
+                getChildren().add(buttons[3]);
+            }
+        });
+
+        buttons[4].setOnAction(new EventHandler <ActionEvent>() {
+            public void handle(ActionEvent event)
+            {
+                for ( int i = 0; i < 5; i++) {
+                    if (flag[i] == true) {
+                        counter++;
+                    }
+                }
+                if(counter == 0) {
+                    getChildren().remove(buttons[4]);
+                    blueCircle = new ImageView(new Image(colorButtonIcon[9]));
+                    buttons[4].setGraphic(blueCircle);
+                    blueCircle.setFitHeight(48);
+                    blueCircle.setFitWidth(48);
+                    flag[4] = true;
+                }else{
+                    for (j = 0; j < 5; j++){
+                        if(flag[j] == true){
+                            break;
+                        }
+                    }
+                    getChildren().remove(buttons[j]);
+                    blueCircle = new ImageView(new Image(colorButtonIcon[4]));
+                    buttons[j].setGraphic(blueCircle);
+                    blueCircle.setFitHeight(48);
+                    blueCircle.setFitWidth(48);
+                    flag[j] = false;
+                    getChildren().add(buttons[j]);
+                    getChildren().remove(buttons[4]);
+                    blueCircle = new ImageView(new Image(colorButtonIcon[9]));
+                    buttons[4].setGraphic(blueCircle);
+                    blueCircle.setFitHeight(48);
+                    blueCircle.setFitWidth(48);
+                    flag[4] = true;
+                }
+                getChildren().add(buttons[4]);
+            }
+        });
         //Adding labels to panel
         copyRightPanel.getChildren().add(copyRightLabel);
         copyRightPanel.getChildren().add(version);
 
         //Default theme
-        setCurrentColor(null);
+        //setCurrentColor(null);
     }
+
+    public String getColor(){return color;}
 
     public void setCurrentColor(String colorCSS){
 
@@ -272,6 +502,12 @@ public class Settings extends Pane {
     }
 
     public void addHandler( GameManager.ButtonListener e) {
-      backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, e);
+
+        backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, e);
+
+        GameManager.ButtonListener gameColor = e.clone();
+        gameColor.setIndex(40);
+        buttons[0].addEventHandler(MouseEvent.MOUSE_CLICKED, gameColor);
+
   }
 }

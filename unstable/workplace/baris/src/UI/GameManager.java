@@ -6,7 +6,10 @@ import javafx.scene.input.MouseEvent;
 public class GameManager extends Application{
 
     private WindowManager primaryStage1;
-   // private LevelsPane h = new LevelsPane("8x8");
+    private DashboardData data = new DashboardData();
+    private Settings s = new Settings();
+    private String color = s.getColor();
+    private double volume = 50;
 
     public static void main(String[] args) {
         launch(args);
@@ -20,12 +23,19 @@ public class GameManager extends Application{
     public void start(Stage primaryStage) {
 
         primaryStage = primaryStage1;
-        //primaryStage1.updateMiddlePanel(h);
         primaryStage1.addHandler( new ButtonListener(1));
     }
 
+    public double getVolume(){
+        return volume;
+    }
 
-       class ButtonListener implements EventHandler<MouseEvent>{
+    public void setVolume(double hop){
+        volume = hop;
+    }
+
+
+    class ButtonListener implements EventHandler<MouseEvent>{
           private int index;
           public ButtonListener() {
              super();
@@ -39,6 +49,7 @@ public class GameManager extends Application{
           public void handle(MouseEvent e) {
              if ( index == 0 ) {
                 MainPage newPane = new MainPage();
+                newPane.setCurrentColor(color);
                 newPane.addHandler( new ButtonListener(1));
                 primaryStage1.updateMiddlePanel(newPane);
              }
@@ -48,15 +59,23 @@ public class GameManager extends Application{
                 newPane.addHandler( new ButtonListener(0));
                 primaryStage1.updateMiddlePanel(newPane);
              }
+
              else if ( index == 2 ){
                 // this goes to howto pane from the mainPanel
                 How_To newPane = new How_To();
                 newPane.addHandler( new ButtonListener(0));
                 primaryStage1.updateMiddlePanel(newPane);
              }
+             else if ( index == 3 ){
+                 DashboardPane newPane = new DashboardPane(data);
+                 newPane.addHandler( new ButtonListener(0));
+                 primaryStage1.updateMiddlePanel(newPane);
+             }
              else if ( index == 4){
-                Settings newPane = new Settings();
-                newPane.addHandler( new ButtonListener(0));
+                Settings newPane = new Settings(color);
+                 newPane.setCurrentColor(color);
+                 System.out.println(color);
+                 newPane.addHandler( new ButtonListener(0));
                 primaryStage1.updateMiddlePanel(newPane);
              }
              else if ( index == 6){
@@ -81,7 +100,13 @@ public class GameManager extends Application{
                primaryStage1.updateMiddlePanel(newPane);
 
             }
+             else if ( index >= 40) {
+                 color = s.getColor();
+                 primaryStage1.setCurrentColor(color);
+
+             }
           }
+
 
           public void setIndex( int index) {
              this.index = index;

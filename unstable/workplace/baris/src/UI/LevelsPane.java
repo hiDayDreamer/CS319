@@ -8,14 +8,12 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.geometry.Pos;
-import javafx.geometry.Insets;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
 class LevelsPane extends GridPane{
    //properties
    private final String BACK_ICON = "/img/backIcon.png";
-   private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
    private final double WIDTH  = 1080;
    private final double HEIGHT = 720;
    private final int ICON_SIZE = 64;
@@ -23,10 +21,7 @@ class LevelsPane extends GridPane{
    private final double BUTTON_SIZE = (WIDTH - 2 * ICON_SIZE - HEIGHT)/8;
 
    //Labels
-   private Label copyRightLabel;
-   private HBox starBox;
    private Pane copyRightPanel;
-   private Label version;
    private Label title;
    private String dimension;
    private Label starNo;
@@ -46,20 +41,13 @@ class LevelsPane extends GridPane{
 
    //methods
    public void initialize(){
-      setCurrentColor(null);
+      //setCurrentColor(null);
       //set dimensions
       this.setMinHeight(HEIGHT - COPYRIGHT_PANEL_SIZE-12);
       this.setMinWidth(WIDTH);
-      //this.setMaxHeight(HEIGHT - COPYRIGHT_PANEL_SIZE);
 
       //Creating copyright panel
       copyRightPanel = new Pane();
-
-      //Copyright label
-      copyRightLabel = new Label(COPYRIGHT_LABEL);
-
-      //Version label
-      version = new Label("Version b0.1");
 
       //backButton
       backImage = new Image(getClass().getResourceAsStream(BACK_ICON));
@@ -97,7 +85,13 @@ class LevelsPane extends GridPane{
       for ( int k = 0; k < 3; k++ ) {
          HBox box = new HBox(BUTTON_SIZE);
          for ( int i = 0; i < 5; i++) {
+            Pane a = new Pane();
             VBox level = new VBox();
+            Image buttonImage = new Image(getClass().getResourceAsStream("/img/level.png"),HEIGHT / 5,HEIGHT/5,false,false);
+            ImageView s = new ImageView(buttonImage);
+            s.setFitWidth(HEIGHT/5);
+            s.setFitHeight(HEIGHT/5);
+            a.getChildren().add(s);
             // create the number in the box
             Label number = new Label( levelNumber + "");
             number.setStyle("-fx-font-weight: bold;");
@@ -117,7 +111,7 @@ class LevelsPane extends GridPane{
             //align the elements inside each of the small boxes
             level.setAlignment(Pos.CENTER);
             Button button = new Button();
-            button.setGraphic(level);
+            //button.setGraphic(level);
             button.setOnMouseEntered(new EventHandler<MouseEvent>(){
                   public void handle(MouseEvent e){
                      //System.out.println("asdfads");
@@ -132,14 +126,11 @@ class LevelsPane extends GridPane{
                      //button.setGraphic(new ImageView(new Image("fullStar.png")));
                }
             });
-            // button.setOnMouseExited(new EventHandler<MouseEvent>(){
-            //       public void handle(MouseEvent e){
-            //          System.out.println("asdfads");
-            //          button.setGraphic(level);
-            //       }
-            // });
+
             button.setMinSize(HEIGHT / 5, HEIGHT/ 5);
-            //button.setStyle("-fx-background-color: transparent");
+            button.setStyle("-fx-background-color: transparent");
+            a.getChildren().add(level);
+            button.setGraphic(a);
             buttons[levelNumber - 1] = button;
             box.getChildren().add(button);
             levelNumber++;
@@ -153,7 +144,7 @@ class LevelsPane extends GridPane{
       this.addRow(3, copyRightPanel);
    }
 
-
+/*
    public void setCurrentColor(String colorCSS){
 
         if (colorCSS == null){
@@ -162,7 +153,7 @@ class LevelsPane extends GridPane{
             this.setStyle(colorCSS);
         }
     }
-
+*/
     public void addHandler( GameManager.ButtonListener e) {
       e.setIndex(1);
       backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, e);

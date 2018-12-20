@@ -3,8 +3,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.control.Label;
-import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.*;
 
 public class How_To extends Pane {
     //Constants
@@ -20,6 +20,7 @@ public class How_To extends Pane {
 
     //Variables
     int tutorialCount;
+
     //Labels
     private Label copyRightLabel;
     private Pane copyRightPanel;
@@ -60,6 +61,13 @@ public class How_To extends Pane {
         version = new Label("Version b0.1");
 
         //How_To Panel
+        Label settings = new Label("Tutorial");
+        settings.setStyle("-fx-font-weight: bold;");
+        settings.setMaxSize(450,75);
+        settings.setFont(new Font("Verdana", 45));
+        settings.setLayoutX(450);
+        settings.setLayoutY(50);
+
         //Sound button
         soundImage = new ImageView(new Image(SOUND_ICON));
         soundImage.setFitWidth(ICON_SIZE);
@@ -97,7 +105,8 @@ public class How_To extends Pane {
         tutorialImage[0] = new Image(getClass().getResourceAsStream(TUTORIAL_IMAGE));
         tutorial = new ImageView(tutorialImage[0]);
         tutorial.setLayoutX(WIDTH / 2 - 275);
-        tutorial.setLayoutY(HEIGHT / 2 - 275);
+        tutorial.setLayoutY(HEIGHT / 2 - 240);
+	    tutorial.setFitHeight(500);
 
         //Next and back button for tutorial images
         pagePassButtons = new Button[2];
@@ -116,10 +125,10 @@ public class How_To extends Pane {
         pagePassButtons[1].setLayoutX(75);
 
         //Adding buttons to middle panel
-        this.getChildren().addAll(soundButton, settingsButton, backButton, tutorial, pagePassButtons[0], pagePassButtons[1]);
+        this.getChildren().addAll(settings, soundButton, settingsButton, backButton, tutorial, pagePassButtons[0], pagePassButtons[1]);
         //How_To Panel ends
 
-        this.setCurrentColor(null);
+        //this.setCurrentColor(null);
         copyRightPanel.getChildren().add(copyRightLabel);
         copyRightPanel.getChildren().add(version);
     }
