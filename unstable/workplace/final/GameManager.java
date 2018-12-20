@@ -81,7 +81,11 @@ public class GameManager extends Application{
             primaryStage1.updateMiddlePanel(newPane);
         }
         else if ( index == 4){
-            newSettingsPane = new Settings();
+            if (newSettingsPane != null){
+                newSettingsPane.initialize(newSettingsPane.isTimerToogleOn());
+            } else {
+                newSettingsPane = new Settings();
+            }
             newSettingsPane.addHandler( new ButtonListener(0));
             primaryStage1.updateMiddlePanel(newSettingsPane);
            

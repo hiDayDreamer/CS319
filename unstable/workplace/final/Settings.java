@@ -238,7 +238,6 @@ public class Settings extends Pane {
         //setCurrentColor(null);
     }
 
-
     public void addHandler( GameManager.ButtonListener e) {
       backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, e);
 
@@ -264,8 +263,8 @@ public class Settings extends Pane {
          return slider.getValue();
     }
 
-    public void toogleTimer(){
 
+    public void toogleTimer(){
         toogler = !toogler;
         initialize(toogler);  
     
