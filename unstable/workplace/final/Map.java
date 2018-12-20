@@ -190,4 +190,7 @@ public class Map {
 		return cars;
 	}
 
+	public void printDim(){
+		System.out.println(blocks.length);
+	}
 }

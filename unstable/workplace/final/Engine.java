@@ -72,7 +72,7 @@ public class Engine{
 		// TODO - implement Engine.gameWon
 		// throw new UnsupportedOperationException();
 		Car player = selectedMap.getPlayer();
-		if(player.getY() == 4)
+		if(player.getY() == selectedMap.getDimension()-2)
 		{
 			return true;
 		}
@@ -320,7 +320,7 @@ public class Engine{
 					i--;
 				}
 				int end = curr.getHorizontalX() + 1;
-				while ( end < 6 && !blocks[end][curr.getY()].isOccupied()) {
+				while ( end < selectedMap.getDimension() && !blocks[end][curr.getY()].isOccupied()) {
 					moveBackward++;
 					end++;
 				}
@@ -331,7 +331,7 @@ public class Engine{
 					i--;
 				}
 				int end = curr.getVerticalY() + 1;
-				while ( end < 6 && !blocks[curr.getX()][end].isOccupied()) {
+				while ( end < selectedMap.getDimension() && !blocks[curr.getX()][end].isOccupied()) {
 					moveBackward++;
 					end++;
 				}

@@ -16,6 +16,7 @@ public class GameManager extends Application{
     private String backgroundColor = "";
     private boolean timerMode;
     private int currentThemeIndex;
+    private int dimension;
 
     public static void main(String[] args) {
         launch(args);
@@ -29,6 +30,7 @@ public class GameManager extends Application{
         dataStorage = new DataStorage();
         engine = new Engine(this);
         currentThemeIndex = 4;
+        dimension = 6;
         //playBackgroundSound(sliderVolume,"./sound/backgroundSound.mp3");
     }
 
@@ -98,16 +100,19 @@ public class GameManager extends Application{
             LevelsPane newPane = new LevelsPane("6X6", engine.getStars());
             newPane.addHandler( new ButtonListener(0));
             primaryStage1.updateMiddlePanel(newPane);
+            dimension = 6;
         }
         else if ( index == 8){
             LevelsPane newPane = new LevelsPane("8X8", engine.getStars());
             newPane.addHandler( new ButtonListener(0));
             primaryStage1.updateMiddlePanel(newPane);
+            dimension = 8;
         }
         else if ( index == 10){
             LevelsPane newPane = new LevelsPane("10X10", engine.getStars());
             newPane.addHandler( new ButtonListener(0));
             primaryStage1.updateMiddlePanel(newPane);
+            dimension = 10;
         }
         else if ( index >= 11 && index <= 25) {
             if (newSettingsPane == null){
@@ -115,9 +120,10 @@ public class GameManager extends Application{
             } else {
                 timerMode = newSettingsPane.isTimerToogleOn();
             }
-            Map selectedMap = dataStorage.getMap().clone();
+            Map selectedMap = dataStorage.getMap(dimension).clone();
+            selectedMap.printDim();
             engine.setSelectedMap(selectedMap);
-            playGame = new PlayGame(selectedMap,timerMode);
+            playGame = new PlayGame(selectedMap,timerMode,dimension);
             playGame.addHandler( new ButtonListener(6));
             playGame.setSoundVolume(sliderVolume);
             playGame.setStars(engine.getStars());
@@ -311,6 +317,9 @@ public class GameManager extends Application{
                 possibleCar.setLayoutY(carY + gridBoxSize - y);
             //updateCar();
             //engine.updateBlockinfo();
+            if ( engine.gameWon() ) {
+                playGame.gameWon();
+            }
         }
     }
 
@@ -358,9 +367,6 @@ public class GameManager extends Application{
 
             //}
             engine.updateBlockinfo();
-            if ( engine.gameWon() ) {
-                playGame.gameWon();
-            }
         }
     }
 }

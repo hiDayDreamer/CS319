@@ -17,6 +17,8 @@ public class DataStorage implements Serializable{
     public DataStorage() {
         map = new Map[15];
         map[0] = new Map(6);
+        map[1] = new Map(8);
+        map[2] = new Map(10);
         /*
         //==========================SOUND EFFECTS=======================================
         soundEffect = new SoundEffect[2];
@@ -61,8 +63,19 @@ public class DataStorage implements Serializable{
         return map;
     }
 
-    public Map getMap() {
-        return map[0];
+    public Map getMap(int dimension) {
+        if (dimension == 6){
+            return map[0];
+        }
+        else if (dimension == 8){
+            return map[1];
+        }
+        if (dimension == 10){
+            return map[2];
+        } else {
+            return map[0];
+        }
+        
     }
     //returns soundEffect
     public SoundEffect[] getSoundEffects(){

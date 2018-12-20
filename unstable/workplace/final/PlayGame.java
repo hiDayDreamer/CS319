@@ -63,15 +63,17 @@ public class PlayGame extends Pane implements TimerRunnable {
     private Pane carsPane;
     private int[] stars;
     private double volume;
+    private int dimension;
 
     private Label timerCountdown;
     int noSeconds = 5;
     //private int shrinkCount;
-    public PlayGame(Map map,boolean mode) {
+    public PlayGame(Map map,boolean mode,int dim) {
         super();
         gameMap = map;
         timerMode = mode;
         volume = 0;
+        dimension = dim;
         initialize();
     }
 
@@ -251,7 +253,7 @@ public class PlayGame extends Pane implements TimerRunnable {
         cars = gameMap.getCars();
 
         String loc = "/img/grass.jpg";
-        gridBoxSize = GRIDBOX;
+        setCurrentDimensionSize(dimension);
 
         Pane box = new Pane();
         carsPane = new Pane();
@@ -353,10 +355,10 @@ public class PlayGame extends Pane implements TimerRunnable {
 
 
     public void setCurrentDimensionSize(int dimension){
-
+        gridBoxSize = 540/dimension;
     }
     private int getCurrentDimensionSize(){
-        return 6;
+        return dimension;
     }
 
     public int getBoxSize() {
