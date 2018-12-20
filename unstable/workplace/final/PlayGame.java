@@ -331,7 +331,7 @@ public class PlayGame extends Pane implements TimerRunnable {
             // });
             possibleCar.addEventHandler(MouseEvent.MOUSE_DRAGGED, new GameManager.MouseListener(possibleCar));
             possibleCar.setOnMouseReleased(new EventHandler<MouseEvent>(){
-                public void handle(MouseEvent e){
+                public void handle(MouseEvent e){   
                     double carX = possibleCar.getLayoutX();
                     double carY = possibleCar.getLayoutY();
                     double x = carX % gridBoxSize;
@@ -346,6 +346,7 @@ public class PlayGame extends Pane implements TimerRunnable {
                     else
                         possibleCar.setLayoutY(carY + gridBoxSize - y);
                 }
+                //NOTE: ADD GameManger.UpdateMap(position of the car,car)
             });
 
             if ( direction == 1 || direction == 3){
@@ -367,18 +368,6 @@ public class PlayGame extends Pane implements TimerRunnable {
         return playGameSubpanel;
     }
 
-    public void setCurrentColor(String colorCSS){
-
-        if (colorCSS == null){
-            this.setStyle("-fx-background-color: #81aae6;");
-        }else{
-            this.setStyle(colorCSS);
-        }
-    }
-
-    public void set(int soundVolume){
-
-    }
 
     public void setCurrentDimensionSize(int dimension){
 

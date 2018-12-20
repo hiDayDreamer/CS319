@@ -22,7 +22,7 @@ public class MainPage extends Pane{
     private final String SOUND_ICON = "/img/soundIcon.png";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
     private final String GAME_TITLE = "Rush Hour";
-    private final URL resource = getClass().getResource("Test.mp3"); //Sound is here.
+    private final URL resource = getClass().getResource("./sound/backgroundSound.mp3"); //Sound is here.
     private final double WIDTH  = 1080;
     private final double HEIGHT = 720;
     private final double COPYRIGHT_PANEL_SIZE = 60;

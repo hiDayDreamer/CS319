@@ -121,13 +121,20 @@ public class GameManager extends Application{
             System.out.println("toogle " +  newSettingsPane.isTimerToogleOn());
             newSettingsPane.toogleTimer();
             newSettingsPane.addHandler( new ButtonListener(0));
-            backgroundColor = "-fx-background-color: #81ddd6;";
         }
         else if (index == 31){
             //this is for start tiemr button
             System.out.println("start timer");
             playGame.startTimer();
 
+        }
+        else if (index == 32){
+            //this is for start tiemr button
+            System.out.println(newSettingsPane.getSliderVolume());
+
+        } 
+        else if (index >= 33 && index < 37 ){
+            backgroundColor = "-fx-background-color: #81ddd6;";
         }
         primaryStage1.setCurrentColor(backgroundColor);
     }

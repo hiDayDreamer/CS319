@@ -43,6 +43,7 @@ public class Settings extends Pane {
     private ImageView timer;
     private boolean toogler;
     private Slider slider;
+    private Button buttons[];
 
 
     public Settings() {
@@ -180,7 +181,7 @@ public class Settings extends Pane {
         colorButtonIcon[3] = "/img/lilacCircle.png";
         colorButtonIcon[4] = "/img/pinkCircle.png";
         int space = 50;
-        Button buttons[] = new Button[5];
+        buttons = new Button[5];
         for ( int i = 0; i < 5; i++) {
             space = space + 80;
             buttons[i] = new Button();
@@ -237,14 +238,6 @@ public class Settings extends Pane {
         //setCurrentColor(null);
     }
 
-    public void setCurrentColor(String colorCSS){
-
-        if (colorCSS == null){
-            this.setStyle("-fx-background-color: #81aae6;");
-        }else{
-            this.setStyle(colorCSS);
-        }
-    }
 
     public void addHandler( GameManager.ButtonListener e) {
       backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, e);
@@ -256,6 +249,15 @@ public class Settings extends Pane {
       GameManager.ButtonListener soundSlider = e.clone();
       soundSlider.setIndex(32);
       slider.addEventHandler(MouseEvent.MOUSE_CLICKED, soundSlider);
+
+      GameManager.ButtonListener themesListeners[];
+      themesListeners = new GameManager.ButtonListener[buttons.length];
+      for (int i = 0; i < buttons.length; i++){
+          themesListeners[i] = e.clone();
+          themesListeners[i].setIndex(33+i);
+          buttons[i].addEventHandler(MouseEvent.MOUSE_CLICKED, themesListeners[i]);
+      }
+
     }
 
     public double getSliderVolume(){
