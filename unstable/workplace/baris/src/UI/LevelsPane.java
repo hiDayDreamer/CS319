@@ -26,22 +26,23 @@ class LevelsPane extends GridPane{
    private String dimension;
    private Label starNo;
    private Button[] buttons;
-
+   private int[] starArr;
    //Buttons
    private Button backButton;
    private Image backImage;
 
    //constructors
-   public LevelsPane(String dimension){
+   public LevelsPane(String dimension, int[] starArr){
       super();
       this.dimension = dimension;
       buttons = new Button[15];
+      this.starArr = starArr;
       initialize();
    }
 
    //methods
    public void initialize(){
-      //setCurrentColor(null);
+      setCurrentColor(null);
       //set dimensions
       this.setMinHeight(HEIGHT - COPYRIGHT_PANEL_SIZE-12);
       this.setMinWidth(WIDTH);
@@ -83,14 +84,20 @@ class LevelsPane extends GridPane{
       VBox middle = new VBox( HEIGHT / 5 / 6);
       int levelNumber = 1;
       for ( int k = 0; k < 3; k++ ) {
+         // One of the rows of the buttons
          HBox box = new HBox(BUTTON_SIZE);
          for ( int i = 0; i < 5; i++) {
+            // the pane to put the view in
             Pane a = new Pane();
+            // The view for each level's button
             VBox level = new VBox();
             Image buttonImage = new Image(getClass().getResourceAsStream("/img/level.png"),HEIGHT / 5,HEIGHT/5,false,false);
+            // The image for the buttons
             ImageView s = new ImageView(buttonImage);
             s.setFitWidth(HEIGHT/5);
             s.setFitHeight(HEIGHT/5);
+            level.setMinWidth(HEIGHT/5);
+            level.setMinHeight(HEIGHT/5);
             a.getChildren().add(s);
             // create the number in the box
             Label number = new Label( levelNumber + "");
@@ -99,13 +106,15 @@ class LevelsPane extends GridPane{
             level.getChildren().addAll(number);
 
             // create the stars in the boxes
-            HBox stars = new HBox( ( HEIGHT / 5 - 3 * HEIGHT / 5 / 4 ) / 3);
-            for(int j = 0; j < 3; j++) {
+            HBox stars = new HBox( ( HEIGHT / 5 - 3 * HEIGHT / 5 / 4 ) / 4);
+            int temp = starArr[i+k];
+            for(int j = 0; j < temp; j++) {
                ImageView star = new ImageView(new Image("/img/fullStar.png"));
                star.setFitHeight(HEIGHT / 5 / 4);
                star.setFitWidth(HEIGHT / 5 / 4);
                stars.getChildren().add(star);
             }
+            stars.setAlignment(Pos.CENTER);
             level.getChildren().add(stars);
 
             //align the elements inside each of the small boxes
@@ -144,7 +153,7 @@ class LevelsPane extends GridPane{
       this.addRow(3, copyRightPanel);
    }
 
-/*
+
    public void setCurrentColor(String colorCSS){
 
         if (colorCSS == null){
@@ -153,7 +162,11 @@ class LevelsPane extends GridPane{
             this.setStyle(colorCSS);
         }
     }
-*/
+
+    public void setStars(int[] stars) {
+        this.starArr = stars;
+    }
+
     public void addHandler( GameManager.ButtonListener e) {
       e.setIndex(1);
       backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, e);

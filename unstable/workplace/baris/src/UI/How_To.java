@@ -128,7 +128,7 @@ public class How_To extends Pane {
         this.getChildren().addAll(settings, soundButton, settingsButton, backButton, tutorial, pagePassButtons[0], pagePassButtons[1]);
         //How_To Panel ends
 
-        //this.setCurrentColor(null);
+        this.setCurrentColor(null);
         copyRightPanel.getChildren().add(copyRightLabel);
         copyRightPanel.getChildren().add(version);
     }

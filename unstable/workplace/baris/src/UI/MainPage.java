@@ -1,16 +1,11 @@
-import javafx.event.ActionEvent;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.control.Label;
-import javafx.scene.media.AudioClip;
-import java.net.URL;
-
 import javafx.scene.text.Font;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
-
 
 public class MainPage extends Pane{
 
@@ -22,7 +17,6 @@ public class MainPage extends Pane{
     private final String SOUND_ICON = "/img/soundIcon.png";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
     private final String GAME_TITLE = "Rush Hour";
-    private final URL resource = getClass().getResource("./sound/backgroundSound.mp3"); //Sound is here.
     private final double WIDTH  = 1080;
     private final double HEIGHT = 720;
     private final double COPYRIGHT_PANEL_SIZE = 60;
@@ -40,10 +34,6 @@ public class MainPage extends Pane{
     private Button soundButton;
     private Pane copyRightPanel;
     private ImageView soundImage;
-    private AudioClip music;
-    private double volume = 50;/*
-    private GameManager g = new GameManager();
-    private double volume  = g.getVolume();*/
 
     public MainPage() {
         super();
@@ -51,8 +41,7 @@ public class MainPage extends Pane{
     }
 
     public void initialize(){
-        music = new AudioClip(resource.toExternalForm());
-        //music.play();
+
         //Creating middle panel
         this.setMinHeight(HEIGHT - COPYRIGHT_PANEL_SIZE);
         this.setMinWidth(WIDTH);
@@ -108,59 +97,6 @@ public class MainPage extends Pane{
         settingsIcon.setFitWidth(BUTTON_WIDTH);
         frameButtons[3].setGraphic(settingsIcon);
 
-        frameButtons[0].setOnMouseEntered(new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent e){
-                (( ImageView)frameButtons[0].getGraphic()).setFitWidth(BUTTON_WIDTH + 10);
-                (( ImageView)frameButtons[0].getGraphic()).setFitHeight(BUTTON_HEIGHT + 10);
-               }
-        });
-
-        frameButtons[0].setOnMouseExited(new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent e){
-                (( ImageView)frameButtons[0].getGraphic()).setFitWidth(BUTTON_WIDTH);
-                (( ImageView)frameButtons[0].getGraphic()).setFitHeight(BUTTON_HEIGHT);
-            }
-        });
-
-        frameButtons[1].setOnMouseEntered(new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent e){
-                (( ImageView)frameButtons[1].getGraphic()).setFitWidth(BUTTON_WIDTH + 10);
-                (( ImageView)frameButtons[1].getGraphic()).setFitHeight(BUTTON_HEIGHT + 10);
-            }
-        });
-
-        frameButtons[1].setOnMouseExited(new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent e){
-                (( ImageView)frameButtons[1].getGraphic()).setFitWidth(BUTTON_WIDTH);
-                (( ImageView)frameButtons[1].getGraphic()).setFitHeight(BUTTON_HEIGHT);
-            }
-        });
-        frameButtons[2].setOnMouseEntered(new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent e){
-                (( ImageView)frameButtons[2].getGraphic()).setFitWidth(BUTTON_WIDTH + 10);
-                (( ImageView)frameButtons[2].getGraphic()).setFitHeight(BUTTON_HEIGHT + 10);
-            }
-        });
-
-        frameButtons[2].setOnMouseExited(new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent e){
-                (( ImageView)frameButtons[2].getGraphic()).setFitWidth(BUTTON_WIDTH);
-                (( ImageView)frameButtons[2].getGraphic()).setFitHeight(BUTTON_HEIGHT);
-            }
-        });
-        frameButtons[3].setOnMouseEntered(new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent e){
-                (( ImageView)frameButtons[3].getGraphic()).setFitWidth(BUTTON_WIDTH + 10);
-                (( ImageView)frameButtons[3].getGraphic()).setFitHeight(BUTTON_HEIGHT + 10);
-            }
-        });
-
-        frameButtons[3].setOnMouseExited(new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent e){
-                (( ImageView)frameButtons[3].getGraphic()).setFitWidth(BUTTON_WIDTH);
-                (( ImageView)frameButtons[3].getGraphic()).setFitHeight(BUTTON_HEIGHT);
-            }
-        });
         //Sound button
         soundImage = new ImageView(new Image(SOUND_ICON));
         soundImage.setFitWidth(ICON_SIZE);
@@ -172,17 +108,8 @@ public class MainPage extends Pane{
         soundButton.setLayoutX(WIDTH - 100);
         soundButton.setLayoutY(25);
 
-        soundButton.setOnAction(new EventHandler <ActionEvent>() {
-            public void handle(ActionEvent event)
-            {
-                if(music.isPlaying()) {
-                    music.stop();
-                }else{
-                    music.play();
-                }
-
-            }
-        });
+        //Add animation to the buttons
+        addAnimation(10);
 
         //Adding buttons to middle panel
         this.getChildren().addAll(name, frameButtons[0], frameButtons[1], frameButtons[2], frameButtons[3], soundButton);
@@ -191,6 +118,7 @@ public class MainPage extends Pane{
         copyRightPanel.getChildren().add(copyRightLabel);
         copyRightPanel.getChildren().add(version);
         //Default theme
+        setCurrentColor(null);
     }
 
     public void setCurrentColor(String colorCSS){
@@ -200,14 +128,6 @@ public class MainPage extends Pane{
         }else{
             this.setStyle(colorCSS);
         }
-    }
-
-    public double getVolume(){
-        return volume;
-    }
-
-    public void setVolume(double changedVolume){
-        volume = changedVolume;
     }
 
     public void addHandler( GameManager.ButtonListener e) {
@@ -222,6 +142,15 @@ public class MainPage extends Pane{
         settings.setIndex(4);
         frameButtons[3].addEventHandler(MouseEvent.MOUSE_CLICKED, settings);
 
+    }
+
+    public void addAnimation(int factor) {
+        for ( int i = 0; i < 4; i++ ) {
+            frameButtons[i].setOnMouseEntered(new GameManager.Animation(frameButtons[i], factor, true));
+            frameButtons[i].setOnMouseExited(new GameManager.Animation(frameButtons[i], factor, false));
+        }
+        soundButton.setOnMouseEntered(new GameManager.Animation(soundButton, factor, true));
+        soundButton.setOnMouseExited(new GameManager.Animation(soundButton, factor, false));
     }
 
 }

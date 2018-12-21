@@ -24,37 +24,20 @@ public class WindowManager extends Stage{
     private Pane copyRightPanel;
     private Scene window;
     private MainPage mainPane = new MainPage();
-    private Settings s = new Settings();
-    private String wColor = s.getColor();
 
     public WindowManager() {
         super();
-        this.close();
         initialize();
         this.setTitle(FRAME_TITLE);
         this.setScene(window);
         this.setHeight(HEIGHT);
         this.setWidth(WIDTH);
         this.setResizable(IS_RESIZABLE);
-        //wColor = color;
+
         //Set game icon
         this.getIcons().add(new Image(getClass().getResourceAsStream(GAME_ICON_LOG)));
         this.show();
     }
-/*
-    public WindowManager(String color ) {
-        super();
-        this.setTitle(FRAME_TITLE);
-        this.setScene(window);
-        this.setHeight(HEIGHT);
-        this.setWidth(WIDTH);
-        this.setResizable(IS_RESIZABLE);
-        setCurrentColor(color);
-        //Set game icon
-        this.getIcons().add(new Image(getClass().getResourceAsStream(GAME_ICON_LOG)));
-        this.show();
-    }
-*/
 
     public void initialize(){
 
@@ -89,29 +72,26 @@ public class WindowManager extends Stage{
         this.updateMiddlePanel(mainPane);
 
         //Default theme
+        setCurrentColor("");
     }
 
     public boolean updateMiddlePanel(Pane newPane){
         if ( middlePanel == null){
             System.out.println("hope");
             middlePanel = newPane;
-            setCurrentColor(wColor);
             frame.addRow(0, middlePanel);
             return true;
         } else {
             System.out.println("hope");
             frame.getChildren().remove(middlePanel);
             middlePanel = newPane;
-            setCurrentColor(wColor);
             frame.addRow(0, middlePanel);
             return true;
         }
     }
 
-    public void setColor(String color){wColor = color;}
-
     public void setCurrentColor(String colorCSS){
-        if (colorCSS == null){
+        if (colorCSS == ""){
             middlePanel.setStyle("-fx-background-color: #81aae6;");
         }else{
             middlePanel.setStyle(colorCSS);

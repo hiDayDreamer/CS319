@@ -1,5 +1,3 @@
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -22,14 +20,11 @@ import javafx.scene.control.ProgressIndicator;
 public class DashboardPane extends Pane {
     //Constants
     private final String BACK_ICON = "/img/backIcon.png";
-    private final String STAR_ICON = "/img/star-icon.png";
-    private final String USER_ICON = "/img/userInfoIcon.png";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
     private final double WIDTH  = 1080;
     private final double HEIGHT = 720;
     private final double COPYRIGHT_PANEL_SIZE = 60;
     private final int ICON_SIZE = 64;
-    private final String[] CAR_SKINS = {"/img/0-1.png", "/img/1-1.png", "/img/2-1.png", "/img/3-1.png", "/img/4-1.png", "/img/5-1.png", "/img/6-1.png"};
 
     //DataVariables
     private int winPercentage;
@@ -39,8 +34,6 @@ public class DashboardPane extends Pane {
     private int tenToTenData;
     private int noOfStars;
     private double gameStatus;
-    private int counter;
-    Pane skinsPane;
 
     //Labels
     private Label copyRightLabel;
@@ -54,7 +47,6 @@ public class DashboardPane extends Pane {
     //Images
     private Image backImage;
     private Image[] pagePassImages;
-    private ImageView skin;
 
 
     public DashboardPane(DashboardData data) {
@@ -92,8 +84,6 @@ public class DashboardPane extends Pane {
         backButton.setMinSize(ICON_SIZE, ICON_SIZE);
         backButton.setLayoutX(25);
         backButton.setLayoutY(35);
-
-
 
         Label dashboard = new Label("Dashboard");
         dashboard.setStyle("-fx-font-weight: bold;");
@@ -176,13 +166,13 @@ public class DashboardPane extends Pane {
         gameStatusIndicator.setLayoutY(75);
 
         StackPane starsCollectedStack = new StackPane();
-        ImageView starsCollected = new ImageView(STAR_ICON);
+        ImageView starsCollected = new ImageView(backImage);
         starsCollected.setFitHeight(200);
         starsCollected.setFitWidth(200);
 
-        Label stars = new Label(String.valueOf(noOfStars) + "\nStars Collected");
+        Label stars = new Label(String.valueOf(noOfStars) + "\nStars Collected:");
         stars.setStyle("-fx-font-weight: bold; -fx-text-alignment: center; -fx-text-fill: #1b0611;");
-        stars.setFont(new Font("Verdana", 13));
+        stars.setFont(new Font("Verdana", 20));
 
         starsCollectedStack.getChildren().addAll(starsCollected, stars);
 
@@ -190,9 +180,7 @@ public class DashboardPane extends Pane {
         starsCollectedStack.setLayoutY(425);
 
 
-        skinsPane = new Pane();
-        counter = 0;
-        updateSkinsPanel(counter);
+        Pane skinsPane = new Pane();
         pagePassButtons = new Button[2];
         pagePassImages = new Image[2];
         pagePassImages[1] = new Image(getClass().getResourceAsStream("/img/play-symbol.png"), 16, 48, false, false);
@@ -208,40 +196,19 @@ public class DashboardPane extends Pane {
         pagePassButtons[1].setLayoutX(123);
         pagePassButtons[1].setLayoutY(75);
 
-
         skinsPane.setStyle("-fx-border-color: black");
+        ImageView skin1 = new ImageView("/img/5-1.png");
+        skin1.setFitWidth(100);
+        skin1.setFitHeight(175);
+        skin1.setLayoutX(28);
         skinsPane.setLayoutX(725);
         skinsPane.setLayoutY(250);
-        /*skin = new ImageView(CAR_SKINS[counter]);
-        skin.setFitWidth(100);
-        skin.setFitHeight(175);
-        skin.setLayoutX(28);*/
-        pagePassButtons[1].setOnAction(new EventHandler<ActionEvent>() {
-                public void handle (ActionEvent event) {
-                    if (counter != 6) {
-                        counter++;
-                        updateSkinsPanel(counter);
-                    } else {
-                        counter = 0;
-                    }
-                }
-        });
-        pagePassButtons[0].setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent event)
-            {
-                if ( counter != 0) {
-                    counter--;
-                    updateSkinsPanel(counter);
-                }else {
-                    counter = 0;
-                }
-            }
-        });
-        skinsPane.getChildren().addAll(pagePassButtons[0], pagePassButtons[1]);
-        ImageView profile = new ImageView(USER_ICON);
-        profile.setFitWidth(275);
+        skinsPane.getChildren().addAll(pagePassButtons[0], skin1, pagePassButtons[1]);
+
+        ImageView profile = new ImageView("/img/carSkinIcon.png");
+        profile.setFitWidth(200);
         profile.setFitHeight(200);
-        profile.setLayoutX(425);
+        profile.setLayoutX(450);
         profile.setLayoutY(225);
         Line line = new Line(450, 375, 325, 425);
 
@@ -252,37 +219,15 @@ public class DashboardPane extends Pane {
         copyRightPanel.getChildren().add(version);
 
         //Default theme
-        //setCurrentColor(null);
+        setCurrentColor(null);
     }
-/*
+
     public void setCurrentColor(String colorCSS){
 
         if (colorCSS == null){
             this.setStyle("-fx-background-color: #81aae6;");
         }else{
             this.setStyle(colorCSS);
-        }
-    }
-*/
-
-    public boolean updateSkinsPanel(int counter){
-        if ( skin == null){
-            System.out.println("hope");
-            skin = new ImageView(CAR_SKINS[counter]);
-            skin.setFitWidth(100);
-            skin.setFitHeight(175);
-            skin.setLayoutX(28);
-            skinsPane.getChildren().add(skin);
-        return true;
-        } else {
-            System.out.println("hope");
-            skinsPane.getChildren().remove(skin);
-            skin = new ImageView(CAR_SKINS[counter]);
-            skin.setFitWidth(100);
-            skin.setFitHeight(175);
-            skin.setLayoutX(28);
-            skinsPane.getChildren().add(skin);
-            return true;
         }
     }
 

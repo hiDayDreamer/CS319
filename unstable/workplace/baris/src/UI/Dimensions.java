@@ -189,9 +189,9 @@ public class Dimensions extends Pane {
         copyRightPanel.getChildren().add(version);
 
         //Default theme
-        //setCurrentColor(null);
+        setCurrentColor(null);
     }
-/*
+
     public void setCurrentColor(String colorCSS){
 
         if (colorCSS == null){
@@ -199,7 +199,7 @@ public class Dimensions extends Pane {
         }else{
             this.setStyle(colorCSS);
         }
-    }*/
+    }
 
 
     public void addHandler( GameManager.ButtonListener e) {
