@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.media.*;
 import java.io.File;
 import javafx.scene.layout.Pane;
+import java.util.LinkedList;
+
 public class GameManager extends Application{
 
     private WindowManager primaryStage1;
@@ -145,7 +147,7 @@ public class GameManager extends Application{
             //this is for start tiemr button
             System.out.println(newSettingsPane.getSliderVolume());
 
-        } 
+        }
         else if (index >= 33 && index <= 37 ){
             backgroundColor = "-fx-background-color: #81ddd6;";
             currentThemeIndex = index -33;
@@ -153,7 +155,7 @@ public class GameManager extends Application{
             boolean myTimer = newSettingsPane.isTimerToogleOn();
             newSettingsPane.initialize(myTimer);
             newSettingsPane.addHandler( new ButtonListener(0));
-            
+
         }
         primaryStage1.setCurrentColor(backgroundColor);
     }
@@ -317,9 +319,18 @@ public class GameManager extends Application{
                 possibleCar.setLayoutY(carY + gridBoxSize - y);
             //updateCar();
             //engine.updateBlockinfo();
+            playGame.rebuildGrid();
             if ( engine.gameWon() ) {
                 playGame.gameWon();
             }
+        }
+    }
+
+    static class Hint implements EventHandler<MouseEvent> {
+        public void handle(MouseEvent e) {
+            engine.createHint();
+            LinkedList<int[]> moves = engine.getHints();
+            playGame.showHint(moves.get(0)[1], moves.get(0)[2], moves.get(0)[5], moves.get(0)[6]);
         }
     }
 

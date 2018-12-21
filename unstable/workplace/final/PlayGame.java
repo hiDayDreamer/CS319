@@ -34,6 +34,7 @@ public class PlayGame extends Pane implements TimerRunnable {
     private Pane copyRightPanel;
     private GridPane playGameSubpanel;
     private Label version;
+    private Pane box;
 
     //Buttons
     private Button soundButton;
@@ -255,7 +256,7 @@ public class PlayGame extends Pane implements TimerRunnable {
         String loc = "/img/grass.jpg";
         setCurrentDimensionSize(dimension);
 
-        Pane box = new Pane();
+        box = new Pane();
         carsPane = new Pane();
         box.setStyle("-fx-background-color: black, -fx-control-inner-background; -fx-background-insets: 0, 2; -fx-padding:2;");
 
@@ -374,6 +375,7 @@ public class PlayGame extends Pane implements TimerRunnable {
 
         GameManager.ButtonListener startTime = e.clone();
         startTime.setIndex(31);
+        howToButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new GameManager.Hint());
         startButton.addEventHandler(MouseEvent.MOUSE_CLICKED, startTime);
         blowUpButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new GameManager.BlowUp(carsPane));
         shrinkButton.addEventHandler(MouseEvent.MOUSE_CLICKED,new GameManager.Shrink(carsPane));
@@ -501,6 +503,27 @@ public class PlayGame extends Pane implements TimerRunnable {
     public void setMaxMoves(int moveForward, int moveBackward) {
         this.moveForward = moveForward;
         this.moveBackward = moveBackward;
+    }
+
+    public void rebuildGrid() {
+        for (int rowIndex = 0; rowIndex < getCurrentDimensionSize(); rowIndex++){
+            for (int columnIndex = 0; columnIndex < getCurrentDimensionSize(); columnIndex++){
+                ((ImageView) box.getChildren().get(dimension * rowIndex + columnIndex)).setImage(new Image("img/brick.jpg"));
+            }
+        }
+    }
+
+    public void showHint( int dir, int length, int x, int y) {
+        if ( dir == 1 || dir == 3 ) {
+            for ( int i = x; i < x + length; i++ ) {
+                ((ImageView) box.getChildren().get(dimension * i + y)).setImage(new Image("img/grass.jpg"));
+            }
+        } else {
+            for ( int j = y; j < y + length; j++ ) {
+
+                ((ImageView) box.getChildren().get(dimension * x + j)).setImage(new Image("img/grass.jpg"));
+            }
+        }
     }
 
 }
