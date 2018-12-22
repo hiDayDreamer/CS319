@@ -134,6 +134,8 @@ public class GameManager extends Application{
             playGame.setSoundVolume(sliderVolume);
             playGame.setStars(engine.getStars());
             primaryStage1.updateMiddlePanel(playGame);
+            if ( index == 12 )
+                engine.reset();
 
         }
         else if (index == 30){

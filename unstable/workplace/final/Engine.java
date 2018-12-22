@@ -246,6 +246,10 @@ public class Engine{
 		this.stars = stars;
 	}
 
+	public void reset() {
+		moves = new LinkedList();
+	}
+
 	public LinkedList getMoves() {
 		return this.moves;
 	}
@@ -322,14 +326,14 @@ public class Engine{
                 }
             }
         }
-		for ( int i = 0; i < arr.length; i++ ) {
-			for ( int j = 0; j < arr.length; j++) {
-				int k = arr[i][j].isOccupied() ? 1 : 0;
-				System.out.print(k + " ");
-			}
-			System.out.println();
-		}
-		System.out.println();
+		// for ( int i = 0; i < arr.length; i++ ) {
+		// 	for ( int j = 0; j < arr.length; j++) {
+		// 		int k = arr[i][j].isOccupied() ? 1 : 0;
+		// 		System.out.print(k + " ");
+		// 	}
+		// 	System.out.println();
+		// }
+		// System.out.println();
     }
 
 	public void blowUpCar( int toGo ) {

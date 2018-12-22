@@ -17,7 +17,8 @@ import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.*;
-
+import javafx.animation.*;
+import javafx.util.*;
 public class PlayGame extends Pane implements TimerRunnable {
     //Constants
     private final String SOUND_ICON = "/img/soundIcon.png";
@@ -361,7 +362,7 @@ public class PlayGame extends Pane implements TimerRunnable {
         howToButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new GameManager.Hint());
         startButton.addEventHandler(MouseEvent.MOUSE_CLICKED, startTime);
         GameManager.ButtonListener reset = e.clone();
-        reset.setIndex(11);
+        reset.setIndex(12);
         resetButton.addEventHandler(MouseEvent.MOUSE_CLICKED, reset);
         GameManager.ButtonListener undo = e.clone();
         undo.setIndex(38);
@@ -539,15 +540,16 @@ public class PlayGame extends Pane implements TimerRunnable {
     }
 
     public void showHint( int dir, int length, int x, int y) {
-        // Timeline flasher = new Timeline(
-        //     new KeyFrame(Duration.seconds(0.5), e -> {
-        //         // use "flash" color
-        //     }),
-        //
-        //     new KeyFrame(Duration.seconds(1.0), e -> {
-        //         // revert to regular color
-        //     })
-        // );
+        Timeline flasher = new Timeline(
+            new KeyFrame(Duration.seconds(0.5), e -> {
+                box.getChildren().get(0).setStyle("-fx-background-color: black");
+            }),
+
+            new KeyFrame(Duration.seconds(1.0), e -> {
+                box.getChildren().get(0).setStyle("-fx-background-color: transparent");
+            })
+        );
+        flasher.setCycleCount(Animation.INDEFINITE);
         if ( dir == 1 || dir == 3 ) {
             for ( int i = x; i < x + length; i++ ) {
                 ((ImageView) box.getChildren().get(dimension * i + y)).setImage(new Image("img/grass.jpg"));

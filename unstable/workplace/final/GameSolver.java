@@ -194,12 +194,12 @@ public class GameSolver {
             cur = parent;
             parent = parent.parent;
         }
-        ListIterator<int[]> it = moves.listIterator(0);
-        int[] j = it.next();
-        while ( it.hasNext() ) {
-            System.out.println(Arrays.toString(j));
-            j = it.next();
-        }
+        // ListIterator<int[]> it = moves.listIterator(0);
+        // int[] j = it.next();
+        // while ( it.hasNext() ) {
+        //     System.out.println(Arrays.toString(j));
+        //     j = it.next();
+        // }
         LinkedList<int[]> betterMoves = new LinkedList();
         int[][] arr = moves.toArray( new int[moves.size()][]);
         int i = 0;
