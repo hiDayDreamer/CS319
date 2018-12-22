@@ -2,31 +2,55 @@ public class Map {
 	private Car player;
 	private Car[] cars;
 	private Block[][] blocks;
-	private int stars;
 	private int level;
 	private int dimension;
 	private int minMoveCount;
 	private boolean isOpenMap;
+
+	public Map() {
+		cars = null;
+		blocks = null;
+		level = 0;
+		dimension = 0;
+		minMoveCount = 0;
+		isOpenMap = true;
+	}
 
 	public Map(int dimension){
 		this.dimension = dimension;
 		initMap();
 	}
 
-	public Map(int stars, int level, int dimension, int minMoveCount, boolean isOpenMap ) {
-		this.stars = stars;
+	public Map( int level, int dimension, int minMoveCount, boolean isOpenMap ) {
 		this.level = level;
 		this.dimension = dimension;
 		this.minMoveCount = minMoveCount;
 		this.isOpenMap = isOpenMap;
 	}
 
-	public int getStars() {
-		return stars;
+	public Map clone() {
+		Map newMap = new Map();
+		newMap.level = level;
+		newMap.dimension = dimension;
+		newMap.minMoveCount = minMoveCount;
+		newMap.isOpenMap = isOpenMap;
+		Car[] newCars = new Car[cars.length];
+		for ( int i = 0; i < cars.length; i++ )
+			newCars[i] = cars[i].clone();
+		Block[][] newBlocks = new Block[dimension][dimension];
+		for ( int i = 0; i < dimension; i++) {
+			for ( int j = 0; j < dimension; j++) {
+				newBlocks[i][j] = new Block(i, j);
+				newBlocks[i][j].setOccupied(blocks[i][j].isOccupied());
+			}
+		}
+		newMap.cars = newCars;
+		newMap.blocks = newBlocks;
+		return newMap;
 	}
 
-	public void setStars(int stars) {
-		this.stars = stars;
+	public Car getPlayer() {
+		return player;
 	}
 
 	public int getLevel() {
@@ -66,6 +90,14 @@ public class Map {
 	}
 	public Car[] getCars(){
 		return cars;
+	}
+
+	public void setCars(Car[] cars ){
+		this.cars = cars;
+	}
+
+	public int getDifficulty() {
+		return 0;
 	}
 
 	private void initMap(){
@@ -110,14 +142,15 @@ public class Map {
 		cars = new Car[noOfCars];
 		for (int i = 0; i < noOfCars; i++){
 			cars[i] = new Car();
-			cars[i].setImageLocation("/img/"+i+".png");
+			cars[i].setImageLocation("/img/"+i);
 		}
 
-		cars[0].setHorizontalX(0,1);
-		cars[0].setVerticalY(2,2);
+		cars[0].setHorizontalX(3,3);
+		cars[0].setVerticalY(1,2);
 		cars[0].setLength(2);
-		cars[0].setCarDirection(3);
-
+		cars[0].setCarDirection(2);
+		cars[0].setPlayer(true);
+		player = cars[0];
 
 		cars[1].setHorizontalX(0,0);
 		cars[1].setVerticalY(4,5);
@@ -139,10 +172,10 @@ public class Map {
 		cars[4].setLength(3);
 		cars[4].setCarDirection(0);
 
-		cars[5].setHorizontalX(3,3);
-		cars[5].setVerticalY(1,2);
+		cars[5].setHorizontalX(0,1);
+		cars[5].setVerticalY(2,2);
 		cars[5].setLength(2);
-		cars[5].setCarDirection(2);
+		cars[5].setCarDirection(3);
 
 		cars[6].setHorizontalX(3,5);
 		cars[6].setVerticalY(4,4);
