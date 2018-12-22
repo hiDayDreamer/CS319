@@ -24,7 +24,6 @@ public class GameManager extends Application{
 
     public static void main(String[] args) {
         launch(args);
-        String fileContent = "Some moves.";
     }
 
     double sliderVolume = 40;

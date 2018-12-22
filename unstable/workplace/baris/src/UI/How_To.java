@@ -35,7 +35,7 @@ public class How_To extends Pane {
     //Images
     private ImageView soundImage;
     private ImageView settingsImage;
-    private Image backImage;
+    private ImageView backImage;
     private Image[] tutorialImage;
     private ImageView tutorial;
     private Image[] pagePassImages;
@@ -96,13 +96,15 @@ public class How_To extends Pane {
         settingsButton.setLayoutY(35);
 
         //Back button
-        backImage = new Image(getClass().getResourceAsStream(BACK_ICON));
+        backImage = new ImageView(BACK_ICON);
+        backImage.setFitWidth(ICON_SIZE);
+        backImage.setFitHeight(ICON_SIZE);
         backButton = new Button();
-        backButton.setGraphic(new ImageView(backImage));
+        backButton.setGraphic(backImage);
         backButton.setStyle("-fx-background-color: transparent");
         backButton.setMinSize(ICON_SIZE, ICON_SIZE);
         backButton.setLayoutX(25);
-        backButton.setLayoutY(35);
+        backButton.setLayoutY(25);
 
         //Tutorial Images
         tutorialCount = 1;
@@ -128,7 +130,7 @@ public class How_To extends Pane {
         }
         pagePassButtons[0].setLayoutX(WIDTH - 150);
         pagePassButtons[1].setLayoutX(75);
-
+        addAnimation(10);
         //Adding buttons to middle panel
         this.getChildren().addAll(settings, soundButton, settingsButton, backButton, tutorial, pagePassButtons[0], pagePassButtons[1]);
         //How_To Panel ends
@@ -153,5 +155,13 @@ public class How_To extends Pane {
        GameManager.ButtonListener settings = e.clone();
        settings.setIndex(4);
        settingsButton.addEventHandler(MouseEvent.MOUSE_CLICKED, settings);
+    }
+    public void addAnimation(int factor) {
+        soundButton.setOnMouseEntered(new GameManager.Animation(soundButton, factor, true));
+        soundButton.setOnMouseExited(new GameManager.Animation(soundButton, factor, false));
+        settingsButton.setOnMouseEntered(new GameManager.Animation(settingsButton, factor, true));
+        settingsButton.setOnMouseExited(new GameManager.Animation(settingsButton, factor, false));
+        backButton.setOnMouseEntered(new GameManager.Animation(backButton, factor, true));
+        backButton.setOnMouseExited(new GameManager.Animation(backButton, factor, false));
     }
 }

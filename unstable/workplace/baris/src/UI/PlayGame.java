@@ -111,57 +111,91 @@ public class PlayGame extends Pane implements TimerRunnable {
         soundButton.setMinSize(ICON_SIZE,ICON_SIZE);
         soundButton.setLayoutX(WIDTH - 100);
         soundButton.setLayoutY(25);
-
         soundButton.setGraphic(soundImage);
 
+        ImageView settingsImage = new ImageView(new Image(SETTINGS_ICON));
+        settingsImage.setFitWidth(ICON_SIZE);
+        settingsImage.setFitHeight(ICON_SIZE);
         settingsButton = new Button();
         settingsButton.setStyle("-fx-background-color: transparent");
         settingsButton.setMinSize(ICON_SIZE, ICON_SIZE);
         settingsButton.setLayoutX(WIDTH - 200);
         settingsButton.setLayoutY(25);
-        settingsButton.setGraphic(new ImageView(SETTINGS_ICON));
+        settingsButton.setGraphic(settingsImage);
 
+        ImageView backImage = new ImageView(new Image(BACK_ICON));
+        backImage.setFitWidth(ICON_SIZE);
+        backImage.setFitHeight(ICON_SIZE);
         backButton = new Button();
         backButton.setStyle("-fx-background-color: transparent");
         backButton.setMinSize(ICON_SIZE, ICON_SIZE);
         backButton.setLayoutX(25);
         backButton.setLayoutY(25);
-        backButton.setGraphic(new ImageView(BACK_ICON));
+        backButton.setGraphic(backImage);
 
+        Label hover = new Label();
+        hover.setLayoutY(465);
+        hover.setLayoutX(135);
+        hover.setFont(new Font("American Typewriter", 20));
+
+        Label hover1 = new Label();
+        hover1.setLayoutY(465);
+        hover1.setLayoutX(910);
+        hover1.setFont(new Font("American Typewriter", 20));
+
+        ImageView undoImage = new ImageView(new Image(UNDO_ICON));
+        undoImage.setFitWidth(ICON_SIZE);
+        undoImage.setFitHeight(ICON_SIZE);
         undoButton = new Button();
         undoButton.setStyle("-fx-background-color: transparent");
         undoButton.setMinSize(ICON_SIZE, ICON_SIZE);
         undoButton.setLayoutX(150);
         undoButton.setLayoutY(300);
-        undoButton.setGraphic(new ImageView(UNDO_ICON));
+        undoButton.setGraphic(undoImage);
+        undoButton.addEventHandler(MouseEvent.MOUSE_ENTERED,
+                e -> {
+                    hover1.setText("Undo");
+                });
+        undoButton.addEventHandler(MouseEvent.MOUSE_EXITED,
+                e -> {
+                    hover1.setText("");
+                });
 
+        ImageView resetImage = new ImageView(new Image(RESET_ICON));
+        resetImage.setFitWidth(ICON_SIZE);
+        resetImage.setFitHeight(ICON_SIZE);
         resetButton = new Button();
-        resetButton.setGraphic(new ImageView(RESET_ICON));
+        resetButton.setGraphic(resetImage);
         resetButton.setStyle("-fx-background-color: transparent");
         resetButton.setMinSize(ICON_SIZE, ICON_SIZE);
         resetButton.setLayoutX(150);
         resetButton.setLayoutY(500);
-        //reset
-        Label resetLabel = new Label("Reset");
-        resetLabel.setLayoutX(160);
-        resetLabel.setLayoutY(580);
-        resetLabel.setFont(new Font(20));
-
-        //undo
-        Label undoLabel = new Label("Undo");
-        undoLabel.setLayoutX(160);
-        undoLabel.setLayoutY(380);
-        undoLabel.setFont(new Font(20));
+        resetButton.addEventHandler(MouseEvent.MOUSE_ENTERED,
+                e -> {
+                    hover1.setText("Reset");
+                });
+        resetButton.addEventHandler(MouseEvent.MOUSE_EXITED,
+                e -> {
+                    hover1.setText("");
+                });
 
         //hint
-        Label hintLabel = new Label("Hint");
-        hintLabel.setLayoutX(WIDTH-190);
-        hintLabel.setLayoutY(580);
-        hintLabel.setFont(new Font(20));
-
+        ImageView howToImage = new ImageView(new Image(HINT_ICON));
+        howToImage.setFitWidth(ICON_SIZE);
+        howToImage.setFitHeight(ICON_SIZE);
         howToButton = new Button();
-        howToButton.setGraphic(new ImageView(HINT_ICON));
-        howToButton.setStyle("-fx-background-color: transparent");
+        howToButton.setGraphic(howToImage);
+        howToButton.setStyle("-fx-background-color: transparent; ");
+
+
+        howToButton.addEventHandler(MouseEvent.MOUSE_ENTERED,
+                e -> {
+                    hover.setText("Hint");
+                });
+        howToButton.addEventHandler(MouseEvent.MOUSE_EXITED,
+                e -> {
+                    hover.setText("");
+                });
         howToButton.setMinSize(ICON_SIZE, ICON_SIZE);
         howToButton.setLayoutX(WIDTH-200);
         howToButton.setLayoutY(500);
@@ -171,47 +205,43 @@ public class PlayGame extends Pane implements TimerRunnable {
         blowUpButton.setGraphic(new ImageView(BU_ICON));
         blowUpButton.setStyle("-fx-background-color: transparent");
         blowUpButton.setMinSize(ICON_SIZE, ICON_SIZE);
-        Label blowUpLabel = new Label("Blow up");
-        blowUpLabel.setLayoutX(WIDTH-190);
-        blowUpLabel.setLayoutY(380);
-        blowUpLabel.setFont(new Font(20));
+        blowUpButton.addEventHandler(MouseEvent.MOUSE_ENTERED,
+                e -> {
+                    hover.setText("Blow Up");
+                });
+        blowUpButton.addEventHandler(MouseEvent.MOUSE_EXITED,
+                e -> {
+                    hover.setText("");
+                });
 
         shrinkButton = new Button();
         shrinkButton.setGraphic(new ImageView(SHRINK_ICON));
         shrinkButton.setStyle("-fx-background-color: transparent");
         shrinkButton.setMinSize(ICON_SIZE, ICON_SIZE);
-        Label shrinkLabel = new Label("Shrink");
-        shrinkLabel.setLayoutX(WIDTH-190);
-        shrinkLabel.setLayoutY(260);
-        shrinkLabel.setFont(new Font(20));
+        shrinkButton.addEventHandler(MouseEvent.MOUSE_ENTERED,
+                e -> {
+                    hover.setText("Shrink");
+                });
+        shrinkButton.addEventHandler(MouseEvent.MOUSE_EXITED,
+                e -> {
+                    hover.setText("");
+                });
 
         rotate = new Button();
         rotate.setGraphic(new ImageView(ROTATE_ICON));
         rotate.setStyle("-fx-background-color: transparent");
         rotate.setMinSize(ICON_SIZE, ICON_SIZE);
+        rotate.addEventHandler(MouseEvent.MOUSE_ENTERED,
+                e -> {
+                    hover.setText("Rotate");
+                });
+        rotate.addEventHandler(MouseEvent.MOUSE_EXITED,
+                e -> {
+                    hover.setText("");
+                });
 
         HBox shrinkRotate = new HBox(25);
         shrinkRotate.getChildren().addAll(shrinkButton, rotate);
-
-
-
-        Label rotateLabel = new Label("Rotate Car");
-        rotateLabel.setLayoutX(WIDTH-90);
-        rotateLabel.setLayoutY(340);
-        rotateLabel.setFont(new Font(20));
-/*
-        changeExit = new Button();
-        ImageView exit = new ImageView("/img/emergency-sign.png");
-        exit.setFitWidth(ICON_SIZE);
-        exit.setFitHeight(ICON_SIZE);
-        changeExit.setGraphic(exit);
-        changeExit.setStyle("-fx-background-color: transparent");
-        changeExit.setMinSize(ICON_SIZE, ICON_SIZE);*/
-
-        Label changeExitLabel = new Label("Change Exit");
-        changeExitLabel.setLayoutX(WIDTH-90);
-        changeExitLabel.setLayoutY(470);
-        changeExitLabel.setFont(new Font(20));
 
         HBox blowChange = new HBox(25);
         blowChange.getChildren().addAll(blowUpButton, howToButton);
@@ -247,11 +277,13 @@ public class PlayGame extends Pane implements TimerRunnable {
         startButton.setLayoutX(100);
         startButton.setLayoutY(75);
 
+        addAnimation(10);
+
         playGameSubpanel = buildGrid(new Insets(90,0,0,300));
         if (timerMode){
-            getChildren().addAll( royalFlush, soundButton, settingsButton, playGameSubpanel, backButton, timerCountdown,startButton, shrinkBlow, undoReset);
+            getChildren().addAll( royalFlush, soundButton, settingsButton, playGameSubpanel, backButton, timerCountdown,startButton, shrinkBlow, undoReset, hover, hover1);
         } else {
-            getChildren().addAll( royalFlush, soundButton, settingsButton, playGameSubpanel, backButton, shrinkBlow, undoReset);
+            getChildren().addAll( royalFlush, soundButton, settingsButton, playGameSubpanel, backButton, shrinkBlow, undoReset, hover, hover1);
         }
 
 
@@ -388,25 +420,7 @@ public class PlayGame extends Pane implements TimerRunnable {
         return gridBoxSize;
     }
 
-    public void addHandler( GameManager.ButtonListener e) {
-        // add the button listener to the back button
-        backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, e);
 
-        GameManager.ButtonListener settings = e.clone();
-        settings.setIndex(4);
-        settingsButton.addEventHandler(MouseEvent.MOUSE_CLICKED, settings);
-
-        GameManager.ButtonListener startTime = e.clone();
-        startTime.setIndex(31);
-        startButton.addEventHandler(MouseEvent.MOUSE_CLICKED, startTime);
-        blowUpButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new GameManager.BlowUp(carsPane));
-        shrinkButton.addEventHandler(MouseEvent.MOUSE_CLICKED,new GameManager.Shrink(carsPane));
-        resetButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
-            public void handle(MouseEvent e) {
-                System.out.println("Reset");
-            }
-        });
-    }
     //
     // double firstX, firstY;
     // double carX, carY;
@@ -562,8 +576,35 @@ public class PlayGame extends Pane implements TimerRunnable {
         return true;
     }
 
+    public void addHandler( GameManager.ButtonListener e) {
+        // add the button listener to the back button
+        backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, e);
+
+        GameManager.ButtonListener settings = e.clone();
+        settings.setIndex(4);
+        settingsButton.addEventHandler(MouseEvent.MOUSE_CLICKED, settings);
+
+        GameManager.ButtonListener startTime = e.clone();
+        startTime.setIndex(31);
+        startButton.addEventHandler(MouseEvent.MOUSE_CLICKED, startTime);
+        blowUpButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new GameManager.BlowUp(carsPane));
+        shrinkButton.addEventHandler(MouseEvent.MOUSE_CLICKED,new GameManager.Shrink(carsPane));
+        resetButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
+            public void handle(MouseEvent e) {
+                System.out.println("Reset");
+            }
+        });
+    }
     public void setSoundVolume(double percentage){
         volume = percentage;
+    }
+    public void addAnimation(int factor) {
+        soundButton.setOnMouseEntered(new GameManager.Animation(soundButton, factor, true));
+        soundButton.setOnMouseExited(new GameManager.Animation(soundButton, factor, false));
+        settingsButton.setOnMouseEntered(new GameManager.Animation(settingsButton, factor, true));
+        settingsButton.setOnMouseExited(new GameManager.Animation(settingsButton, factor, false));
+        backButton.setOnMouseEntered(new GameManager.Animation(backButton, factor, true));
+        backButton.setOnMouseExited(new GameManager.Animation(backButton, factor, false));
     }
 
     int moveForward;

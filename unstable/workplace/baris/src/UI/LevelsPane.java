@@ -33,7 +33,7 @@ class LevelsPane extends GridPane{
    private Button settingsButton;
    //Buttons
    private Button backButton;
-   private Image backImage;
+   private ImageView backImage;
 
    //constructors
    public LevelsPane(String dimension, int[] starArr){
@@ -55,9 +55,11 @@ class LevelsPane extends GridPane{
       copyRightPanel = new Pane();
 
       //backButton
-      backImage = new Image(getClass().getResourceAsStream(BACK_ICON));
-      backButton = new Button("",new ImageView(backImage));
-      //backButton.setGraphic();
+      backImage = new ImageView(BACK_ICON);
+      backImage.setFitWidth(ICON_SIZE);
+      backImage.setFitHeight(ICON_SIZE);
+      backButton = new Button();
+      backButton.setGraphic(backImage);
       backButton.setStyle("-fx-background-color: transparent");
       backButton.setMinSize(ICON_SIZE, ICON_SIZE);
       backButton.setLayoutX(25);
@@ -74,13 +76,15 @@ class LevelsPane extends GridPane{
 
       soundButton.setGraphic(soundImage);
 
+      ImageView settingsImage = new ImageView(new Image(SETTINGS_ICON));
+      settingsImage.setFitWidth(ICON_SIZE);
+      settingsImage.setFitHeight(ICON_SIZE);
       settingsButton = new Button();
       settingsButton.setStyle("-fx-background-color: transparent");
       settingsButton.setMinSize(ICON_SIZE, ICON_SIZE);
       settingsButton.setLayoutX(WIDTH - 200);
       settingsButton.setLayoutY(25);
-      settingsButton.setGraphic(new ImageView(SETTINGS_ICON));
-
+      settingsButton.setGraphic(settingsImage);
       // create the label
       title = new Label("");
       title.setStyle("-fx-font-weight: bold;");
@@ -105,8 +109,8 @@ class LevelsPane extends GridPane{
       title.setAlignment(Pos.TOP_CENTER);
       title.setLayoutY(35);
       Pane top = new Pane();
-      top.getChildren().addAll(title, backButton);
-      this.addRow(0, top, settingsButton, soundButton);
+      top.getChildren().addAll(title, backButton, soundButton, settingsButton);
+      this.addRow(0, top);
 
       // create the stars pane
       HBox starBox = new HBox();
@@ -186,7 +190,7 @@ class LevelsPane extends GridPane{
          box.setAlignment(Pos.CENTER);
          middle.getChildren().add(box);
       };
-
+      addAnimation(10);
       this.addRow(1, middle);
       this.addRow(2, starBox);
       this.addRow(3, copyRightPanel);
@@ -215,5 +219,16 @@ class LevelsPane extends GridPane{
          buttons[i].addEventHandler(MouseEvent.MOUSE_CLICKED, level);
 
       }
+       GameManager.ButtonListener settings = e.clone();
+       settings.setIndex(4);
+       settingsButton.addEventHandler(MouseEvent.MOUSE_CLICKED, settings);
+   }
+   public void addAnimation(int factor) {
+      soundButton.setOnMouseEntered(new GameManager.Animation(soundButton, factor, true));
+      soundButton.setOnMouseExited(new GameManager.Animation(soundButton, factor, false));
+      settingsButton.setOnMouseEntered(new GameManager.Animation(settingsButton, factor, true));
+      settingsButton.setOnMouseExited(new GameManager.Animation(settingsButton, factor, false));
+      backButton.setOnMouseEntered(new GameManager.Animation(backButton, factor, true));
+      backButton.setOnMouseExited(new GameManager.Animation(backButton, factor, false));
    }
 }
