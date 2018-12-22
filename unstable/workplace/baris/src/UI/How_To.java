@@ -140,7 +140,7 @@ public class How_To extends Pane {
             pagePassButtons[i].setLayoutY(HEIGHT / 2 - 75);
 
         }
-        pagePassButtons[0].setLayoutX(WIDTH - 150);
+        pagePassButtons[0].setLayoutX(WIDTH - 200);
         pagePassButtons[1].setLayoutX(75);
 
         addAnimation(10);
