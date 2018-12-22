@@ -6,9 +6,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
 import javafx.scene.media.*;
 import java.io.File;
-import javafx.scene.layout.Pane;
-import java.util.LinkedList;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
+import javafx.scene.layout.Pane;
 public class GameManager extends Application{
 
     private WindowManager primaryStage1;
@@ -22,6 +24,7 @@ public class GameManager extends Application{
 
     public static void main(String[] args) {
         launch(args);
+        String fileContent = "Some moves.";
     }
 
     double sliderVolume = 40;
@@ -147,9 +150,45 @@ public class GameManager extends Application{
             //this is for start tiemr button
             System.out.println(newSettingsPane.getSliderVolume());
 
+        } 
+        else if (index == 33){
+            backgroundColor = "-fx-background-color: #ffd151;";
+            currentThemeIndex = index -33;
+            newSettingsPane.setSelectedTheme(currentThemeIndex);
+            boolean myTimer = newSettingsPane.isTimerToogleOn();
+            newSettingsPane.initialize(myTimer);
+            newSettingsPane.addHandler( new ButtonListener(0));
+            
         }
-        else if (index >= 33 && index <= 37 ){
-            backgroundColor = "-fx-background-color: #81ddd6;";
+        else if (index == 34 ){
+            backgroundColor = "-fx-background-color: #719fe6;";
+            currentThemeIndex = index -33;
+            newSettingsPane.setSelectedTheme(currentThemeIndex);
+            boolean myTimer = newSettingsPane.isTimerToogleOn();
+            newSettingsPane.initialize(myTimer);
+            newSettingsPane.addHandler( new ButtonListener(0));
+
+        }
+        else if (index == 35){
+            backgroundColor = "-fx-background-color: rgba(74,148,74,0.6)";
+            currentThemeIndex = index -33;
+            newSettingsPane.setSelectedTheme(currentThemeIndex);
+            boolean myTimer = newSettingsPane.isTimerToogleOn();
+            newSettingsPane.initialize(myTimer);
+            newSettingsPane.addHandler( new ButtonListener(0));
+
+        }
+        else if (index == 36){
+            backgroundColor = "-fx-background-color: rgba(153,50,147,0.7);";
+            currentThemeIndex = index -33;
+            newSettingsPane.setSelectedTheme(currentThemeIndex);
+            boolean myTimer = newSettingsPane.isTimerToogleOn();
+            newSettingsPane.initialize(myTimer);
+            newSettingsPane.addHandler( new ButtonListener(0));
+
+        }
+        else if (index == 37){
+            backgroundColor = "-fx-background-color: rgba(224,133,179,0.94);";
             currentThemeIndex = index -33;
             newSettingsPane.setSelectedTheme(currentThemeIndex);
             boolean myTimer = newSettingsPane.isTimerToogleOn();
@@ -319,18 +358,9 @@ public class GameManager extends Application{
                 possibleCar.setLayoutY(carY + gridBoxSize - y);
             //updateCar();
             //engine.updateBlockinfo();
-            playGame.rebuildGrid();
             if ( engine.gameWon() ) {
                 playGame.gameWon();
             }
-        }
-    }
-
-    static class Hint implements EventHandler<MouseEvent> {
-        public void handle(MouseEvent e) {
-            engine.createHint();
-            LinkedList<int[]> moves = engine.getHints();
-            playGame.showHint(moves.get(0)[1], moves.get(0)[2], moves.get(0)[5], moves.get(0)[6]);
         }
     }
 

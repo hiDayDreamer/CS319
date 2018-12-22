@@ -92,7 +92,7 @@ public class WindowManager extends Stage{
 
     public void setCurrentColor(String colorCSS){
         if (colorCSS == ""){
-            middlePanel.setStyle("-fx-background-color: #81aae6;");
+            middlePanel.setStyle("-fx-background-color: rgba(91,106,183,0.69);");
         }else{
             middlePanel.setStyle(colorCSS);
         }

@@ -59,12 +59,13 @@ public class MainPage extends Pane{
         version.setLayoutX(WIDTH - 100);
 
         //Name of the game label
-        name = new Label(GAME_TITLE);
+        name = new Label("");
         name.setStyle("-fx-font-weight: bold;");
+        name.setGraphic(new ImageView("/img/rushhour.png"));
         name.setMaxSize(450,75);
         name.setFont(new Font("American Typewriter", 75));
-        name.setLayoutX(WIDTH / 2 - 165 );
-        name.setLayoutY(75);
+        name.setLayoutX(150 );
+        name.setLayoutY(0);
 
         //Creating main buttons
         int space = 0;
@@ -124,7 +125,7 @@ public class MainPage extends Pane{
     public void setCurrentColor(String colorCSS){
 
         if (colorCSS == null){
-            this.setStyle("-fx-background-color: #81aae6;");
+            this.setStyle("-fx-background-color: rgba(22,24,23,0.94);");
         }else{
             this.setStyle(colorCSS);
         }

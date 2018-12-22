@@ -16,7 +16,8 @@ public class Settings extends Pane {
     private final String BACK_ICON = "/img/backIcon.png";
     private final String THEMES_ICON = "/img/themesIcon.png";
     private final String TIMER_ICON = "/img/timerIcon.png";
-    private final String TIMER_BUTTON_ICON = "/img/timerON.png";
+    private final String TIMER_BUTTON_ICON = "/img/toggleON.png";
+    private final String TIMER_BUTTON_ICON_OFF = "/img/toggleOFF.png";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
     private final double WIDTH  = 1080;
     private final double HEIGHT = 720;
@@ -48,13 +49,15 @@ public class Settings extends Pane {
 
     public Settings() {
         super();
-        currentSelectedThemeIndex = 0;
+        slider = new Slider();
+        slider.setValue(40);
+        currentSelectedThemeIndex = 5;
         toogler = false;
         initialize(toogler);
     }
 
     public void initialize(boolean togle){
-
+        getChildren().removeAll();
         //Creating middle panel
         this.setMinHeight(HEIGHT - COPYRIGHT_PANEL_SIZE);
         this.setMinWidth(WIDTH);
@@ -77,16 +80,21 @@ public class Settings extends Pane {
         backButton.setLayoutX(25);
         backButton.setLayoutY(35);
 
-        Label settings = new Label("Settings");
+        Label settings = new Label("");
         settings.setStyle("-fx-font-weight: bold;");
+        ImageView labelImage = new ImageView("/img/settings_label.png");
+        labelImage.setFitWidth(400);
+        labelImage.setFitHeight(60);
+
+        settings.setGraphic(labelImage);
         settings.setMaxSize(450,75);
         settings.setFont(new Font("Verdana", 45));
-        settings.setLayoutX(450);
+        settings.setLayoutX(335);
         settings.setLayoutY(50);
 
         VBox left = new VBox(100);
-        left.setStyle("-fx-background-color:  #78fdff");
-        left.setPadding(new Insets(10, 50, 50, 50));
+        left.setStyle("-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 50px 0 0px 50px;");
+        left.setPadding(new Insets(10, 50, 50, 40));
         left.setLayoutX(20);
         left.setLayoutY(150);
         left.setMinHeight(2*HEIGHT/3);
@@ -97,7 +105,7 @@ public class Settings extends Pane {
         ImageView soundIcon = new ImageView(new Image(SOUND_ICON));
         soundIcon.setFitWidth(WIDTH/3 - 150);
         soundIcon.setFitHeight(2*HEIGHT/3 - 200);
-        soundIcon.setFitHeight(256);
+        soundIcon.setLayoutX(256);
         soundIcon.setFitWidth(256);
 
         HBox h = new HBox();
@@ -113,10 +121,8 @@ public class Settings extends Pane {
         soundIcon.setFitHeight(256);
         soundIcon.setFitWidth(256);
 
-        slider = new Slider();
         slider.setMin(0);
         slider.setMax(100);
-        slider.setValue(40);
         slider.setShowTickLabels(true);
         slider.setShowTickMarks(true);
         slider.setMajorTickUnit(50);
@@ -127,8 +133,8 @@ public class Settings extends Pane {
         h.getChildren().addAll(sound, slider);
         left.getChildren().addAll(soundIcon, h);
 
-        center = new VBox(100);
-        center.setStyle("-fx-background-color: #90de77");
+        center = new VBox(65);
+        center.setStyle("-fx-border-color: black; -fx-border-width: 2px;");
         center.setPadding(new Insets(10, 50, 50, 50));
         center.setLayoutX(10 + WIDTH/3);
         center.setLayoutY(150);
@@ -143,13 +149,16 @@ public class Settings extends Pane {
         timer.setFitHeight(256);
         timer.setFitWidth(256);
 
-        timerButtonImage = new ImageView(new Image(TIMER_BUTTON_ICON));
-        //Image timerButtonImage = new Image(getClass().getResourceAsStream(TIMER_BUTTON_ICON));
-        timerButtonImage.setFitHeight(96);
-        timerButtonImage.setFitWidth(128);
         if (togle){
-             timerButtonImage.setRotate(180);
+            timerButtonImage = new ImageView(new Image(TIMER_BUTTON_ICON_OFF));
+        }else{
+            timerButtonImage = new ImageView(new Image(TIMER_BUTTON_ICON));
+
         }
+        //Image timerButtonImage = new Image(getClass().getResourceAsStream(TIMER_BUTTON_ICON));
+        //timerButtonImage.setFitHeight(96);
+        //timerButtonImage.setFitWidth(128);
+
         timerButton = new ToggleButton();
         timerButton.setGraphic(timerButtonImage);
         timerButton.setStyle("-fx-background-color: transparent");
@@ -159,8 +168,8 @@ public class Settings extends Pane {
 
 
         VBox right = new VBox(new Label());
-        right.setStyle("-fx-background-color: #78fdff");
-        right.setPadding(new Insets(0, 50, 50, 50));
+        right.setStyle("-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 0px 50 50px 0px;");
+        right.setPadding(new Insets(0, 50, 50, 40));
         right.setLayoutX(2*WIDTH/3);
         right.setLayoutY(150);
         right.setMinHeight(2*HEIGHT/3);
@@ -175,7 +184,7 @@ public class Settings extends Pane {
         themes.setFitHeight(256);
         themes.setFitWidth(256);
 
-        colorButtonIcon = new String[5];
+        colorButtonIcon = new String[6];
         colorButtonIcon = getColorButtons();
         int space = 50;
         buttons = new Button[5];
@@ -266,8 +275,7 @@ public class Settings extends Pane {
         switch(currentSelectedThemeIndex) {
             case 0 :
                 selectedTheme = "/img/chosenYellow.png";
-                break; 
-            
+                break;
             case 1 :
                 selectedTheme = "/img/chosenBlue.png";
                 break; 
@@ -280,11 +288,11 @@ public class Settings extends Pane {
             case 4 :
                 selectedTheme = "/img/chosenPink.png";
                 break; 
-            
+
             // You can have any number of case statements.
             default : // Optional
                 selectedTheme = "/img/circle.png";
-                break; 
+                break;
         }
 
         colorButtonIcon[currentSelectedThemeIndex] = selectedTheme;
@@ -306,7 +314,7 @@ public class Settings extends Pane {
 
     public void toogleTimer(){
         toogler = !toogler;
-        initialize(toogler);  
+        initialize(toogler);
     
     }
 

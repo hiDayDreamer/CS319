@@ -14,6 +14,8 @@ import javafx.scene.input.MouseEvent;
 class LevelsPane extends GridPane{
    //properties
    private final String BACK_ICON = "/img/backIcon.png";
+   private final String SOUND_ICON = "/img/soundIcon.png";
+   private final String SETTINGS_ICON = "/img/Settings-icon.png";
    private final double WIDTH  = 1080;
    private final double HEIGHT = 720;
    private final int ICON_SIZE = 64;
@@ -27,6 +29,8 @@ class LevelsPane extends GridPane{
    private Label starNo;
    private Button[] buttons;
    private int[] starArr;
+   private Button soundButton;
+   private Button settingsButton;
    //Buttons
    private Button backButton;
    private Image backImage;
@@ -59,14 +63,51 @@ class LevelsPane extends GridPane{
       backButton.setLayoutX(25);
       backButton.setLayoutY(25);
 
+      ImageView soundImage = new ImageView(new Image(SOUND_ICON));
+      soundImage.setFitWidth(ICON_SIZE);
+      soundImage.setFitHeight(ICON_SIZE);
+      soundButton = new Button();
+      soundButton.setStyle("-fx-background-color: transparent");
+      soundButton.setMinSize(ICON_SIZE,ICON_SIZE);
+      soundButton.setLayoutX(WIDTH - 100);
+      soundButton.setLayoutY(25);
+
+      soundButton.setGraphic(soundImage);
+
+      ImageView settingsImage = new ImageView(new Image(SETTINGS_ICON));
+      settingsImage.setFitWidth(ICON_SIZE);
+      settingsImage.setFitHeight(ICON_SIZE);
+      settingsButton = new Button();
+      settingsButton.setStyle("-fx-background-color: transparent");
+      settingsButton.setMinSize(ICON_SIZE, ICON_SIZE);
+      settingsButton.setLayoutX(WIDTH - 200);
+      settingsButton.setLayoutY(25);
+      settingsButton.setGraphic(settingsImage);
       // create the label
-      title = new Label(dimension);
+      title = new Label("");
       title.setStyle("-fx-font-weight: bold;");
+      if ( dimension.equals("6X6")){
+         ImageView labelImage = new ImageView("/img/6x6.png");
+         labelImage.setFitWidth(400);
+         labelImage.setFitHeight(60);
+         title.setGraphic(labelImage);
+      }else if (dimension.equals("6X6")){
+         ImageView labelImage = new ImageView("/img/8x8.png");
+         labelImage.setFitWidth(400);
+         labelImage.setFitHeight(60);
+         title.setGraphic(labelImage);
+      }else{
+         ImageView labelImage = new ImageView("/img/10x10.png");
+         labelImage.setFitWidth(400);
+         labelImage.setFitHeight(60);
+         title.setGraphic(labelImage);
+      }
       title.setFont(new Font("Verdana", ICON_SIZE * 6/5));
       title.setMinWidth( WIDTH);
       title.setAlignment(Pos.TOP_CENTER);
+      title.setLayoutY(35);
       Pane top = new Pane();
-      top.getChildren().addAll(title, backButton);
+      top.getChildren().addAll(title, backButton, soundButton, settingsButton);
       this.addRow(0, top);
 
       // create the stars pane
@@ -147,7 +188,7 @@ class LevelsPane extends GridPane{
          box.setAlignment(Pos.CENTER);
          middle.getChildren().add(box);
       };
-
+      addAnimation(10);
       this.addRow(1, middle);
       this.addRow(2, starBox);
       this.addRow(3, copyRightPanel);
@@ -176,5 +217,16 @@ class LevelsPane extends GridPane{
          buttons[i].addEventHandler(MouseEvent.MOUSE_CLICKED, level);
 
       }
+       GameManager.ButtonListener settings = e.clone();
+       settings.setIndex(4);
+       settingsButton.addEventHandler(MouseEvent.MOUSE_CLICKED, settings);
+   }
+   public void addAnimation(int factor) {
+      soundButton.setOnMouseEntered(new GameManager.Animation(soundButton, factor, true));
+      soundButton.setOnMouseExited(new GameManager.Animation(soundButton, factor, false));
+      settingsButton.setOnMouseEntered(new GameManager.Animation(settingsButton, factor, true));
+      settingsButton.setOnMouseExited(new GameManager.Animation(settingsButton, factor, false));
+      backButton.setOnMouseEntered(new GameManager.Animation(backButton, factor, true));
+      backButton.setOnMouseExited(new GameManager.Animation(backButton, factor, false));
    }
 }

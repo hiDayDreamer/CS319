@@ -1,6 +1,7 @@
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -52,6 +53,8 @@ public class GameTimer extends TimerTask {
 
 
     public void startCountDown(TimerRunnable runnable){
+        try{TimeUnit.MILLISECONDS.sleep(200);}
+        catch(Exception e){}
         toRunClass = runnable;
         countdownTimer = new Timer();
         countdownTimer.scheduleAtFixedRate(this, 0, 1000);
@@ -72,11 +75,11 @@ public class GameTimer extends TimerTask {
     }
 
 
-    public static void main(String args[]){
+    /*public static void main(String args[]){
         int noSeconds = 10;
         GameTimer gametimer = new GameTimer(noSeconds);
         gametimer.startCountDown(new classHelloPrinter(gametimer));
-    }
+    }*/
 
 
  }

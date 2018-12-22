@@ -1,4 +1,6 @@
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -10,6 +12,11 @@ import javafx.scene.control.Label;
 import javafx.geometry.Insets;
 import javafx.scene.text.*;
 import javafx.application.Platform;
+import javafx.geometry.Pos;
+import javafx.scene.*;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.stage.*;
 
 public class PlayGame extends Pane implements TimerRunnable {
     //Constants
@@ -18,10 +25,12 @@ public class PlayGame extends Pane implements TimerRunnable {
     private final String BACK_ICON = "/img/backIcon.png";
     private final String UNDO_ICON = "/img/undo.png";
     private final String RESET_ICON = "/img/reset.png";
-    private final String HINT_ICON = "/img/hintImage.png";
+    private final String HINT_ICON = "/img/hint.png";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
-    private final String BU_ICON = "/img/hintImage.png";
-    private final String SHRINK_ICON = "/img/hintImage.png";
+    private final String BU_ICON = "/img/bomb.png";
+    private final String SHRINK_ICON = "/img/shrinkCarIcon.png";
+    private final String ROTATE_ICON = "/img/rotateCarIcon.png";
+
     private final double WIDTH  = 1080;
     private final double HEIGHT = 720;
     private final double COPYRIGHT_PANEL_SIZE = 60;
@@ -34,7 +43,6 @@ public class PlayGame extends Pane implements TimerRunnable {
     private Pane copyRightPanel;
     private GridPane playGameSubpanel;
     private Label version;
-    private Pane box;
 
     //Buttons
     private Button soundButton;
@@ -48,6 +56,7 @@ public class PlayGame extends Pane implements TimerRunnable {
     private Button shrinkButton;
     private Button rotate;
     private Button changeExit;
+    private Button goBackMenuButton;
 
     //Images
     //private Image soundImage;
@@ -65,7 +74,7 @@ public class PlayGame extends Pane implements TimerRunnable {
     private int[] stars;
     private double volume;
     private int dimension;
-
+    private int gridBoxSize;
     private Label timerCountdown;
     int noSeconds = 5;
     //private int shrinkCount;
@@ -145,7 +154,7 @@ public class PlayGame extends Pane implements TimerRunnable {
         undoLabel.setFont(new Font(20));
 
         //hint
-        Label hintLabel = new Label("Hint?");
+        Label hintLabel = new Label("Hint");
         hintLabel.setLayoutX(WIDTH-190);
         hintLabel.setLayoutY(580);
         hintLabel.setFont(new Font(20));
@@ -156,14 +165,13 @@ public class PlayGame extends Pane implements TimerRunnable {
         howToButton.setMinSize(ICON_SIZE, ICON_SIZE);
         howToButton.setLayoutX(WIDTH-200);
         howToButton.setLayoutY(500);
+        howToButton.setAlignment(Pos.CENTER);
 
         blowUpButton = new Button();
         blowUpButton.setGraphic(new ImageView(BU_ICON));
         blowUpButton.setStyle("-fx-background-color: transparent");
         blowUpButton.setMinSize(ICON_SIZE, ICON_SIZE);
-        blowUpButton.setLayoutX(WIDTH-200);
-        blowUpButton.setLayoutY(300);
-        Label blowUpLabel = new Label("Blow up!!!");
+        Label blowUpLabel = new Label("Blow up");
         blowUpLabel.setLayoutX(WIDTH-190);
         blowUpLabel.setLayoutY(380);
         blowUpLabel.setFont(new Font(20));
@@ -172,36 +180,54 @@ public class PlayGame extends Pane implements TimerRunnable {
         shrinkButton.setGraphic(new ImageView(SHRINK_ICON));
         shrinkButton.setStyle("-fx-background-color: transparent");
         shrinkButton.setMinSize(ICON_SIZE, ICON_SIZE);
-        shrinkButton.setLayoutX(WIDTH-200);
-        shrinkButton.setLayoutY(180);
-        Label shrinkLabel = new Label("Shrink!!!");
+        Label shrinkLabel = new Label("Shrink");
         shrinkLabel.setLayoutX(WIDTH-190);
         shrinkLabel.setLayoutY(260);
         shrinkLabel.setFont(new Font(20));
 
         rotate = new Button();
-        rotate.setGraphic(new ImageView(BU_ICON));
+        rotate.setGraphic(new ImageView(ROTATE_ICON));
         rotate.setStyle("-fx-background-color: transparent");
         rotate.setMinSize(ICON_SIZE, ICON_SIZE);
-        rotate.setLayoutX(WIDTH-100);
-        rotate.setLayoutY(260);
 
-        Label rotateLabel = new Label("Rotate What Allah askina!!!");
+        HBox shrinkRotate = new HBox(25);
+        shrinkRotate.getChildren().addAll(shrinkButton, rotate);
+
+
+
+        Label rotateLabel = new Label("Rotate Car");
         rotateLabel.setLayoutX(WIDTH-90);
         rotateLabel.setLayoutY(340);
         rotateLabel.setFont(new Font(20));
-
+/*
         changeExit = new Button();
-        changeExit.setGraphic(new ImageView(BU_ICON));
+        ImageView exit = new ImageView("/img/emergency-sign.png");
+        exit.setFitWidth(ICON_SIZE);
+        exit.setFitHeight(ICON_SIZE);
+        changeExit.setGraphic(exit);
         changeExit.setStyle("-fx-background-color: transparent");
-        changeExit.setMinSize(ICON_SIZE, ICON_SIZE);
-        changeExit.setLayoutX(WIDTH-100);
-        changeExit.setLayoutY(400);
+        changeExit.setMinSize(ICON_SIZE, ICON_SIZE);*/
 
-        Label changeExitLabel = new Label("Change exit? but how tho");
+        Label changeExitLabel = new Label("Change Exit");
         changeExitLabel.setLayoutX(WIDTH-90);
         changeExitLabel.setLayoutY(470);
         changeExitLabel.setFont(new Font(20));
+
+        HBox blowChange = new HBox(25);
+        blowChange.getChildren().addAll(blowUpButton, howToButton);
+
+        VBox shrinkBlow = new VBox(30);
+        shrinkBlow.setLayoutX(50);
+        shrinkBlow.setLayoutY(250);
+        //shrinkBlow.setMinSize(500,500);
+        shrinkBlow.setStyle("-fx-border-color: black; -fx-border-width: 1px; -fx-border-radius: 50px 50 50px 50px; -fx-padding: 10px");
+        shrinkBlow.getChildren().addAll(shrinkRotate, blowChange );
+
+        VBox undoReset = new VBox(30);
+        undoReset.setLayoutX(880);
+        undoReset.setLayoutY(250);
+        undoReset.setStyle("-fx-border-color: black; -fx-border-width: 1px; -fx-border-radius: 50px 50 50px 50px; -fx-padding: 10px");
+        undoReset.getChildren().addAll(undoButton, resetButton);
 
 
         BorderPane title = new BorderPane();
@@ -217,19 +243,16 @@ public class PlayGame extends Pane implements TimerRunnable {
 
         startButton = new Button();
         //startButton.setStyle("-fx-background-color: transparent");
-        startButton.setMinSize(ICON_SIZE,ICON_SIZE);
-        startButton.setLayoutX(100);
-        startButton.setLayoutY(75);
+       
 
         playGameSubpanel = buildGrid(new Insets(90,0,0,300));
+         startButton.setMinSize(gridBoxSize*getCurrentDimensionSize(),gridBoxSize*getCurrentDimensionSize());
+        startButton.setLayoutX(300);
+        startButton.setLayoutY(90);
         if (timerMode){
-            getChildren().addAll( royalFlush, soundButton, settingsButton, howToButton, playGameSubpanel, backButton, undoButton, resetButton,
-            resetLabel, hintLabel, undoLabel,timerCountdown,startButton, blowUpLabel, blowUpButton, shrinkLabel, shrinkButton,
-            changeExit,changeExitLabel,rotate,rotateLabel);
+            getChildren().addAll( royalFlush, soundButton, settingsButton, playGameSubpanel, backButton, timerCountdown,startButton, shrinkBlow, undoReset);
         } else {
-            getChildren().addAll( royalFlush, soundButton, settingsButton, howToButton, playGameSubpanel, backButton, undoButton, resetButton,
-            resetLabel, hintLabel, undoLabel, blowUpLabel, blowUpButton, shrinkLabel, shrinkButton,
-            changeExit,changeExitLabel,rotate,rotateLabel);
+            getChildren().addAll( royalFlush, soundButton, settingsButton, playGameSubpanel, backButton, shrinkBlow, undoReset);
         }
 
 
@@ -245,7 +268,6 @@ public class PlayGame extends Pane implements TimerRunnable {
         this.stars = stars;
     }
 
-    int gridBoxSize;
     private GridPane buildGrid(Insets constraints){
         playGameSubpanel = new GridPane();
         playGameSubpanel.setPadding(constraints);
@@ -256,7 +278,7 @@ public class PlayGame extends Pane implements TimerRunnable {
         String loc = "/img/grass.jpg";
         setCurrentDimensionSize(dimension);
 
-        box = new Pane();
+        Pane box = new Pane();
         carsPane = new Pane();
         box.setStyle("-fx-background-color: black, -fx-control-inner-background; -fx-background-insets: 0, 2; -fx-padding:2;");
 
@@ -292,46 +314,7 @@ public class PlayGame extends Pane implements TimerRunnable {
                 possibleCar.setRotate(180);
             }
             possibleCar.setOnMousePressed(new GameManager.MoveCar(possibleCar));
-            // new EventHandler<MouseEvent>(){
-            //     public void handle(MouseEvent e) {
-            //         int mouseY = (int)((e.getSceneX() - 300)/GRIDBOX);
-            //         int mouseX = (int)((e.getSceneY() - 90)/GRIDBOX);
-            //         double x = e.getSceneX() - 300;
-            //         double y = e.getSceneY() - 90;
-            //         curr = findCar(mouseX, mouseY);
-            //         carX = possibleCar.getLayoutX();
-            //         carY = possibleCar.getLayoutY();
-            //         firstX = x;
-            //         firstY = y;
-            //         moveForward = 0;
-            //         moveBackward = 0;
-            //         if ( curr != null ) {
-            //             if ( curr.getCarDirection() == 1 || curr.getCarDirection() == 3 ) {
-            //                 int i = curr.getX() - 1;
-            //                 while ( i > -1 && !blocks[i][curr.getY()].isOccupied() ) {
-            //                     moveForward++;
-            //                     i--;
-            //                 }
-            //                 int end = curr.getHorizontalX() + 1;
-            //                 while ( end < 6 && !blocks[end][curr.getY()].isOccupied()) {
-            //                     moveBackward++;
-            //                     end++;
-            //                 }
-            //             } else {
-            //                 int i = curr.getY() - 1;
-            //                 while ( i > -1 && !blocks[curr.getX()][i].isOccupied()) {
-            //                     moveForward++;
-            //                     i--;
-            //                 }
-            //                 int end = curr.getVerticalY() + 1;
-            //                 while ( end < 6 && !blocks[curr.getX()][end].isOccupied()) {
-            //                     moveBackward++;
-            //                     end++;
-            //                 }
-            //             }
-            //         }
-            //     }
-            // });
+
             possibleCar.addEventHandler(MouseEvent.MOUSE_DRAGGED, new GameManager.MouseListener(possibleCar));
             possibleCar.setOnMouseReleased( new GameManager.Release(possibleCar));
 
@@ -365,6 +348,7 @@ public class PlayGame extends Pane implements TimerRunnable {
     public int getBoxSize() {
         return gridBoxSize;
     }
+
     public void addHandler( GameManager.ButtonListener e) {
         // add the button listener to the back button
         backButton.addEventHandler(MouseEvent.MOUSE_CLICKED, e);
@@ -375,7 +359,6 @@ public class PlayGame extends Pane implements TimerRunnable {
 
         GameManager.ButtonListener startTime = e.clone();
         startTime.setIndex(31);
-        howToButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new GameManager.Hint());
         startButton.addEventHandler(MouseEvent.MOUSE_CLICKED, startTime);
         blowUpButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new GameManager.BlowUp(carsPane));
         shrinkButton.addEventHandler(MouseEvent.MOUSE_CLICKED,new GameManager.Shrink(carsPane));
@@ -385,55 +368,7 @@ public class PlayGame extends Pane implements TimerRunnable {
             }
         });
     }
-    //
-    // double firstX, firstY;
-    // double carX, carY;
-    // Car curr;
-    // int moveForward;
-    // int moveBackward;
-    // class MouseListener implements EventHandler<MouseEvent> {
-    //     ImageView car;
-    //     public MouseListener( ImageView car) {
-    //         this.car = car;
-    //     }
-    //     public void handle(MouseEvent e) {
-    //         double x = e.getSceneX() - 300;
-    //         double y = e.getSceneY() - 90;
-    //         double afterX = e.getSceneX()-300-(firstX-carX);
-    //         double afterY = e.getSceneY()-90-(firstY-carY);
-    //         boolean empty = true;
-    //
-    //         if ( curr.getCarDirection() == 1 || curr.getCarDirection() == 3 ) {
-    //                 boolean neg = y < firstY;
-    //                 double posY;
-    //                 if ( neg ) {
-    //                     posY = Math.max(afterY, carY-gridBoxSize*moveForward);
-    //                 }
-    //                 else {
-    //                     posY = Math.min(afterY, carY+gridBoxSize*moveBackward);
-    //                 }
-    //                 car.setLayoutY(posY);
-    //                 int newX = (int) Math.round(posY / gridBoxSize);
-    //                 updateCarX(curr, newX);
-    //         } else {
-    //                 boolean neg = x < firstX;
-    //                 double posX;
-    //                 if ( neg ) {
-    //                     posX = Math.max(afterX, carX-gridBoxSize*moveForward);
-    //                 }
-    //                 else {
-    //                     posX = Math.min(afterX, carX+gridBoxSize*moveBackward);
-    //                 }
-    //                 car.setLayoutX(posX);
-    //                 int newY = (int) Math.round(posX / gridBoxSize);
-    //                 updateCarY(curr, newY);
-    //         }
-    //         if ( curr.isPlayer() && curr.getVerticalY() == 5 ){
-    //
-    //         }
-    //         updateBlockinfo();
-    //     }
-    // }
+
 
     public Car findCar(int x, int y) {
         for ( int i = 0; i < cars.length; i++ ) {
@@ -448,7 +383,10 @@ public class PlayGame extends Pane implements TimerRunnable {
 
     GameTimer timer;
     public void startTimer(){
-        timer = new GameTimer(noSeconds);
+        getChildren().remove(startButton);
+        if (timer == null){
+            timer = new GameTimer(noSeconds);
+        }
         System.out.println("I am in start tiemr play game");
         timer.startCountDown(this);
     }
@@ -471,27 +409,73 @@ public class PlayGame extends Pane implements TimerRunnable {
         }
     }
 
-    public void gameWon() {
-        getChildren().remove(playGameSubpanel);
+    public boolean gameWon() {
+        Stage popupwindow=new Stage();
+        popupwindow.initModality(Modality.APPLICATION_MODAL);
+        popupwindow.setTitle("Game Won");
+        popupwindow.setResizable(false);
+        popupwindow.setHeight(500);
+        popupwindow.setWidth(700);
+        popupwindow.getIcons().add(new Image(getClass().getResourceAsStream("/img/java_318-32027.png")));
+        Label label1= new Label("");
+        ImageView labelImage = new ImageView("/img/win.png");
+        labelImage.setFitWidth(400);
+        labelImage.setFitHeight(60);
+        label1.setGraphic(labelImage);
         Image im = new Image("/img/win.gif");
         ImageView view = new ImageView(im);
-        view.setFitWidth(WIDTH - 40);
-        view.setFitHeight(90*6);
-        view.setLayoutX(20);
-        view.setLayoutY(100);
-        getChildren().add(view);
+        view.setFitWidth(400);
+        view.setFitHeight(200);
+        Label label2= new Label("Number of moves: ");
+        goBackMenuButton= new Button("Go Back to Menu");
+        goBackMenuButton.setOnAction(e -> popupwindow.close());
+        VBox layout= new VBox(20);
+        layout.getChildren().addAll(view, label1, label2, goBackMenuButton);
+        layout.setAlignment(Pos.CENTER);
+        Scene scene1= new Scene(layout, 300, 250);
+        popupwindow.setScene(scene1);
+        popupwindow.showAndWait();
         stars[0] = 3;
+        return true;
     }
 
-    public void gameLoss(){
-        getChildren().remove(playGameSubpanel);
+
+    public boolean gameLoss(){
+        /*getChildren().remove(playGameSubpanel);
         Image im = new Image("/img/win.gif");
         ImageView view = new ImageView(im);
         view.setFitWidth(WIDTH - 40);
         view.setFitHeight(90*6);
         view.setLayoutX(20);
         view.setLayoutY(100);
-        getChildren().add(view);
+        getChildren().add(view);*/
+        Stage popupwindow=new Stage();
+        popupwindow.initModality(Modality.APPLICATION_MODAL);
+        popupwindow.setTitle("Game Won");
+        popupwindow.setResizable(false);
+        popupwindow.setHeight(500);
+        popupwindow.setWidth(700);
+        popupwindow.getIcons().add(new Image(getClass().getResourceAsStream("/img/java_318-32027.png")));
+        Label label1= new Label("");
+        ImageView labelImage = new ImageView("/img/game_over.png");
+        labelImage.setFitWidth(400);
+        labelImage.setFitHeight(60);
+        label1.setGraphic(labelImage);
+        Image im = new Image("/img/win.gif");
+        ImageView view = new ImageView(im);
+        view.setFitWidth(400);
+        view.setFitHeight(200);
+        Label label2= new Label("Number of moves: ");
+        Label label3= new Label("Time: ");
+        goBackMenuButton= new Button("Go Back to Menu");
+        goBackMenuButton.setOnAction(e -> popupwindow.close());
+        VBox layout= new VBox(20);
+        layout.getChildren().addAll(view, label1, label2, label3, goBackMenuButton);
+        layout.setAlignment(Pos.CENTER);
+        Scene scene1= new Scene(layout, 300, 250);
+        popupwindow.setScene(scene1);
+        popupwindow.showAndWait();
+        return true;
     }
 
     public void setSoundVolume(double percentage){
@@ -503,27 +487,6 @@ public class PlayGame extends Pane implements TimerRunnable {
     public void setMaxMoves(int moveForward, int moveBackward) {
         this.moveForward = moveForward;
         this.moveBackward = moveBackward;
-    }
-
-    public void rebuildGrid() {
-        for (int rowIndex = 0; rowIndex < getCurrentDimensionSize(); rowIndex++){
-            for (int columnIndex = 0; columnIndex < getCurrentDimensionSize(); columnIndex++){
-                ((ImageView) box.getChildren().get(dimension * rowIndex + columnIndex)).setImage(new Image("img/brick.jpg"));
-            }
-        }
-    }
-
-    public void showHint( int dir, int length, int x, int y) {
-        if ( dir == 1 || dir == 3 ) {
-            for ( int i = x; i < x + length; i++ ) {
-                ((ImageView) box.getChildren().get(dimension * i + y)).setImage(new Image("img/grass.jpg"));
-            }
-        } else {
-            for ( int j = y; j < y + length; j++ ) {
-
-                ((ImageView) box.getChildren().get(dimension * x + j)).setImage(new Image("img/grass.jpg"));
-            }
-        }
     }
 
 }

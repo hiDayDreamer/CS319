@@ -61,12 +61,17 @@ public class How_To extends Pane {
         version = new Label("Version b0.1");
 
         //How_To Panel
-        Label settings = new Label("Tutorial");
+        Label settings = new Label("");
         settings.setStyle("-fx-font-weight: bold;");
+        ImageView labelImage = new ImageView("/img/tutorial.png");
+        labelImage.setFitWidth(400);
+        labelImage.setFitHeight(60);
+        settings.setGraphic(labelImage);
+
         settings.setMaxSize(450,75);
         settings.setFont(new Font("Verdana", 45));
-        settings.setLayoutX(450);
-        settings.setLayoutY(50);
+        settings.setLayoutX(325);
+        settings.setLayoutY(30);
 
         //Sound button
         soundImage = new ImageView(new Image(SOUND_ICON));

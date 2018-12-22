@@ -85,11 +85,16 @@ public class DashboardPane extends Pane {
         backButton.setLayoutX(25);
         backButton.setLayoutY(35);
 
-        Label dashboard = new Label("Dashboard");
+        Label dashboard = new Label("");
+        ImageView labelImage = new ImageView("/img/dashboard_label.png");
+        labelImage.setFitWidth(400);
+        labelImage.setFitHeight(60);
+
+        dashboard.setGraphic(labelImage);
         dashboard.setStyle("-fx-font-weight: bold;");
         dashboard.setMaxSize(450,75);
         dashboard.setFont(new Font("Verdana", 45));
-        dashboard.setLayoutX(400);
+        dashboard.setLayoutX(325);
         dashboard.setLayoutY(50);
 
 
@@ -103,7 +108,7 @@ public class DashboardPane extends Pane {
         chart.setLegendVisible(false);
         chart.setLayoutX(50);
         chart.setLayoutY(325);
-        chart.setMaxSize(300,300);
+        chart.setMaxSize(350,350);
 
         final Label caption = new Label("");
         caption.setStyle("-fx-font-weight: bold;");
@@ -143,13 +148,15 @@ public class DashboardPane extends Pane {
         }
 
         for (Node n : barChart.lookupAll(".chart-plot-background")) {
-            n.setStyle("-fx-background-color: #ffffff");
+            n.setStyle("-fx-background-color: transparent");
         }
         for (Node n : barChart.lookupAll(".chart-vertical-grid-lines")) {
-            n.setStyle("-fx-stroke: #ffffff");
+            //n.setStyle("-fx-stroke: #ffffff");
+            n.setStyle("-fx-background-color: transparent");
         }
         for (Node n : barChart.lookupAll(".chart-horizontal-grid-lines")) {
-            n.setStyle("-fx-stroke: #ffffff");
+            //n.setStyle("-fx-stroke: #ffffff");
+            n.setStyle("-fx-background-color: transparent");
         }
 
         barChart.setLayoutX(50);
@@ -162,22 +169,22 @@ public class DashboardPane extends Pane {
         gameStatusIndicator.setProgress(gameStatus);
         gameStatusIndicator.setMinSize(200,200);
         gameStatusIndicator.setStyle("-fx-progress-color: #ff2c47;");
-        gameStatusIndicator.setLayoutX(825);
-        gameStatusIndicator.setLayoutY(75);
+        gameStatusIndicator.setLayoutX(725);
+        gameStatusIndicator.setLayoutY(85);
 
         StackPane starsCollectedStack = new StackPane();
-        ImageView starsCollected = new ImageView(backImage);
+        ImageView starsCollected = new ImageView("/img/star-icon.png");
         starsCollected.setFitHeight(200);
         starsCollected.setFitWidth(200);
 
-        Label stars = new Label(String.valueOf(noOfStars) + "\nStars Collected:");
+        Label stars = new Label(String.valueOf(noOfStars) + "\nStars Collected");
         stars.setStyle("-fx-font-weight: bold; -fx-text-alignment: center; -fx-text-fill: #1b0611;");
-        stars.setFont(new Font("Verdana", 20));
+        stars.setFont(new Font("Verdana", 13));
 
         starsCollectedStack.getChildren().addAll(starsCollected, stars);
 
-        starsCollectedStack.setLayoutX(825);
-        starsCollectedStack.setLayoutY(425);
+        starsCollectedStack.setLayoutX(750);
+        starsCollectedStack.setLayoutY(350);
 
 
         Pane skinsPane = new Pane();
@@ -201,15 +208,15 @@ public class DashboardPane extends Pane {
         skin1.setFitWidth(100);
         skin1.setFitHeight(175);
         skin1.setLayoutX(28);
-        skinsPane.setLayoutX(725);
-        skinsPane.setLayoutY(250);
+        skinsPane.setLayoutX(515);
+        skinsPane.setLayoutY(425);
         skinsPane.getChildren().addAll(pagePassButtons[0], skin1, pagePassButtons[1]);
 
-        ImageView profile = new ImageView("/img/carSkinIcon.png");
-        profile.setFitWidth(200);
+        ImageView profile = new ImageView("/img/userInfoIcon.png");
+        profile.setFitWidth(300);
         profile.setFitHeight(200);
-        profile.setLayoutX(450);
-        profile.setLayoutY(225);
+        profile.setLayoutX(360);
+        profile.setLayoutY(175);
         Line line = new Line(450, 375, 325, 425);
 
         this.getChildren().addAll(dashboard,backButton, chart, caption, barChart, gameStatusIndicator, starsCollectedStack, skinsPane, profile, line);
