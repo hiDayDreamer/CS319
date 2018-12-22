@@ -24,7 +24,6 @@ public class Engine{
 	public Engine(GameManager manager) {
 		gameManager = manager;
 		timer = new GameTimer();
-		hint = new GameSolver();
 		stars = new StarManager();
 		moves = new LinkedList<Node>();
 		volume = 50;
@@ -198,6 +197,15 @@ public class Engine{
 	 */
 	public void setHint(GameSolver hint) {
 		this.hint = hint;
+	}
+
+	public void createHint() {
+		if ( selectedMap != null )
+			hint = new GameSolver(selectedMap);
+	}
+
+	public LinkedList<int[]> getHints() {
+		return hint.generateHint(true);
 	}
 
 	public int[] getStars() {

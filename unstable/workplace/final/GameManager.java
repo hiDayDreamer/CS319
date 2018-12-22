@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.LinkedList;
 
 import javafx.scene.layout.Pane;
 public class GameManager extends Application{
@@ -358,9 +359,18 @@ public class GameManager extends Application{
                 possibleCar.setLayoutY(carY + gridBoxSize - y);
             //updateCar();
             //engine.updateBlockinfo();
+            playGame.rebuildGrid();
             if ( engine.gameWon() ) {
                 playGame.gameWon();
             }
+        }
+    }
+
+    static class Hint implements EventHandler<MouseEvent> {
+        public void handle(MouseEvent e) {
+            engine.createHint();
+            LinkedList<int[]> moves = engine.getHints();
+            playGame.showHint(moves.get(0)[1], moves.get(0)[2], moves.get(0)[5], moves.get(0)[6]);
         }
     }
 
