@@ -20,6 +20,7 @@ public class How_To extends Pane {
 
     //Variables
     int tutorialCount;
+    int counter;
 
     //Labels
     private Label copyRightLabel;
@@ -36,7 +37,7 @@ public class How_To extends Pane {
     private ImageView soundImage;
     private ImageView settingsImage;
     private ImageView backImage;
-    private Image[] tutorialImage;
+    private ImageView[] tutorialImage;
     private ImageView tutorial;
     private Image[] pagePassImages;
 
@@ -82,7 +83,7 @@ public class How_To extends Pane {
         soundButton.setStyle("-fx-background-color: transparent");
         soundButton.setMinSize(ICON_SIZE, ICON_SIZE);
         soundButton.setLayoutX(WIDTH - 100);
-        soundButton.setLayoutY(35);
+        soundButton.setLayoutY(25);
 
         //Settings button
         settingsImage = new ImageView(new Image(SETTINGS_ICON));
@@ -93,7 +94,7 @@ public class How_To extends Pane {
         settingsButton.setStyle("-fx-background-color: transparent");
         settingsButton.setMinSize(ICON_SIZE, ICON_SIZE);
         settingsButton.setLayoutX(WIDTH - 200);
-        settingsButton.setLayoutY(35);
+        settingsButton.setLayoutY(25);
 
         //Back button
         backImage = new ImageView(BACK_ICON);
@@ -107,13 +108,24 @@ public class How_To extends Pane {
         backButton.setLayoutY(25);
 
         //Tutorial Images
-        tutorialCount = 1;
-        tutorialImage = new Image[tutorialCount];
-        tutorialImage[0] = new Image(getClass().getResourceAsStream(TUTORIAL_IMAGE));
-        tutorial = new ImageView(tutorialImage[0]);
-        tutorial.setLayoutX(WIDTH / 2 - 275);
-        tutorial.setLayoutY(HEIGHT / 2 - 240);
-	    tutorial.setFitHeight(500);
+        tutorialImage = new ImageView[10];
+        tutorialImage[0] = new ImageView("/img/start.png");
+        tutorialImage[1] = new ImageView("/img/tutorial_1.png");
+        tutorialImage[2] = new ImageView("/img/tutorial_2.png");
+        tutorialImage[3] = new ImageView("/img/tutorial_3.png");
+        tutorialImage[4] = new ImageView("/img/tutorial_4.png");
+        tutorialImage[5] = new ImageView("/img/tutorial_5.png");
+        tutorialImage[6] = new ImageView("/img/tutorial_6.png");
+        tutorialImage[7] = new ImageView("/img/tutorial_7.png");
+        tutorialImage[8] = new ImageView("/img/tutorial_8.png");
+        tutorialImage[9] = new ImageView("/img/finish.png");
+        for (int i = 0; i < 10; i++){
+            tutorialImage[i].setLayoutX(WIDTH / 2 - 275);
+            tutorialImage[i].setLayoutY(HEIGHT / 2 - 240);
+            tutorialImage[i].setFitHeight(500);
+            tutorialImage[i].setFitWidth(500);
+        }
+        tutorial = tutorialImage[0];
 
         //Next and back button for tutorial images
         pagePassButtons = new Button[2];
@@ -130,10 +142,36 @@ public class How_To extends Pane {
         }
         pagePassButtons[0].setLayoutX(WIDTH - 150);
         pagePassButtons[1].setLayoutX(75);
+
         addAnimation(10);
         //Adding buttons to middle panel
-        this.getChildren().addAll(settings, soundButton, settingsButton, backButton, tutorial, pagePassButtons[0], pagePassButtons[1]);
         //How_To Panel ends
+
+        this.getChildren().addAll(settings, soundButton, settingsButton, backButton, tutorial, pagePassButtons[0], pagePassButtons[1]);
+        counter = 0;
+        pagePassButtons[0].addEventHandler(MouseEvent.MOUSE_CLICKED,
+                e -> {
+                    counter++;
+                    if(counter < 10) {
+                        getChildren().remove(tutorial);
+                        tutorial = tutorialImage[counter];
+                        getChildren().add(tutorial);
+                    }else{
+                        counter = 0;
+                    }
+                });
+
+        pagePassButtons[1].addEventHandler(MouseEvent.MOUSE_CLICKED,
+                e -> {
+                    counter--;
+                    if(counter > 0) {
+                        getChildren().remove(tutorial);
+                        tutorial = tutorialImage[counter];
+                        getChildren().add(tutorial);
+                    }else{
+                        counter = 10;
+                    }
+                });
 
         this.setCurrentColor(null);
         copyRightPanel.getChildren().add(copyRightLabel);

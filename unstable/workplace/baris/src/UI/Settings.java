@@ -36,7 +36,7 @@ public class Settings extends Pane {
     private Button backButton;
 
     //Images
-    private Image backImage;
+    private ImageView backImage;
     private ImageView timerButtonImage;
     private ToggleButton timerButton;
 
@@ -70,13 +70,15 @@ public class Settings extends Pane {
         version = new Label("Version b0.1");
 
         //Back button
-        backImage = new Image(getClass().getResourceAsStream(BACK_ICON));
+        backImage = new ImageView(new Image(BACK_ICON));
+        backImage.setFitWidth(ICON_SIZE);
+        backImage.setFitHeight(ICON_SIZE);
         backButton = new Button();
-        backButton.setGraphic(new ImageView(backImage));
+        backButton.setGraphic(backImage);
         backButton.setStyle("-fx-background-color: transparent");
         backButton.setMinSize(ICON_SIZE, ICON_SIZE);
         backButton.setLayoutX(25);
-        backButton.setLayoutY(35);
+        backButton.setLayoutY(25);
 
         Label settings = new Label("");
         settings.setStyle("-fx-font-weight: bold;");
@@ -232,6 +234,7 @@ public class Settings extends Pane {
         pinkCircle.setFitWidth(48);
         buttons[4].setGraphic(pinkCircle);
 
+        addAnimation(10);
         right.getChildren().addAll(themes);
 
         this.getChildren().addAll(settings,backButton,left,center,right, buttons[0], buttons[1], buttons[2], buttons[3], buttons[4]);
@@ -316,6 +319,10 @@ public class Settings extends Pane {
         toogler = !toogler;
         initialize(toogler);
     
+    }
+    public void addAnimation(int factor) {
+        backButton.setOnMouseEntered(new GameManager.Animation(backButton, factor, true));
+        backButton.setOnMouseExited(new GameManager.Animation(backButton, factor, false));
     }
 
     public boolean isTimerToogleOn(){

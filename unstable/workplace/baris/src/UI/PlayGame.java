@@ -512,14 +512,22 @@ public class PlayGame extends Pane implements TimerRunnable {
         popupwindow.initModality(Modality.APPLICATION_MODAL);
         popupwindow.setTitle("Game Won");
         popupwindow.setResizable(false);
-        popupwindow.setHeight(500);
-        popupwindow.setWidth(700);
+        popupwindow.setHeight(600);
+        popupwindow.setWidth(600);
         popupwindow.getIcons().add(new Image(getClass().getResourceAsStream("/img/java_318-32027.png")));
+        ImageView starsImage = new ImageView("/img/fullStar.png");
+        ImageView starsImage1 = new ImageView("/img/fullStar.png");
+        ImageView starsImage2 = new ImageView("/img/fullStar.png");
+
+        //starsImage.setFitWidth(400);
+        //starsImage.setFitHeight(60);
         Label label1= new Label("");
-        ImageView labelImage = new ImageView("/img/win.png");
-        labelImage.setFitWidth(400);
-        labelImage.setFitHeight(60);
-        label1.setGraphic(labelImage);
+        Image labelImage = new Image(getClass().getResourceAsStream("/img/win.png"), 400,100,true, false);
+        stars[0] = 3;
+        /*labelImage.setFitWidth(400);
+        labelImage.setFitHeight(60);*/
+        //labelImage.preserveRatioProperty();
+        label1.setGraphic(new ImageView(labelImage));
         Image im = new Image("/img/win.gif");
         ImageView view = new ImageView(im);
         view.setFitWidth(400);
@@ -528,12 +536,22 @@ public class PlayGame extends Pane implements TimerRunnable {
         goBackMenuButton= new Button("Go Back to Menu");
         goBackMenuButton.setOnAction(e -> popupwindow.close());
         VBox layout= new VBox(20);
-        layout.getChildren().addAll(view, label1, label2, goBackMenuButton);
+        HBox layout1 = new HBox(10);
+        layout.getChildren().addAll(view, label1);
+        if(stars[0] == 1) {
+            layout1.getChildren().addAll(starsImage);
+        }else if (stars[0] == 2){
+            layout1.getChildren().addAll(starsImage, starsImage1);
+        }else if(stars[0] == 3){
+            layout1.getChildren().addAll(starsImage, starsImage1, starsImage2);
+        }
+        layout1.setAlignment(Pos.CENTER);
+        layout.getChildren().addAll(layout1, label2, goBackMenuButton);
+
         layout.setAlignment(Pos.CENTER);
         Scene scene1= new Scene(layout, 300, 250);
         popupwindow.setScene(scene1);
         popupwindow.showAndWait();
-        stars[0] = 3;
         return true;
     }
 
