@@ -351,4 +351,30 @@ public class Engine{
 		return res;
 	}
 
+	public int rotateCar(int index){
+		Car[] theMapCars = getCars();
+		Car toChange = theMapCars[index];
+		System.out.println(toChange.getCarDirection());
+		if (toChange.getCarDirection() == 1 || toChange.getCarDirection() == 3){
+			int head = toChange.getX();
+			int end = toChange.getHorizontalX();
+			if (toChange.getY() - toChange.getLength() >=0 ){
+				theMapCars[index].setVerticalY(theMapCars[index].getY()-toChange.getLength(), theMapCars[index].getY());
+				theMapCars[index].setHorizontalX(theMapCars[index].getX() ,theMapCars[index].getX());
+				theMapCars[index].setCarDirection(2);
+				//theMapCars[index].setCarDirection((theMapCars[index].getCarDirection()+1)%4);
+				return theMapCars[index].getCarDirection();
+			} else if (head + toChange.getLength() < selectedMap.getDimension() ){
+					theMapCars[index].setVerticalY(theMapCars[index].getY(),theMapCars[index].getY()+toChange.getLength());
+					theMapCars[index].setHorizontalX(theMapCars[index].getX() ,theMapCars[index].getX());
+					theMapCars[index].setCarDirection( (theMapCars[index].getCarDirection()-1)%4);
+					return theMapCars[index].getCarDirection();
+			} else {
+				return -1;
+			}
+		} else {
+			return -1;
+		}
+
+	}
 }

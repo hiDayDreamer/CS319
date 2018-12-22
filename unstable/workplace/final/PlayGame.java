@@ -280,7 +280,7 @@ public class PlayGame extends Pane implements TimerRunnable {
         setCurrentDimensionSize(dimension);
 
         box = new Pane();
-        carsPane = new Pane();
+        
         box.setStyle("-fx-background-color: black, -fx-control-inner-background; -fx-background-insets: 0, 2; -fx-padding:2;");
 
         for (int rowIndex = 0; rowIndex < getCurrentDimensionSize(); rowIndex++){
@@ -303,7 +303,7 @@ public class PlayGame extends Pane implements TimerRunnable {
         box.getChildren().add(exit);
 
         box.setStyle("-fx-background-color: black");
-
+        carsPane = new Pane();
         int direction = -1;
         for (int carIndex = 0 ; carIndex < cars.length; carIndex++){
             direction = cars[carIndex].getCarDirection();
@@ -364,6 +364,7 @@ public class PlayGame extends Pane implements TimerRunnable {
         startButton.addEventHandler(MouseEvent.MOUSE_CLICKED, startTime);
         blowUpButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new GameManager.BlowUp(carsPane));
         shrinkButton.addEventHandler(MouseEvent.MOUSE_CLICKED,new GameManager.Shrink(carsPane));
+        rotate.addEventHandler(MouseEvent.MOUSE_CLICKED,new GameManager.RotateaCar(carsPane));
         resetButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
             public void handle(MouseEvent e) {
                 System.out.println("Reset");
@@ -399,6 +400,18 @@ public class PlayGame extends Pane implements TimerRunnable {
             tempView.setFitHeight(tempView.getFitHeight()-gridBoxSize);
         else
             tempView.setFitWidth(tempView.getFitWidth()-gridBoxSize);
+    }
+    public void rotateCar(int index,int carDirection) {
+        
+        ImageView tempView = (ImageView) carsPane.getChildren().get(index);
+        tempView.setImage(new Image("/img/"+ index+"-" + carDirection%2+ ".png"));
+        if (carDirection == 3 || carDirection == 2) {
+            tempView.setRotate(180);
+        }
+        double temp = tempView.getFitWidth();
+        double tmp2 = tempView.getFitHeight();
+        tempView.setFitHeight(temp);
+        tempView.setFitWidth(tmp2);
     }
 
     public void runOnTimer(){
