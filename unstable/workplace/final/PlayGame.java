@@ -272,8 +272,6 @@ public class PlayGame extends Pane implements TimerRunnable {
     private GridPane buildGrid(Insets constraints){
         playGameSubpanel = new GridPane();
         playGameSubpanel.setPadding(constraints);
-
-        Block[][] mapBlocks = gameMap.getBlocks();
         cars = gameMap.getCars();
 
         String loc = "/img/grass.jpg";
@@ -362,6 +360,12 @@ public class PlayGame extends Pane implements TimerRunnable {
         startTime.setIndex(31);
         howToButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new GameManager.Hint());
         startButton.addEventHandler(MouseEvent.MOUSE_CLICKED, startTime);
+        GameManager.ButtonListener reset = e.clone();
+        reset.setIndex(11);
+        resetButton.addEventHandler(MouseEvent.MOUSE_CLICKED, reset);
+        GameManager.ButtonListener undo = e.clone();
+        undo.setIndex(38);
+        undoButton.addEventHandler(MouseEvent.MOUSE_CLICKED, undo);
         blowUpButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new GameManager.BlowUp(carsPane));
         shrinkButton.addEventHandler(MouseEvent.MOUSE_CLICKED,new GameManager.Shrink(carsPane));
         resetButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
@@ -371,17 +375,52 @@ public class PlayGame extends Pane implements TimerRunnable {
         });
     }
 
-
-    public Car findCar(int x, int y) {
-        for ( int i = 0; i < cars.length; i++ ) {
-            if ( x >= cars[i].getX() && x <= cars[i].getHorizontalX() ) {
-                if ( y >= cars[i].getY() && y <= cars[i].getVerticalY() )
-                return cars[i];
-            }
+    public void undo(Car car, int index, int type) {
+        if ( type == 0 ) {
+            carsPane.getChildren().get(index).setLayoutX(gridBoxSize*car.getY());
+            carsPane.getChildren().get(index).setLayoutY(gridBoxSize*car.getX());
+        } else {
+            int direction = car.getCarDirection();
+            ImageView tempView = (ImageView) carsPane.getChildren().get(index);
+            if ( direction == 1 || direction == 3 )
+                tempView.setFitHeight(tempView.getFitHeight()+gridBoxSize);
+            else
+                tempView.setFitWidth(tempView.getFitWidth()+gridBoxSize);
         }
-        return null;
     }
 
+    public void unBlowUp( Car[] arr) {
+        carsPane.getChildren().removeAll(carsPane.getChildren());
+        int direction = -1;
+        for (int carIndex = 0 ; carIndex < arr.length; carIndex++){
+            direction = arr[carIndex].getCarDirection();
+            String loc = arr[carIndex].getImageLocation();
+            Image img = new Image(loc+"-"+(direction%2)+".png");
+            ImageView possibleCar = new ImageView(img);
+
+            if (direction == 3 || direction == 2) {
+                possibleCar.setRotate(180);
+            }
+            possibleCar.setOnMousePressed(new GameManager.MoveCar(possibleCar));
+
+            possibleCar.addEventHandler(MouseEvent.MOUSE_DRAGGED, new GameManager.MouseListener(possibleCar));
+            possibleCar.setOnMouseReleased( new GameManager.Release(possibleCar));
+
+            if ( direction == 1 || direction == 3){
+                possibleCar.setFitWidth(gridBoxSize);
+                possibleCar.setFitHeight(gridBoxSize*arr[carIndex].getLength());
+                possibleCar.setLayoutX(gridBoxSize * arr[carIndex].getY());
+                possibleCar.setLayoutY(gridBoxSize * arr[carIndex].getX());
+                carsPane.getChildren().add(possibleCar);
+            } else {
+                possibleCar.setFitWidth(arr[carIndex].getLength()* gridBoxSize);
+                possibleCar.setFitHeight(gridBoxSize);
+                possibleCar.setLayoutX(gridBoxSize * arr[carIndex].getY());
+                possibleCar.setLayoutY(gridBoxSize * arr[carIndex].getX());
+                carsPane.getChildren().add(possibleCar);
+            }
+        }
+    }
 
     GameTimer timer;
     public void startTimer(){

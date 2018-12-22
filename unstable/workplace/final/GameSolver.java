@@ -210,7 +210,6 @@ public class GameSolver {
             nextCar = arr[i+1][0];
             i++;
         }
-        //betterMoves.addLast(arr[arr.legnth-2]);
         if ( i == arr.length - 1 )
             betterMoves.add(arr[i]);
         else if ( i > 0 )
