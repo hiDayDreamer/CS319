@@ -244,7 +244,7 @@ public class PlayGame extends Pane implements TimerRunnable {
 
         startButton = new Button();
         //startButton.setStyle("-fx-background-color: transparent");
-       
+
 
         playGameSubpanel = buildGrid(new Insets(90,0,0,300));
          startButton.setMinSize(gridBoxSize*getCurrentDimensionSize(),gridBoxSize*getCurrentDimensionSize());
@@ -500,6 +500,15 @@ public class PlayGame extends Pane implements TimerRunnable {
     }
 
     public void showHint( int dir, int length, int x, int y) {
+        // Timeline flasher = new Timeline(
+        //     new KeyFrame(Duration.seconds(0.5), e -> {
+        //         // use "flash" color
+        //     }),
+        //
+        //     new KeyFrame(Duration.seconds(1.0), e -> {
+        //         // revert to regular color
+        //     })
+        // );
         if ( dir == 1 || dir == 3 ) {
             for ( int i = x; i < x + length; i++ ) {
                 ((ImageView) box.getChildren().get(dimension * i + y)).setImage(new Image("img/grass.jpg"));

@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.LinkedList;
+import java.util.*;
 
 import javafx.scene.layout.Pane;
 public class GameManager extends Application{
@@ -151,7 +151,7 @@ public class GameManager extends Application{
             //this is for start tiemr button
             System.out.println(newSettingsPane.getSliderVolume());
 
-        } 
+        }
         else if (index == 33){
             backgroundColor = "-fx-background-color: #ffd151;";
             currentThemeIndex = index -33;
@@ -159,7 +159,7 @@ public class GameManager extends Application{
             boolean myTimer = newSettingsPane.isTimerToogleOn();
             newSettingsPane.initialize(myTimer);
             newSettingsPane.addHandler( new ButtonListener(0));
-            
+
         }
         else if (index == 34 ){
             backgroundColor = "-fx-background-color: #719fe6;";
@@ -370,7 +370,8 @@ public class GameManager extends Application{
         public void handle(MouseEvent e) {
             engine.createHint();
             LinkedList<int[]> moves = engine.getHints();
-            playGame.showHint(moves.get(0)[1], moves.get(0)[2], moves.get(0)[5], moves.get(0)[6]);
+            System.out.println(moves.size());
+            playGame.showHint(moves.get(0)[1], moves.get(0)[2], moves.get(0)[3], moves.get(0)[4]);
         }
     }
 

@@ -194,12 +194,35 @@ public class GameSolver {
             cur = parent;
             parent = parent.parent;
         }
-		return moves;
+        ListIterator<int[]> it = moves.listIterator(0);
+        int[] j = it.next();
+        while ( it.hasNext() ) {
+            System.out.println(Arrays.toString(j));
+            j = it.next();
+        }
+        LinkedList<int[]> betterMoves = new LinkedList();
+        int[][] arr = moves.toArray( new int[moves.size()][]);
+        int i = 0;
+        int car=arr[0][0];
+        int nextCar=arr[1][0];
+        while( i < arr.length - 1 && car == nextCar ) {
+            car = arr[i][0];
+            nextCar = arr[i+1][0];
+            i++;
+        }
+        //betterMoves.addLast(arr[arr.legnth-2]);
+        if ( i == arr.length - 1 )
+            betterMoves.add(arr[i]);
+        else if ( i > 0 )
+            betterMoves.add(arr[i-1]);
+        else
+            betterMoves.add(arr[0]);
+		return betterMoves;
         //System.out.println(tmp);
     }
 
     private int[] findMove(TreeNode current){
-		int[] move = new int[7];
+		int[] move = new int[5];
         TreeNode parent = current.parent;
         if (parent!=null){
             Car test, test2;
@@ -211,10 +234,10 @@ public class GameSolver {
 					move[0] = i;
 					move[1] = test.getCarDirection();
 					move[2] = test.getLength();
-					move[3] = test2.getX();
-					move[4] = test2.getY();
-					move[5] = test.getX();
-					move[6] = test.getY();
+					//move[3] = test2.getX();
+					//move[4] = test2.getY();
+					move[3] = test.getX();
+					move[4] = test.getY();
 					return move;
                     //return "Move " + i + " from location: " + test2.getX() + ", " + test2.getY() + " to: "+ test.getX() + ", " + test.getY() +"\n";
                 }
