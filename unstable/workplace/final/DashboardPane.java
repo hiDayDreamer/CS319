@@ -19,6 +19,11 @@ import javafx.scene.control.ProgressIndicator;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.StrokeLineCap;
 
+import java.io.BufferedReader;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class DashboardPane extends Pane {
     //Constants
     private final String BACK_ICON = "./img/backIcon.png";
@@ -316,6 +321,16 @@ public class DashboardPane extends Pane {
         prevSkin.setIndex(9);
         pagePassButtons[0].addEventHandler(MouseEvent.MOUSE_CLICKED, prevSkin);
     }
+    public void setDefaultSkin(String skin){
+        skin = skin.substring(0,skin.length()-5) + "1.png";
+        for (int i = 0; i < availableCarSkins.length; i++){
+            if (availableCarSkins[i].equals(skin)){
+                currentSelectedSkin = i-1;
+                updatePlayerSkin(1);
+                return;
+            }
+        }
+    }
 
     public void updatePlayerSkin(int add){
         currentSelectedSkin = (currentSelectedSkin +add )% availableCarSkins.length;
@@ -328,6 +343,17 @@ public class DashboardPane extends Pane {
         skin1.setFitWidth(100);
         skin1.setFitHeight(175);
         skin1.setLayoutX(28);
+        try{
+            String str = availableCarSkins[currentSelectedSkin];
+            str = str.substring(0,str.indexOf("-1.png"));
+        	FileOutputStream outputStream = new FileOutputStream("./storage/skin.txt");
+            byte[] strToBytes = str.getBytes();
+            outputStream.write(strToBytes);
+            outputStream.close();
+        }
+        catch(IOException e) {
+        	e.printStackTrace();
+        } 
         skinsPane.setLayoutX(450);
         skinsPane.setLayoutY(425);
         skinsPane.getChildren().addAll(pagePassButtons[0], skin1, pagePassButtons[1]);

@@ -157,6 +157,10 @@ public class Map {
 
 	}
 
+	public void resetPlayerSkin(String imgLoc){
+		cars[0].setImageLocation(imgLoc);
+	}
+
 	private Car[] getCarsFromStorage(){
 		int noOfCars = 7;
 		cars = new Car[noOfCars];

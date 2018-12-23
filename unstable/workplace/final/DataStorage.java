@@ -84,6 +84,7 @@ public class DataStorage implements Serializable{
 		}
 
         int mapIndex = 0;
+        int skinnerIndex = 0;
         boolean player = false;
 		BufferedReader reader;
 		try {
@@ -92,7 +93,8 @@ public class DataStorage implements Serializable{
             
 			do {
                 player = false;
-                int skinNo = (int)(Math.random()*(10));
+                int skinNo = skinnerIndex%10;
+                skinnerIndex++;
 				String[] array = line.split(",");
                 int index = Integer.parseInt(array[0]);
                 int direction = Integer.parseInt(array[1]);       
@@ -297,6 +299,21 @@ public class DataStorage implements Serializable{
 		}
     }
 
+    public String getSkin(){
+        BufferedReader reader;
+        String output = "./img/0";
+		try {
+			reader = new BufferedReader(new FileReader(
+					"./storage/skin.txt"));
+			String line = reader.readLine();
+			output = line;
+			reader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        System.out.println("My sotrage " + output);
+        return output;
+    }
     /*public static void main(String[] args){
         DataStorage tmp = new DataStorage();
        /* Map[] test = tmp.getMaps(6);

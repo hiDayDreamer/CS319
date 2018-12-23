@@ -11,7 +11,7 @@ public class CreditsPane extends Pane {
     private final String SOUND_ICON = "/img/soundIcon.png";
     private final String SETTINGS_ICON = "/img/Settings-icon.png";
     private final String BACK_ICON = "/img/backIcon.png";
-    private final String TEAM_IMAGE = "/img/team.png";
+    private final String TEAM_IMAGE = "/img/creditspage.png";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
     private final double WIDTH  = 1080;
     private final double HEIGHT = 720;
@@ -61,14 +61,14 @@ public class CreditsPane extends Pane {
         //How_To Panel
         Label settings = new Label("");
         settings.setStyle("-fx-font-weight: bold;");
-        ImageView labelImage = new ImageView("/img/tutorial.png");
+        ImageView labelImage = new ImageView("/img/credits.png");
         labelImage.setFitWidth(400);
         labelImage.setFitHeight(60);
         settings.setGraphic(labelImage);
 
         settings.setMaxSize(450,75);
         settings.setFont(new Font("Verdana", 45));
-        settings.setLayoutX(325);
+        settings.setLayoutX(335);
         settings.setLayoutY(30);
 
         //Sound button
@@ -107,10 +107,10 @@ public class CreditsPane extends Pane {
         //Tutorial Images
         tutorialCount = 1;
         tutorialImage = new Image[tutorialCount];
-        tutorialImage[0] = new Image(getClass().getResourceAsStream(TEAM_IMAGE), 800, 400, true, false);
+        tutorialImage[0] = new Image(getClass().getResourceAsStream(TEAM_IMAGE), 950, 750, true, false);
         tutorial = new ImageView(tutorialImage[0]);
-        tutorial.setLayoutX(WIDTH / 2 - 400);
-        tutorial.setLayoutY(HEIGHT / 2 - 170);
+        tutorial.setLayoutX(50);
+        tutorial.setLayoutY(150);
 //        tutorial.setFitHeight(500);
 
         addAnimation(10);

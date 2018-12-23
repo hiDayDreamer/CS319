@@ -20,6 +20,13 @@ import javafx.stage.*;
 import javafx.animation.*;
 import javafx.util.*;
 import javafx.beans.property.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class PlayGame extends Pane implements TimerRunnable {
     //Constants
     private final String SOUND_ICON = "/img/soundIcon.png";
@@ -282,7 +289,7 @@ public class PlayGame extends Pane implements TimerRunnable {
         shrinkBlow.getChildren().addAll(shrinkRotate, blowChange );
 
         VBox undoReset = new VBox(30);
-        undoReset.setLayoutX(880);
+        undoReset.setLayoutX(930);
         undoReset.setLayoutY(250);
         undoReset.setStyle("-fx-border-color: black; -fx-border-width: 1px; -fx-border-radius: 50px 50 50px 50px; -fx-padding: 10px");
         undoReset.getChildren().addAll(undoButton, resetButton);
@@ -333,16 +340,16 @@ public class PlayGame extends Pane implements TimerRunnable {
         this.stars = stars;
     }
     public void setExit(int y, int x){
-        //System.out.println("The exit is at " + y + " " + x );
+    
         Image immg = new Image("/img/exit.png");
         ImageView exit = new ImageView(immg);
-        exit.setFitWidth(gridBoxSize-1);
-        exit.setFitHeight(gridBoxSize-1);
-        exit.relocate(y*gridBoxSize+50, x*gridBoxSize+50);
+        exit.setFitWidth(gridBoxSize);
+        exit.setFitHeight(gridBoxSize);
+        exit.setLayoutX(300 +(y)*gridBoxSize + gridBoxSize/2);
+        exit.setLayoutY((x)*gridBoxSize + 90 );
         exit.setRotate(90);
-        exit.setLayoutX(400);
-        exit.setLayoutY(200);
-        //box.getChildren().add(exit);
+ 
+        getChildren().add(exit);
     }
     private GridPane buildGrid(Insets constraints){
         playGameSubpanel = new GridPane();
@@ -580,7 +587,25 @@ public class PlayGame extends Pane implements TimerRunnable {
         //starsImage.setFitHeight(60);
         Label label1= new Label("");
         Image labelImage = new Image(getClass().getResourceAsStream("/img/win.png"), 400,100,true, false);
-        stars[0] = 3;
+        //stars[0] = 3;
+         //stars[0] = 3;
+        try{
+            int star = 3;
+            //int stars = Integer.parseInt(str);
+            BufferedReader br = new BufferedReader(new FileReader("./storage/starsFile.txt")); 
+            String s = br.readLine();
+            int stars = Integer.parseInt(s);
+            stars = stars + star;
+            String str = "" + stars;
+        	FileOutputStream outputStream = new FileOutputStream("./storage/starsFile.txt");
+            byte[] strToBytes = str.getBytes();
+            outputStream.write(strToBytes);
+            br.close();
+            outputStream.close();
+        }
+        catch(IOException e) {
+        	e.printStackTrace();
+        }
         /*labelImage.setFitWidth(400);
         labelImage.setFitHeight(60);*/
         //labelImage.preserveRatioProperty();

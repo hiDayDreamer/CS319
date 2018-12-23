@@ -27,6 +27,7 @@ public class GameManager extends Application{
     private int level;
     private Map selectedMap;
     private Map myMap;
+    private String currentPlayerSkin;
 
     public static void main(String[] args) {
         launch(args);
@@ -43,6 +44,7 @@ public class GameManager extends Application{
         currentThemeIndex = -1;
         dimension = 6;
         level = 1;
+        currentPlayerSkin = "/img/0";
         //playBackgroundSound(sliderVolume,"./sound/backgroundSound.mp3");
     }
 
@@ -93,6 +95,7 @@ public class GameManager extends Application{
         }
         else if ( index == 3 ){
             newDashboardPane = new DashboardPane(data);
+            newDashboardPane.setDefaultSkin(currentPlayerSkin+"-0.png");
             newDashboardPane.addHandler( new ButtonListener(0));
             primaryStage1.updateMiddlePanel(newDashboardPane);
         }
@@ -122,7 +125,8 @@ public class GameManager extends Application{
         }
         else if ( index == 7){
             System.out.println("Update next skin");
-          newDashboardPane.updatePlayerSkin(1);
+            newDashboardPane.updatePlayerSkin(1);
+            currentPlayerSkin = dataStorage.getSkin();
         }
         else if ( index == 8){
             levelsPaneNew = new LevelsPane("8X8", engine.getStars(),dataStorage.getOpenMapArray(8));
@@ -133,6 +137,7 @@ public class GameManager extends Application{
         else if ( index == 9){
              System.out.println("Update prev skin");
               newDashboardPane.updatePlayerSkin(-1);
+              currentPlayerSkin = dataStorage.getSkin();
         }
         else if ( index == 10){
             levelsPaneNew = new LevelsPane("10X10", engine.getStars(),dataStorage.getOpenMapArray(10));
@@ -154,20 +159,14 @@ public class GameManager extends Application{
            
            // selectedMap.printDim();
             engine.setSelectedMap(selectedMap);
+            selectedMap.resetPlayerSkin(currentPlayerSkin);
             playGame = new PlayGame(selectedMap,timerMode,dimension);
             playGame.addHandler( new ButtonListener(6));
             playGame.setSoundVolume(sliderVolume);
             playGame.setStars(engine.getStars());
             playGame.setExit(engine.getExitY(),engine.getExitX());
             primaryStage1.updateMiddlePanel(playGame);
-            //engine.getTimer().stopCountDown();
-            //if ( index == 12 ){
-
-              //  engine.reset();
-                //playGame.setTimerOf(true);
-            //}
                 
-
         }
         else if(index == 55){
             if (newSettingsPane == null){

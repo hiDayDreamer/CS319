@@ -189,7 +189,7 @@ class LevelsPane extends GridPane{
             });
             button.setOnMousePressed( new EventHandler<MouseEvent>() {
                   public void handle(MouseEvent e){
-                     //System.out.println("asdfads");
+                     //System.out.println("as   dfads");
                      number.setFont(new Font("Verdana", HEIGHT / 8 * 3 / 5));
                      //button.setGraphic(new ImageView(new Image("fullStar.png")));
                }
