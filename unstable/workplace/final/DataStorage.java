@@ -19,6 +19,7 @@ public class DataStorage implements Serializable{
     //private Color chosenColor;
     private String chosenColor;
     private Map[][] storedMaps; 
+    private int noTimes = 0;
 
     public DataStorage() {
         storedMaps = new Map[3][15];
@@ -169,6 +170,7 @@ public class DataStorage implements Serializable{
     }
 
     public Map getMap(int dimension,int level) {
+     
         System.out.println("My level is : " + level);
         if (dimension == 6){
             return storedMaps[0][level];
@@ -179,6 +181,9 @@ public class DataStorage implements Serializable{
         else {
             return storedMaps[2][level];
         }        
+    }
+    public void resetNoTimes(){
+        noTimes = 0;
     }
     //returns soundEffect
     public SoundEffect[] getSoundEffects(){

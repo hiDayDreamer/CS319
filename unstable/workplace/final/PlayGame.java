@@ -427,7 +427,7 @@ public class PlayGame extends Pane implements TimerRunnable {
         howToButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new GameManager.Hint());
         startButton.addEventHandler(MouseEvent.MOUSE_CLICKED, startTime);
         GameManager.ButtonListener reset = e.clone();
-        reset.setIndex(12);
+        reset.setIndex(55);
         resetButton.addEventHandler(MouseEvent.MOUSE_CLICKED, reset);
         GameManager.ButtonListener undo = e.clone();
         undo.setIndex(38);

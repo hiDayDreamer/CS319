@@ -141,15 +141,15 @@ public class GameManager extends Application{
             dimension = 10;
         }
         else if ( index >= 11 && index <= 25) {
-            level = index-10;
+            level = index-11;
             if (newSettingsPane == null){
                 timerMode = false;
             } else {
                 timerMode = newSettingsPane.isTimerToogleOn();
             }
-            //System.out.println("Inside this indexing thing");
+            System.out.println("Inside this indexing thing " + level);
 
-            selectedMap = dataStorage.getMap(dimension,level-1).clone();
+            selectedMap = dataStorage.getMap(dimension,level).clone();
             //selectedMap.setLevel(level-1);
            
            // selectedMap.printDim();
@@ -161,13 +161,38 @@ public class GameManager extends Application{
             playGame.setExit(engine.getExitY(),engine.getExitX());
             primaryStage1.updateMiddlePanel(playGame);
             //engine.getTimer().stopCountDown();
-            if ( index == 12 ){
+            //if ( index == 12 ){
+
+              //  engine.reset();
+                //playGame.setTimerOf(true);
+            //}
+                
+
+        }
+        else if(index == 55){
+            if (newSettingsPane == null){
+                timerMode = false;
+            } else {
+                timerMode = newSettingsPane.isTimerToogleOn();
+            }
+            System.out.println("Inside this indexing thing " + level);
+
+            selectedMap = dataStorage.getMap(dimension,level).clone();
+            //selectedMap.setLevel(level-1);
+           
+           // selectedMap.printDim();
+            engine.setSelectedMap(selectedMap);
+            playGame = new PlayGame(selectedMap,timerMode,dimension);
+            playGame.addHandler( new ButtonListener(6));
+            playGame.setSoundVolume(sliderVolume);
+            playGame.setStars(engine.getStars());
+            playGame.setExit(engine.getExitY(),engine.getExitX());
+            primaryStage1.updateMiddlePanel(playGame);
+            //engine.getTimer().stopCountDown();
 
                 engine.reset();
                 //playGame.setTimerOf(true);
-            }
-                
-
+            
         }
         else if (index == 30){
             System.out.println("toogle " +  newSettingsPane.isTimerToogleOn());
