@@ -147,7 +147,7 @@ public class GameManager extends Application{
             } else {
                 timerMode = newSettingsPane.isTimerToogleOn();
             }
-            System.out.println("Inside this indexing thing " + level);
+            //System.out.println("Inside this indexing thing " + level);
 
             selectedMap = dataStorage.getMap(dimension,level).clone();
             //selectedMap.setLevel(level-1);

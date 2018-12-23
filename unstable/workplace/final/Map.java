@@ -233,7 +233,7 @@ public class Map {
 		String tmp = "";
 
 		for (int i = 0; i < cars.length; i++ ){
-			System.out.println("Car " + i + " " + cars[i].getX() + " " + cars[i].getHorizontalX() + " " + cars[i].getY() + " " + cars[i].getVerticalY());
+			//System.out.println("Car " + i + " " + cars[i].getX() + " " + cars[i].getHorizontalX() + " " + cars[i].getY() + " " + cars[i].getVerticalY());
 
 			Car car = cars[i];
 			if ( car.getCarDirection() == 1 || car.getCarDirection() == 3 ) {

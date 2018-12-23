@@ -333,7 +333,7 @@ public class PlayGame extends Pane implements TimerRunnable {
         this.stars = stars;
     }
     public void setExit(int y, int x){
-        System.out.println("The exit is at " + y + " " + x );
+        //System.out.println("The exit is at " + y + " " + x );
         Image immg = new Image("/img/exit.png");
         ImageView exit = new ImageView(immg);
         exit.setFitWidth(gridBoxSize-1);

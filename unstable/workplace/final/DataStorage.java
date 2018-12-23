@@ -24,8 +24,8 @@ public class DataStorage implements Serializable{
     public DataStorage() {
         storedMaps = new Map[3][15];
         storedMaps[0] = getMaps(6);
-        //storedMaps[1] = getMaps(8);
-        //storedMaps[2] = getMaps(10);
+        storedMaps[1] = getMaps(8);
+        storedMaps[2] = getMaps(10);
         //map = new Map[15];
         //map[0] = new Map(6,3,5,1);
         //map[1] = new Map(8,3,7,1);
@@ -80,7 +80,7 @@ public class DataStorage implements Serializable{
 		switch(dimension){
 			case 6: maps = "./storage/6x6dim.csv"; break;
 			case 8: maps = "./storage/8x8dim.csv"; break;
-			case 10: maps = "./storage/10x10im.csv"; break;
+			case 10: maps = "./storage/10x10dim.csv"; break;
 		}
 
         int mapIndex = 0;
@@ -123,7 +123,7 @@ public class DataStorage implements Serializable{
                         newMap.initMap(finishX,dimension-1);
                         dimensionMaps[mapIndex-1] = newMap.clone();     
                         perMapCarList = new ArrayList<>();  
-                        System.out.println(newMap);  
+                        //System.out.println(newMap);  
                         //return dimensionMaps;             
                     }
                     firstConfig = false;
@@ -171,7 +171,7 @@ public class DataStorage implements Serializable{
 
     public Map getMap(int dimension,int level) {
      
-        System.out.println("My level is : " + level);
+        //System.out.println("My level is : " + level);
         if (dimension == 6){
             return storedMaps[0][level];
         }
