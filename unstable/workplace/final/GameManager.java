@@ -23,6 +23,7 @@ public class GameManager extends Application{
     private int currentThemeIndex;
     private int dimension;
     private DashboardPane newDashboardPane;
+    private LevelsPane levelsPaneNew;
 
     public static void main(String[] args) {
         launch(args);
@@ -110,9 +111,9 @@ public class GameManager extends Application{
         }
         else if ( index == 6){
             // this goes to the levelsPane from the dimensions panel
-            LevelsPane newPane = new LevelsPane("6X6", engine.getStars(),engine.getOpenMapArray(6));
-            newPane.addHandler( new ButtonListener(0));
-            primaryStage1.updateMiddlePanel(newPane);
+            levelsPaneNew = new LevelsPane("6X6", engine.getStars(),dataStorage.getOpenMapArray(6));
+            levelsPaneNew.addHandler( new ButtonListener(0));
+            primaryStage1.updateMiddlePanel(levelsPaneNew);
             dimension = 6;
         }
         else if ( index == 7){
@@ -120,9 +121,9 @@ public class GameManager extends Application{
           newDashboardPane.updatePlayerSkin(1);
         }
         else if ( index == 8){
-            LevelsPane newPane = new LevelsPane("8X8", engine.getStars(),engine.getOpenMapArray(8));
-            newPane.addHandler( new ButtonListener(0));
-            primaryStage1.updateMiddlePanel(newPane);
+            levelsPaneNew = new LevelsPane("8X8", engine.getStars(),dataStorage.getOpenMapArray(8));
+            levelsPaneNew.addHandler( new ButtonListener(0));
+            primaryStage1.updateMiddlePanel(levelsPaneNew);
             dimension = 8;
         }
         else if ( index == 9){
@@ -130,9 +131,9 @@ public class GameManager extends Application{
               newDashboardPane.updatePlayerSkin(-1);
         }
         else if ( index == 10){
-            LevelsPane newPane = new LevelsPane("10X10", engine.getStars(),engine.getOpenMapArray(10));
-            newPane.addHandler( new ButtonListener(0));
-            primaryStage1.updateMiddlePanel(newPane);
+            levelsPaneNew = new LevelsPane("10X10", engine.getStars(),dataStorage.getOpenMapArray(10));
+            levelsPaneNew.addHandler( new ButtonListener(0));
+            primaryStage1.updateMiddlePanel(levelsPaneNew);
             dimension = 10;
         }
         else if ( index >= 11 && index <= 25) {
@@ -457,6 +458,9 @@ public class GameManager extends Application{
             }
         }
     }
+    public boolean[] getOpenMapsArray(){
+        return levelsPaneNew.getOpenMapArray();
+    } 
 
     static class Hint implements EventHandler<MouseEvent> {
         public void handle(MouseEvent e) {

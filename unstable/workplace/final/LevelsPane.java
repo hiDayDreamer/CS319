@@ -16,7 +16,7 @@ class LevelsPane extends GridPane{
    private final String BACK_ICON = "/img/backIcon.png";
    private final String SOUND_ICON = "/img/soundIcon.png";
    private final String SETTINGS_ICON = "/img/Settings-icon.png";
-   private final String LOCkED_IMAGE = "/img/locked.png";
+   private final String LOCkED_IMAGE = "/img/lockNew.png";
    private final double WIDTH  = 1080;
    private final double HEIGHT = 720;
    private final int ICON_SIZE = 64;
@@ -246,5 +246,14 @@ class LevelsPane extends GridPane{
       settingsButton.setOnMouseExited(new GameManager.Animation(settingsButton, factor, false));
       backButton.setOnMouseEntered(new GameManager.Animation(backButton, factor, true));
       backButton.setOnMouseExited(new GameManager.Animation(backButton, factor, false));
+   }
+   public boolean[] getOpenMapArray(){
+      for (int i = 0; i < openMapArray.length; i++){
+         if(!openMapArray[i]){
+            openMapArray[i] = true;
+            return openMapArray;
+         }
+      }
+      return openMapArray;
    }
 }

@@ -2,7 +2,11 @@ import java.io.Serializable;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
-
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.File;
 
 public class DataStorage implements Serializable{
 
@@ -102,4 +106,90 @@ public class DataStorage implements Serializable{
         return chosenColor;
     }
 
+    public boolean[] getOpenMapArray(int dimension){
+		int fileLine = 0;
+		switch(dimension){
+			case 6: fileLine = 0; break;
+			case 8: fileLine = 1; break;
+			case 10: fileLine = 2; break;
+		}
+
+		BufferedReader reader;
+		int LineIndex = 0;
+		boolean[] openMaps = new boolean[15];
+		try {
+			reader = new BufferedReader(new FileReader(
+					"./storage/MapsLocked.txt"));
+			String line = reader.readLine();
+			do {
+				//System.out.println((line.split(",")));
+				// read next line
+				//System.out.println(line);
+
+				if (fileLine == LineIndex){
+					String[] array = line.split(",");
+					for (int i = 0 ; i < array.length; i++){
+						if (array[i].equals("0")){
+							openMaps[i] = false;
+						}else {
+							openMaps[i] = true;
+						}
+					}
+				}
+				line = reader.readLine();
+				LineIndex++;
+			} while (line != null);
+			reader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return openMaps;
+	}
+
+    public void updateOpenMaps(int dimension, boolean[] openMaps){
+        int fileLine = 0;
+		switch(dimension){
+			case 6: fileLine = 0; break;
+			case 8: fileLine = 1; break;
+			case 10: fileLine = 2; break;
+		}
+
+		BufferedReader reader;
+		int LineIndex = 0;
+		String[] readOpenMaps = new String[3];
+		try {
+			reader = new BufferedReader(new FileReader(
+					"./storage/MapsLocked.txt"));
+			String line = reader.readLine();
+			do {
+				if (fileLine == LineIndex){
+                    String tmp = "";
+					for (int i = 0 ; i < openMaps.length; i++){
+                        System.out.println(openMaps[i]);
+						if (openMaps[i]){
+							tmp += "1,";
+						}else {
+							tmp += "0,";
+						}
+					}
+                    readOpenMaps[LineIndex] = tmp;
+				} else {
+                       readOpenMaps[LineIndex] = line;
+                }
+				line = reader.readLine();
+				LineIndex++;
+			} while (line != null);
+			reader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try (PrintWriter out = new PrintWriter("./storage/MapsLocked.txt")) {
+            for (int i = 0; i < readOpenMaps.length; i++){
+                System.out.println(readOpenMaps[i]);
+                out.println(readOpenMaps[i].substring(0,readOpenMaps[i].length()-1));
+            }
+        }catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
 }
