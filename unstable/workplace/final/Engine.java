@@ -22,7 +22,6 @@ public class Engine{
 
 	public Engine(GameManager manager) {
 		gameManager = manager;
-		timer = new GameTimer();
 		stars = new StarManager();
 		moves = new LinkedList<Move>();
 		volume = 50;
@@ -76,6 +75,7 @@ public class Engine{
 		}
 		return false;
 	}
+
 
 	public void updateStars() {
 		// TODO - implement Engine.updateStars
@@ -201,6 +201,7 @@ public class Engine{
 	 */
 	public void setSelectedMap(Map selectedMap) {
 		this.selectedMap = selectedMap;
+		timer = new GameTimer(selectedMap.getTime());
 	}
 
 	public GameTimer getTimer() {
@@ -250,6 +251,7 @@ public class Engine{
 
 	public void reset() {
 		moves = new LinkedList();
+		timer.cancelTimer();
 	}
 
 	public LinkedList getMoves() {

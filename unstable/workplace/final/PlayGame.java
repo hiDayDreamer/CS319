@@ -69,6 +69,7 @@ public class PlayGame extends Pane implements TimerRunnable {
     //private Image resetImage;
     //private Image howToImage;
 
+    private GameTimer timer;
     private Map gameMap;
     private Car[] cars;
     private boolean timerMode;
@@ -79,7 +80,10 @@ public class PlayGame extends Pane implements TimerRunnable {
     private int dimension;
     private int gridBoxSize;
     private Label timerCountdown;
-    int noSeconds = 5;
+    private int noSeconds;
+    private int noMinutes;
+    private boolean timerOff = false;
+
     //private int shrinkCount;
     public PlayGame(Map map,boolean mode,int dim) {
         super();
@@ -87,6 +91,7 @@ public class PlayGame extends Pane implements TimerRunnable {
         timerMode = mode;
         volume = 0;
         dimension = dim;
+        noSeconds = 65;
         initialize();
     }
 
@@ -239,21 +244,18 @@ public class PlayGame extends Pane implements TimerRunnable {
         royalFlush.setLayoutY(10);
         royalFlush.setFont(new Font(30));
 
-        timerCountdown = new Label("" + noSeconds);
-        timerCountdown.setLayoutX(100);
-        timerCountdown.setLayoutY(200);
-        timerCountdown.setFont(new Font(30));
+        
 
         startButton = new Button();
         //startButton.setStyle("-fx-background-color: transparent");
 
 
         playGameSubpanel = buildGrid(new Insets(90,0,0,300));
-         startButton.setMinSize(gridBoxSize*getCurrentDimensionSize(),gridBoxSize*getCurrentDimensionSize());
+        startButton.setMinSize(gridBoxSize*getCurrentDimensionSize(),gridBoxSize*getCurrentDimensionSize());
         startButton.setLayoutX(300);
         startButton.setLayoutY(90);
         if (timerMode){
-            getChildren().addAll( royalFlush, soundButton, settingsButton, playGameSubpanel, backButton, timerCountdown,startButton, shrinkBlow, undoReset);
+            getChildren().addAll( royalFlush, soundButton, settingsButton, playGameSubpanel, backButton,startButton, shrinkBlow, undoReset);
         } else {
             getChildren().addAll( royalFlush, soundButton, settingsButton, playGameSubpanel, backButton, shrinkBlow, undoReset);
         }
@@ -438,12 +440,22 @@ public class PlayGame extends Pane implements TimerRunnable {
         }
     }
 
-    GameTimer timer;
-    public void startTimer(){
+   
+    public void startTimer( GameTimer timer){
         getChildren().remove(startButton);
         if (timer == null){
             timer = new GameTimer(noSeconds);
         }
+        this.timer = timer;
+        getChildren().remove(timerCountdown);
+        noMinutes = timer.getCountDown()/60;
+        noSeconds = timer.getCountDown() - noMinutes*60;
+        String tmp  = String.format("%02d", noMinutes)+ " : " + String.format("%02d", noSeconds);
+        timerCountdown = new Label( tmp );
+        timerCountdown.setLayoutX(100);
+        timerCountdown.setLayoutY(200);
+        timerCountdown.setFont(new Font(30));
+        getChildren().add(timerCountdown);
         System.out.println("I am in start tiemr play game");
         timer.startCountDown(this);
     }
@@ -473,16 +485,22 @@ public class PlayGame extends Pane implements TimerRunnable {
     }
 
     public void runOnTimer(){
+        int cuurentSec = timer.getCountDown();
+        noMinutes = cuurentSec/60;
+        noSeconds = cuurentSec- noMinutes*60;
+        String tmp  = String.format("%02d", noMinutes)+ " : " + String.format("%02d", noSeconds);
         System.out.println("" + timer.getCountDown());
-        noSeconds--;
+        cuurentSec--;
         //initialize();
-        Platform.runLater(() -> timerCountdown.setText("" + timer.getCountDown()));
-        if (noSeconds == 0){
+        Platform.runLater(() -> timerCountdown.setText(tmp));
+        if (cuurentSec == 0){
+              System.out.println("GameWon") ;
             Platform.runLater(() -> gameLoss());
         }
     }
 
     public boolean gameWon() {
+       
         Stage popupwindow=new Stage();
         popupwindow.initModality(Modality.APPLICATION_MODAL);
         popupwindow.setTitle("Game Won");
@@ -512,6 +530,9 @@ public class PlayGame extends Pane implements TimerRunnable {
         return true;
     }
 
+    public void setTimerOf(boolean val){
+        timerOff = val;
+    }
 
     public boolean gameLoss(){
         /*getChildren().remove(playGameSubpanel);
@@ -522,6 +543,7 @@ public class PlayGame extends Pane implements TimerRunnable {
         view.setLayoutX(20);
         view.setLayoutY(100);
         getChildren().add(view);*/
+       
         Stage popupwindow=new Stage();
         popupwindow.initModality(Modality.APPLICATION_MODAL);
         popupwindow.setTitle("Game Won");

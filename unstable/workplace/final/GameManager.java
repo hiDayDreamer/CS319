@@ -149,8 +149,12 @@ public class GameManager extends Application{
             playGame.setSoundVolume(sliderVolume);
             playGame.setStars(engine.getStars());
             primaryStage1.updateMiddlePanel(playGame);
-            if ( index == 12 )
+            //engine.getTimer().stopCountDown();
+            if ( index == 12 ){
                 engine.reset();
+                //playGame.setTimerOf(true);
+            }
+                
 
         }
         else if (index == 30){
@@ -161,7 +165,7 @@ public class GameManager extends Application{
         else if (index == 31){
             //this is for start tiemr button
             System.out.println("start timer");
-            playGame.startTimer();
+            playGame.startTimer(engine.getTimer());
 
         }
         else if (index == 32){

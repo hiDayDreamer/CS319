@@ -6,6 +6,7 @@ public class Map {
 	private int dimension;
 	private int minMoveCount;
 	private boolean isOpenMap;
+	private int timeNeededinSec ;
 
 	public Map() {
 		cars = null;
@@ -13,6 +14,7 @@ public class Map {
 		level = 0;
 		dimension = 0;
 		minMoveCount = 0;
+		timeNeededinSec = 65;
 		isOpenMap = true;
 	}
 
@@ -26,6 +28,7 @@ public class Map {
 		this.dimension = dimension;
 		this.minMoveCount = minMoveCount;
 		this.isOpenMap = isOpenMap;
+		timeNeededinSec = 65;
 	}
 
 	public Map clone() {
@@ -34,6 +37,7 @@ public class Map {
 		newMap.dimension = dimension;
 		newMap.minMoveCount = minMoveCount;
 		newMap.isOpenMap = isOpenMap;
+		newMap.timeNeededinSec = timeNeededinSec;
 		Car[] newCars = new Car[cars.length];
 		for ( int i = 0; i < cars.length; i++ )
 			newCars[i] = cars[i].clone();
@@ -101,6 +105,7 @@ public class Map {
 	}
 
 	private void initMap(){
+		timeNeededinSec = 65;
 		blocks = new Block[dimension][];
 		int lengthIndex = 0;
 		for (int rowIndex = 0; rowIndex < dimension; rowIndex++ ){
@@ -198,6 +203,10 @@ public class Map {
 		cars[7].setCarDirection(0);
 */
 		return cars;
+	}
+
+	public int getTime(){
+		return timeNeededinSec;
 	}
 
 	public void printDim(){

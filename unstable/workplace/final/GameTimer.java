@@ -2,7 +2,7 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
-
+import javafx.application.Platform;
 
 /**
     The following is the implementation of the Gametimer Class.
@@ -17,6 +17,7 @@ public class GameTimer extends TimerTask {
      //the attributes of the class
      private int timeInSeconds;
      Timer  countdownTimer;
+     private boolean  timerCancel = false;
      TimerRunnable toRunClass;
 
     //default constructor
@@ -60,6 +61,13 @@ public class GameTimer extends TimerTask {
         countdownTimer.scheduleAtFixedRate(this, 0, 1000);
     }
 
+    public void cancelTimer(){
+        timerCancel = true;
+    }
+
+    public boolean getCancelTimer(){
+        return timerCancel;
+    }
     public void stopCountDown(){
         countdownTimer.cancel();
     }
@@ -68,8 +76,11 @@ public class GameTimer extends TimerTask {
     public void run() {
         toRunClass.runOnTimer();
         timeInSeconds--;
-        if (!isCountDownRunning()){
+        timerCancel = getCancelTimer();
+        System.out.println("Running " + timerCancel);
+        if (!isCountDownRunning() ||  timerCancel){
             countdownTimer.cancel();
+            //timerCancel = false;
         }
 
     }
