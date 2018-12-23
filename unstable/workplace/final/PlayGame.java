@@ -272,7 +272,15 @@ public class PlayGame extends Pane implements TimerRunnable {
     public void setStars(int[] stars) {
         this.stars = stars;
     }
-
+    public void setExit(int y, int x){
+        System.out.println("The exit is at " + y + " " + x );
+        Image immg = new Image("/img/exit.png");
+        ImageView exit = new ImageView(immg);
+        exit.setFitWidth(gridBoxSize-1);
+        exit.setFitHeight(gridBoxSize-1);
+        exit.relocate(y*gridBoxSize, x*gridBoxSize);
+        box.getChildren().add(exit);
+    }
     private GridPane buildGrid(Insets constraints){
         playGameSubpanel = new GridPane();
         playGameSubpanel.setPadding(constraints);
@@ -297,12 +305,6 @@ public class PlayGame extends Pane implements TimerRunnable {
             }
         }
 
-        Image immg = new Image("/img/exit.png");
-        ImageView exit = new ImageView(immg);
-        exit.setFitWidth(gridBoxSize-1);
-        exit.setFitHeight(gridBoxSize-1);
-        exit.relocate(5*gridBoxSize, 3*gridBoxSize);
-        box.getChildren().add(exit);
 
         box.setStyle("-fx-background-color: black");
         carsPane = new Pane();

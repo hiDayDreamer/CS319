@@ -249,9 +249,33 @@ public class Engine{
 		this.stars = stars;
 	}
 
+	public int getExitY(){
+		Block[][] arr = selectedMap.getBlocks();
+		for(int i = 0; i < arr.length; i++){
+			for (int j = 0; j<arr.length; j++){
+				if (arr[i][j].isFinishBlock()){
+					return j;
+				}
+			}
+		}
+		return -1;
+	}
+
+	public int getExitX(){
+		Block[][] arr = selectedMap.getBlocks();
+		for(int i = 0; i < arr.length; i++){
+			for (int j = 0; j<arr.length; j++){
+				if (arr[i][j].isFinishBlock()){
+					return i;
+				}
+			}
+		}
+		return -1;
+	}
 	public void reset() {
 		moves = new LinkedList();
 		timer.cancelTimer();
+		timer = new GameTimer(selectedMap.getTime());
 	}
 
 	public LinkedList getMoves() {

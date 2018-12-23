@@ -16,9 +16,9 @@ public class DataStorage implements Serializable{
 
     public DataStorage() {
         map = new Map[15];
-        map[0] = new Map(6);
-        map[1] = new Map(8);
-        map[2] = new Map(10);
+        map[0] = new Map(6,3,5);
+        map[1] = new Map(8,3,7);
+        map[2] = new Map(10,3,9);
         /*
         //==========================SOUND EFFECTS=======================================
         soundEffect = new SoundEffect[2];

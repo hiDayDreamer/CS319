@@ -170,9 +170,9 @@ class GameSolverTesterDFT{
         return "";
     }
 
-    public static void main(String[] args){
+    /*public static void main(String[] args){
         Map testMap = new Map(6);
         GameSolverTester testSolver = new GameSolverTester(testMap);
         testSolver.getHintMovesList();
-    }
+    }*/
 }

@@ -7,6 +7,7 @@ public class Map {
 	private int minMoveCount;
 	private boolean isOpenMap;
 	private int timeNeededinSec ;
+	private int finishx,finishy;
 
 	public Map() {
 		cars = null;
@@ -18,9 +19,13 @@ public class Map {
 		isOpenMap = true;
 	}
 
-	public Map(int dimension){
+
+
+	public Map(int dimension,int x,int y){
 		this.dimension = dimension;
-		initMap();
+		finishx = x;
+		finishy = y;
+		initMap(finishx,finishy);
 	}
 
 	public Map( int level, int dimension, int minMoveCount, boolean isOpenMap ) {
@@ -38,6 +43,8 @@ public class Map {
 		newMap.minMoveCount = minMoveCount;
 		newMap.isOpenMap = isOpenMap;
 		newMap.timeNeededinSec = timeNeededinSec;
+		newMap.finishx = finishx;
+		newMap.finishy = finishy;
 		Car[] newCars = new Car[cars.length];
 		for ( int i = 0; i < cars.length; i++ )
 			newCars[i] = cars[i].clone();
@@ -48,6 +55,7 @@ public class Map {
 				newBlocks[i][j].setOccupied(blocks[i][j].isOccupied());
 			}
 		}
+		newBlocks[finishx][finishy].setFinishBlock(true);
 		newMap.cars = newCars;
 		newMap.blocks = newBlocks;
 		return newMap;
@@ -104,7 +112,7 @@ public class Map {
 		return 0;
 	}
 
-	private void initMap(){
+	private void initMap(int finishBlockX,int finishBlockY){
 		timeNeededinSec = 65;
 		blocks = new Block[dimension][];
 		int lengthIndex = 0;
@@ -114,7 +122,8 @@ public class Map {
 				blocks[rowIndex][columnIndex] = new Block(rowIndex,columnIndex);
 			}
 		}
-
+		System.out.println("Inside the map the dinish is : " + finishx + " " + finishy);
+		blocks[finishBlockX][finishBlockY].setFinishBlock(true);
 		cars = getCarsFromStorage();
 
 		int carX, carY, carEndX, carEndY;

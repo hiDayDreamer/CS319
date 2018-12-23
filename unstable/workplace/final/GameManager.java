@@ -148,6 +148,7 @@ public class GameManager extends Application{
             playGame.addHandler( new ButtonListener(6));
             playGame.setSoundVolume(sliderVolume);
             playGame.setStars(engine.getStars());
+            playGame.setExit(engine.getExitY(),engine.getExitX());
             primaryStage1.updateMiddlePanel(playGame);
             //engine.getTimer().stopCountDown();
             if ( index == 12 ){
