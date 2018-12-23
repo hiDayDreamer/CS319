@@ -1,12 +1,6 @@
-import java.io.Serializable;
+import java.io.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import javax.imageio.ImageIO;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.File;
 import java.util.*;
 
 public class DataStorage implements Serializable{
@@ -18,7 +12,8 @@ public class DataStorage implements Serializable{
     private Skin[] skins;
     //private Color chosenColor;
     private String chosenColor;
-    private Map[][] storedMaps; 
+    private Map[][] storedMaps;
+    private DashboardData d = new DashboardData();
     private int noTimes = 0;
 
     public DataStorage() {
@@ -313,6 +308,29 @@ public class DataStorage implements Serializable{
 		}
         System.out.println("My sotrage " + output);
         return output;
+    }
+
+    public DashboardData updateDashboard(){
+        int i = 0;
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("./storage/starsFile.txt"));
+            String s = "";
+            String[] chunks;
+            s = br.readLine();
+            while (s != null) {
+                chunks = s.split(",");
+                i += Integer.parseInt(chunks[2]);
+                s += s + "\n";
+                s = br.readLine();
+
+            }
+
+        }
+        catch(IOException e) {
+            e.printStackTrace();
+        }
+        d.setNoOfStars(i);
+        return d;
     }
     /*public static void main(String[] args){
         DataStorage tmp = new DataStorage();
