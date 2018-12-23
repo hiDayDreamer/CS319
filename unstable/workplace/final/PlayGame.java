@@ -401,13 +401,17 @@ public class PlayGame extends Pane implements TimerRunnable {
         else
             tempView.setFitWidth(tempView.getFitWidth()-gridBoxSize);
     }
-    public void rotateCar(int index,int carDirection) {
+    public void rotateCar(int index,Car car) {
         
         ImageView tempView = (ImageView) carsPane.getChildren().get(index);
-        tempView.setImage(new Image("/img/"+ index+"-" + carDirection%2+ ".png"));
-        if (carDirection == 3 || carDirection == 2) {
-            tempView.setRotate(180);
+        System.out.println("The car name location " + "/img/"+ index+"-" + car.getCarDirection()%2+ ".png");
+        tempView.setImage(new Image("/img/"+ index+"-" + car.getCarDirection()%2+ ".png"));
+        if (car.getCarDirection() == 3 || car.getCarDirection() == 2) {
+            tempView.setRotate(360);
         }
+        tempView.setLayoutX(gridBoxSize * car.getY());
+        tempView.setLayoutY(gridBoxSize * car.getX());
+
         double temp = tempView.getFitWidth();
         double tmp2 = tempView.getFitHeight();
         tempView.setFitHeight(temp);

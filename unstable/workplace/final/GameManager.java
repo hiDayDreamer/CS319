@@ -341,22 +341,25 @@ public class GameManager extends Application{
     static class RotateaCar implements EventHandler<MouseEvent>{
         Pane carsPane;
         public RotateaCar(Pane pane) {
-            carsPane = pane;
-            selectedCar = 5;//(int)(Math.random()*(engine.getCarNo()-1)) + 1;
+            carsPane = pane;  
         }
 
         public void handle(MouseEvent e) {
-            System.out.println("Rotate A car");
-
-            int response = engine.rotateCar(selectedCar);
-            System.out.println(response);
-            if (response > 0){
-               // playGame.setCars
+            int i;
+            for (i = 1; i < engine.getCarNo(); i++){
+                selectedCar = 1;
+                Car response = engine.rotateCar(selectedCar);
+                if (response  == null)
+                    continue;
                 playGame.rotateCar(selectedCar,response);
+                engine.updateBlockinfo();
+                break;
             }
-            
-            engine.updateBlockinfo();
+            /*
+            //TODO:Call PlayGame to blockRotate Button
+            if (i >= engine.getCarNo()){
 
+            }*/
             
         }
     }

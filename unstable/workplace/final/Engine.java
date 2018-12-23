@@ -351,30 +351,200 @@ public class Engine{
 		return res;
 	}
 
-	public int rotateCar(int index){
+	public Car rotateCar(int index){
+		System.out.println(selectedMap);
 		Car[] theMapCars = getCars();
 		Car toChange = theMapCars[index];
-		System.out.println(toChange.getCarDirection());
-		if (toChange.getCarDirection() == 1 || toChange.getCarDirection() == 3){
-			int head = toChange.getX();
-			int end = toChange.getHorizontalX();
-			if (toChange.getY() - toChange.getLength() >=0 ){
-				theMapCars[index].setVerticalY(theMapCars[index].getY()-toChange.getLength(), theMapCars[index].getY());
-				theMapCars[index].setHorizontalX(theMapCars[index].getX() ,theMapCars[index].getX());
-				theMapCars[index].setCarDirection(2);
-				//theMapCars[index].setCarDirection((theMapCars[index].getCarDirection()+1)%4);
-				return theMapCars[index].getCarDirection();
-			} else if (head + toChange.getLength() < selectedMap.getDimension() ){
-					theMapCars[index].setVerticalY(theMapCars[index].getY(),theMapCars[index].getY()+toChange.getLength());
-					theMapCars[index].setHorizontalX(theMapCars[index].getX() ,theMapCars[index].getX());
-					theMapCars[index].setCarDirection( (theMapCars[index].getCarDirection()-1)%4);
-					return theMapCars[index].getCarDirection();
-			} else {
-				return -1;
+		Car tmp; 
+		int change, head, end,headY,endY;
+		switch (toChange.getCarDirection()){
+			case 0:
+				head = toChange.getY();
+				end = toChange.getVerticalY();
+				change = theMapCars[index].getX()+toChange.getLength()-1;
+		
+				tmp = theMapCars[index].clone();
+				tmp.setCarDirection(3);
+				tmp.setHorizontalX(theMapCars[index].getX() ,change);	
+				tmp.setVerticalY(toChange.getY(),toChange.getY());
+				
+				//System.out.println("Previous values for the car " + theMapCars[index].getY() + " " + theMapCars[index].getVerticalY() + " "+ theMapCars[index].getX() + " " + theMapCars[index].getHorizontalX() );
+				//System.out.println("My case 3 says : "+ change+ " "+ theMapCars[index].getHorizontalX() + " " +theMapCars[index].getX());
+				//System.out.println("My case 3 says : "+ change+ " "+ theMapCars[index].getHorizontalX() + " " +theMapCars[index].getX());
+				
+				if (change < selectedMap.getDimension() && canRotationBeMade(tmp,nullifyCar(theMapCars[index]))){
+					theMapCars[index].setCarDirection(3);
+					theMapCars[index].setHorizontalX(theMapCars[index].getX() ,change);	
+					theMapCars[index].setVerticalY(toChange.getVerticalY(),toChange.getVerticalY());
+					return theMapCars[index];
+				}	
+				break;
+			case 1: 
+				change = theMapCars[index].getY()-toChange.getLength()+1;
+				tmp = theMapCars[index].clone();
+				tmp.setCarDirection(0);
+				tmp.setHorizontalX(theMapCars[index].getHorizontalX() ,theMapCars[index].getHorizontalX());	
+				tmp.setVerticalY(change,theMapCars[index].getY());
+
+				if (change >= 0 && canRotationBeMade(tmp,nullifyCar(theMapCars[index]))){
+					theMapCars[index].setCarDirection(0);
+					Car car = theMapCars[index].clone();
+					//System.out.println(car.getX() + " " +  car.getHorizontalX() + " " + car.getY() + " " +car.getVerticalY());
+					theMapCars[index].setHorizontalX(theMapCars[index].getHorizontalX() ,theMapCars[index].getHorizontalX());	
+					theMapCars[index].setVerticalY(change,theMapCars[index].getY());
+					return theMapCars[index];
+				}
+				break;
+			case 2:
+				change = theMapCars[index].getX() - toChange.getLength() + 1;
+				tmp = theMapCars[index].clone();
+				tmp.setCarDirection(1);
+				tmp.setHorizontalX(change,theMapCars[index].getX());	
+				tmp.setVerticalY(theMapCars[index].getY(),theMapCars[index].getY());
+				System.out.println("Previous values for the car " + theMapCars[index].getY() + " " + theMapCars[index].getVerticalY() + " "+ theMapCars[index].getX() + " " + theMapCars[index].getHorizontalX() );
+				System.out.println("My case 3 says : "+ change+ " "+ theMapCars[index].getHorizontalX() + " " +theMapCars[index].getX());
+				
+				if (change>= 0 && canRotationBeMade(tmp,nullifyCar(theMapCars[index]))){
+					theMapCars[index].setCarDirection(1);
+					theMapCars[index].setHorizontalX(change ,theMapCars[index].getX());	
+					theMapCars[index].setVerticalY(theMapCars[index].getY(),theMapCars[index].getY());
+					return theMapCars[index];
+				}	
+				break;
+			case 3:
+		
+				change = theMapCars[index].getY()+toChange.getLength()-1;
+
+				tmp = theMapCars[index].clone();
+				tmp.setCarDirection(2);
+				tmp.setHorizontalX(theMapCars[index].getX() ,theMapCars[index].getX());	
+				tmp.setVerticalY(theMapCars[index].getY(),change);
+				System.out.println("Previous values for the car " + theMapCars[index].getY() + " " + theMapCars[index].getVerticalY() + " "+ theMapCars[index].getX() + " " + theMapCars[index].getHorizontalX() );
+				System.out.println("My case 3 says : "+ change+ " "+ theMapCars[index].getHorizontalX() + " " +theMapCars[index].getX());
+				System.out.println("My case 3 says : "+ change+ " "+ theMapCars[index].getHorizontalX() + " " +theMapCars[index].getX());
+
+				if (change < selectedMap.getDimension() && canRotationBeMade(tmp,nullifyCar(theMapCars[index]))){
+					theMapCars[index].setCarDirection(2);
+					theMapCars[index].setHorizontalX(theMapCars[index].getX() ,theMapCars[index].getX());	
+					theMapCars[index].setVerticalY(theMapCars[index].getY(),change);
+					return theMapCars[index];
+				}
+				break;
+			default:
+				return null;
+
+		}
+		switch (toChange.getCarDirection()){
+			case 0:
+				change = theMapCars[index].getX()-toChange.getLength()+1;
+				//Car tmp = theMapCars[index].clone();
+				tmp = theMapCars[index].clone();
+				tmp.setCarDirection(1);
+				tmp.setHorizontalX(change,theMapCars[index].getX());	
+				tmp.setVerticalY(toChange.getY(),toChange.getY());
+				System.out.println("My x coor: " + change + " " + tmp.getHorizontalX());
+				if (change >=0 && canRotationBeMade(tmp,nullifyCar(theMapCars[index]))){
+					theMapCars[index].setCarDirection(1);
+					theMapCars[index].setHorizontalX(tmp.getX(),tmp.getHorizontalX());	
+					theMapCars[index].setVerticalY(toChange.getY(),toChange.getY());
+					System.out.println("My x coor: " + theMapCars[index].getX() + " " + theMapCars[index].getHorizontalX());
+					return theMapCars[index];
+				}	
+				break;
+			case 1: 
+				change = theMapCars[index].getVerticalY()+toChange.getLength()-1;
+
+				tmp = theMapCars[index].clone();
+				tmp.setCarDirection(2);
+				tmp.setHorizontalX(theMapCars[index].getHorizontalX() ,theMapCars[index].getHorizontalX());	
+				tmp.setVerticalY(theMapCars[index].getVerticalY(),change);
+				System.out.println("Previous values for the car " + theMapCars[index].getY() + " " + theMapCars[index].getVerticalY() + " "+ theMapCars[index].getX() + " " + theMapCars[index].getHorizontalX() );
+				System.out.println("My case 3 says : "+ change+ " "+ theMapCars[index].getHorizontalX() + " " +theMapCars[index].getX());
+				if (change < selectedMap.getDimension() && canRotationBeMade(tmp,nullifyCar(theMapCars[index]))){
+					theMapCars[index].setCarDirection(2);
+					theMapCars[index].setHorizontalX(theMapCars[index].getHorizontalX() ,theMapCars[index].getHorizontalX());	
+					theMapCars[index].setVerticalY(theMapCars[index].getVerticalY(),change);
+					return theMapCars[index];
+				}
+				break;
+			case 2:
+				change = theMapCars[index].getHorizontalX()+toChange.getLength()-1;
+				tmp = theMapCars[index].clone();
+				tmp.setCarDirection(3);
+				tmp.setHorizontalX(theMapCars[index].getHorizontalX() ,change);	
+				tmp.setVerticalY(toChange.getY(),toChange.getY());
+				if (change <selectedMap.getDimension() && canRotationBeMade(tmp,nullifyCar(theMapCars[index]))){
+					theMapCars[index].setCarDirection(3);
+					theMapCars[index].setHorizontalX(theMapCars[index].getHorizontalX() ,change);	
+					theMapCars[index].setVerticalY(toChange.getY(),toChange.getY());
+					return theMapCars[index];
+				}	
+				break;
+			case 3:
+				change = theMapCars[index].getY()-toChange.getLength()+1;
+				tmp = theMapCars[index].clone();
+				tmp.setCarDirection(0);
+				tmp.setHorizontalX(theMapCars[index].getX() ,theMapCars[index].getX());	
+				tmp.setVerticalY(change,theMapCars[index].getY());
+				
+				if (change >= 0 && canRotationBeMade(tmp,nullifyCar(theMapCars[index]))){
+					theMapCars[index].setCarDirection(0);
+					Car car = theMapCars[index].clone();
+					//System.out.println(car.getX() + " " +  car.getHorizontalX() + " " + car.getY() + " " +car.getVerticalY());
+					theMapCars[index].setHorizontalX(theMapCars[index].getX() ,theMapCars[index].getX());	
+					theMapCars[index].setVerticalY(change,theMapCars[index].getY());
+					return theMapCars[index];
+				}
+				break;
+			default:
+				return null;
+
+		}
+		return null;
+	}
+	private boolean canRotationBeMade(Car car,Block[][] blocks){
+		System.out.println(selectedMap);
+		String tmp = "";
+		for (int i = 0; i < blocks.length; i++){
+			for (int j = 0; j < blocks.length; j++){
+				tmp = tmp + blocks[i][j].isOccupied() + " ";
 			}
-		} else {
-			return -1;
+			tmp += "\n";
+		}
+		System.out.println(tmp);
+		//System.out.println("Car Direction " + car.getCarDirection());
+		if (car.getCarDirection() == 1 || car.getCarDirection() == 3){
+			//System.out.println("Car Direction " + car.getCarDirection() + " "+  car.getX() +  " " + car.getHorizontalX() );
+			for (int i = car.getX(); i<= car.getHorizontalX(); i++){
+				System.out.println(i + " " + car.getY() + " " + blocks[i][car.getY()].isOccupied());
+				if (blocks[i][car.getY()].isOccupied()){
+					return false;
+				}
+			}
+		}else {
+
+			for (int i = car.getY(); i<= car.getVerticalY(); i++){
+				if (blocks[car.getX()][i].isOccupied()){
+					return false;
+				}
+			}
 		}
 
+		return true;
+	}
+
+	private Block[][] nullifyCar(Car car){
+		Map tmp = selectedMap.clone();
+		Block[][] blocks = tmp.getBlocks();
+		if (car.getCarDirection() == 1 || car.getCarDirection() == 3){
+			for (int i = car.getX(); i<= car.getHorizontalX(); i++){
+				blocks[i][car.getY()].setOccupied(false);	
+			}
+		}else {
+			for (int i = car.getY(); i<= car.getVerticalY(); i++){
+				blocks[car.getX()][i].setOccupied(false);
+			}
+		}
+		return blocks;
 	}
 }

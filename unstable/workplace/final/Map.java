@@ -146,7 +146,7 @@ public class Map {
 		}
 
 		cars[0].setHorizontalX(3,3);
-		cars[0].setVerticalY(1,2);
+		cars[0].setVerticalY(1,2 );
 		cars[0].setLength(2);
 		cars[0].setCarDirection(2);
 		cars[0].setPlayer(true);
@@ -176,8 +176,18 @@ public class Map {
 		cars[5].setVerticalY(2,2);
 		cars[5].setLength(2);
 		cars[5].setCarDirection(3);
-
+		
 		cars[6].setHorizontalX(3,5);
+		cars[6].setVerticalY(4,4);
+		cars[6].setLength(3);
+		cars[6].setCarDirection(1);
+		/*
+		cars[1].setHorizontalX(0,2);
+		cars[1].setVerticalY(2,2);
+		cars[1].setLength(3);
+		cars[1].setCarDirection(3);
+
+/*		cars[6].setHorizontalX(3,5);
 		cars[6].setVerticalY(4,4);
 		cars[6].setLength(3);
 		cars[6].setCarDirection(1);
@@ -210,9 +220,9 @@ public class Map {
 				}
 			}
 		}
-		for (int i = 0; i < mapper.length; i++){
-			for (int j = 0; j < mapper.length; j++){
-				tmp = tmp + mapper[i][j] + " ";
+		for (int i = 0; i < blocks.length; i++){
+			for (int j = 0; j < blocks.length; j++){
+				tmp = tmp + blocks[i][j].isOccupied() + " ";
 			}
 			tmp += "\n";
 		}
