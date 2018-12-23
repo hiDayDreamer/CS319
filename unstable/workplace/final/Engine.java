@@ -5,12 +5,11 @@ import java.io.File;
 
 public class Engine{
 
-	static class Node{
-		int x1Move;
-		int y1Move;
-		int x2Move;
-		int y2Move;
-		Node next;
+	static class Move{
+		int type = 0;
+		Car first;
+		Car last;
+		int index;
 	}
 
 	private Map selectedMap;
@@ -18,14 +17,14 @@ public class Engine{
 	private GameSolver hint;
 	private StarManager stars;
 	private GameManager gameManager;
-	private LinkedList<Node> moves;
+	private LinkedList<Move> moves;
 	private int volume;
 
 	public Engine(GameManager manager) {
 		gameManager = manager;
 		timer = new GameTimer();
 		stars = new StarManager();
-		moves = new LinkedList<Node>();
+		moves = new LinkedList<Move>();
 		volume = 50;
 		selectedMap = null;
 	}
@@ -38,20 +37,20 @@ public class Engine{
 	 * @param x2
 	 * @param y2
 	 */
-	public boolean moveCar(int x1, int y1, int x2, int y2) {
-		// TODO - implement Engine.moveCar
-		// throw new UnsupportedOperationException();
-		Node newNode = new Node();
-		newNode.x1Move = x1;
-		newNode.y1Move = y1;
-		newNode.x2Move = x2;
-		newNode.y2Move = y2;
-		if(!(moves.getLast().equals(newNode))) {
-			moves.add(newNode);
-			return true;
-		}
-		return false;
-	}
+	// public boolean moveCar(int x1, int y1, int x2, int y2) {
+	// 	// TODO - implement Engine.moveCar
+	// 	// throw new UnsupportedOperationException();
+	// 	Node newNode = new Node();
+	// 	newNode.x1Move = x1;
+	// 	newNode.y1Move = y1;
+	// 	newNode.x2Move = x2;
+	// 	newNode.y2Move = y2;
+	// 	if(!(moves.getLast().equals(newNode))) {
+	// 		moves.add(newNode);
+	// 		return true;
+	// 	}
+	// 	return false;
+	// }
 
 	/**
 	 *
@@ -152,15 +151,42 @@ public class Engine{
 //		throw new UnsupportedOperationException();
 //	}
 
-	public boolean undo() {
-		// TODO - implement Engine.undo
-		// throw new UnsupportedOperationException();
-		if(moves.size() != 0)
-		{
-			moves.removeLast();
-			return true;
+	public void undo(Car first, int index, int type) {
+		if ( type == 0 || type == 2) {
+			selectedMap.getCars()[index] = first;
+		} else if ( type == 1 ) {
+			Car[] cars = selectedMap.getCars();
+			Car[] newCars = new Car[cars.length + 1];
+			for ( int i = 0; i < index; i++ )
+				newCars[i] = cars[i];
+			newCars[index] = first;
+			for ( int i = index+1; i < newCars.length; i++)
+				newCars[i] = cars[i-1];
+			updateBlockinfo();
+			selectedMap.setCars(newCars);
 		}
-		return false;
+		updateBlockinfo();
+	}
+
+	public Car[] getLastMove() {
+		if ( moves.size() > 0 ) {
+			Move temp = moves.pollFirst();
+			Car[] move = new Car[2];
+			move[0] = temp.first;
+			move[1] = temp.last;
+			return move;
+		}
+		return null;
+	}
+
+	public int[] getLastMoveData() {
+		if ( moves.size() > 0 ) {
+			int[] res = new int[2];
+			res[0] = moves.peek().type;
+			res[1] = moves.peek().index;
+			return res;
+		}
+		return null;
 	}
 
 	public Map getSelectedMap() {
@@ -220,6 +246,10 @@ public class Engine{
 		this.stars = stars;
 	}
 
+	public void reset() {
+		moves = new LinkedList();
+	}
+
 	public LinkedList getMoves() {
 		return this.moves;
 	}
@@ -246,12 +276,26 @@ public class Engine{
 
 
     public boolean updateCarX(Car car, int x) {
-        car.setHorizontalX( x, x + car.getLength() - 1);
+		if ( car.getX() != x ) {
+			Move temp = new Move();
+			temp.first = car.clone();
+			temp.type = 0;
+	        car.setHorizontalX( x, x + car.getLength() - 1);
+			temp.last = car.clone();
+			moves.addFirst(temp);
+		}
         return true;
     }
 
     public boolean updateCarY(Car car, int y) {
-        car.setVerticalY( y, y + car.getLength() - 1);
+		if (car.getY() != y ) {
+			Move temp = new Move();
+			temp.first = car.clone();
+			temp.type = 0;
+	        car.setVerticalY( y, y + car.getLength() - 1);
+			temp.last = car.clone();
+			moves.addFirst(temp);
+		}
         return true;
     }
 
@@ -282,22 +326,60 @@ public class Engine{
                 }
             }
         }
+		// for ( int i = 0; i < arr.length; i++ ) {
+		// 	for ( int j = 0; j < arr.length; j++) {
+		// 		int k = arr[i][j].isOccupied() ? 1 : 0;
+		// 		System.out.print(k + " ");
+		// 	}
+		// 	System.out.println();
+		// }
+		// System.out.println();
     }
 
 	public void blowUpCar( int toGo ) {
 		Car[] cars = selectedMap.getCars();
 		Car[] newCars = new Car[cars.length - 1];
+		Car temp = cars[toGo];
+		Move move = new Move();
+		move.index = toGo;
+		move.type = 1;
+		move.first = temp.clone();
+		move.last = null;
+		moves.addFirst(move);
 		for ( int i = 0; i < toGo; i++ )
 			newCars[i] = cars[i];
 		for ( int i = toGo+1; i < cars.length; i++)
 			newCars[i-1] = cars[i];
 		selectedMap.setCars(newCars);
+		System.out.println("size: " + moves.size());
 		//cars = selectedMap.getCars();
 	}
 
 	public int getCarNo() {
 		return selectedMap.getCars().length;
 	}
+
+    public Car findCar(int x, int y) {
+		Car[] cars = selectedMap.getCars();
+        for ( int i = 0; i < cars.length; i++ ) {
+            if ( x >= cars[i].getX() && x <= cars[i].getHorizontalX() ) {
+                if ( y >= cars[i].getY() && y <= cars[i].getVerticalY() )
+                return cars[i];
+            }
+        }
+        return null;
+    }
+
+    public int findCarIndex(int x, int y) {
+		Car[] cars = selectedMap.getCars();
+        for ( int i = 0; i < cars.length; i++ ) {
+            if ( x >= cars[i].getX() && x <= cars[i].getHorizontalX() ) {
+                if ( y >= cars[i].getY() && y <= cars[i].getVerticalY() )
+                return i;
+            }
+        }
+        return -1;
+    }
 
 	public Car getCar(int index) {
 		return selectedMap.getCars()[index];
@@ -309,11 +391,17 @@ public class Engine{
 
 	public void shrinkCar( int index) {
 		Car[] cars = selectedMap.getCars();
+		Move move = new Move();
+		move.first = cars[index].clone();
+		move.type = 2;
+		move.index = index;
 		if ( cars[index].getCarDirection() == 1 || cars[index].getCarDirection() == 3)
 			cars[index].setHorizontalX(cars[index].getX(), cars[index].getHorizontalX() - 1);
 		else
 			cars[index].setVerticalY(cars[index].getY(), cars[index].getVerticalY() - 1);
 		cars[index].setLength( cars[index].getLength() - 1);
+		move.last = cars[index].clone();
+		moves.addFirst(move);
 	}
 
 	public int[] findMax( Car curr ) {

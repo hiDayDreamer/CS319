@@ -194,12 +194,12 @@ public class GameSolver {
             cur = parent;
             parent = parent.parent;
         }
-        ListIterator<int[]> it = moves.listIterator(0);
-        int[] j = it.next();
-        while ( it.hasNext() ) {
-            System.out.println(Arrays.toString(j));
-            j = it.next();
-        }
+        // ListIterator<int[]> it = moves.listIterator(0);
+        // int[] j = it.next();
+        // while ( it.hasNext() ) {
+        //     System.out.println(Arrays.toString(j));
+        //     j = it.next();
+        // }
         LinkedList<int[]> betterMoves = new LinkedList();
         int[][] arr = moves.toArray( new int[moves.size()][]);
         int i = 0;
@@ -210,7 +210,6 @@ public class GameSolver {
             nextCar = arr[i+1][0];
             i++;
         }
-        //betterMoves.addLast(arr[arr.legnth-2]);
         if ( i == arr.length - 1 )
             betterMoves.add(arr[i]);
         else if ( i > 0 )

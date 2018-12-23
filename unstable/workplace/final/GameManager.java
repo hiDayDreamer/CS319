@@ -134,6 +134,8 @@ public class GameManager extends Application{
             playGame.setSoundVolume(sliderVolume);
             playGame.setStars(engine.getStars());
             primaryStage1.updateMiddlePanel(playGame);
+            if ( index == 12 )
+                engine.reset();
 
         }
         else if (index == 30){
@@ -196,6 +198,26 @@ public class GameManager extends Application{
             newSettingsPane.initialize(myTimer);
             newSettingsPane.addHandler( new ButtonListener(0));
 
+        } else if ( index == 38 ) {
+            int[] data = engine.getLastMoveData();
+            Car[] move = engine.getLastMove();
+            if ( data != null ) {
+                int type = data[0];
+                int index = data[1];
+                if ( type == 0 ) {
+                    int undo = engine.findCarIndex( move[1].getX(), move[1].getY());
+                    engine.undo( move[0], undo, 0);
+                    playGame.undo( move[0], undo , 0);
+                } else if ( type == 1 ) {
+                    engine.undo(move[0], index, 1);
+                    playGame.unBlowUp(engine.getCars());
+                } else if ( type == 2 ) {
+                    engine.undo(move[0], index, 2);
+                    playGame.undo(move[0], index, 2);
+                }
+            } else {
+                System.out.println("Whyy");
+            }
         }
         primaryStage1.setCurrentColor(backgroundColor);
     }
@@ -263,7 +285,8 @@ public class GameManager extends Application{
             int mouseX = (int)((e.getSceneY() - 90)/gridBoxSize);
             double x = e.getSceneX() - 300;
             double y = e.getSceneY() - 90;
-            curr = playGame.findCar(mouseX, mouseY);
+            curr = engine.findCar(mouseX, mouseY);
+            System.out.println(curr.getX()+ ", " + curr.getY());
             firstIntX = curr.getX();
             firstIntY = curr.getY();
             carX = possibleCar.getLayoutX();
@@ -316,24 +339,15 @@ public class GameManager extends Application{
         public void handle(MouseEvent e) {
             System.out.println("Shrink");
             int index = (int)(Math.random()*(engine.getCarNo()-1)) + 1;
-            if ( shrinkCount < 3 ) {
+            //if ( shrinkCount < 3 ) {
                 while ( engine.getCar(index).getLength() < 2 ) {
                     index = (int)(Math.random()*(engine.getCarNo()-1)) + 1;
                 }
-                //if ( temp.getLength() > 1 )
-                //engine.getCar(index).setLength( engine.getCar(index).getLength() - 1);
-                //ImageView tempView = (ImageView) carsPane.getChildren().get(index);
-                //engine.getCar(index).setHorizontalX(engine.getCar(index).getX(), engine.getCar(index).getHorizontalX() - 1);
                 engine.shrinkCar(index);
                 playGame.shrinkCar(index);
-                //tempView.setFitHeight(tempView.getFitHeight()-gridBoxSize);
-                //engine.getCar(index).setVerticalY(engine.getCar(index).getY(), engine.getCar(index).getVerticalY() - 1);
-                //engine.shrinkCar(car);
-                //tempView.setFitWidth(tempView.getFitWidth()-gridBoxSize);
                 shrinkCount++;
-                //}
                 engine.updateBlockinfo();
-            }
+            //}
         }
     }
 
@@ -371,21 +385,49 @@ public class GameManager extends Application{
         }
         public void handle(MouseEvent e){
             gridBoxSize = playGame.getBoxSize();
-            double carX = possibleCar.getLayoutX();
-            double carY = possibleCar.getLayoutY();
-            double x = carX % gridBoxSize;
-            double y = carY % gridBoxSize;
-            if ( x < gridBoxSize / 2 )
-                possibleCar.setLayoutX( carX - x);
+            double carX1 = possibleCar.getLayoutX();
+            double carY1 = possibleCar.getLayoutY();
+            double x1 = carX1 % gridBoxSize;
+            double y1 = carY1 % gridBoxSize;
+            if ( x1 < gridBoxSize / 2 )
+                possibleCar.setLayoutX( carX1 - x1);
             else
-                possibleCar.setLayoutX( carX + gridBoxSize - x);
+                possibleCar.setLayoutX( carX1 + gridBoxSize - x1);
 
-            if ( y < gridBoxSize / 2)
-                possibleCar.setLayoutY( carY - y);
+            if ( y1 < gridBoxSize / 2)
+                possibleCar.setLayoutY( carY1 - y1);
             else
-                possibleCar.setLayoutY(carY + gridBoxSize - y);
+                possibleCar.setLayoutY(carY1 + gridBoxSize - y1);
+
+            double x = e.getSceneX() - 300;
+            double y = e.getSceneY() - 90;
+            afterX = e.getSceneX()-300-(firstX-carX);
+            afterY = e.getSceneY()-90-(firstY-carY);
+            if ( curr.getCarDirection() == 1 || curr.getCarDirection() == 3 ) {
+                boolean neg = y < firstY;
+                //double posY;
+                if ( neg ) {
+                    posY = Math.max(afterY, carY-gridBoxSize*moveForward);
+                }
+                else {
+                    posY = Math.min(afterY, carY+gridBoxSize*moveBackward);
+                }
+                newX = (int) Math.round(posY / gridBoxSize);
+                engine.updateCarX(curr, newX);
+            } else {
+                boolean neg = x < firstX;
+                //double posX;
+                if ( neg ) {
+                    posX = Math.max(afterX, carX-gridBoxSize*moveForward);
+                }
+                else {
+                    posX = Math.min(afterX, carX+gridBoxSize*moveBackward);
+                }
+                newY = (int) Math.round(posX / gridBoxSize);
+                engine.updateCarY(curr, newY);
+            }
             //updateCar();
-            //engine.updateBlockinfo();
+            engine.updateBlockinfo();
             playGame.rebuildGrid();
             if ( engine.gameWon() ) {
                 playGame.gameWon();
@@ -404,7 +446,11 @@ public class GameManager extends Application{
 
     static int newX;
     static int newY;
+    static double posX;
+    static double posY;
     static int gridBoxSize;
+    static double afterX;
+    static double afterY;
     static class MouseListener implements EventHandler<MouseEvent> {
         ImageView car;
         public MouseListener( ImageView car ) {
@@ -414,12 +460,11 @@ public class GameManager extends Application{
             gridBoxSize  = playGame.getBoxSize();
             double x = e.getSceneX() - 300;
             double y = e.getSceneY() - 90;
-            double afterX = e.getSceneX()-300-(firstX-carX);
-            double afterY = e.getSceneY()-90-(firstY-carY);
-            boolean empty = true;
+            afterX = e.getSceneX()-300-(firstX-carX);
+            afterY = e.getSceneY()-90-(firstY-carY);
             if ( curr.getCarDirection() == 1 || curr.getCarDirection() == 3 ) {
                 boolean neg = y < firstY;
-                double posY;
+                //double posY;
                 if ( neg ) {
                     posY = Math.max(afterY, carY-gridBoxSize*moveForward);
                 }
@@ -428,10 +473,10 @@ public class GameManager extends Application{
                 }
                 car.setLayoutY(posY);
                 newX = (int) Math.round(posY / gridBoxSize);
-                engine.updateCarX(curr, newX);
+                //engine.updateCarX(curr, newX);
             } else {
                 boolean neg = x < firstX;
-                double posX;
+                //double posX;
                 if ( neg ) {
                     posX = Math.max(afterX, carX-gridBoxSize*moveForward);
                 }
@@ -440,12 +485,12 @@ public class GameManager extends Application{
                 }
                 car.setLayoutX(posX);
                 newY = (int) Math.round(posX / gridBoxSize);
-                engine.updateCarY(curr, newY);
+                //engine.updateCarY(curr, newY);
             }
             //if ( curr.isPlayer() && curr.getVerticalY() == 5 ){
 
             //}
-            engine.updateBlockinfo();
+            //engine.updateBlockinfo();
         }
     }
 }
