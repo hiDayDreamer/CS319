@@ -19,6 +19,7 @@ import javafx.scene.layout.*;
 import javafx.stage.*;
 import javafx.animation.*;
 import javafx.util.*;
+import javafx.beans.property.*;
 public class PlayGame extends Pane implements TimerRunnable {
     //Constants
     private final String SOUND_ICON = "/img/soundIcon.png";
@@ -26,7 +27,7 @@ public class PlayGame extends Pane implements TimerRunnable {
     private final String BACK_ICON = "/img/backIcon.png";
     private final String UNDO_ICON = "/img/undo.png";
     private final String RESET_ICON = "/img/reset.png";
-    private final String HINT_ICON = "/img/hint.png";
+    private final String HINT_ICON = "/img/hintIcon.png";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
     private final String BU_ICON = "/img/bomb.png";
     private final String SHRINK_ICON = "/img/shrinkCarIcon.png";
@@ -569,26 +570,45 @@ public class PlayGame extends Pane implements TimerRunnable {
         }
     }
 
-    public void showHint( int dir, int length, int x, int y) {
-        Timeline flasher = new Timeline(
-            new KeyFrame(Duration.seconds(0.5), e -> {
-                box.getChildren().get(0).setStyle("-fx-background-color: black");
-            }),
-
-            new KeyFrame(Duration.seconds(1.0), e -> {
-                box.getChildren().get(0).setStyle("-fx-background-color: transparent");
-            })
-        );
-        flasher.setCycleCount(Animation.INDEFINITE);
+    public void showHint( int index, int dir, int length, int x, int y) {
+        Transition[] ft = new Transition[length+1];// = new FadeTransition(Duration.millis(3000), box.getChildren().get(0));
+        ft[0] = new Transition () {
+            {
+                setCycleDuration(Duration.seconds(4.0));
+            }
+            @Override
+            protected void interpolate(double frac)
+            {
+                carsPane.getChildren().get(index).setStyle("-fx-effect: dropshadow(gaussian, black, 127, 0, 0.5, 0)");
+                if ( frac == 1 ) {
+                    carsPane.getChildren().get(index).setStyle("");
+                }
+            }
+        };
         if ( dir == 1 || dir == 3 ) {
             for ( int i = x; i < x + length; i++ ) {
-                ((ImageView) box.getChildren().get(dimension * i + y)).setImage(new Image("img/grass.jpg"));
+                //((ImageView) box.getChildren().get(dimension * i + y)).setImage(new Image("img/grass.jpg"));
+                ft[i - x+1] = new FadeTransition(Duration.seconds(1.0), box.getChildren().get(dimension * i + y));
+                ((FadeTransition) ft[i-x+1]).setFromValue(4.0);
+                ((FadeTransition) ft[i-x+1]).setToValue(0.3);
+                //ft[i-x+1].setToValue(0.1);
             }
         } else {
             for ( int j = y; j < y + length; j++ ) {
-
-                ((ImageView) box.getChildren().get(dimension * x + j)).setImage(new Image("img/grass.jpg"));
+                ft[j-y+1] = new FadeTransition(Duration.seconds(1.0), box.getChildren().get(dimension * x + j));
+                ((FadeTransition) ft[j-y+1]).setFromValue(1.0);
+                ((FadeTransition) ft[j-y+1]).setToValue(0.3);
+                //((ImageView) box.getChildren().get(dimension * x + j)).setImage(new Image("img/grass.jpg"));
             }
+        }
+        ft[0].setInterpolator(Interpolator.LINEAR);
+        ft[0].setAutoReverse(true);
+        ft[0].setCycleCount(1);
+        ft[0].play();
+        for ( int i = 1; i < length+1; i++ ) {
+            ft[i].setAutoReverse(true);
+            ft[i].setCycleCount(4);
+            ft[i].play();
         }
     }
 

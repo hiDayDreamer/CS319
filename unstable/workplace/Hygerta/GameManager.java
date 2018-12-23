@@ -100,6 +100,14 @@ public class GameManager extends Application{
             primaryStage1.updateMiddlePanel(newSettingsPane);
 
         }
+
+        else if ( index == 5 ) {
+            // this goes to credits pane from the mainPanel
+            CreditsPane newPane = new CreditsPane();
+            newPane.addHandler(new ButtonListener(0));
+            primaryStage1.updateMiddlePanel(newPane);
+        }
+
         else if ( index == 6){
             // this goes to the levelsPane from the dimensions panel
             LevelsPane newPane = new LevelsPane("6X6", engine.getStars());
@@ -107,6 +115,8 @@ public class GameManager extends Application{
             primaryStage1.updateMiddlePanel(newPane);
             dimension = 6;
         }
+
+
         else if ( index == 8){
             LevelsPane newPane = new LevelsPane("8X8", engine.getStars());
             newPane.addHandler( new ButtonListener(0));
@@ -141,7 +151,7 @@ public class GameManager extends Application{
             newSettingsPane.addHandler( new ButtonListener(0));
         }
         else if (index == 31){
-            //this is for start tiemr button
+            //this is for start timer button
             System.out.println("start timer");
             playGame.startTimer();
 
@@ -196,6 +206,7 @@ public class GameManager extends Application{
             newSettingsPane.addHandler( new ButtonListener(0));
 
         }
+
         primaryStage1.setCurrentColor(backgroundColor);
     }
 
