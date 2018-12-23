@@ -585,7 +585,7 @@ public class PlayGame extends Pane implements TimerRunnable {
         popupwindow.initModality(Modality.APPLICATION_MODAL);
         popupwindow.setTitle("Game Won");
         popupwindow.setResizable(false);
-        popupwindow.setHeight(600);
+        popupwindow.setHeight(500);
         popupwindow.setWidth(600);
         popupwindow.getIcons().add(new Image(getClass().getResourceAsStream("/img/cards.png")));
         ImageView starsImage = new ImageView("/img/fullStar.png");
@@ -650,16 +650,25 @@ public class PlayGame extends Pane implements TimerRunnable {
         labelImage.setFitHeight(60);*/
         //labelImage.preserveRatioProperty();
         label1.setGraphic(new ImageView(labelImage));
+        label1.setLayoutY(100);
+        label1.setLayoutX(100);
         Image im = new Image("/img/winGIF.gif");
         ImageView view = new ImageView(im);
         view.setFitWidth(400);
         view.setFitHeight(200);
+        view.setLayoutY(100);
+        view.setLayoutX(100);
         Label label2= new Label("Number of moves: ");
+        label2.setLayoutY(350);
+        label2.setLayoutX(240);
         goBackMenuButton= new Button("Go Back to Menu");
+        goBackMenuButton.setLayoutY(400);
+
+        goBackMenuButton.setLayoutX(235);
         goBackMenuButton.setOnAction(e -> popupwindow.close());
-        VBox layout= new VBox(20);
+        //VBox layout= new VBox(20);
         HBox layout1 = new HBox(10);
-        layout.getChildren().addAll(view, label1);
+        //layout.getChildren().addAll(label1, view);
         if(stars[0] == 1) {
             layout1.getChildren().addAll(starsImage);
         }else if (stars[0] == 2){
@@ -668,10 +677,11 @@ public class PlayGame extends Pane implements TimerRunnable {
             layout1.getChildren().addAll(starsImage, starsImage1, starsImage2);
         }
         layout1.setAlignment(Pos.CENTER);
-        layout.getChildren().addAll(layout1, label2, goBackMenuButton);
-
-        layout.setAlignment(Pos.CENTER);
-        Scene scene1= new Scene(layout, 300, 250);
+        //layout.getChildren().addAll(layout1, label2, goBackMenuButton);
+        Pane p = new Pane();
+        p.getChildren().addAll(view, label1, layout1, label2, goBackMenuButton);
+        //layout.setAlignment(Pos.CENTER);
+        Scene scene1= new Scene(p, 300, 250);
         popupwindow.setScene(scene1);
         popupwindow.showAndWait();
         return true;
