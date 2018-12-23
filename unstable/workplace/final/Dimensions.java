@@ -7,6 +7,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Font;
 
 public class Dimensions extends Pane {
     //Constants
@@ -20,6 +21,7 @@ public class Dimensions extends Pane {
     private final int ICON_SIZE = 64;
 
     //Variables
+    private Label name;
     //Labels
     private Label copyRightLabel;
     private Pane copyRightPanel;
@@ -64,6 +66,14 @@ public class Dimensions extends Pane {
         version = new Label("Version b0.1");
 
         //How_To Panel
+        name = new Label("");
+        name.setStyle("-fx-font-weight: bold;");
+        name.setGraphic(new ImageView("/img/dimensions.png"));
+        name.setMaxSize(450,75);
+        name.setFont(new Font("American Typewriter", 75));
+        name.setLayoutX(300 );
+        name.setLayoutY(25);
+
         //Sound button
         soundImage = new ImageView(new Image(SOUND_ICON));
         soundImage.setFitWidth(ICON_SIZE);
@@ -184,7 +194,7 @@ public class Dimensions extends Pane {
 
         addAnimation(10);
         //Adding buttons to middle panel
-        this.getChildren().addAll(soundButton, settingsButton, backButton, panel);
+        this.getChildren().addAll(name, soundButton, settingsButton, backButton, panel);
         //How_To Panel ends
 
         //Adding labels to panel
