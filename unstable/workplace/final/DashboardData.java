@@ -7,12 +7,14 @@ public class DashboardData {
     private int sixToSixData = 8;
     private int eightToEightData = 6;
     private int tenToTenData = 4;
-    private int noOfStars = 5;
+    private int noOfStars = 0;
     private double gameStatus = 25;
 
     public int getWinPercentage(){
         return winPercentage;
     }
+
+    public void setNoOfStars(int stars){noOfStars = stars;}
 
     public int getLosePercentage(){
         return losePercentage;
