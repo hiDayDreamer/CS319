@@ -22,6 +22,7 @@ public class GameManager extends Application{
     private boolean timerMode;
     private int currentThemeIndex;
     private int dimension;
+    private DashboardPane newDashboardPane;
 
     public static void main(String[] args) {
         launch(args);
@@ -86,9 +87,9 @@ public class GameManager extends Application{
             primaryStage1.updateMiddlePanel(newPane);
         }
         else if ( index == 3 ){
-            DashboardPane newPane = new DashboardPane(data);
-            newPane.addHandler( new ButtonListener(0));
-            primaryStage1.updateMiddlePanel(newPane);
+            newDashboardPane = new DashboardPane(data);
+            newDashboardPane.addHandler( new ButtonListener(0));
+            primaryStage1.updateMiddlePanel(newDashboardPane);
         }
         else if ( index == 4){
             if (newSettingsPane != null){
@@ -114,11 +115,19 @@ public class GameManager extends Application{
             primaryStage1.updateMiddlePanel(newPane);
             dimension = 6;
         }
+        else if ( index == 7){
+            System.out.println("Update next skin");
+          newDashboardPane.updatePlayerSkin(1);
+        }
         else if ( index == 8){
             LevelsPane newPane = new LevelsPane("8X8", engine.getStars());
             newPane.addHandler( new ButtonListener(0));
             primaryStage1.updateMiddlePanel(newPane);
             dimension = 8;
+        }
+        else if ( index == 9){
+             System.out.println("Update prev skin");
+              newDashboardPane.updatePlayerSkin(-1);
         }
         else if ( index == 10){
             LevelsPane newPane = new LevelsPane("10X10", engine.getStars());

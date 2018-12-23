@@ -52,7 +52,11 @@ public class DashboardPane extends Pane {
 
     //Images
     private Image backImage;
+    private ImageView skin1;
     private Image[] pagePassImages;
+    private String[] availableCarSkins;
+    private int currentSelectedSkin;
+    Pane skinsPane;
 
 
     public DashboardPane(DashboardData data) {
@@ -64,6 +68,9 @@ public class DashboardPane extends Pane {
         tenToTenData = data.getTenToTenData();
         noOfStars = data.getNoOfStars();
         gameStatus = data.getGameStatus();
+        availableCarSkins = new String[]{"./img/0-1.png", "./img/1-1.png","./img/2-1.png","./img/3-1.png",
+                            "./img/4-1.png","./img/5-1.png","./img/6-1.png"};
+        currentSelectedSkin = -1;
         initialize();
     }
 
@@ -212,7 +219,7 @@ public class DashboardPane extends Pane {
         starsCollectedStack.setLayoutY(400);
 
 
-        Pane skinsPane = new Pane();
+        skinsPane = new Pane();
         pagePassButtons = new Button[2];
         pagePassImages = new Image[2];
         pagePassImages[1] = new Image(getClass().getResourceAsStream("./img/next.png"), 30, 48, true, false);
@@ -229,13 +236,7 @@ public class DashboardPane extends Pane {
         pagePassButtons[1].setLayoutY(75);
 
         //skinsPane.setStyle("-fx-border-color: black");
-        ImageView skin1 = new ImageView("./img/5-1.png");
-        skin1.setFitWidth(100);
-        skin1.setFitHeight(175);
-        skin1.setLayoutX(28);
-        skinsPane.setLayoutX(450);
-        skinsPane.setLayoutY(425);
-        skinsPane.getChildren().addAll(pagePassButtons[0], skin1, pagePassButtons[1]);
+        updatePlayerSkin(1);
         Line line1 = new Line(450, 375, 325, 425);
 
         ImageView profile = new ImageView("./img/userInfoIcon.png");
@@ -274,8 +275,9 @@ public class DashboardPane extends Pane {
         lineToPieTwo.setStrokeLineCap(StrokeLineCap.BUTT);
         lineToPieTwo.getStrokeDashArray().addAll(15d, 5d, 15d, 15d, 20d);
 
+        addAnimation(10);
         this.getChildren().addAll(dashboard,backButton, chart, caption, barChart, gameStatusIndicator,
-                starsCollectedStack, skinsPane, profile, lineToBarChart, lineToPieOne, lineToSkin, lineToStars, lineToPieTwo, settingsButton, soundButton );
+                starsCollectedStack, profile, lineToBarChart, lineToPieOne, lineToSkin, lineToStars, lineToPieTwo, settingsButton, soundButton );
 
         //Adding labels to panel
         copyRightPanel.getChildren().add(copyRightLabel);
@@ -300,5 +302,38 @@ public class DashboardPane extends Pane {
         GameManager.ButtonListener settings = e.clone();
         settings.setIndex(4);
         settingsButton.addEventHandler(MouseEvent.MOUSE_CLICKED, settings);
+
+        GameManager.ButtonListener nextSkin = e.clone();
+        nextSkin.setIndex(7);
+        pagePassButtons[1].addEventHandler(MouseEvent.MOUSE_CLICKED, nextSkin);
+
+        GameManager.ButtonListener prevSkin = e.clone();
+        prevSkin.setIndex(9);
+        pagePassButtons[0].addEventHandler(MouseEvent.MOUSE_CLICKED, prevSkin);
+    }
+
+    public void updatePlayerSkin(int add){
+        currentSelectedSkin = (currentSelectedSkin +add )% availableCarSkins.length;
+        if (currentSelectedSkin < 0) {
+            currentSelectedSkin = currentSelectedSkin *-1;
+        }
+        getChildren().removeAll(skinsPane);
+        skinsPane.getChildren().removeAll(pagePassButtons[0], skin1, pagePassButtons[1]);
+        skin1 = new ImageView(availableCarSkins[currentSelectedSkin]);
+        skin1.setFitWidth(100);
+        skin1.setFitHeight(175);
+        skin1.setLayoutX(28);
+        skinsPane.setLayoutX(450);
+        skinsPane.setLayoutY(425);
+        skinsPane.getChildren().addAll(pagePassButtons[0], skin1, pagePassButtons[1]);
+        getChildren().addAll(skinsPane);
+    }
+     public void addAnimation(int factor) {
+        soundButton.setOnMouseEntered(new GameManager.Animation(soundButton, factor, true));
+        soundButton.setOnMouseExited(new GameManager.Animation(soundButton, factor, false));
+        backButton.setOnMouseEntered(new GameManager.Animation(backButton, factor, true));
+        backButton.setOnMouseExited(new GameManager.Animation(backButton, factor, false));
+        settingsButton.setOnMouseEntered(new GameManager.Animation(settingsButton, factor, true));
+        settingsButton.setOnMouseExited(new GameManager.Animation(settingsButton, factor, false));
     }
 }
