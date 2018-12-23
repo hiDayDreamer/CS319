@@ -381,14 +381,27 @@ public class PlayGame extends Pane implements TimerRunnable {
         if ( type == 0 ) {
             carsPane.getChildren().get(index).setLayoutX(gridBoxSize*car.getY());
             carsPane.getChildren().get(index).setLayoutY(gridBoxSize*car.getX());
-        } else {
+        } else if (type == 1 || type == 2) {
             int direction = car.getCarDirection();
             ImageView tempView = (ImageView) carsPane.getChildren().get(index);
             if ( direction == 1 || direction == 3 )
                 tempView.setFitHeight(tempView.getFitHeight()+gridBoxSize);
             else
                 tempView.setFitWidth(tempView.getFitWidth()+gridBoxSize);
-        }
+        }else if (type == 3){
+                ImageView tempView = (ImageView) carsPane.getChildren().get(index);
+                tempView.setImage(new Image("/img/"+ index+"-" + car.getCarDirection()%2+ ".png"));
+                if (car.getCarDirection() == 3 || car.getCarDirection() == 2) {
+                    tempView.setRotate(180);
+                }
+                tempView.setLayoutX(gridBoxSize * car.getY());
+                tempView.setLayoutY(gridBoxSize * car.getX());
+
+                double temp = tempView.getFitWidth();
+                double tmp2 = tempView.getFitHeight();
+                tempView.setFitHeight(temp);
+                tempView.setFitWidth(tmp2);
+        } 
     }
 
     public void unBlowUp( Car[] arr) {

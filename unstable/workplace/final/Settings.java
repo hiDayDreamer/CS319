@@ -51,7 +51,7 @@ public class Settings extends Pane {
         super();
         slider = new Slider();
         slider.setValue(40);
-        currentSelectedThemeIndex = 5;
+        currentSelectedThemeIndex = -1;
         toogler = false;
         initialize(toogler);
     }
@@ -271,8 +271,13 @@ public class Settings extends Pane {
 
     private String[] getColorButtons(){
         resetColorButtons();
+        if (currentSelectedThemeIndex < 0 ){
+            return colorButtonIcon;
+        }
         String selectedTheme = "";
         switch(currentSelectedThemeIndex) {
+            case -1:
+                break;
             case 0 :
                 selectedTheme = "/img/chosenYellow.png";
                 break;
@@ -294,9 +299,10 @@ public class Settings extends Pane {
                 selectedTheme = "/img/circle.png";
                 break;
         }
-
-        colorButtonIcon[currentSelectedThemeIndex] = selectedTheme;
-        System.out.println(colorButtonIcon[currentSelectedThemeIndex]);
+        if (currentSelectedThemeIndex > -1){
+            colorButtonIcon[currentSelectedThemeIndex] = selectedTheme;
+            System.out.println(colorButtonIcon[currentSelectedThemeIndex]);
+        }
         return colorButtonIcon;
     }
 

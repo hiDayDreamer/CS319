@@ -35,7 +35,7 @@ public class GameManager extends Application{
         data = new DashboardData();
         dataStorage = new DataStorage();
         engine = new Engine(this);
-        currentThemeIndex = 4;
+        currentThemeIndex = -1;
         dimension = 6;
         //playBackgroundSound(sliderVolume,"./sound/backgroundSound.mp3");
     }
@@ -214,6 +214,9 @@ public class GameManager extends Application{
                 } else if ( type == 2 ) {
                     engine.undo(move[0], index, 2);
                     playGame.undo(move[0], index, 2);
+                } else if (type == 3){
+                    engine.undo(move[0], index, 3);
+                    playGame.undo(move[0], index, 3);
                 }
             } else {
                 System.out.println("Whyy");

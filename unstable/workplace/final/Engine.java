@@ -164,6 +164,8 @@ public class Engine{
 				newCars[i] = cars[i-1];
 			updateBlockinfo();
 			selectedMap.setCars(newCars);
+		} else if( type == 3) {
+			selectedMap.getCars()[index] = first.clone();
 		}
 		updateBlockinfo();
 	}
@@ -445,6 +447,10 @@ public class Engine{
 		Car toChange = theMapCars[index];
 		Car tmp; 
 		int change, head, end,headY,endY;
+		Move move = new Move();
+		move.index = index;
+		move.type = 3;
+		move.first = theMapCars[index].clone();
 		switch (toChange.getCarDirection()){
 			case 0:
 				head = toChange.getY();
@@ -464,6 +470,8 @@ public class Engine{
 					theMapCars[index].setCarDirection(3);
 					theMapCars[index].setHorizontalX(theMapCars[index].getX() ,change);	
 					theMapCars[index].setVerticalY(toChange.getVerticalY(),toChange.getVerticalY());
+					move.last = theMapCars[index].clone();
+					moves.addFirst(move);
 					return theMapCars[index];
 				}	
 				break;
@@ -480,6 +488,8 @@ public class Engine{
 					//System.out.println(car.getX() + " " +  car.getHorizontalX() + " " + car.getY() + " " +car.getVerticalY());
 					theMapCars[index].setHorizontalX(theMapCars[index].getHorizontalX() ,theMapCars[index].getHorizontalX());	
 					theMapCars[index].setVerticalY(change,theMapCars[index].getY());
+					move.last = theMapCars[index].clone();
+					moves.addFirst(move);
 					return theMapCars[index];
 				}
 				break;
@@ -496,6 +506,8 @@ public class Engine{
 					theMapCars[index].setCarDirection(1);
 					theMapCars[index].setHorizontalX(change ,theMapCars[index].getX());	
 					theMapCars[index].setVerticalY(theMapCars[index].getY(),theMapCars[index].getY());
+					move.last = theMapCars[index].clone();
+					moves.addFirst(move);
 					return theMapCars[index];
 				}	
 				break;
@@ -515,6 +527,8 @@ public class Engine{
 					theMapCars[index].setCarDirection(2);
 					theMapCars[index].setHorizontalX(theMapCars[index].getX() ,theMapCars[index].getX());	
 					theMapCars[index].setVerticalY(theMapCars[index].getY(),change);
+					move.last = theMapCars[index].clone();
+					moves.addFirst(move);
 					return theMapCars[index];
 				}
 				break;
@@ -536,6 +550,8 @@ public class Engine{
 					theMapCars[index].setHorizontalX(tmp.getX(),tmp.getHorizontalX());	
 					theMapCars[index].setVerticalY(toChange.getY(),toChange.getY());
 					System.out.println("My x coor: " + theMapCars[index].getX() + " " + theMapCars[index].getHorizontalX());
+					move.last = theMapCars[index].clone();
+					moves.addFirst(move);
 					return theMapCars[index];
 				}	
 				break;
@@ -552,6 +568,8 @@ public class Engine{
 					theMapCars[index].setCarDirection(2);
 					theMapCars[index].setHorizontalX(theMapCars[index].getHorizontalX() ,theMapCars[index].getHorizontalX());	
 					theMapCars[index].setVerticalY(theMapCars[index].getVerticalY(),change);
+					move.last = theMapCars[index].clone();
+					moves.addFirst(move);
 					return theMapCars[index];
 				}
 				break;
@@ -565,6 +583,8 @@ public class Engine{
 					theMapCars[index].setCarDirection(3);
 					theMapCars[index].setHorizontalX(theMapCars[index].getHorizontalX() ,change);	
 					theMapCars[index].setVerticalY(toChange.getY(),toChange.getY());
+					move.last = theMapCars[index].clone();
+					moves.addFirst(move);
 					return theMapCars[index];
 				}	
 				break;
@@ -581,6 +601,8 @@ public class Engine{
 					//System.out.println(car.getX() + " " +  car.getHorizontalX() + " " + car.getY() + " " +car.getVerticalY());
 					theMapCars[index].setHorizontalX(theMapCars[index].getX() ,theMapCars[index].getX());	
 					theMapCars[index].setVerticalY(change,theMapCars[index].getY());
+					move.last = theMapCars[index].clone();
+					moves.addFirst(move);
 					return theMapCars[index];
 				}
 				break;
