@@ -21,8 +21,9 @@ public class Map {
 
 
 
-	public Map(int dimension,int x,int y){
+	public Map(int dimension,int x,int y,int level){
 		this.dimension = dimension;
+		this.level = level;
 		finishx = x;
 		finishy = y;
 		initMap(finishx,finishy);

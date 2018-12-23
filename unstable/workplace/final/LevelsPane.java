@@ -247,13 +247,16 @@ class LevelsPane extends GridPane{
       backButton.setOnMouseEntered(new GameManager.Animation(backButton, factor, true));
       backButton.setOnMouseExited(new GameManager.Animation(backButton, factor, false));
    }
-   public boolean[] getOpenMapArray(){
+   public boolean[] getOpenMapArray(int levelNo){
+      if ( levelNo < openMapArray.length && !openMapArray[levelNo]){
+         openMapArray[levelNo] = true;
+      }/*
       for (int i = 0; i < openMapArray.length; i++){
          if(!openMapArray[i]){
             openMapArray[i] = true;
             return openMapArray;
          }
-      }
+      }*/
       return openMapArray;
    }
 }

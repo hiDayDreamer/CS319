@@ -20,9 +20,9 @@ public class DataStorage implements Serializable{
 
     public DataStorage() {
         map = new Map[15];
-        map[0] = new Map(6,3,5);
-        map[1] = new Map(8,3,7);
-        map[2] = new Map(10,3,9);
+        map[0] = new Map(6,3,5,1);
+        map[1] = new Map(8,3,7,1);
+        map[2] = new Map(10,3,9,1);
         /*
         //==========================SOUND EFFECTS=======================================
         soundEffect = new SoundEffect[2];

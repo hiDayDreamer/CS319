@@ -459,7 +459,8 @@ public class GameManager extends Application{
         }
     }
     public boolean[] getOpenMapsArray(){
-        return levelsPaneNew.getOpenMapArray();
+        int levelIndex = engine.getSelectedMap().getLevel();
+        return levelsPaneNew.getOpenMapArray(levelIndex);
     } 
 
     static class Hint implements EventHandler<MouseEvent> {
