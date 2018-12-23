@@ -189,8 +189,8 @@ public class Settings extends Pane {
         colorButtonIcon = new String[6];
         colorButtonIcon = getColorButtons();
         int space = 50;
-        buttons = new Button[5];
-        for ( int i = 0; i < 5; i++) {
+        buttons = new Button[6];
+        for ( int i = 0; i < 6; i++) {
             space = space + 80;
             buttons[i] = new Button();
             buttons[i].setMaxSize(ICON_SIZE - 32, ICON_SIZE - 32);
@@ -199,11 +199,14 @@ public class Settings extends Pane {
                 buttons[i].setLayoutY(450);
 
             }else if ( i == 3){
-                space = 70;
-                buttons[i].setLayoutX(750 + space);
+                space = 130;
+                buttons[i].setLayoutX(650 + space);
                 buttons[i].setLayoutY(525);
-            }else{
-                buttons[i].setLayoutX(750 + space);
+            }else if ( i == 4){
+                buttons[i].setLayoutX(650 + space);
+                buttons[i].setLayoutY(525);
+            }else if ( i == 5){
+                buttons[i].setLayoutX(650 + space);
                 buttons[i].setLayoutY(525);
             }
             buttons[i].setStyle("-fx-background-color: transparent");
@@ -234,11 +237,16 @@ public class Settings extends Pane {
         pinkCircle.setFitWidth(48);
         buttons[4].setGraphic(pinkCircle);
 
+        ImageView colorBlinkCircle = new ImageView(new Image(colorButtonIcon[5]));
+        colorBlinkCircle.setFitHeight(48);
+        colorBlinkCircle.setFitWidth(48);
+        buttons[5].setGraphic(colorBlinkCircle);
+
         right.getChildren().addAll(themes);
 
         addAnimation(10);
 
-        this.getChildren().addAll(settings,backButton,left,center,right, buttons[0], buttons[1], buttons[2], buttons[3], buttons[4]);
+        this.getChildren().addAll(settings,backButton,left,center,right, buttons[0], buttons[1], buttons[2], buttons[3], buttons[4], buttons[5]);
 
         //Adding labels to panel
         copyRightPanel.getChildren().add(copyRightLabel);
@@ -296,7 +304,10 @@ public class Settings extends Pane {
                 break; 
             case 4 :
                 selectedTheme = "/img/chosenPink.png";
-                break; 
+                break;
+            case 5 :
+                selectedTheme = "/img/colorblindTheme.png";
+                break;
 
             // You can have any number of case statements.
             default : // Optional
@@ -316,6 +327,7 @@ public class Settings extends Pane {
         colorButtonIcon[2] = "/img/greenCircle.png";
         colorButtonIcon[3] = "/img/lilacCircle.png";
         colorButtonIcon[4] = "/img/pinkCircle.png";
+        colorButtonIcon[5] = "/img/colorblindTheme.png";
     }
 
     public void setSelectedTheme(int valueIndex){
