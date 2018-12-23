@@ -69,7 +69,7 @@ public class DashboardPane extends Pane {
         noOfStars = data.getNoOfStars();
         gameStatus = data.getGameStatus();
         availableCarSkins = new String[]{"./img/0-1.png", "./img/1-1.png","./img/2-1.png","./img/3-1.png",
-                            "./img/4-1.png","./img/5-1.png","./img/6-1.png,"};
+                            "./img/4-1.png","./img/5-1.png","./img/6-1.png","./img/7-1.png","./img/8-1.png","./img/9-1.png"};
         currentSelectedSkin = -1;
         initialize();
     }

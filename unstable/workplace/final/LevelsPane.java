@@ -16,6 +16,7 @@ class LevelsPane extends GridPane{
    private final String BACK_ICON = "/img/backIcon.png";
    private final String SOUND_ICON = "/img/soundIcon.png";
    private final String SETTINGS_ICON = "/img/Settings-icon.png";
+   private final String LOCkED_IMAGE = "/img/level.png";
    private final double WIDTH  = 1080;
    private final double HEIGHT = 720;
    private final int ICON_SIZE = 64;
@@ -34,6 +35,7 @@ class LevelsPane extends GridPane{
    //Buttons
    private Button backButton;
    private ImageView backImage;
+   private boolean[] openMapArray;
 
    //constructors
    public LevelsPane(String dimension, int[] starArr){
@@ -41,9 +43,13 @@ class LevelsPane extends GridPane{
       this.dimension = dimension;
       buttons = new Button[15];
       this.starArr = starArr;
+      
       initialize();
    }
 
+   public void setOpenMaps(boolean[] mapArray){
+      this.openMapArray = mapArray;
+   }
    //methods
    public void initialize(){
       setCurrentColor(null);
@@ -124,8 +130,11 @@ class LevelsPane extends GridPane{
 
       // create the level boxes
       //double boxSize = HEIGHT / 5;
+      int iterationIndex = 0;
       VBox middle = new VBox( HEIGHT / 5 / 6);
       int levelNumber = 1;
+      String location = "/img/level.png";
+
       for ( int k = 0; k < 3; k++ ) {
          // One of the rows of the buttons
          HBox box = new HBox(BUTTON_SIZE);
@@ -134,6 +143,11 @@ class LevelsPane extends GridPane{
             Pane a = new Pane();
             // The view for each level's button
             VBox level = new VBox();
+            if (openMapArray[i]){
+               location = "/img/level.png";
+            } else {
+               location = "";
+            }
             Image buttonImage = new Image(getClass().getResourceAsStream("/img/level.png"),HEIGHT / 5,HEIGHT/5,false,false);
             // The image for the buttons
             ImageView s = new ImageView(buttonImage);

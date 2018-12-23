@@ -109,16 +109,16 @@ public class How_To extends Pane {
 
         //Tutorial Images
         tutorialImage = new ImageView[10];
-        tutorialImage[0] = new ImageView("/img/start.png");
-        tutorialImage[1] = new ImageView("/img/tutorial_1.png");
-        tutorialImage[2] = new ImageView("/img/tutorial_2.png");
-        tutorialImage[3] = new ImageView("/img/tutorial_3.png");
-        tutorialImage[4] = new ImageView("/img/tutorial_4.png");
-        tutorialImage[5] = new ImageView("/img/tutorial_5.png");
-        tutorialImage[6] = new ImageView("/img/tutorial_6.png");
-        tutorialImage[7] = new ImageView("/img/tutorial_7.png");
-        tutorialImage[8] = new ImageView("/img/tutorial_8.png");
-        tutorialImage[9] = new ImageView("/img/finish.png");
+        tutorialImage[0] = new ImageView("/img/start.PNG");
+        tutorialImage[1] = new ImageView("/img/tutorial_1.PNG");
+        tutorialImage[2] = new ImageView("/img/tutorial_2.PNG");
+        tutorialImage[3] = new ImageView("/img/tutorial_3.PNG");
+        tutorialImage[4] = new ImageView("/img/tutorial_4.PNG");
+        tutorialImage[5] = new ImageView("/img/tutorial_5.PNG");
+        tutorialImage[6] = new ImageView("/img/tutorial_6.PNG");
+        tutorialImage[7] = new ImageView("/img/tutorial_7.PNG");
+        tutorialImage[8] = new ImageView("/img/tutorial_8.PNG");
+        tutorialImage[9] = new ImageView("/img/finish.PNG");
         for (int i = 0; i < 10; i++){
             tutorialImage[i].setLayoutX(WIDTH / 2 - 275);
             tutorialImage[i].setLayoutY(HEIGHT / 2 - 240);
