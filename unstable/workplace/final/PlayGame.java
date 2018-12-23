@@ -338,8 +338,11 @@ public class PlayGame extends Pane implements TimerRunnable {
         ImageView exit = new ImageView(immg);
         exit.setFitWidth(gridBoxSize-1);
         exit.setFitHeight(gridBoxSize-1);
-        exit.relocate(y*gridBoxSize, x*gridBoxSize);
-        box.getChildren().add(exit);
+        exit.relocate(y*gridBoxSize+50, x*gridBoxSize+50);
+        exit.setRotate(90);
+        exit.setLayoutX(400);
+        exit.setLayoutY(200);
+        //box.getChildren().add(exit);
     }
     private GridPane buildGrid(Insets constraints){
         playGameSubpanel = new GridPane();

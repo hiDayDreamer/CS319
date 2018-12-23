@@ -99,7 +99,7 @@ class LevelsPane extends GridPane{
          labelImage.setFitWidth(400);
          labelImage.setFitHeight(60);
          title.setGraphic(labelImage);
-      }else if (dimension.equals("6X6")){
+      }else if (dimension.equals("8X8")){
          ImageView labelImage = new ImageView("/img/8x8.png");
          labelImage.setFitWidth(400);
          labelImage.setFitHeight(60);
@@ -161,7 +161,7 @@ class LevelsPane extends GridPane{
             // create the number in the box
             Label number = new Label( levelNumber + "");
             number.setStyle("-fx-font-weight: bold;");
-            number.setFont(new Font("Verdana", HEIGHT / 5 * 3 / 5));
+            number.setFont(new Font("Verdana", HEIGHT / 8 * 3 / 5));
             level.getChildren().addAll(number);
 
             // create the stars in the boxes
@@ -183,14 +183,14 @@ class LevelsPane extends GridPane{
             button.setOnMouseEntered(new EventHandler<MouseEvent>(){
                   public void handle(MouseEvent e){
                      //System.out.println("asdfads");
-                     number.setFont(new Font("Verdana", HEIGHT / 5 * 3 / 5));
+                     number.setFont(new Font("Verdana", HEIGHT / 8 * 3 / 5));
                      //button.setGraphic(new ImageView(new Image("fullStar.png")));
                   }
             });
             button.setOnMousePressed( new EventHandler<MouseEvent>() {
                   public void handle(MouseEvent e){
                      //System.out.println("asdfads");
-                     number.setFont(new Font("Verdana", HEIGHT / 5 * 3 / 5));
+                     number.setFont(new Font("Verdana", HEIGHT / 8 * 3 / 5));
                      //button.setGraphic(new ImageView(new Image("fullStar.png")));
                }
             });
