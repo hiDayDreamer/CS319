@@ -549,7 +549,10 @@ public class PlayGame extends Pane implements TimerRunnable {
             @Override
             protected void interpolate(double frac)
             {
-                carsPane.getChildren().get(index).setStyle("-fx-effect: dropshadow(gaussian, black, "+ ((12700 - Math.abs(12700 - (int) (25500 * frac)))/100)  + ", 0, 1.0, 0)");
+                carsPane.getChildren().get(index).setStyle("-fx-effect: dropshadow(gaussian, black, 127, 0, 0.5, 0)");
+                if ( frac == 1 ) {
+                    carsPane.getChildren().get(index).setStyle("");
+                }
             }
         };
         if ( dir == 1 || dir == 3 ) {
