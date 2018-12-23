@@ -593,11 +593,41 @@ public class PlayGame extends Pane implements TimerRunnable {
             int star = 3;
             //int stars = Integer.parseInt(str);
             BufferedReader br = new BufferedReader(new FileReader("./storage/starsFile.txt")); 
-            String s = br.readLine();
-            int stars = Integer.parseInt(s);
-            stars = stars + star;
-            String str = "" + stars;
-        	FileOutputStream outputStream = new FileOutputStream("./storage/starsFile.txt");
+            String s ="";
+            String str = "";
+            String[] chunks;
+            int lineUpdate = 0 , lineindex = 0;
+            if (getCurrentDimensionSize() == 8)
+                lineUpdate =1;
+            if (getCurrentDimensionSize() == 10)
+                lineUpdate = 2;
+
+            s = br.readLine();
+            while (s != null){
+                 chunks = s.split(",");
+                 if (getCurrentDimensionSize() == Integer.parseInt(chunks[0])){
+                      if (gameMap.getLevel() == Integer.parseInt(chunks[1])){
+                        int stars = Integer.parseInt(chunks[2]);
+                        if (stars  != 3){
+                            stars = stars + star;
+                            str += "" + getCurrentDimensionSize() + "," + gameMap.getLevel()+"," + stars + "\n";
+                        } else {
+                            str += s + "\n";
+                        }
+                      }else {
+                          str += s + "\n";
+                      }
+                 }else {
+                     str += s + "\n";
+                 }
+                 s = br.readLine();
+                 if (s == null){
+                     str = str.substring(0,str.length());
+                 }
+               
+            }
+            
+            FileOutputStream outputStream = new FileOutputStream("./storage/starsFile.txt");
             byte[] strToBytes = str.getBytes();
             outputStream.write(strToBytes);
             br.close();
