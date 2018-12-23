@@ -413,7 +413,7 @@ public class GameManager extends Application{
             engine.createHint();
             LinkedList<int[]> moves = engine.getHints();
             System.out.println(moves.size());
-            playGame.showHint(moves.get(0)[1], moves.get(0)[2], moves.get(0)[3], moves.get(0)[4]);
+            playGame.showHint(moves.get(0)[0], moves.get(0)[1], moves.get(0)[2], moves.get(0)[3], moves.get(0)[4]);
         }
     }
 
