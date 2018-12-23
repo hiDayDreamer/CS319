@@ -1,3 +1,4 @@
+import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
@@ -52,15 +53,19 @@ public class WindowManager extends Stage{
 
         //Creating copyright panel
         copyRightPanel = new Pane();
+        copyRightPanel.setStyle("-fx-background-color: black");
         copyRightPanel.setMinHeight(COPYRIGHT_PANEL_SIZE);
         copyRightPanel.setMinWidth(WIDTH);
 
         //Copyright label
         copyRightLabel = new Label(COPYRIGHT_LABEL);
+        copyRightLabel.setLayoutX(450);
+        copyRightLabel.setStyle("-fx-text-fill: white");
 
         //Version label
-        version = new Label("Version b0.1");
-        version.setLayoutX(WIDTH - 100);
+        version = new Label("Version Release");
+        version.setStyle("-fx-text-fill: white");
+        version.setLayoutX(WIDTH - 115);
 
         //Adding labels to panel
         frame.addRow(1, copyRightPanel);
