@@ -14,6 +14,7 @@ public class MainPage extends Pane{
     private final String HOW_TO_ICON = "/img/HOW_TO.png";
     private final String DASHBOARD_ICON = "/img/DASHBOARD.png";
     private final String SETTINGS_ICON = "/img/SETTINGS.png";
+    private final String CREDITS_ICON = "/img/SETTINGS.png";
     private final String SOUND_ICON = "/img/soundIcon.png";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
     private final String GAME_TITLE = "Rush Hour";
@@ -69,9 +70,9 @@ public class MainPage extends Pane{
 
         //Creating main buttons
         int space = 0;
-        frameButtons = new Button[4];
-        for ( int i = 0; i < 4; i++){
-            space = space + 100;
+        frameButtons = new Button[5];
+        for ( int i = 0; i < 5; i++){
+            space = space + 80;
             frameButtons[i] = new Button();
             frameButtons[i].setMinSize(BUTTON_WIDTH, BUTTON_HEIGHT);
             frameButtons[i].setLayoutX(BUTTON_X);
@@ -98,6 +99,11 @@ public class MainPage extends Pane{
         settingsIcon.setFitWidth(BUTTON_WIDTH);
         frameButtons[3].setGraphic(settingsIcon);
 
+         ImageView creditsIcon = new ImageView(new Image(CREDITS_ICON));
+        settingsIcon.setFitHeight(BUTTON_HEIGHT);
+        settingsIcon.setFitWidth(BUTTON_WIDTH);
+        frameButtons[4].setGraphic(creditsIcon);
+
         //Sound button
         soundImage = new ImageView(new Image(SOUND_ICON));
         soundImage.setFitWidth(ICON_SIZE);
@@ -113,7 +119,7 @@ public class MainPage extends Pane{
         addAnimation(10);
 
         //Adding buttons to middle panel
-        this.getChildren().addAll(name, frameButtons[0], frameButtons[1], frameButtons[2], frameButtons[3], soundButton);
+        this.getChildren().addAll(name, frameButtons[0], frameButtons[1], frameButtons[2], frameButtons[3],frameButtons[4], soundButton);
 
         //Adding labels to panel
         copyRightPanel.getChildren().add(copyRightLabel);
@@ -142,6 +148,9 @@ public class MainPage extends Pane{
         GameManager.ButtonListener settings = e.clone();
         settings.setIndex(4);
         frameButtons[3].addEventHandler(MouseEvent.MOUSE_CLICKED, settings);
+        GameManager.ButtonListener credits = e.clone();
+        credits.setIndex(5);
+        frameButtons[4].addEventHandler(MouseEvent.MOUSE_CLICKED, credits);
 
     }
 

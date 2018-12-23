@@ -21,9 +21,9 @@ import javafx.scene.shape.StrokeLineCap;
 
 public class DashboardPane extends Pane {
     //Constants
-    private final String BACK_ICON = "/img/backIcon.png";
-    private final String SOUND_ICON = "/img/soundIcon.png";
-    private final String SETTINGS_ICON = "/img/Settings-icon.png";
+    private final String BACK_ICON = "./img/backIcon.png";
+    private final String SOUND_ICON = "./img/soundIcon.png";
+    private final String SETTINGS_ICON = "./img/Settings-icon.png";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
     private final double WIDTH  = 1080;
     private final double HEIGHT = 720;
@@ -111,7 +111,7 @@ public class DashboardPane extends Pane {
         settingsButton.setGraphic(new ImageView(SETTINGS_ICON));
 
         Label dashboard = new Label("");
-        ImageView labelImage = new ImageView("/img/dashboard_label.png");
+        ImageView labelImage = new ImageView("./img/dashboard_label.png");
         labelImage.setFitWidth(400);
         labelImage.setFitHeight(60);
 
@@ -198,7 +198,7 @@ public class DashboardPane extends Pane {
         gameStatusIndicator.setLayoutY(130);
 
         StackPane starsCollectedStack = new StackPane();
-        ImageView starsCollected = new ImageView("/img/star-icon.png");
+        ImageView starsCollected = new ImageView("./img/star-icon.png");
         starsCollected.setFitHeight(200);
         starsCollected.setFitWidth(200);
 
@@ -215,8 +215,8 @@ public class DashboardPane extends Pane {
         Pane skinsPane = new Pane();
         pagePassButtons = new Button[2];
         pagePassImages = new Image[2];
-        pagePassImages[1] = new Image(getClass().getResourceAsStream("/img/next.png"), 30, 48, true, false);
-        pagePassImages[0] = new Image(getClass().getResourceAsStream("/img/prev.png"), 30, 48, true, false);
+        pagePassImages[1] = new Image(getClass().getResourceAsStream("./img/next.png"), 30, 48, true, false);
+        pagePassImages[0] = new Image(getClass().getResourceAsStream("./img/prev.png"), 30, 48, true, false);
         for ( int i = 0; i < 2; i++){
             pagePassButtons[i] = new Button();
             pagePassButtons[i].setMaxSize(16, 48);
@@ -229,7 +229,7 @@ public class DashboardPane extends Pane {
         pagePassButtons[1].setLayoutY(75);
 
         //skinsPane.setStyle("-fx-border-color: black");
-        ImageView skin1 = new ImageView("/img/5-1.png");
+        ImageView skin1 = new ImageView("./img/5-1.png");
         skin1.setFitWidth(100);
         skin1.setFitHeight(175);
         skin1.setLayoutX(28);
@@ -238,7 +238,7 @@ public class DashboardPane extends Pane {
         skinsPane.getChildren().addAll(pagePassButtons[0], skin1, pagePassButtons[1]);
         Line line1 = new Line(450, 375, 325, 425);
 
-        ImageView profile = new ImageView("/img/userInfoIcon.png");
+        ImageView profile = new ImageView("./img/userInfoIcon.png");
         profile.setFitWidth(300);
         profile.setFitHeight(200);
         profile.setLayoutX(375);

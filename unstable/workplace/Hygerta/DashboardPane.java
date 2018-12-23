@@ -19,7 +19,7 @@ import javafx.scene.control.ProgressIndicator;
 
 public class DashboardPane extends Pane {
     //Constants
-    private final String BACK_ICON = "/img/backIcon.png";
+    private final String BACK_ICON = "./img/backIcon.png";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
     private final double WIDTH  = 1080;
     private final double HEIGHT = 720;
@@ -92,7 +92,7 @@ public class DashboardPane extends Pane {
         dashboard.setLayoutX(400);
         dashboard.setLayoutY(50);
 
-
+/*
         //https://docs.oracle.com/javafx/2/charts/pie-chart.htm#BABFJECC
         ObservableList<PieChart.Data> pieChartData =
                 FXCollections.observableArrayList(
@@ -153,7 +153,7 @@ public class DashboardPane extends Pane {
             //n.setStyle("-fx-stroke: #ffffff");
             n.setStyle("-fx-background-color: transparent");
         }
-
+        /*
         barChart.setLayoutX(50);
         barChart.setLayoutY(115);
         barChart.setMaxSize(250,250);
@@ -168,7 +168,7 @@ public class DashboardPane extends Pane {
         gameStatusIndicator.setLayoutY(85);
 
         StackPane starsCollectedStack = new StackPane();
-        ImageView starsCollected = new ImageView("/img/star-icon.png");
+        ImageView starsCollected = new ImageView("./img/star-icon.png");
         starsCollected.setFitHeight(200);
         starsCollected.setFitWidth(200);
 
@@ -185,8 +185,8 @@ public class DashboardPane extends Pane {
         Pane skinsPane = new Pane();
         pagePassButtons = new Button[2];
         pagePassImages = new Image[2];
-        pagePassImages[1] = new Image(getClass().getResourceAsStream("/img/play-symbol.png"), 16, 48, false, false);
-        pagePassImages[0] = new Image(getClass().getResourceAsStream("/img/left-angle-bracket.png"), 16, 48, false, false);
+        pagePassImages[1] = new Image(getClass().getResourceAsStream("./img/play-symbol.png"), 16, 48, false, false);
+        pagePassImages[0] = new Image(getClass().getResourceAsStream("./img/left-angle-bracket.png"), 16, 48, false, false);
         for ( int i = 0; i < 2; i++){
             pagePassButtons[i] = new Button();
             pagePassButtons[i].setMaxSize(16, 48);
@@ -199,7 +199,7 @@ public class DashboardPane extends Pane {
         pagePassButtons[1].setLayoutY(75);
 
         skinsPane.setStyle("-fx-border-color: black");
-        ImageView skin1 = new ImageView("/img/5-1.png");
+        ImageView skin1 = new ImageView("./img/5-1.png");
         skin1.setFitWidth(100);
         skin1.setFitHeight(175);
         skin1.setLayoutX(28);
@@ -207,14 +207,14 @@ public class DashboardPane extends Pane {
         skinsPane.setLayoutY(425);
         skinsPane.getChildren().addAll(pagePassButtons[0], skin1, pagePassButtons[1]);
 
-        ImageView profile = new ImageView("/img/userInfoIcon.png");
+        ImageView profile = new ImageView("./img/userInfoIcon.png");
         profile.setFitWidth(300);
         profile.setFitHeight(200);
         profile.setLayoutX(360);
         profile.setLayoutY(175);
-        Line line = new Line(450, 375, 325, 425);
+        Line line = new Line(450, 375, 325, 425);*/
 
-        this.getChildren().addAll(dashboard,backButton, chart, caption, barChart, gameStatusIndicator, starsCollectedStack, skinsPane, profile, line);
+        this.getChildren().addAll(dashboard);//,backButton, chart, caption, barChart);//, gameStatusIndicator, starsCollectedStack, skinsPane, profile, line);
 
         //Adding labels to panel
         copyRightPanel.getChildren().add(copyRightLabel);
