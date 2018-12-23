@@ -101,6 +101,12 @@ public class GameManager extends Application{
             primaryStage1.updateMiddlePanel(newSettingsPane);
 
         }
+        else if ( index == 5 ) {
+            // this goes to credits pane from the mainPanel
+            CreditsPane newPane = new CreditsPane();
+            newPane.addHandler(new ButtonListener(0));
+            primaryStage1.updateMiddlePanel(newPane);
+        }
         else if ( index == 6){
             // this goes to the levelsPane from the dimensions panel
             LevelsPane newPane = new LevelsPane("6X6", engine.getStars());
