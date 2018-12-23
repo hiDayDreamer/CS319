@@ -23,7 +23,7 @@ public class DataStorage implements Serializable{
     public DataStorage() {
         storedMaps = new Map[3][15];
         storedMaps[0] = getMaps(6);
-       // storedMaps[1] = getMaps(8);
+        //storedMaps[1] = getMaps(8);
         //storedMaps[2] = getMaps(10);
         //map = new Map[15];
         //map[0] = new Map(6,3,5,1);
@@ -110,6 +110,7 @@ public class DataStorage implements Serializable{
                             //System.out.println("Indexer " + indexer);
                             carArray[indexer] = tmp.clone();
                             indexer++;
+                            
                         }
                         int finishX = carArray[0].getX();
                         Map newMap = new Map();   
@@ -117,10 +118,12 @@ public class DataStorage implements Serializable{
                         newMap.setDimension(dimension);
                         newMap.setLevel(mapIndex);
                         newMap.setExitCoordinates(finishX,dimension-1);
-                        System.out.println("The finish: " +  finishX + " " + (dimension-1));
+                        //System.out.println("The finish: " +  finishX + " " + (dimension-1));
                         newMap.initMap(finishX,dimension-1);
                         dimensionMaps[mapIndex-1] = newMap.clone();     
-                        perMapCarList = new ArrayList<>();                 
+                        perMapCarList = new ArrayList<>();  
+                        System.out.println(newMap);  
+                        //return dimensionMaps;             
                     }
                     firstConfig = false;
                 }
@@ -166,6 +169,7 @@ public class DataStorage implements Serializable{
     }
 
     public Map getMap(int dimension,int level) {
+        System.out.println("My level is : " + level);
         if (dimension == 6){
             return storedMaps[0][level];
         }
@@ -290,11 +294,14 @@ public class DataStorage implements Serializable{
 
     /*public static void main(String[] args){
         DataStorage tmp = new DataStorage();
-        Map[] test = tmp.getMaps(6);
+       /* Map[] test = tmp.getMaps(6);
         for (int i = 0; i < test.length; i++){
              System.out.println("Map " +  i + " " +test[i]); 
              System.out.println();
         }
+        Map tmpe = tmp.getMap(6,0);
+        System.out.println("After the cal :");
+        System.out.println(tmpe);
        
     }*/
 }

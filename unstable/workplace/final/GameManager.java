@@ -25,6 +25,8 @@ public class GameManager extends Application{
     private DashboardPane newDashboardPane;
     private LevelsPane levelsPaneNew;
     private int level;
+    private Map selectedMap;
+    private Map myMap;
 
     public static void main(String[] args) {
         launch(args);
@@ -145,8 +147,12 @@ public class GameManager extends Application{
             } else {
                 timerMode = newSettingsPane.isTimerToogleOn();
             }
-            Map selectedMap = dataStorage.getMap(dimension,level).clone();
-            selectedMap.printDim();
+            //System.out.println("Inside this indexing thing");
+
+            selectedMap = dataStorage.getMap(dimension,level-1).clone();
+            //selectedMap.setLevel(level-1);
+           
+           // selectedMap.printDim();
             engine.setSelectedMap(selectedMap);
             playGame = new PlayGame(selectedMap,timerMode,dimension);
             playGame.addHandler( new ButtonListener(6));
@@ -156,6 +162,7 @@ public class GameManager extends Application{
             primaryStage1.updateMiddlePanel(playGame);
             //engine.getTimer().stopCountDown();
             if ( index == 12 ){
+
                 engine.reset();
                 //playGame.setTimerOf(true);
             }
