@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.File;
+import java.util.*;
 
 public class DataStorage implements Serializable{
 
@@ -17,12 +18,17 @@ public class DataStorage implements Serializable{
     private Skin[] skins;
     //private Color chosenColor;
     private String chosenColor;
+    private Map[][] storedMaps; 
 
     public DataStorage() {
-        map = new Map[15];
-        map[0] = new Map(6,3,5,1);
-        map[1] = new Map(8,3,7,1);
-        map[2] = new Map(10,3,9,1);
+        storedMaps = new Map[3][15];
+        storedMaps[0] = getMaps(6);
+       // storedMaps[1] = getMaps(8);
+        //storedMaps[2] = getMaps(10);
+        //map = new Map[15];
+        //map[0] = new Map(6,3,5,1);
+        //map[1] = new Map(8,3,7,1);
+        //map[2] = new Map(10,3,9,1);
         /*
         //==========================SOUND EFFECTS=======================================
         soundEffect = new SoundEffect[2];
@@ -63,23 +69,112 @@ public class DataStorage implements Serializable{
         chosenColor = "LIGHT_GRAY";
     }
     //returns maps
-    public Map[] getMaps(){
-        return map;
+    public Map[] getMaps(int dimension){
+        Map[] dimensionMaps = new Map[15];
+        List<Car> perMapCarList = new ArrayList<>();
+        Car car ;
+        boolean firstConfig = true;
+
+		String maps = "";
+		switch(dimension){
+			case 6: maps = "./storage/6x6dim.csv"; break;
+			case 8: maps = "./storage/8x8dim.csv"; break;
+			case 10: maps = "./storage/10x10im.csv"; break;
+		}
+
+        int mapIndex = 0;
+        boolean player = false;
+		BufferedReader reader;
+		try {
+			reader = new BufferedReader(new FileReader(maps));
+			String line = reader.readLine();
+            
+			do {
+                player = false;
+                int skinNo = (int)(Math.random()*(10));
+				String[] array = line.split(",");
+                int index = Integer.parseInt(array[0]);
+                int direction = Integer.parseInt(array[1]);       
+                int startx = Integer.parseInt(array[2]);
+                int endx = Integer.parseInt(array[3]);
+                int starty = Integer.parseInt(array[4]);
+                int endy = Integer.parseInt(array[5]);
+                int length = Integer.parseInt(array[6]);
+                if (index == 0){
+                    player = true;
+                    if (!firstConfig){
+                        mapIndex++;
+                        Car[] carArray =  new Car[perMapCarList.size()]; //perMapCarList.toArray(new Integer(perMapCarList.size()));
+                        int indexer =0;
+                        for (Car tmp : perMapCarList) {
+                            //System.out.println("Indexer " + indexer);
+                            carArray[indexer] = tmp.clone();
+                            indexer++;
+                        }
+                        int finishX = carArray[0].getX();
+                        Map newMap = new Map();   
+                        newMap.setCars(carArray);
+                        newMap.setDimension(dimension);
+                        newMap.setLevel(mapIndex);
+                        newMap.setExitCoordinates(finishX,dimension-1);
+                        System.out.println("The finish: " +  finishX + " " + (dimension-1));
+                        newMap.initMap(finishX,dimension-1);
+                        dimensionMaps[mapIndex-1] = newMap.clone();     
+                        perMapCarList = new ArrayList<>();                 
+                    }
+                    firstConfig = false;
+                }
+                car = new Car();
+                car.setImageLocation("/img/"+skinNo);
+                car.setHorizontalX(startx,endx);
+	            car.setVerticalY(starty,endy );
+		        car.setLength(length);
+		        car.setCarDirection(direction);
+		        car.setPlayer(player);
+                car.setCarSkin(skinNo);
+                perMapCarList.add(car.clone());
+
+				line = reader.readLine();
+			} while (line != null);
+			reader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        mapIndex++;
+        Car[] carArray =  new Car[perMapCarList.size()]; //perMapCarList.toArray(new Integer(perMapCarList.size()));
+        int indexer =0;
+        for (Car tmp : perMapCarList) {
+            //System.out.println("Indexer " + indexer);
+            carArray[indexer] = tmp.clone();
+            indexer++;
+        }
+        int finishX = carArray[0].getX();
+        Map newMap = new Map();   
+        newMap.setCars(carArray);
+        newMap.setDimension(dimension);
+        newMap.setLevel(mapIndex);
+        newMap.setExitCoordinates(finishX,dimension-1);
+        //System.out.println("The finish: " +  finishX + " " + (dimension-1));
+        newMap.initMap(finishX,dimension-1);
+        dimensionMaps[mapIndex-1] = newMap.clone();     
+        perMapCarList = new ArrayList<>();   
+        for (int i = mapIndex; i < dimensionMaps.length; i++){
+            dimensionMaps[i] = dimensionMaps[i%mapIndex].clone();
+        }
+
+        return dimensionMaps;
     }
 
-    public Map getMap(int dimension) {
+    public Map getMap(int dimension,int level) {
         if (dimension == 6){
-            return map[0];
+            return storedMaps[0][level];
         }
         else if (dimension == 8){
-            return map[1];
+            return storedMaps[1][level];
         }
-        if (dimension == 10){
-            return map[2];
-        } else {
-            return map[0];
-        }
-        
+        else {
+            return storedMaps[2][level];
+        }        
     }
     //returns soundEffect
     public SoundEffect[] getSoundEffects(){
@@ -192,4 +287,14 @@ public class DataStorage implements Serializable{
 			e.printStackTrace();
 		}
     }
+
+    /*public static void main(String[] args){
+        DataStorage tmp = new DataStorage();
+        Map[] test = tmp.getMaps(6);
+        for (int i = 0; i < test.length; i++){
+             System.out.println("Map " +  i + " " +test[i]); 
+             System.out.println();
+        }
+       
+    }*/
 }

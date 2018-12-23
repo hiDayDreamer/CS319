@@ -98,6 +98,11 @@ public class Map {
 		this.isOpenMap = isOpenMap;
 	}
 
+	public void setExitCoordinates(int x, int y){
+		finishx = x;
+		finishy = y;
+	}
+
 	public Block[][] getBlocks(){
 		return blocks;
 	}
@@ -113,7 +118,7 @@ public class Map {
 		return 0;
 	}
 
-	private void initMap(int finishBlockX,int finishBlockY){
+	public void initMap(int finishBlockX,int finishBlockY){
 		timeNeededinSec = 65;
 		blocks = new Block[dimension][];
 		int lengthIndex = 0;
@@ -123,9 +128,9 @@ public class Map {
 				blocks[rowIndex][columnIndex] = new Block(rowIndex,columnIndex);
 			}
 		}
-		System.out.println("Inside the map the dinish is : " + finishx + " " + finishy);
+		//System.out.println("Inside the map the dinish is : " + finishx + " " + finishy);
 		blocks[finishBlockX][finishBlockY].setFinishBlock(true);
-		cars = getCarsFromStorage();
+		cars = getCars();//getCarsFromStorage();
 
 		int carX, carY, carEndX, carEndY;
 		for (int i = 0; i < cars.length; i++){

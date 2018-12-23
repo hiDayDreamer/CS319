@@ -24,6 +24,7 @@ public class GameManager extends Application{
     private int dimension;
     private DashboardPane newDashboardPane;
     private LevelsPane levelsPaneNew;
+    private int level;
 
     public static void main(String[] args) {
         launch(args);
@@ -39,6 +40,7 @@ public class GameManager extends Application{
         engine = new Engine(this);
         currentThemeIndex = -1;
         dimension = 6;
+        level = 1;
         //playBackgroundSound(sliderVolume,"./sound/backgroundSound.mp3");
     }
 
@@ -137,12 +139,13 @@ public class GameManager extends Application{
             dimension = 10;
         }
         else if ( index >= 11 && index <= 25) {
+            level = index-10;
             if (newSettingsPane == null){
                 timerMode = false;
             } else {
                 timerMode = newSettingsPane.isTimerToogleOn();
             }
-            Map selectedMap = dataStorage.getMap(dimension).clone();
+            Map selectedMap = dataStorage.getMap(dimension,level).clone();
             selectedMap.printDim();
             engine.setSelectedMap(selectedMap);
             playGame = new PlayGame(selectedMap,timerMode,dimension);
