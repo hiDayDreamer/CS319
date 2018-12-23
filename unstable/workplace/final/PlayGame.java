@@ -557,7 +557,7 @@ public class PlayGame extends Pane implements TimerRunnable {
         popupwindow.setResizable(false);
         popupwindow.setHeight(600);
         popupwindow.setWidth(600);
-        popupwindow.getIcons().add(new Image(getClass().getResourceAsStream("/img/java_318-32027.png")));
+        popupwindow.getIcons().add(new Image(getClass().getResourceAsStream("/img/cards.png")));
         ImageView starsImage = new ImageView("/img/fullStar.png");
         ImageView starsImage1 = new ImageView("/img/fullStar.png");
         ImageView starsImage2 = new ImageView("/img/fullStar.png");
@@ -609,7 +609,7 @@ public class PlayGame extends Pane implements TimerRunnable {
         popupwindow.setResizable(false);
         popupwindow.setHeight(500);
         popupwindow.setWidth(700);
-        popupwindow.getIcons().add(new Image(getClass().getResourceAsStream("/img/java_318-32027.png")));
+        popupwindow.getIcons().add(new Image(getClass().getResourceAsStream("/img/cards.png")));
         Label label1= new Label("");
         ImageView labelImage = new ImageView("/img/game_over.png");
         labelImage.setFitWidth(400);
