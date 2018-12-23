@@ -323,10 +323,17 @@ public class PlayGame extends Pane implements TimerRunnable {
         startButton.setLayoutY(85);
 
 
+        
+        ImageView welcome = new ImageView("/img/welcome.png");
+        welcome.setFitWidth(500);
+        welcome.setFitHeight(60);
+        welcome.setLayoutY(15);
+        welcome.setLayoutX(330);
+
         if (timerMode){
-            getChildren().addAll( royalFlush, soundButton, settingsButton, playGameSubpanel, backButton,startButton, shrinkBlow, undoReset, hover, hover1);
+            getChildren().addAll( welcome, soundButton, settingsButton, playGameSubpanel, backButton,startButton, shrinkBlow, undoReset, hover, hover1);
         } else {
-            getChildren().addAll( royalFlush, soundButton, settingsButton, playGameSubpanel, backButton, shrinkBlow, undoReset, hover, hover1);
+            getChildren().addAll( welcome, soundButton, settingsButton, playGameSubpanel, backButton, shrinkBlow, undoReset, hover, hover1);
         }
 
 
@@ -643,7 +650,7 @@ public class PlayGame extends Pane implements TimerRunnable {
         labelImage.setFitHeight(60);*/
         //labelImage.preserveRatioProperty();
         label1.setGraphic(new ImageView(labelImage));
-        Image im = new Image("/img/win.gif");
+        Image im = new Image("/img/winGIF.gif");
         ImageView view = new ImageView(im);
         view.setFitWidth(400);
         view.setFitHeight(200);

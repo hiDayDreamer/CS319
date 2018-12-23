@@ -175,7 +175,7 @@ public class GameManager extends Application{
             engine.setSelectedMap(selectedMap);
             selectedMap.resetPlayerSkin(currentPlayerSkin);
             playGame = new PlayGame(selectedMap,timerMode,dimension);
-            playGame.addHandler( new ButtonListener(6));
+            playGame.addHandler( new ButtonListener(selectedMap.getDimension()));
             playGame.setSoundVolume(sliderVolume);
             playGame.setStars(engine.getStars());
             playGame.setExit(engine.getExitY(),engine.getExitX());
