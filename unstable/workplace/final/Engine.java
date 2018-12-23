@@ -2,6 +2,9 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import java.util.LinkedList;
 import java.io.File;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class Engine{
 
@@ -682,5 +685,46 @@ public class Engine{
 			}
 		}
 		return blocks;
+	}
+
+	public boolean[] getOpenMapArray(int dimension){
+		int fileLine = 0;
+		switch(dimension){
+			case 6: fileLine = 0; break;
+			case 8: fileLine = 1; break;
+			case 10: fileLine = 2; break;
+		}
+
+		BufferedReader reader;
+		int LineIndex = 0;
+		boolean[] openMaps = new boolean[15];
+		try {
+			reader = new BufferedReader(new FileReader(
+					"./storage/MapsLocked.txt"));
+			String line = reader.readLine();
+			while (line != null) {
+				//System.out.println((line.split(",")));
+				// read next line
+				line = reader.readLine();
+				System.out.println(line);
+
+				if (fileLine == LineIndex){
+					String[] array = line.split(",");
+					for (int i = 0 ; i < array.length; i++){
+						if (array[i].equals("0")){
+							System.out.println(array[i]);
+							openMaps[i] = false;
+						}else {
+							openMaps[i] = true;
+						}
+					}
+				}
+				LineIndex++;
+			}
+			reader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return openMaps;
 	}
 }

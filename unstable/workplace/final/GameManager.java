@@ -110,7 +110,7 @@ public class GameManager extends Application{
         }
         else if ( index == 6){
             // this goes to the levelsPane from the dimensions panel
-            LevelsPane newPane = new LevelsPane("6X6", engine.getStars());
+            LevelsPane newPane = new LevelsPane("6X6", engine.getStars(),engine.getOpenMapArray(6));
             newPane.addHandler( new ButtonListener(0));
             primaryStage1.updateMiddlePanel(newPane);
             dimension = 6;
@@ -120,7 +120,7 @@ public class GameManager extends Application{
           newDashboardPane.updatePlayerSkin(1);
         }
         else if ( index == 8){
-            LevelsPane newPane = new LevelsPane("8X8", engine.getStars());
+            LevelsPane newPane = new LevelsPane("8X8", engine.getStars(),engine.getOpenMapArray(8));
             newPane.addHandler( new ButtonListener(0));
             primaryStage1.updateMiddlePanel(newPane);
             dimension = 8;
@@ -130,7 +130,7 @@ public class GameManager extends Application{
               newDashboardPane.updatePlayerSkin(-1);
         }
         else if ( index == 10){
-            LevelsPane newPane = new LevelsPane("10X10", engine.getStars());
+            LevelsPane newPane = new LevelsPane("10X10", engine.getStars(),engine.getOpenMapArray(10));
             newPane.addHandler( new ButtonListener(0));
             primaryStage1.updateMiddlePanel(newPane);
             dimension = 10;
