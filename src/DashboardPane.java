@@ -26,9 +26,9 @@ import java.io.IOException;
 
 public class DashboardPane extends Pane {
     //Constants
-    private final String BACK_ICON = "./img/backIcon.png";
-    private final String SOUND_ICON = "./img/soundIcon.png";
-    private final String SETTINGS_ICON = "./img/Settings-icon.png";
+    private final String BACK_ICON = "/img/backIcon.png";
+    private final String SOUND_ICON = "/img/soundIcon.png";
+    private final String SETTINGS_ICON = "/img/Settings-icon.png";
     private final String COPYRIGHT_LABEL = "Developed by Royal Flush";
     private final double WIDTH  = 1080;
     private final double HEIGHT = 720;
@@ -73,8 +73,8 @@ public class DashboardPane extends Pane {
         tenToTenData = data.getTenToTenData();
         noOfStars = data.getNoOfStars();
         gameStatus = data.getGameStatus();
-        availableCarSkins = new String[]{"./img/0-1.png", "./img/1-1.png","./img/2-1.png","./img/3-1.png",
-                            "./img/4-1.png","./img/5-1.png","./img/6-1.png","./img/7-1.png","./img/8-1.png","./img/9-1.png"};
+        availableCarSkins = new String[]{"/img/0-1.png", "/img/1-1.png","/img/2-1.png","/img/3-1.png",
+                            "/img/4-1.png","/img/5-1.png","/img/6-1.png","/img/7-1.png","/img/8-1.png","/img/9-1.png"};
         currentSelectedSkin = -1;
         initialize();
     }
@@ -128,7 +128,7 @@ public class DashboardPane extends Pane {
         settingsButton.setGraphic(settingsImage);
 
         Label dashboard = new Label("");
-        ImageView labelImage = new ImageView("./img/dashboard_label.png");
+        ImageView labelImage = new ImageView("/img/dashboard_label.png");
         labelImage.setFitWidth(400);
         labelImage.setFitHeight(60);
 
@@ -215,7 +215,7 @@ public class DashboardPane extends Pane {
         gameStatusIndicator.setLayoutY(130);
 
         StackPane starsCollectedStack = new StackPane();
-        ImageView starsCollected = new ImageView("./img/star-icon.png");
+        ImageView starsCollected = new ImageView("/img/star-icon.png");
         starsCollected.setFitHeight(200);
         starsCollected.setFitWidth(200);
 
@@ -232,8 +232,8 @@ public class DashboardPane extends Pane {
         skinsPane = new Pane();
         pagePassButtons = new Button[2];
         pagePassImages = new Image[2];
-        pagePassImages[1] = new Image(getClass().getResourceAsStream("./img/next.png"), 30, 48, true, false);
-        pagePassImages[0] = new Image(getClass().getResourceAsStream("./img/prev.png"), 30, 48, true, false);
+        pagePassImages[1] = new Image(getClass().getResourceAsStream("/img/next.png"), 30, 48, true, false);
+        pagePassImages[0] = new Image(getClass().getResourceAsStream("/img/prev.png"), 30, 48, true, false);
         for ( int i = 0; i < 2; i++){
             pagePassButtons[i] = new Button();
             pagePassButtons[i].setMaxSize(16, 48);
@@ -249,7 +249,7 @@ public class DashboardPane extends Pane {
         updatePlayerSkin(1);
         Line line1 = new Line(450, 375, 325, 425);
 
-        ImageView profile = new ImageView("./img/userInfoIcon.png");
+        ImageView profile = new ImageView("/img/userInfoIcon.png");
         profile.setFitWidth(300);
         profile.setFitHeight(200);
         profile.setLayoutX(375);
@@ -346,7 +346,7 @@ public class DashboardPane extends Pane {
         try{
             String str = availableCarSkins[currentSelectedSkin];
             str = str.substring(0,str.indexOf("-1.png"));
-        	FileOutputStream outputStream = new FileOutputStream("./storage/skin.txt");
+        	FileOutputStream outputStream = new FileOutputStream("storage/skin.txt");
             byte[] strToBytes = str.getBytes();
             outputStream.write(strToBytes);
             outputStream.close();
