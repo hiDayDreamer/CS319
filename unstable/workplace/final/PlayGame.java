@@ -32,6 +32,7 @@ public class PlayGame extends Pane implements TimerRunnable {
     private final String BU_ICON = "/img/bomb.png";
     private final String SHRINK_ICON = "/img/shrinkCarIcon.png";
     private final String ROTATE_ICON = "/img/rotateCarIcon.png";
+    private final String START_ICON = "/img/startTime.png";
 
     private final double WIDTH  = 1080;
     private final double HEIGHT = 720;
@@ -296,13 +297,23 @@ public class PlayGame extends Pane implements TimerRunnable {
         
         addAnimation(10);
         startButton = new Button();
+
         //startButton.setStyle("-fx-background-color: transparent");
 
 
         playGameSubpanel = buildGrid(new Insets(90,0,0,300));
         startButton.setMinSize(gridBoxSize*getCurrentDimensionSize(),gridBoxSize*getCurrentDimensionSize());
-        startButton.setLayoutX(300);
-        startButton.setLayoutY(90);
+        ImageView timerStartImage = new ImageView(START_ICON);
+        timerStartImage.setFitWidth(gridBoxSize*getCurrentDimensionSize());
+        timerStartImage.setFitHeight(gridBoxSize*getCurrentDimensionSize());
+        startButton.setGraphic(timerStartImage);
+        startButton.setStyle("-fx-background-color: transparent");
+
+        
+        startButton.setLayoutX(290);
+        startButton.setLayoutY(85);
+
+
         if (timerMode){
             getChildren().addAll( royalFlush, soundButton, settingsButton, playGameSubpanel, backButton,startButton, shrinkBlow, undoReset, hover, hover1);
         } else {
