@@ -94,7 +94,7 @@ public class GameManager extends Application{
             primaryStage1.updateMiddlePanel(newPane);
         }
         else if ( index == 3 ){
-            newDashboardPane = new DashboardPane(data);
+            newDashboardPane = new DashboardPane(dataStorage.updateDashboard());
             newDashboardPane.setDefaultSkin(currentPlayerSkin+"-0.png");
             newDashboardPane.addHandler( new ButtonListener(0));
             primaryStage1.updateMiddlePanel(newDashboardPane);
