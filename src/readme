@@ -1,1 +1,17 @@
-ac
+Prerequisites:
+-Oracle JDK
+-Source Code
+Note: 
+The user must be able to run javac and jar from the command prompt or terminal.
+
+Build Instructions:
+-Windows:
+  -Run "build.bat".
+-Linux: 
+  -Run "make jar" from the terminal in the "src" directory.
+  
+After running the above command a file named "RushHour.jar" will be created.
+To run the file in Windows:
+-Double-click on the icon, or run "java -jar RushHour.jar" from the command line.
+Linux:
+-Run "java -jar RushHour.jar" from the terminal.
